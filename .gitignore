@@ -2,3 +2,5 @@
 /player/**
 /area/rom
 /src/obj/**
+src/log
+src/area

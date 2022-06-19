@@ -1,0 +1,58 @@
+#AREADATA
+Name All and Sundry~
+Builders Kenneth~
+VNUMs 32600 32700
+Credits technitaur~
+Security 1
+End
+
+
+
+#MOBILES
+#0
+
+
+
+#OBJECTS
+#32600
+glock~
+a glock~
+A glock lies here.~
+gunmetal~
+weapon 0 AN
+exotic 15 15 blast D
+50 0 0 P
+#0
+
+
+
+#ROOMS
+#32600
+Liminal Space~
+~
+0 557060 0
+S
+#0
+
+
+
+#SPECIALS
+S
+
+
+
+#RESETS
+O 0 32600 0 32600 A glock loaded to Liminal Space
+S
+
+
+
+#SHOPS
+0
+
+
+
+#MOBPROGS
+#0
+
+#$

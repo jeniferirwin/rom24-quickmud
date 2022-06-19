@@ -1,8 +1,12 @@
-#AREA
-mega1.are~
-Mega City One~
-{ 5 35} Glop    Mega-City One ~
-8000 8099
+#AREADATA
+Name Mega City One~
+Builders None~
+VNUMs 8000 8099
+Credits { 5 35} Glop    Mega-City One ~
+Security 9
+End
+
+
 
 #MOBILES
 #8000
@@ -20,7 +24,7 @@ AC 0 -400 0
 5 5 5 9
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #8001
 oldstyle punk~
 a punk~
@@ -35,7 +39,7 @@ ACG 0 -500 0
 1 1 1 8
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #8002
 oldstyle Futsie~
 a Futsie~
@@ -51,7 +55,7 @@ ABF D 0 0
 -3 -3 -3 7
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #8003
 oldstyle Citi-Def Militiaman~
 a Citi-Def Militiaman~
@@ -66,7 +70,7 @@ ACG J 0 0
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #8004
 oldstyle dunk~
 a dunk~
@@ -80,7 +84,7 @@ ACGHS DF -150 0
 2 2 2 8
 BEFJNU 0 0 0
 stand stand male 0
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #8005
 oldstyle tap~
 a tap~
@@ -95,7 +99,7 @@ ACG 0 -400 0
 -1 -1 -1 8
 EFNU 0 0 0
 stand stand female 0
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #8006
 oldstyle rookie judge~
 a rookie judge~
@@ -111,7 +115,7 @@ AG DF 300 0
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #8007
 oldstyle Wallaby Gleep~
 Wallaby Gleep~
@@ -126,7 +130,7 @@ ABC DFJ -600 0
 -5 -5 -5 7
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #8008
 oldstyle Pinkerton Throt~
 Pinkerton Throt~
@@ -142,7 +146,7 @@ ABCF DF -900 0
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #8009
 oldstyle Ernie Ramirez~
 Ernie Ramirez~
@@ -158,7 +162,7 @@ ABC 0 -400 0
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #8010
 oldstyle Judge Eckersely~
 Judge Eckersely~
@@ -173,7 +177,7 @@ AG DFH 300 0
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #8011
 oldstyle Judge Beddows~
 Judge Beddows~
@@ -189,7 +193,7 @@ AG DF 500 0
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand female 0
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #8012
 oldstyle bite fighter~
 a bite fighter~
@@ -203,8 +207,10 @@ ABF 0 -400 0
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #0
+
+
 
 #OBJECTS
 #8000
@@ -226,7 +232,7 @@ a set of knee pads~
 There are some knee pads laying here.~
 oldstyle~
 armor 0 AF
-4 4 4 0 0
+C C C 0 0
 5 30 480 P
 E
 knee pads~
@@ -307,13 +313,13 @@ weapon ABF AN
 dagger 3 5 slash 0
 18 20 2800 P
 A
-2 1
-A
-5 1
+18 2
 A
 19 2
 A
-18 2
+5 1
+A
+2 1
 E
 vibroblade~
 Obviously of alien manufacture, this blade enhances fighting
@@ -429,6 +435,8 @@ weapon 0 AN
 mace 2 11 pound G
 23 20 1160 P
 #0
+
+
 
 #ROOMS
 #8001
@@ -670,7 +678,7 @@ You are in a very dark and seedy alley.  This is just the right place for
 a bite fight.  Bite fighting is an illegal activity where both combatants
 can only use their sharpened teeth as weapons.
 ~
-0 A 1
+0 1 1
 D1
 An intersection is ahead.
 ~
@@ -751,6 +759,10 @@ Threep Lane continues north and south.  There is a building to the east
 with a sign next to the door.
 ~
 0 0 1
+E
+sign~
+Throt and Gleep's Megger Store est. 2107
+~
 D0
 An intersection is ahead.
 ~
@@ -766,10 +778,6 @@ Threep Lane continues south.
 ~
 ~
 0 0 8017
-E
-sign~
-Throt and Gleep's Megger Store est. 2107
-~
 S
 #8017
 Threep Lane~
@@ -848,7 +856,7 @@ Pustule Palace Cafe~
 A scabrous hole.  Run by Ernie Ramirez, an ex-perp, it is a meeting place
 for the low-life in the area.
 ~
-0 D 0
+0 8 0
 D1
 An intersection lies east.
 ~
@@ -861,7 +869,7 @@ A sleazy dive and the meeting place of a lot of perps.  Shuggy is a
 twenty-second Century version of pool, played on a hilly table, usually
 with large side bets.
 ~
-0 D 0
+0 8 0
 D1
 An intersection lies east.
 ~
@@ -874,7 +882,7 @@ This is an experimental psychiatric home.  Named after a 20th Century
 vid-critic, the home attempts, by various methods, to readjust the
 socially unacceptable attitudes of the inmates.
 ~
-0 D 0
+0 8 0
 D1
 A large plaza lies east.
 ~
@@ -888,7 +896,7 @@ and cheap face-changing facilities to the general public.  However,
 since the closure of Sump's Ugly clinics, the craze for face-changing has
 died down.
 ~
-0 D 0
+0 8 0
 D1
 An intersection lies east.
 ~
@@ -901,7 +909,7 @@ The only suspended animation parlour in the area.  It has a high turnover
 rate.  It is rumored that the patrons are being used in body sharking and
 organ legging activities.
 ~
-0 D 0
+0 8 0
 D1
 An intersection lies east.
 ~
@@ -915,7 +923,11 @@ with the utmost discourtesy.  Of course, something as crazy as this was
 bound to succeed.  There is a door to the north with a slot next to it.
 There is also a sign next to the slot.
 ~
-0 D 0
+0 8 0
+E
+sign~
+To open insert card.
+~
 D0
 ~
 door~
@@ -924,17 +936,18 @@ D3
 ~
 door~
 1 0 8016
-E
-sign~
-To open insert card.
-~
 S
 #8027
 Stockroom of Throt & Gleep's Megger Store~
 Many useless items stock the shelves of this stockroom.  A door leads
 south and large vault door is to the north.
 ~
-0 D 0
+0 8 0
+E
+vault door~
+This vault seems impervious to breaking.  There is a keyhole in the lock
+however.
+~
 D0
 ~
 vault door~
@@ -943,17 +956,12 @@ D2
 ~
 door~
 2 8013 8026
-E
-vault door~
-This vault seems impervious to breaking.  There is a keyhole in the lock
-however.
-~
 S
 #8028
 Throt & Gleep's Vault~
 The vault is musty with a slight smell of ozone in the air.
 ~
-0 D 0
+0 8 0
 D2
 ~
 vault door~
@@ -961,82 +969,93 @@ vault door~
 S
 #0
 
-#RESETS
-M 0 8000   4 8004  2	* a juve
-E 1 8009  40   16	*   a knife
-M 0 8000   4 8004  2	* a juve
-E 1 8009  40   16	*   a knife
-M 0 8000   4 8006  1	* a juve
-E 1 8009  40   16	*   a knife
-M 0 8000   4 8015  1	* a juve
-E 1 8009  40   16	*   a knife
-E 1 8001  40    7	*   a set of knee pads
-M 0 8001   5 8006  2	* a punk
-E 1 8009  40   16	*   a knife
-M 0 8001   5 8009  1	* a punk
-E 1 8009  40   16	*   a knife
-E 1 8001  40    7	*   a set of knee pads
-M 0 8001   5 8011  2	* a punk
-E 1 8009  40   16	*   a knife
-M 0 8003   4 8013  2	* a Citi-Def Militiaman
-E 1 8001  40    7	*   a set of knee pads
-M 0 8003   4 8014  2	* a Citi-Def Militiaman
-G 1 8000  10     	*   a spit gun
-M 0 8002   4 8023  2	* a Futsie
-E 1 8008  40   16	*   a Hoover vacuum cleaner
-M 0 8002   4 8024  2	* a Futsie
-E 1 8010  40   16	*   a wet noodle
-M 0 8004   3 8003  1	* a dunk
-M 0 8004   3 8006  1	* a dunk
-M 0 8004   3 8005  1	* a dunk
-M 0 8005   3 8010  1	* a tap
-E 1 8006  40   16	*   a bashball bat
-M 0 8005   3 8017  1	* a tap
-E 1 8015  40   16	*   a shock club
-M 0 8005   3 8019  1	* a tap
-M 0 8006   3 8018  1	* a rookie judge
-E 1 8011  40   16	*   a Judge's club
-M 0 8006   3 8012  1	* a rookie judge
-E 1 8011  40   16	*   a Judge's club
-M 0 8006   3 8025  1	* a rookie judge
-E 1 8011  40   16	*   a Judge's club
-M 0 8007   1 8027  1	* Wallaby Gleep
-E 1 8016  40   16	*   a police stun stick
-G 1 8012  10     	*   a vault key
-M 0 8009   1 8021  1	* Ernie Ramirez
-E 1 8006  40   16	*   a bashball bat
-G 1 8002  10     	*   a stooky gland
-G 1 8013   5     	*   a key card
-M 0 8010   1 8007  1	* Judge Eckersely
-E 1 8014  40   16	*   a Judge's club
-G 1 8003  20     	*   a lawgiver
-M 0 8011   1 8009  1	* Judge Beddows
-E 1 8014  40   16	*   a Judge's club
-G 1 8003  20     	*   a lawgiver
-M 0 8012   2 8011  2	* a bite fighter
-M 0 8012   2 8011  2	* a bite fighter
-O 0 8004   1 8028	* the magnetically shielded safe
-M 0 8008   1 8028  1	* Pinkerton Throt
-E 1 8016  40   16	*   a police stun stick
-G 1 8005  10     	*   a code box
-P 1 8007  10 8004  1	*   the vibroblade
-D 0 8016   1    1	* Threep Lane east
-D 0 8026   3    1	* Throt & Gleep's Megger Store west
-D 0 8026   0    2	* Throt & Gleep's Megger Store north
-D 0 8027   2    2	* Stockroom of Throt & Gleep's Megger Store south
-D 0 8027   0    2	* Stockroom of Throt & Gleep's Megger Store north
-D 0 8028   2    2	* Throt & Gleep's Vault south
+
+
+#SPECIALS
+M 8003 spec_cast_judge
+M 8004 spec_thief
+M 8006 spec_cast_judge
+M 8010 spec_cast_judge
+M 8011 spec_cast_judge
 S
+
+
+
+#RESETS
+D 0 8016 1 1
+D 0 8026 0 2
+D 0 8026 3 1
+D 0 8027 0 2
+D 0 8027 2 2
+D 0 8028 2 2
+M 0 8004 3 8003 1 Load a dunk
+M 0 8000 4 8004 2 Load a juve
+E 0 8009 0 16 A knife is loaded wielded of a juve
+M 0 8000 4 8004 2 Load a juve
+E 0 8009 0 16 A knife is loaded wielded of a juve
+M 0 8004 3 8005 1 Load a dunk
+M 0 8000 4 8006 1 Load a juve
+E 0 8009 0 16 A knife is loaded wielded of a juve
+M 0 8001 5 8006 2 Load a punk
+E 0 8009 0 16 A knife is loaded wielded of a punk
+M 0 8004 3 8006 1 Load a dunk
+M 0 8010 1 8007 1 Load Judge Eckersely
+E 0 8014 0 16 A judge's club is loaded wielded of Judge Eckersely
+G 0 8003 0 A lawgiver is given to Judge Eckersely
+M 0 8001 5 8009 1 Load a punk
+E 0 8009 0 16 A knife is loaded wielded of a punk
+E 0 8001 0 7 A set of knee pads is loaded on the legs of a punk
+M 0 8011 1 8009 1 Load Judge Beddows
+E 0 8014 0 16 A judge's club is loaded wielded of Judge Beddows
+G 0 8003 0 A lawgiver is given to Judge Beddows
+M 0 8005 3 8010 1 Load a tap
+E 0 8006 0 16 A bashball bat is loaded wielded of a tap
+M 0 8001 5 8011 2 Load a punk
+E 0 8009 0 16 A knife is loaded wielded of a punk
+M 0 8012 2 8011 2 Load a bite fighter
+M 0 8012 2 8011 2 Load a bite fighter
+M 0 8006 3 8012 1 Load a rookie judge
+E 0 8011 0 16 A judge's club is loaded wielded of a rookie judge
+M 0 8003 4 8013 2 Load a Citi-Def Militiaman
+E 0 8001 0 7 A set of knee pads is loaded on the legs of a Citi-Def Militiaman
+M 0 8003 4 8014 2 Load a Citi-Def Militiaman
+G 0 8000 0 A spit gun is given to a Citi-Def Militiaman
+M 0 8000 4 8015 1 Load a juve
+E 0 8009 0 16 A knife is loaded wielded of a juve
+E 0 8001 0 7 A set of knee pads is loaded on the legs of a juve
+M 0 8005 3 8017 1 Load a tap
+E 0 8015 0 16 A shock club is loaded wielded of a tap
+M 0 8006 3 8018 1 Load a rookie judge
+E 0 8011 0 16 A judge's club is loaded wielded of a rookie judge
+M 0 8005 3 8019 1 Load a tap
+M 0 8009 1 8021 1 Load Ernie Ramirez
+E 0 8006 0 16 A bashball bat is loaded wielded of Ernie Ramirez
+G 0 8002 0 A stooky gland is given to Ernie Ramirez
+G 0 8013 0 A key card is given to Ernie Ramirez
+M 0 8002 4 8023 2 Load a Futsie
+E 0 8008 0 16 A hoover vacuum cleaner is loaded wielded of a Futsie
+M 0 8002 4 8024 2 Load a Futsie
+E 0 8010 0 16 A wet noodle is loaded wielded of a Futsie
+M 0 8006 3 8025 1 Load a rookie judge
+E 0 8011 0 16 A judge's club is loaded wielded of a rookie judge
+M 0 8007 1 8027 1 Load Wallaby Gleep
+E 0 8016 0 16 A police stun stick is loaded wielded of Wallaby Gleep
+G 0 8012 0 A vault key is given to Wallaby Gleep
+O 0 8004 0 8028 The magnetically shielded safe loaded to Throt & Gleep's Vault
+M 0 8008 1 8028 1 Load Pinkerton Throt
+E 0 8016 0 16 A police stun stick is loaded wielded of Pinkerton Throt
+G 0 8005 0 A code box is given to Pinkerton Throt
+P 0 8007 10 8004 1 The vibroblade put inside the vibroblade
+S
+
+
 
 #SHOPS
 0
 
-#SPECIALS
-M 8003 spec_cast_judge     	* a Citi-Def Militiaman
-M 8004 spec_thief          	* a dunk
-M 8006 spec_cast_judge     	* a rookie judge
-M 8010 spec_cast_judge     	* Judge Eckersely
-M 8011 spec_cast_judge     	* Judge Beddows
-S
+
+
+#MOBPROGS
+#0
 
 #$

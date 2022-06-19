@@ -1,8 +1,12 @@
-#AREA
-arachnos.are~
-Arachnos~
-{ 5 20} Mahatma Arachnos~
-6200 6399
+#AREADATA
+Name Arachnos~
+Builders None~
+VNUMs 6200 6399
+Credits { 5 20} Mahatma Arachnos~
+Security 9
+End
+
+
 
 #MOBILES
 #6301
@@ -19,7 +23,7 @@ ACG D 0 0
 5 5 5 9
 EFNU 0 0 0
 stand stand female 5
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #6302
 oldstyle dragon Yevaud~
 Yevaud~
@@ -28,12 +32,12 @@ Yevaud the Usurper of Midgaard is here, grinning evilly at you.
 Old, scaly, but still with a lot of bite in him left.
 ~
 dragon~
-ABCG D -1000 0
+ABCG DJT -1000 0
 24 0 5d10+500 12d9+100 2d10+6 none
 -6 -6 -6 6
-EFNR 0 0 0
+EFNR 0 BEH FI
 stand stand male 500
-0 0 medium 0
+AHZ ACDEFGHIJKPQUVX medium unknown
 #6303
 oldstyle spider wolf~
 the Wolf Spider~
@@ -47,7 +51,7 @@ ABF 0 -300 0
 4 4 4 9
 EFNU 0 0 0
 stand stand female 62
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #6304
 oldstyle orc~
 the orc~
@@ -56,12 +60,12 @@ The orc is stuck in the web and he can't get out.
 You notice an evil look in his eyes.
 ~
 orc~
-AB 0 -400 0
+AB J -400 0
 5 0 2d6+60 2d9+100 1d6+1 none
 5 5 5 9
-EFNR 0 0 0
+EFNR 0 Q S
 stand stand male 5
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #6305
 oldstyle wasp queen~
 the Queen Wasp~
@@ -76,7 +80,7 @@ ABF 0 -800 0
 0 0 0 8
 EFNU 0 0 0
 stand stand female 75
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #6306
 oldstyle spider drone~
 the drone spider~
@@ -90,7 +94,7 @@ ACG 0 -300 0
 4 4 4 9
 EFNU 0 0 0
 stand stand male 10
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #6307
 oldstyle spider ethereal~
 the ethereal spider~
@@ -104,7 +108,7 @@ ACG 0 1000 0
 1 1 1 8
 EFNU 0 0 0
 stand stand female 62
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #6308
 oldstyle slave human~
 the slave of Arachnos~
@@ -118,7 +122,7 @@ ACG 0 0 0
 3 3 3 9
 EFNU 0 0 0
 stand stand male 25
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #6309
 oldstyle quasit~
 the quasit~
@@ -133,7 +137,7 @@ ACEH BDP 1000 0
 1 1 1 8
 EFNU 0 0 0
 stand stand male 50
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #6310
 oldstyle spider bird~
 the Bird Spider~
@@ -147,7 +151,7 @@ ABF 0 -800 0
 -1 -1 -1 8
 EFNU 0 0 0
 stand stand female 87
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #6311
 oldstyle hermit~
 the Hermit~
@@ -162,7 +166,7 @@ ABC D -400 0
 4 4 4 9
 EFNU 0 0 0
 stand stand male 37
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #6312
 oldstyle donjonkeeper~
 the Donjonkeeper~
@@ -176,7 +180,7 @@ ABC D 1000 0
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand male 300
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #6313
 oldstyle guardian~
 The guardian~
@@ -190,7 +194,7 @@ AFG P 250 0
 -3 -3 -3 7
 EFNU 0 0 0
 sleep sleep male 80
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #6314
 oldstyle spider empress arachnos~
 Arachnos~
@@ -207,7 +211,7 @@ ABF BD -1000 0
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand female 500
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #6315
 oldstyle ki-rin~
 the Ki-Rin~
@@ -222,7 +226,7 @@ ABC D 1000 0
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand female 750
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #6316
 oldstyle dragon wormkin young~
 the young dragon wormkin~
@@ -231,12 +235,12 @@ A wormkin with no teeth plays here.
 Rather small, you almost feel sad in killing it.
 ~
 dragon~
-AB D 1000 0
+AB DJT 1000 0
 10 0 2d7+121 5d9+100 2d4+2 none
 1 1 1 8
-EFNR 0 0 0
+EFNR 0 BEH FI
 stand stand male 50
-0 0 medium 0
+AHZ ACDEFGHIJKPQUVX medium unknown
 #6317
 oldstyle dragon wormkin medium~
 the medium dragon wormkin~
@@ -245,12 +249,12 @@ A wormkin that has grown a bit stares at you inquisitively.
 A medium-sized dragon--seems it hasn't killed anything yet by itself.
 ~
 dragon~
-AB D 100 0
+AB DJT 100 0
 13 0 2d10+170 6d9+100 2d5+3 none
 -1 -1 -1 8
-EFNR 0 0 0
+EFNR 0 BEH FI
 stand stand male 250
-0 0 medium 0
+AHZ ACDEFGHIJKPQUVX medium unknown
 #6318
 oldstyle spider poisonous~
 the huge, poisonous spider~
@@ -266,7 +270,7 @@ ABG 0 -350 0
 3 3 3 9
 EFNU 0 0 0
 stand stand none 0
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #6319
 oldstyle queen spider~
 the Queen Spider~
@@ -282,8 +286,10 @@ ABG D -1000 0
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand female 0
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #0
+
+
 
 #OBJECTS
 #6303
@@ -292,31 +298,31 @@ a pontiff's headdress~
 A white cone-shaped head ornament with religious symbols lies here.~
 oldstyle~
 armor FG AE
-6 6 6 3 0
+BC BC BC AB 0
 18 50 4600 P
 A
-17 -2
-A
 4 2
+A
+17 -2
 #6304
 visor black knight's~
 a black knight's visor~
 A black visor sits here.~
 oldstyle~
 armor FG AE
-6 6 6 2 0
+BC BC BC B 0
 17 50 4600 P
 A
-5 2
-A
 1 1
+A
+5 2
 #6308
 coins silver gold~
 a big pile of coins~
 A big pile of coins is lying here.~
 oldstyle~
 money 0 A
-500 20 0 0 0
+CEFGHI CE 0 0 0
 0 0 0 P
 #6309
 potion blue~
@@ -332,6 +338,8 @@ It has a nice sky blue colour and a smell like peppermint.
 ~
 #0
 
+
+
 #ROOMS
 #6200
 On the spider web~
@@ -339,7 +347,11 @@ You are balancing carefully on the giant sticky threads that holds the giant
 web in place.  To the south leads a strand to a cave-like structure made from
 many layers of a spider web.  Another silky strand continues to the north.
 ~
-0 AD 6
+0 9 6
+E
+web~
+The immense spider web moves softly.
+~
 D0
 ~
 ~
@@ -348,10 +360,6 @@ D2
 ~
 ~
 0 -1 6133
-E
-web~
-The immense spider web moves softly.
-~
 S
 #6201
 On the spider web~
@@ -359,15 +367,15 @@ You are balancing carefully on the giant sticky threads that holds the giant
 web in place.  To the north leads a strand to a cave-like structure made from
 many layers of a spider web.
 ~
-0 AD 6
-D0
-~
-~
-0 -1 6134
+0 9 6
 E
 web~
 The immense spider web moves softly.
 ~
+D0
+~
+~
+0 -1 6134
 S
 #6202
 On the spider web~
@@ -375,15 +383,15 @@ You are balancing carefully on the giant sticky threads that holds the giant
 web in place.  To the east leads a strand to a cave-like structure made from
 many layers of a spider web.
 ~
-0 AD 6
-D1
-~
-~
-0 -1 6134
+0 9 6
 E
 web~
 The immense spider web moves softly.
 ~
+D1
+~
+~
+0 -1 6134
 S
 #6203
 On the spider web~
@@ -391,7 +399,11 @@ You are balancing carefully on the giant sticky threads that holds the giant
 web in place. A single silky strand lead to the south, while another leads
 off into the northern direction.
 ~
-0 AD 6
+0 9 6
+E
+web~
+The immense spider web moves softly.
+~
 D0
 ~
 ~
@@ -400,10 +412,6 @@ D2
 ~
 ~
 0 -1 6200
-E
-web~
-The immense spider web moves softly.
-~
 S
 #6301
 Webbed Entrance~
@@ -413,7 +421,7 @@ You begin to wonder about what lies ahead.  The air is damp here,
 and even the little light that shines through the canopy seems
 absorbed into the webbing.
 ~
-0 C 1
+0 4 1
 D0
 ~
 ~
@@ -1051,6 +1059,10 @@ A chair sits here for a tireless guardian who ensures that no
 soul escapes.  The room is undecorated.
 ~
 0 0 2
+E
+chair~
+An ordinary chair, well used, glued to the ground by spiderweb.
+~
 D1
 ~
 ~
@@ -1059,10 +1071,6 @@ D3
 ~
 ~
 0 -1 6366
-E
-chair~
-An ordinary chair, well used, glued to the ground by spiderweb.
-~
 S
 #6368
 Realm of the Hopeless~
@@ -1171,7 +1179,7 @@ Mahatma, that silly thief, is here, and he steals everything you
 have.  He says, 'Here, have a quick trip to the Temple of Midgaard.'
 He plunges a black dagger into your back ...
 ~
-0 C 0
+0 4 0
 S
 #6390
 The Entrance to the Arachnos' Lair~
@@ -1212,7 +1220,7 @@ Before you you see a large, web-like door.  Various designs
 of ancient runes and names of Midgaard heroes are etched into
 the webwork.  Perhaps lists of victims?  You can't tell.
 ~
-0 D 2
+0 8 2
 D0
 ~
 door north~
@@ -1239,60 +1247,65 @@ door south~
 S
 #0
 
-#RESETS
-M 0 6319   1 6134  1	* the Queen Spider
-G 1 6308   1     	*   a big pile of coins
-G 1 6309  -1     	*   a blue potion
-M 0 6318   3 6134  3	* the huge, poisonous spider
-M 0 6318   3 6134  3	* the huge, poisonous spider
-M 0 6318   3 6134  3	* the huge, poisonous spider
-M 0 6301   8 6301  2	* the young spider
-M 0 6301   8 6306  2	* the young spider
-M 0 6301   8 6306  2	* the young spider
-M 0 6301   8 6304  2	* the young spider
-M 0 6305   1 6303  1	* the Queen Wasp
-M 0 6310   1 6342  1	* the Bird Spider
-M 0 6303   1 6313  1	* the Wolf Spider
-M 0 6308   5 6308  5	* the slave of Arachnos
-M 0 6308   5 6308  5	* the slave of Arachnos
-M 0 6308   5 6308  5	* the slave of Arachnos
-M 0 6308   5 6308  5	* the slave of Arachnos
-M 0 6308   5 6308  5	* the slave of Arachnos
-M 0 6309   2 6327  2	* the quasit
-M 0 6307   4 6335  2	* the ethereal spider
-M 0 6307   4 6333  2	* the ethereal spider
-M 0 6304   1 6332  1	* the orc
-M 0 6306   3 6321  1	* the drone spider
-M 0 6306   3 6331  1	* the drone spider
-M 0 6311   1 6373  1	* the Hermit
-M 0 6315   1 6350  1	* the Ki-Rin
-G 1 6309  -1     	*   a blue potion
-G 1 6309  -1     	*   a blue potion
-M 0 6314   1 6399  1	* Arachnos
-G 1 6303   2     	*   a pontiff's headdress
-G 1 6304   2     	*   a black knight's visor
-M 0 6312   1 6370  1	* the Donjonkeeper
-G 1 6309  -1     	*   a blue potion
-M 0 6313   1 6367  1	* The guardian
-M 0 6306   3 6330  1	* the drone spider
-M 0 6302   1 6360  1	* Yevaud
-G 1 6304   2     	*   a black knight's visor
-M 0 6316   1 6330  1	* the young dragon wormkin
-M 0 6317   1 6340  1	* the medium dragon wormkin
-D 0 6392   0    1	* The Great Door north
-D 0 6399   2    1	* The Lair of Arachnos south
+
+
+#SPECIALS
+M 6302 spec_breath_gas
+M 6314 spec_breath_gas
+M 6316 spec_breath_gas
+M 6317 spec_breath_gas
+M 6318 spec_poison
+M 6319 spec_poison
 S
+
+
+
+#RESETS
+D 0 6392 0 1
+D 0 6399 2 1
+M 0 6301 8 6301 2 Load the young spider
+M 0 6305 1 6303 1 Load the Queen Wasp
+M 0 6301 8 6304 2 Load the young spider
+M 0 6301 8 6306 2 Load the young spider
+M 0 6301 8 6306 2 Load the young spider
+M 0 6308 5 6308 5 Load the slave of Arachnos
+M 0 6308 5 6308 5 Load the slave of Arachnos
+M 0 6308 5 6308 5 Load the slave of Arachnos
+M 0 6308 5 6308 5 Load the slave of Arachnos
+M 0 6308 5 6308 5 Load the slave of Arachnos
+M 0 6303 1 6313 1 Load the Wolf Spider
+M 0 6306 3 6321 1 Load the drone spider
+M 0 6309 2 6327 2 Load the quasit
+M 0 6306 3 6330 1 Load the drone spider
+M 0 6316 1 6330 1 Load the young dragon wormkin
+M 0 6306 3 6331 1 Load the drone spider
+M 0 6304 1 6332 1 Load the orc
+M 0 6307 4 6333 2 Load the ethereal spider
+M 0 6307 4 6335 2 Load the ethereal spider
+M 0 6317 1 6340 1 Load the medium dragon wormkin
+M 0 6310 1 6342 1 Load the Bird Spider
+M 0 6315 1 6350 1 Load the Ki-Rin
+G 0 6309 0 A blue potion is given to the Ki-Rin
+G 0 6309 0 A blue potion is given to the Ki-Rin
+M 0 6302 1 6360 1 Load Yevaud
+G 0 6304 0 A black knight's visor is given to Yevaud
+M 0 6313 1 6367 1 Load The guardian
+M 0 6312 1 6370 1 Load the Donjonkeeper
+G 0 6309 0 A blue potion is given to the Donjonkeeper
+M 0 6311 1 6373 1 Load the Hermit
+M 0 6314 1 6399 1 Load Arachnos
+G 0 6303 0 A pontiff's headdress is given to Arachnos
+G 0 6304 0 A black knight's visor is given to Arachnos
+S
+
+
 
 #SHOPS
 0
 
-#SPECIALS
-M 6302 spec_breath_gas     	* Yevaud
-M 6314 spec_breath_gas     	* Arachnos
-M 6316 spec_breath_gas     	* the young dragon wormkin
-M 6317 spec_breath_gas     	* the medium dragon wormkin
-M 6318 spec_poison         	* the huge, poisonous spider
-M 6319 spec_poison         	* the Queen Spider
-S
+
+
+#MOBPROGS
+#0
 
 #$

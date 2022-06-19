@@ -1,8 +1,12 @@
-#AREA
-mobfact.are~
-Mob Factory~
-{ 5 15} PinkF   Mob Factory~
-9400 9499
+#AREADATA
+Name Mob Factory~
+Builders None~
+VNUMs 9400 9499
+Credits { 5 15} PinkF   Mob Factory~
+Security 9
+End
+
+
 
 #MOBILES
 #9401
@@ -17,9 +21,9 @@ fido~
 AFGH D -700 0
 6 0 2d7+71 3d9+100 1d7+1 none
 4 4 4 9
-EN 0 0 0
+EFNR 0 0 C
 stand stand male 0
-0 0 medium 0
+ABGV ACDEFHJKQV medium unknown
 #9402
 oldstyle foreman floyd~
 Foreman Floyd~
@@ -35,7 +39,7 @@ ABG DFH 2 0
 0 0 0 8
 EFNU 0 0 0
 sit stand male 50
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #9403
 oldstyle cityguard guard head~
 The Cityguard head~
@@ -51,7 +55,7 @@ AG T 0 0
 2 2 2 8
 EFNU 0 0 0
 stand stand none 0
-AHV AEJK medium 0
+AHV AEJK medium unknown
 #9404
 oldstyle revolving drunk~
 The revolving drunk~
@@ -66,7 +70,7 @@ ACGH 0 1 0
 8 8 8 10
 EFNU 0 0 0
 stand stand male 2
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #9405
 oldstyle toxic slime~
 The toxic slime~
@@ -81,7 +85,7 @@ ABC 0 0 0
 6 6 6 9
 EFNU 0 0 0
 sit sit none 0
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #9406
 oldstyle worker~
 The factory worker~
@@ -96,7 +100,7 @@ AGH 0 100 0
 7 7 7 10
 EFNU 0 0 0
 stand stand male 2
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #9407
 oldstyle worker~
 The factory worker~
@@ -111,11 +115,15 @@ ABH 0 150 0
 7 7 7 10
 EFNU 0 0 0
 sleep sit female 3
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #0
+
+
 
 #OBJECTS
 #0
+
+
 
 #ROOMS
 #9400
@@ -127,7 +135,7 @@ crazy! To the north you see the storage area, to the south the
 foreman's office, to the east the entrance hallway, and to the west the
 familiar paving of wall road.
 ~
-0 D 0
+0 8 0
 D0
 ~
 ~
@@ -153,7 +161,7 @@ containing wigs and a bottle mysteriously labelled "solution x". Exits
 are more of storage to the east and north, and entrance to the mob
 factory to the south.
 ~
-0 D 0
+0 8 0
 D0
 ~
 ~
@@ -174,7 +182,7 @@ stored. You see sacks of sawdust, cans of pink paint, a large box
 containing wigs and a bottle mysteriously labelled "solution X". Exits
 are more of storage to the east and south.
 ~
-0 D 0
+0 8 0
 D1
 ~
 ~
@@ -192,7 +200,7 @@ of various sizes and a Sports Illustrated Swimsuit calendar on the west
 wall. Exits lead north to the mob factory entrance and south to the
 foreman's bathroom.
 ~
-0 D 0
+0 8 0
 D0
 ~
 ~
@@ -210,7 +218,7 @@ shower to the back, and a urinal to the left. On the floor you can
 see stains of a very suspicious nature. The only exit leads north to
 the foreman's office.
 ~
-0 D 0
+0 8 0
 D0
 ~
 ~
@@ -224,7 +232,7 @@ containing wigs and a bottle mysteriously labelled "solution X". Exits
 are more of storage to the west and south, and an inspection room to
 the east.
 ~
-0 D 0
+0 8 0
 D1
 ~
 ~
@@ -246,7 +254,7 @@ containing wigs and a bottle mysteriously labelled "solution X". Exits
 are more of storage to the west and north, an inspection room to the
 east and the entrance hallway to the south.
 ~
-0 D 0
+0 8 0
 D0
 ~
 ~
@@ -273,7 +281,7 @@ eyes is observing you...... Exits are north to the storage area, east
 to the entrance hallway, south to the cafeteria and west to the mob
 factory entrance.
 ~
-0 D 0
+0 8 0
 D0
 ~
 ~
@@ -300,7 +308,7 @@ seem to care. There are many places where food and drink have been
 spilled on the ground. Exits are north to the entrance hallway and
 south to the mob factory cafeteria.
 ~
-0 D 0
+0 8 0
 D0
 ~
 ~
@@ -319,7 +327,7 @@ seem to care. There are many places where food and drink have been
 spilled on the ground. The only exit is north to the mob factory
 cafeteria.
 ~
-0 D 0
+0 8 0
 D0
 ~
 ~
@@ -334,7 +342,7 @@ standing around, trying to look busy. Exits are south to the mob
 factory inspection room, east to the primary assembly line and west to
 the storage area.
 ~
-0 D 0
+0 8 0
 D1
 ~
 ~
@@ -357,7 +365,7 @@ standing around, trying to look busy. Exits are south to the mob
 factory inspection room, east to the primary assembly line and west to
 the storage area.
 ~
-0 D 0
+0 8 0
 D0
 ~
 ~
@@ -384,7 +392,7 @@ eyes is observing you...... Exits are north to the inspection room,
 east to the primary assembly line, south to the reject room and west
 to the entrance hallway.
 ~
-0 D 0
+0 8 0
 D0
 ~
 ~
@@ -410,7 +418,7 @@ destruction. You shudder at the many deformed and grotesque shapes
 present before you. Exits are south to the reject room and north to
 the entrance hallway.
 ~
-0 D 0
+0 8 0
 D0
 ~
 ~
@@ -427,7 +435,7 @@ incorrectly or have some defect are placed here before subsequent
 destruction. You shudder at the many deformed and grotesque shapes
 present before you. The only exit is north to the reject room.
 ~
-0 D 0
+0 8 0
 D0
 ~
 ~
@@ -442,7 +450,7 @@ of noise! It seems that the workers are making drunks today. Exits are
 east to the secondary assembly line, south to the primary assembly
 line and west to the inspection room.
 ~
-0 D 0
+0 8 0
 D1
 ~
 ~
@@ -465,7 +473,7 @@ of noise! It seems that the workers are making drunks today. Exits are
 east to the secondary assembly line, north and south to the primary
 assembly line and west to the inspection room.
 ~
-0 D 0
+0 8 0
 D0
 ~
 ~
@@ -492,7 +500,7 @@ of noise! It seems that the workers are making drunks today. Exits are
 east to the secondary assembly line, north and south to the primary
 assembly line and west to the entrance hallway.
 ~
-0 D 0
+0 8 0
 D0
 ~
 ~
@@ -519,7 +527,7 @@ of noise! It seems that the workers are making drunks today. Exits are
 east to the secondary assembly line, north and south to the primary
 assembly line.
 ~
-0 D 0
+0 8 0
 D0
 ~
 ~
@@ -542,7 +550,7 @@ of noise! It seems that the workers are making drunks today. Exits are
 east to the secondary assembly line and north to the primary
 assembly line.
 ~
-0 D 0
+0 8 0
 D0
 ~
 ~
@@ -560,7 +568,7 @@ The very sight is sickening, but the workers seem to be quite
 cheerful about their work. Exits are south to the secondary assembly
 line and west to the primary assembly line.
 ~
-0 D 0
+0 8 0
 D2
 ~
 ~
@@ -578,7 +586,7 @@ The very sight is sickening, but the workers seem to be quite
 cheerful about their work. Exits are north and south to the secondary
 assembly line and west to the primary assembly line.
 ~
-0 D 0
+0 8 0
 D0
 ~
 ~
@@ -600,7 +608,7 @@ The very sight is sickening, but the workers seem to be quite
 cheerful about their work. Exits are north and south to the secondary
 assembly line and west to the primary assembly line.
 ~
-0 D 0
+0 8 0
 D0
 ~
 ~
@@ -622,7 +630,7 @@ The very sight is sickening, but the workers seem to be quite
 cheerful about their work. Exits are north and south to the secondary
 assembly line and west to the primary assembly line.
 ~
-0 D 0
+0 8 0
 D0
 ~
 ~
@@ -644,7 +652,7 @@ The very sight is sickening, but the workers seem to be quite
 cheerful about their work. Exits are north to the secondary
 assembly line and west to the primary assembly line.
 ~
-0 D 0
+0 8 0
 D0
 ~
 ~
@@ -656,46 +664,57 @@ D3
 S
 #0
 
-#RESETS
-M 0 9405   7 9401  1	* The toxic slime
-M 0 9401   5 9402  1	* The mutant beastly fido
-M 0 9402   1 9403  1	* Foreman Floyd
-M 0 9405   7 9404  1	* The toxic slime
-M 0 9403   7 9406  1	* The Cityguard head
-M 0 9405   7 9408  1	* The toxic slime
-M 0 9401   5 9408  1	* The mutant beastly fido
-M 0 9405   7 9409  1	* The toxic slime
-M 0 9407   3 9410  1	* The factory worker
-M 0 9404   4 9410  2	* The revolving drunk
-M 0 9403   7 9410  1	* The Cityguard head
-M 0 9407   3 9411  1	* The factory worker
-M 0 9401   5 9411  1	* The mutant beastly fido
-M 0 9404   4 9413  2	* The revolving drunk
-M 0 9403   7 9414  1	* The Cityguard head
-M 0 9405   7 9415  1	* The toxic slime
-M 0 9406   8 9415  1	* The factory worker
-M 0 9406   8 9416  1	* The factory worker
-M 0 9406   8 9417  1	* The factory worker
-M 0 9406   8 9418  1	* The factory worker
-M 0 9401   5 9418  1	* The mutant beastly fido
-M 0 9406   8 9419  1	* The factory worker
-M 0 9406   8 9420  1	* The factory worker
-M 0 9407   3 9420  1	* The factory worker
-M 0 9405   7 9421  1	* The toxic slime
-M 0 9403   7 9421  1	* The Cityguard head
-M 0 9401   5 9422  1	* The mutant beastly fido
-M 0 9403   7 9422  1	* The Cityguard head
-M 0 9406   8 9423  1	* The factory worker
-M 0 9403   7 9423  1	* The Cityguard head
-M 0 9403   7 9424  1	* The Cityguard head
-M 0 9406   8 9424  1	* The factory worker
-M 0 9405   7 9424  1	* The toxic slime
+
+
+#SPECIALS
 S
+
+
+
+#RESETS
+M 0 9405 7 9401 1 Load The toxic slime
+M 0 9401 5 9402 1 Load The mutant beastly fido
+M 0 9402 1 9403 1 Load Foreman Floyd
+M 0 9405 7 9404 1 Load The toxic slime
+M 0 9403 7 9406 1 Load The Cityguard head
+M 0 9405 7 9408 1 Load The toxic slime
+M 0 9401 5 9408 1 Load The mutant beastly fido
+M 0 9405 7 9409 1 Load The toxic slime
+M 0 9407 3 9410 1 Load The factory worker
+M 0 9404 4 9410 2 Load The revolving drunk
+M 0 9403 7 9410 1 Load The Cityguard head
+M 0 9407 3 9411 1 Load The factory worker
+M 0 9401 5 9411 1 Load The mutant beastly fido
+M 0 9404 4 9413 2 Load The revolving drunk
+M 0 9403 7 9414 1 Load The Cityguard head
+M 0 9405 7 9415 1 Load The toxic slime
+M 0 9406 8 9415 1 Load The factory worker
+M 0 9406 8 9416 1 Load The factory worker
+M 0 9406 8 9417 1 Load The factory worker
+M 0 9406 8 9418 1 Load The factory worker
+M 0 9401 5 9418 1 Load The mutant beastly fido
+M 0 9406 8 9419 1 Load The factory worker
+M 0 9406 8 9420 1 Load The factory worker
+M 0 9407 3 9420 1 Load The factory worker
+M 0 9405 7 9421 1 Load The toxic slime
+M 0 9403 7 9421 1 Load The Cityguard head
+M 0 9401 5 9422 1 Load The mutant beastly fido
+M 0 9403 7 9422 1 Load The Cityguard head
+M 0 9406 8 9423 1 Load The factory worker
+M 0 9403 7 9423 1 Load The Cityguard head
+M 0 9403 7 9424 1 Load The Cityguard head
+M 0 9406 8 9424 1 Load The factory worker
+M 0 9405 7 9424 1 Load The toxic slime
+S
+
+
 
 #SHOPS
 0
 
-#SPECIALS
-S
+
+
+#MOBPROGS
+#0
 
 #$
