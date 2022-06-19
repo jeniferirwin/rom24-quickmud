@@ -1436,7 +1436,7 @@ void bust_a_prompt (CHAR_DATA * ch)
     str = ch->prompt;
     if (str == NULL || str[0] == '\0')
     {
-        sprintf (buf, "{p<%dhp %dm %dmv>{x %s",
+        sprintf (buf, "{w<%dhp %dm %dmv>#w %s",
                  ch->hit, ch->mana, ch->move, ch->prefix);
         send_to_char (buf, ch);
         return;
@@ -1444,7 +1444,7 @@ void bust_a_prompt (CHAR_DATA * ch)
 
     if (IS_SET (ch->comm, COMM_AFK))
     {
-        send_to_char ("{p<AFK>{x ", ch);
+        send_to_char ("#M[#mAFK#M]#w ", ch);
         return;
     }
 
@@ -1585,9 +1585,9 @@ void bust_a_prompt (CHAR_DATA * ch)
     *point = '\0';
     pbuff = buffer;
     colourconv (pbuff, buf, ch);
-    send_to_char ("{p", ch);
+    send_to_char ("#w", ch);
     write_to_buffer (ch->desc, buffer, 0);
-    send_to_char ("{x", ch);
+    send_to_char ("#w", ch);
 
     if (ch->prefix[0] != '\0')
         write_to_buffer (ch->desc, ch->prefix, 0);
@@ -1977,7 +1977,7 @@ void send_to_char (const char *txt, CHAR_DATA * ch)
         {
             for (point = txt; *point; point++)
             {
-                if (*point == '{')
+                if (*point == '#')
                 {
                     point++;
                     skip = colour (*point, ch, point2);
@@ -1995,7 +1995,7 @@ void send_to_char (const char *txt, CHAR_DATA * ch)
         {
             for (point = txt; *point; point++)
             {
-                if (*point == '{')
+                if (*point == '#')
                 {
                     point++;
                     continue;
@@ -2028,7 +2028,7 @@ void send_to_desc (const char *txt, DESCRIPTOR_DATA * d)
         {
             for (point = txt; *point; point++)
             {
-                if (*point == '{')
+                if (*point == '#')
                 {
                     point++;
                     skip = colour (*point, NULL, point2);
@@ -2046,7 +2046,7 @@ void send_to_desc (const char *txt, DESCRIPTOR_DATA * d)
         {
             for (point = txt; *point; point++)
             {
-                if (*point == '{')
+                if (*point == '#')
                 {
                     point++;
                     continue;
@@ -2079,7 +2079,7 @@ void page_to_char (const char *txt, CHAR_DATA * ch)
         {
             for (point = txt; *point; point++)
             {
-                if (*point == '{')
+                if (*point == '#')
                 {
                     point++;
                     skip = colour (*point, ch, point2);
@@ -2100,7 +2100,7 @@ void page_to_char (const char *txt, CHAR_DATA * ch)
         {
             for (point = txt; *point; point++)
             {
-                if (*point == '{')
+                if (*point == '#')
                 {
                     point++;
                     continue;
@@ -2404,271 +2404,6 @@ int colour (char type, CHAR_DATA * ch, char *string)
         default:
             strcpy (code, CLEAR);
             break;
-        case 'x':
-            strcpy (code, CLEAR);
-            break;
-        case 'p':
-            if (col->prompt[2])
-                sprintf (code, "\e[%d;3%dm%c", col->prompt[0],
-                         col->prompt[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->prompt[0], col->prompt[1]);
-            break;
-        case 's':
-            if (col->room_title[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->room_title[0], col->room_title[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->room_title[0],
-                         col->room_title[1]);
-            break;
-        case 'S':
-            if (col->room_text[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->room_text[0], col->room_text[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->room_text[0],
-                         col->room_text[1]);
-            break;
-        case 'd':
-            if (col->gossip[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->gossip[0], col->gossip[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->gossip[0], col->gossip[1]);
-            break;
-        case '9':
-            if (col->gossip_text[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->gossip_text[0], col->gossip_text[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->gossip_text[0],
-                         col->gossip_text[1]);
-            break;
-        case 'Z':
-            if (col->wiznet[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->wiznet[0], col->wiznet[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->wiznet[0], col->wiznet[1]);
-            break;
-        case 'o':
-            if (col->room_exits[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->room_exits[0], col->room_exits[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->room_exits[0],
-                         col->room_exits[1]);
-            break;
-        case 'O':
-            if (col->room_things[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->room_things[0], col->room_things[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->room_things[0],
-                         col->room_things[1]);
-            break;
-        case 'i':
-            if (col->immtalk_text[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->immtalk_text[0], col->immtalk_text[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm",
-                         col->immtalk_text[0], col->immtalk_text[1]);
-            break;
-        case 'I':
-            if (col->immtalk_type[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->immtalk_type[0], col->immtalk_type[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm",
-                         col->immtalk_type[0], col->immtalk_type[1]);
-            break;
-        case '2':
-            if (col->fight_yhit[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->fight_yhit[0], col->fight_yhit[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->fight_yhit[0],
-                         col->fight_yhit[1]);
-            break;
-        case '3':
-            if (col->fight_ohit[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->fight_ohit[0], col->fight_ohit[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->fight_ohit[0],
-                         col->fight_ohit[1]);
-            break;
-        case '4':
-            if (col->fight_thit[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->fight_thit[0], col->fight_thit[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->fight_thit[0],
-                         col->fight_thit[1]);
-            break;
-        case '5':
-            if (col->fight_skill[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->fight_skill[0], col->fight_skill[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->fight_skill[0],
-                         col->fight_skill[1]);
-            break;
-        case '1':
-            if (col->fight_death[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->fight_death[0], col->fight_death[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->fight_death[0],
-                         col->fight_death[1]);
-            break;
-        case '6':
-            if (col->say[2])
-                sprintf (code, "\e[%d;3%dm%c", col->say[0], col->say[1],
-                         '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->say[0], col->say[1]);
-            break;
-        case '7':
-            if (col->say_text[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->say_text[0], col->say_text[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->say_text[0],
-                         col->say_text[1]);
-            break;
-        case 'k':
-            if (col->tell[2])
-                sprintf (code, "\e[%d;3%dm%c", col->tell[0], col->tell[1],
-                         '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->tell[0], col->tell[1]);
-            break;
-        case 'K':
-            if (col->tell_text[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->tell_text[0], col->tell_text[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->tell_text[0],
-                         col->tell_text[1]);
-            break;
-        case 'l':
-            if (col->reply[2])
-                sprintf (code, "\e[%d;3%dm%c", col->reply[0],
-                         col->reply[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->reply[0], col->reply[1]);
-            break;
-        case 'L':
-            if (col->reply_text[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->reply_text[0], col->reply_text[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->reply_text[0],
-                         col->reply_text[1]);
-            break;
-        case 'n':
-            if (col->gtell_text[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->gtell_text[0], col->gtell_text[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->gtell_text[0],
-                         col->gtell_text[1]);
-            break;
-        case 'N':
-            if (col->gtell_type[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->gtell_type[0], col->gtell_type[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->gtell_type[0],
-                         col->gtell_type[1]);
-            break;
-        case 'a':
-            if (col->auction[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->auction[0], col->auction[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->auction[0],
-                         col->auction[1]);
-            break;
-        case 'A':
-            if (col->auction_text[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->auction_text[0], col->auction_text[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->auction_text[0],
-                         col->auction_text[1]);
-            break;
-        case 'q':
-            if (col->question[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->question[0], col->question[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->question[0],
-                         col->question[1]);
-            break;
-        case 'Q':
-            if (col->question_text[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->question_text[0], col->question_text[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm",
-                         col->question_text[0], col->question_text[1]);
-            break;
-        case 'f':
-            if (col->answer[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->answer[0], col->answer[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->answer[0], col->answer[1]);
-            break;
-        case 'F':
-            if (col->answer_text[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->answer_text[0], col->answer_text[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->answer_text[0],
-                         col->answer_text[1]);
-            break;
-        case 'e':
-            if (col->music[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->music[0], col->music[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->music[0], col->music[1]);
-            break;
-        case 'E':
-            if (col->music_text[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->music_text[0], col->music_text[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->music_text[0],
-                         col->music_text[1]);
-            break;
-        case 'h':
-            if (col->quote[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->quote[0], col->quote[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->quote[0], col->quote[1]);
-            break;
-        case 'H':
-            if (col->quote_text[2])
-                sprintf (code, "\e[%d;3%dm%c",
-                         col->quote_text[0], col->quote_text[1], '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->quote_text[0],
-                         col->quote_text[1]);
-            break;
-        case 'j':
-            if (col->info[2])
-                sprintf (code, "\e[%d;3%dm%c", col->info[0], col->info[1],
-                         '\a');
-            else
-                sprintf (code, "\e[%d;3%dm", col->info[0], col->info[1]);
-            break;
         case 'b':
             strcpy (code, C_BLUE);
             break;
@@ -2685,7 +2420,7 @@ int colour (char type, CHAR_DATA * ch, char *string)
             strcpy (code, C_RED);
             break;
         case 'w':
-            strcpy (code, C_WHITE);
+            strcpy (code, CLEAR);
             break;
         case 'y':
             strcpy (code, C_YELLOW);
@@ -2723,8 +2458,8 @@ int colour (char type, CHAR_DATA * ch, char *string)
         case '-':
             sprintf (code, "%c", '~');
             break;
-        case '{':
-            sprintf (code, "%c", '{');
+        case 'x':
+            sprintf (code, "%c", '#');
             break;
     }
 
@@ -2749,7 +2484,7 @@ void colourconv (char *buffer, const char *txt, CHAR_DATA * ch)
         {
             for (point = txt; *point; point++)
             {
-                if (*point == '{')
+                if (*point == '#')
                 {
                     point++;
 					if (*point != '\n') {
@@ -2768,7 +2503,7 @@ void colourconv (char *buffer, const char *txt, CHAR_DATA * ch)
         {
             for (point = txt; *point; point++)
             {
-                if (*point == '{')
+                if (*point == '#')
                 {
                     point++;
                     continue;

@@ -1,114 +1,114 @@
 #COLOR
 Name   DRed
-Mudtag {r
+Mudtag #r
 IMCtag ~r
 End
 
 #COLOR
 Name   DGreen
-Mudtag {g
+Mudtag #g
 IMCtag ~g
 End
 
 #COLOR
 Name   Orange
-Mudtag {y
+Mudtag #y
 IMCtag ~y
 End
 
 #COLOR
 Name   DBlue
-Mudtag {b
+Mudtag #b
 IMCtag ~b
 End
 
 #COLOR
 Name   Purple
-Mudtag {m
+Mudtag #m
 IMCtag ~p
 End
 
 #COLOR
 Name   Purple2
-Mudtag {m
+Mudtag #m
 IMCtag ~m
 End
 
 #COLOR
 Name   Cyan
-Mudtag {c
+Mudtag #c
 IMCtag ~c
 End
 
 #COLOR
 Name   Grey
-Mudtag {w
+Mudtag #w
 IMCtag ~w
 End
 
 #COLOR
 Name   Grey2
-Mudtag {w
+Mudtag #w
 IMCtag ~d
 End
 
 #COLOR
 Name   DGrey
-Mudtag {D
+Mudtag #D
 IMCtag ~z
 End
 
 #COLOR
 Name   DGrey2
-Mudtag {D
+Mudtag #D
 IMCtag ~D
 End
 
 #COLOR
 Name   Red
-Mudtag {R
+Mudtag #R
 IMCtag ~R
 End
 
 #COLOR
 Name   Green
-Mudtag {G
+Mudtag #G
 IMCtag ~G
 End
 
 #COLOR
 Name   Yellow
-Mudtag {Y
+Mudtag #Y
 IMCtag ~Y
 End
 
 #COLOR
 Name   Blue
-Mudtag {B
+Mudtag #B
 IMCtag ~B
 End
 
 #COLOR
 Name   Pink
-Mudtag {M
+Mudtag #M
 IMCtag ~P
 End
 
 #COLOR
 Name   Pink2
-Mudtag {M
+Mudtag #M
 IMCtag ~M
 End
 
 #COLOR
 Name   LBlue
-Mudtag {C
+Mudtag #C
 IMCtag ~C
 End
 
 #COLOR
 Name   White
-Mudtag {W
+Mudtag #W
 IMCtag ~W
 End
 

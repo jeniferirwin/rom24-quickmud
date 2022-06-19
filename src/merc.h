@@ -1665,41 +1665,6 @@ struct    pc_data
 	time_t			last_note[MAX_BOARD];   /* last note for the boards */
 	NOTE_DATA *		in_progress;
     int				security;               /* OLC */ /* Builder security */
-    int				text[3];                /* {t */
-    int				auction[3];             /* {a */
-    int				auction_text[3];        /* {A */
-    int				gossip[3];              /* {d */
-    int				gossip_text[3];         /* {9 */
-    int				music[3];               /* {e */
-    int				music_text[3];          /* {E */
-    int				question[3];            /* {q */
-    int				question_text[3];       /* {Q */
-    int				answer[3];              /* {f */
-    int				answer_text[3];         /* {F */
-    int				quote[3];               /* {h */
-    int				quote_text[3];          /* {H */
-    int				immtalk_text[3];        /* {i */
-    int				immtalk_type[3];        /* {I */
-    int				info[3];                /* {j */
-    int				say[3];                 /* {6 */
-    int				say_text[3];            /* {7 */
-    int				tell[3];                /* {k */
-    int				tell_text[3];           /* {K */
-    int				reply[3];               /* {l */
-    int				reply_text[3];          /* {L */
-    int				gtell_text[3];          /* {n */
-    int				gtell_type[3];          /* {N */
-    int				wiznet[3];              /* {B */
-    int				room_title[3];          /* {s */
-    int				room_text[3];           /* {S */   
-    int				room_exits[3];          /* {o */
-    int				room_things[3];         /* {O */
-    int				prompt[3];              /* {p */
-    int				fight_death[3];         /* {1 */
-    int				fight_yhit[3];          /* {2 */
-    int				fight_ohit[3];          /* {3 */
-    int				fight_thit[3];          /* {4 */
-    int				fight_skill[3];         /* {5 */              
 #ifdef IMC
     IMC_CHARDATA *imcchardata;
 #endif

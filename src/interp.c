@@ -480,8 +480,11 @@ void interpret (CHAR_DATA * ch, char *argument)
 			*ps++=log_buf[i];
 			if (log_buf[i]=='$')
 	    		*ps++='$';
-			if (log_buf[i]=='{')
-	    		*ps++='{';
+            // technitaur: not sure if changing this is going to
+            // make things explode, leaving a marker here to come
+            // back to later if needed
+			if (log_buf[i]=='#')
+	    		*ps++='#';
     	}
     	*ps=0;
     	wiznet(s,ch,NULL,WIZ_SECURE,0,get_trust(ch));

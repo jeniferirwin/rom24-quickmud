@@ -102,37 +102,37 @@ void do_channels (CHAR_DATA * ch, char *argument)
     send_to_char ("   channel     status\n\r", ch);
     send_to_char ("---------------------\n\r", ch);
 
-    send_to_char ("{Cgossip{x         ", ch);
+    send_to_char ("#Cgossip#w         ", ch);
     if (!IS_SET (ch->comm, COMM_NOGOSSIP))
         send_to_char ("ON\n\r", ch);
     else
         send_to_char ("OFF\n\r", ch);
 
-    send_to_char ("{Gauction{x        ", ch);
+    send_to_char ("#Gauction#w        ", ch);
     if (!IS_SET (ch->comm, COMM_NOAUCTION))
         send_to_char ("ON\n\r", ch);
     else
         send_to_char ("OFF\n\r", ch);
 
-    send_to_char ("{Bmusic{x          ", ch);
+    send_to_char ("#Bmusic#w          ", ch);
     if (!IS_SET (ch->comm, COMM_NOMUSIC))
         send_to_char ("ON\n\r", ch);
     else
         send_to_char ("OFF\n\r", ch);
 
-    send_to_char ("{WQ{x/{WA{x            ", ch);
+    send_to_char ("#WQ#w/#WA#w            ", ch);
     if (!IS_SET (ch->comm, COMM_NOQUESTION))
         send_to_char ("ON\n\r", ch);
     else
         send_to_char ("OFF\n\r", ch);
 
-    send_to_char ("{wQuote{x          ", ch);
+    send_to_char ("#wQuote#w          ", ch);
     if (!IS_SET (ch->comm, COMM_NOQUOTE))
         send_to_char ("ON\n\r", ch);
     else
         send_to_char ("OFF\n\r", ch);
 
-    send_to_char ("{Ygrats{x          ", ch);
+    send_to_char ("#Ygrats#w          ", ch);
     if (!IS_SET (ch->comm, COMM_NOGRATS))
         send_to_char ("ON\n\r", ch);
     else
@@ -140,26 +140,26 @@ void do_channels (CHAR_DATA * ch, char *argument)
 
     if (IS_IMMORTAL (ch))
     {
-        send_to_char ("{Rgod channel{x    ", ch);
+        send_to_char ("#Rgod channel#w    ", ch);
         if (!IS_SET (ch->comm, COMM_NOWIZ))
             send_to_char ("ON\n\r", ch);
         else
             send_to_char ("OFF\n\r", ch);
     }
 
-    send_to_char ("{Mshouts{x         ", ch);
+    send_to_char ("#Mshouts#w         ", ch);
     if (!IS_SET (ch->comm, COMM_SHOUTSOFF))
         send_to_char ("ON\n\r", ch);
     else
         send_to_char ("OFF\n\r", ch);
 
-    send_to_char ("{gtells{x          ", ch);
+    send_to_char ("#gtells#w          ", ch);
     if (!IS_SET (ch->comm, COMM_DEAF))
         send_to_char ("ON\n\r", ch);
     else
         send_to_char ("OFF\n\r", ch);
 
-    send_to_char ("{wquiet mode{x     ", ch);
+    send_to_char ("#wquiet mode#w     ", ch);
     if (IS_SET (ch->comm, COMM_QUIET))
         send_to_char ("ON\n\r", ch);
     else
@@ -282,12 +282,12 @@ void do_auction (CHAR_DATA * ch, char *argument)
     {
         if (IS_SET (ch->comm, COMM_NOAUCTION))
         {
-            send_to_char ("{GAuction channel is now {wON{G.{x\n\r", ch);
+            send_to_char ("#GAuction channel is now #wON#G.#w\n\r", ch);
             REMOVE_BIT (ch->comm, COMM_NOAUCTION);
         }
         else
         {
-            send_to_char ("{GAuction channel is now {wOFF{G.{x\n\r", ch);
+            send_to_char ("#GAuction channel is now #wOFF#G.#w\n\r", ch);
             SET_BIT (ch->comm, COMM_NOAUCTION);
         }
     }
@@ -310,7 +310,7 @@ void do_auction (CHAR_DATA * ch, char *argument)
         REMOVE_BIT (ch->comm, COMM_NOAUCTION);
     }
 
-    sprintf (buf, "{GYou auction '{w%s{G'{x\n\r", argument);
+    sprintf (buf, "#GYou auction '#w%s#G'#w\n\r", argument);
     send_to_char (buf, ch);
     for (d = descriptor_list; d != NULL; d = d->next)
     {
@@ -323,7 +323,7 @@ void do_auction (CHAR_DATA * ch, char *argument)
             !IS_SET (victim->comm, COMM_NOAUCTION) &&
             !IS_SET (victim->comm, COMM_QUIET))
         {
-            act_new ("{G$n auctions '{w$t{G'{x",
+            act_new ("#G$n auctions '#w$t#G'#w",
                      ch, argument, d->character, TO_VICT, POS_DEAD);
         }
     }
@@ -339,12 +339,12 @@ void do_gossip (CHAR_DATA * ch, char *argument)
     {
         if (IS_SET (ch->comm, COMM_NOGOSSIP))
         {
-            send_to_char ("{CGossip channel is now {cON{C.{x\n\r", ch);
+            send_to_char ("#CGossip channel is now #cON#C.#w\n\r", ch);
             REMOVE_BIT (ch->comm, COMM_NOGOSSIP);
         }
         else
         {
-            send_to_char ("{CGossip channel is now {cOFF{C.{x\n\r", ch);
+            send_to_char ("#CGossip channel is now #cOFF#C.#w\n\r", ch);
             SET_BIT (ch->comm, COMM_NOGOSSIP);
         }
     }
@@ -367,7 +367,7 @@ void do_gossip (CHAR_DATA * ch, char *argument)
 
         REMOVE_BIT (ch->comm, COMM_NOGOSSIP);
 
-        sprintf (buf, "{CYou gossip '{c%s{C'{x\n\r", argument);
+        sprintf (buf, "#CYou gossip '#c%s#C'#w\n\r", argument);
         send_to_char (buf, ch);
         for (d = descriptor_list; d != NULL; d = d->next)
         {
@@ -380,7 +380,7 @@ void do_gossip (CHAR_DATA * ch, char *argument)
                 !IS_SET (victim->comm, COMM_NOGOSSIP) &&
                 !IS_SET (victim->comm, COMM_QUIET))
             {
-                act_new ("{C$n gossips '{c$t{C'{x",
+                act_new ("#C$n gossips '#c$t#C'#w",
                          ch, argument, d->character, TO_VICT, POS_SLEEPING);
             }
         }
@@ -396,12 +396,12 @@ void do_grats (CHAR_DATA * ch, char *argument)
     {
         if (IS_SET (ch->comm, COMM_NOGRATS))
         {
-            send_to_char ("{YCongratulations is now ON.{x\n\r", ch);
+            send_to_char ("#YCongratulations is now ON.#w\n\r", ch);
             REMOVE_BIT (ch->comm, COMM_NOGRATS);
         }
         else
         {
-            send_to_char ("{YCongratulations is now OFF.{x\n\r", ch);
+            send_to_char ("#YCongratulations is now OFF.#w\n\r", ch);
             SET_BIT (ch->comm, COMM_NOGRATS);
         }
     }
@@ -424,7 +424,7 @@ void do_grats (CHAR_DATA * ch, char *argument)
 
         REMOVE_BIT (ch->comm, COMM_NOGRATS);
 
-        sprintf (buf, "{YYou grats '%s'{x\n\r", argument);
+        sprintf (buf, "#YYou grats '%s'#w\n\r", argument);
         send_to_char (buf, ch);
         for (d = descriptor_list; d != NULL; d = d->next)
         {
@@ -437,7 +437,7 @@ void do_grats (CHAR_DATA * ch, char *argument)
                 !IS_SET (victim->comm, COMM_NOGRATS) &&
                 !IS_SET (victim->comm, COMM_QUIET))
             {
-                act_new ("{Y$n grats '$t'{x",
+                act_new ("#Y$n grats '$t'#w",
                          ch, argument, d->character, TO_VICT, POS_SLEEPING);
             }
         }
@@ -453,12 +453,12 @@ void do_quote (CHAR_DATA * ch, char *argument)
     {
         if (IS_SET (ch->comm, COMM_NOQUOTE))
         {
-            send_to_char ("{hQuote channel is now ON.{x\n\r", ch);
+            send_to_char ("{hQuote channel is now ON.#w\n\r", ch);
             REMOVE_BIT (ch->comm, COMM_NOQUOTE);
         }
         else
         {
-            send_to_char ("{hQuote channel is now OFF.{x\n\r", ch);
+            send_to_char ("{hQuote channel is now OFF.#w\n\r", ch);
             SET_BIT (ch->comm, COMM_NOQUOTE);
         }
     }
@@ -481,7 +481,7 @@ void do_quote (CHAR_DATA * ch, char *argument)
 
         REMOVE_BIT (ch->comm, COMM_NOQUOTE);
 
-        sprintf (buf, "{hYou quote '{H%s{h'{x\n\r", argument);
+        sprintf (buf, "{hYou quote '{H%s{h'#w\n\r", argument);
         send_to_char (buf, ch);
         for (d = descriptor_list; d != NULL; d = d->next)
         {
@@ -494,7 +494,7 @@ void do_quote (CHAR_DATA * ch, char *argument)
                 !IS_SET (victim->comm, COMM_NOQUOTE) &&
                 !IS_SET (victim->comm, COMM_QUIET))
             {
-                act_new ("{h$n quotes '{H$t{h'{x",
+                act_new ("{h$n quotes '{H$t{h'#w",
                          ch, argument, d->character, TO_VICT, POS_SLEEPING);
             }
         }
@@ -538,7 +538,7 @@ void do_question (CHAR_DATA * ch, char *argument)
 
         REMOVE_BIT (ch->comm, COMM_NOQUESTION);
 
-        sprintf (buf, "{qYou question '{Q%s{q'{x\n\r", argument);
+        sprintf (buf, "{qYou question '{Q%s{q'#w\n\r", argument);
         send_to_char (buf, ch);
         for (d = descriptor_list; d != NULL; d = d->next)
         {
@@ -551,7 +551,7 @@ void do_question (CHAR_DATA * ch, char *argument)
                 !IS_SET (victim->comm, COMM_NOQUESTION) &&
                 !IS_SET (victim->comm, COMM_QUIET))
             {
-                act_new ("{q$n questions '{Q$t{q'{x",
+                act_new ("{q$n questions '{Q$t{q'#w",
                          ch, argument, d->character, TO_VICT, POS_SLEEPING);
             }
         }
@@ -595,7 +595,7 @@ void do_answer (CHAR_DATA * ch, char *argument)
 
         REMOVE_BIT (ch->comm, COMM_NOQUESTION);
 
-        sprintf (buf, "{fYou answer '{F%s{f'{x\n\r", argument);
+        sprintf (buf, "{fYou answer '{F%s{f'#w\n\r", argument);
         send_to_char (buf, ch);
         for (d = descriptor_list; d != NULL; d = d->next)
         {
@@ -608,7 +608,7 @@ void do_answer (CHAR_DATA * ch, char *argument)
                 !IS_SET (victim->comm, COMM_NOQUESTION) &&
                 !IS_SET (victim->comm, COMM_QUIET))
             {
-                act_new ("{f$n answers '{F$t{f'{x",
+                act_new ("{f$n answers '{F$t{f'#w",
                          ch, argument, d->character, TO_VICT, POS_SLEEPING);
             }
         }
@@ -652,9 +652,9 @@ void do_music (CHAR_DATA * ch, char *argument)
 
         REMOVE_BIT (ch->comm, COMM_NOMUSIC);
 
-        sprintf (buf, "{eYou MUSIC: '{E%s{e'{x\n\r", argument);
+        sprintf (buf, "#BYou music: '%s'#w\n\r", argument);
         send_to_char (buf, ch);
-        sprintf (buf, "$n MUSIC: '%s'", argument);
+        sprintf (buf, "#B$n MUSIC: '%s'#w", argument);
         for (d = descriptor_list; d != NULL; d = d->next)
         {
             CHAR_DATA *victim;
@@ -666,7 +666,7 @@ void do_music (CHAR_DATA * ch, char *argument)
                 !IS_SET (victim->comm, COMM_NOMUSIC) &&
                 !IS_SET (victim->comm, COMM_QUIET))
             {
-                act_new ("{e$n MUSIC: '{E$t{e'{x",
+                act_new ("#B$n MUSIC: '$t'#w",
                          ch, argument, d->character, TO_VICT, POS_SLEEPING);
             }
         }
@@ -708,9 +708,9 @@ void do_clantalk (CHAR_DATA * ch, char *argument)
 
     REMOVE_BIT (ch->comm, COMM_NOCLAN);
 
-    sprintf (buf, "You clan '%s'{x\n\r", argument);
+    sprintf (buf, "#BYou clan '#c%s#B'#w\n\r", argument);
     send_to_char (buf, ch);
-    sprintf (buf, "$n clans '%s'", argument);
+    sprintf (buf, "#B$n clans '#c%s#B'#w", argument);
     for (d = descriptor_list; d != NULL; d = d->next)
     {
         if (d->connected == CON_PLAYING &&
@@ -719,7 +719,7 @@ void do_clantalk (CHAR_DATA * ch, char *argument)
             !IS_SET (d->character->comm, COMM_NOCLAN) &&
             !IS_SET (d->character->comm, COMM_QUIET))
         {
-            act_new ("$n clans '$t'{x", ch, argument, d->character, TO_VICT,
+            act_new ("#B$n clans '#c$t#B'#w", ch, argument, d->character, TO_VICT,
                      POS_DEAD);
         }
     }
@@ -748,14 +748,14 @@ void do_immtalk (CHAR_DATA * ch, char *argument)
 
     REMOVE_BIT (ch->comm, COMM_NOWIZ);
 
-    act_new ("{i[{I$n{i]: $t{x", ch, argument, NULL, TO_CHAR, POS_DEAD);
+    act_new ("#R$n immtalks: #r$t#w", ch, argument, NULL, TO_CHAR, POS_DEAD);
     for (d = descriptor_list; d != NULL; d = d->next)
     {
         if (d->connected == CON_PLAYING &&
             IS_IMMORTAL (d->character) &&
             !IS_SET (d->character->comm, COMM_NOWIZ))
         {
-            act_new ("{i[{I$n{i]: $t{x", ch, argument, d->character, TO_VICT,
+            act_new ("{R$n immtalks: #r$t#w", ch, argument, d->character, TO_VICT,
                      POS_DEAD);
         }
     }
@@ -773,8 +773,8 @@ void do_say (CHAR_DATA * ch, char *argument)
         return;
     }
 
-    act ("{6$n says '{7$T{6'{x", ch, NULL, argument, TO_ROOM);
-    act ("{6You say '{7$T{6'{x", ch, NULL, argument, TO_CHAR);
+    act ("#g$n says '$T'#w", ch, NULL, argument, TO_ROOM);
+    act ("#gYou say '$T'#w", ch, NULL, argument, TO_CHAR);
 
     if (!IS_NPC (ch))
     {
@@ -821,7 +821,7 @@ void do_shout (CHAR_DATA * ch, char *argument)
 
     WAIT_STATE (ch, 12);
 
-    act ("You shout '$T'", ch, NULL, argument, TO_CHAR);
+    act ("#MYou shout '#m$T#M'#w", ch, NULL, argument, TO_CHAR);
     for (d = descriptor_list; d != NULL; d = d->next)
     {
         CHAR_DATA *victim;
@@ -833,7 +833,7 @@ void do_shout (CHAR_DATA * ch, char *argument)
             !IS_SET (victim->comm, COMM_SHOUTSOFF) &&
             !IS_SET (victim->comm, COMM_QUIET))
         {
-            act ("$n shouts '$t'", ch, argument, d->character, TO_VICT);
+            act ("#M$n shouts '#m$t#M'#w", ch, argument, d->character, TO_VICT);
         }
     }
 
@@ -888,7 +888,7 @@ void do_tell (CHAR_DATA * ch, char *argument)
     {
         act ("$N seems to have misplaced $S link...try again later.",
              ch, NULL, victim, TO_CHAR);
-        sprintf (buf, "{k%s tells you '{K%s{k'{x\n\r", PERS (ch, victim),
+        sprintf (buf, "{k%s tells you '{K%s{k'#w\n\r", PERS (ch, victim),
                  argument);
         buf[0] = UPPER (buf[0]);
         add_buf (victim->pcdata->buffer, buf);
@@ -921,7 +921,7 @@ void do_tell (CHAR_DATA * ch, char *argument)
 
         act ("$E is AFK, but your tell will go through when $E returns.",
              ch, NULL, victim, TO_CHAR);
-        sprintf (buf, "{k%s tells you '{K%s{k'{x\n\r", PERS (ch, victim),
+        sprintf (buf, "{k%s tells you '{K%s{k'#w\n\r", PERS (ch, victim),
                  argument);
         buf[0] = UPPER (buf[0]);
         add_buf (victim->pcdata->buffer, buf);
@@ -932,14 +932,14 @@ void do_tell (CHAR_DATA * ch, char *argument)
 	{
 		act ("$E is writing a note, but your tell will go through when $E returns.",
 				ch, NULL, victim, TO_CHAR);
-		sprintf (buf, "{k%s tells you '{K%s{k'{x\n\r", PERS (ch, victim), argument);
+		sprintf (buf, "{k%s tells you '{K%s{k'#w\n\r", PERS (ch, victim), argument);
 		buf[0] = UPPER (buf[0]);
 		add_buf (victim->pcdata->buffer, buf);
 		return;
 	}
 
-    act ("{kYou tell $N '{K$t{k'{x", ch, argument, victim, TO_CHAR);
-    act_new ("{k$n tells you '{K$t{k'{x", ch, argument, victim, TO_VICT,
+    act ("#gYou tell $N '$t'#w", ch, argument, victim, TO_CHAR);
+    act_new ("#g$n tells you '$t'#w", ch, argument, victim, TO_VICT,
              POS_DEAD);
     victim->reply = ch;
 
@@ -972,7 +972,7 @@ void do_reply (CHAR_DATA * ch, char *argument)
     {
         act ("$N seems to have misplaced $S link...try again later.",
              ch, NULL, victim, TO_CHAR);
-        sprintf (buf, "{k%s tells you '{K%s{k'{x\n\r", PERS (ch, victim),
+        sprintf (buf, "{k%s tells you '{K%s{k'#w\n\r", PERS (ch, victim),
                  argument);
         buf[0] = UPPER (buf[0]);
         add_buf (victim->pcdata->buffer, buf);
@@ -1012,16 +1012,16 @@ void do_reply (CHAR_DATA * ch, char *argument)
 
         act_new ("$E is AFK, but your tell will go through when $E returns.",
                  ch, NULL, victim, TO_CHAR, POS_DEAD);
-        sprintf (buf, "{k%s tells you '{K%s{k'{x\n\r", PERS (ch, victim),
+        sprintf (buf, "{k%s tells you '{K%s{k'#w\n\r", PERS (ch, victim),
                  argument);
         buf[0] = UPPER (buf[0]);
         add_buf (victim->pcdata->buffer, buf);
         return;
     }
 
-    act_new ("{kYou tell $N '{K$t{k'{x", ch, argument, victim, TO_CHAR,
+    act_new ("#gYou tell $N '$t'#w", ch, argument, victim, TO_CHAR,
              POS_DEAD);
-    act_new ("{k$n tells you '{K$t{k'{x", ch, argument, victim, TO_VICT,
+    act_new ("#g$n tells you '$t'#w", ch, argument, victim, TO_VICT,
              POS_DEAD);
     victim->reply = ch;
 
@@ -1047,7 +1047,7 @@ void do_yell (CHAR_DATA * ch, char *argument)
     }
 
 
-    act ("You yell '$t'", ch, argument, NULL, TO_CHAR);
+    act ("#WYou yell '#R$t#W'#w", ch, argument, NULL, TO_CHAR);
     for (d = descriptor_list; d != NULL; d = d->next)
     {
         if (d->connected == CON_PLAYING
@@ -1056,7 +1056,7 @@ void do_yell (CHAR_DATA * ch, char *argument)
             && d->character->in_room->area == ch->in_room->area
             && !IS_SET (d->character->comm, COMM_QUIET))
         {
-            act ("$n yells '$t'", ch, argument, d->character, TO_VICT);
+            act ("#W$n yells '#R$t#W'#w", ch, argument, d->character, TO_VICT);
         }
     }
 
@@ -2037,7 +2037,7 @@ void do_colour (CHAR_DATA * ch, char *argument)
 
     if (IS_NPC (ch))
     {
-        send_to_char_bw ("ColoUr is not ON, Way Moron!\n\r", ch);
+        send_to_char_bw ("Color is not on!\n\r", ch);
         return;
     }
 
@@ -2048,149 +2048,15 @@ void do_colour (CHAR_DATA * ch, char *argument)
         if (!IS_SET (ch->act, PLR_COLOUR))
         {
             SET_BIT (ch->act, PLR_COLOUR);
-            send_to_char ("ColoUr is now ON, Way Cool!\n\r"
-                          "Further syntax:\n\r   colour {c<{xfield{c> <{xcolour{c>{x\n\r"
-                          "   colour {c<{xfield{c>{x {cbeep{x|{cnobeep{x\n\r"
-                          "Type help {ccolour{x and {ccolour2{x for details.\n\r"
+            send_to_char ("#RC#Bo#Gl#Yo#Mr#w is now on.\n\r"
                           "ColoUr is brought to you by Lope, ant@solace.mh.se.\n\r",
                           ch);
         }
         else
         {
-            send_to_char_bw ("ColoUr is now OFF, <sigh>\n\r", ch);
+            send_to_char_bw ("Color is now off.\n\r", ch);
             REMOVE_BIT (ch->act, PLR_COLOUR);
         }
         return;
     }
-
-    if (!str_cmp (arg, "default"))
-    {
-        default_colour (ch);
-        send_to_char_bw ("ColoUr setting set to default values.\n\r", ch);
-        return;
-    }
-
-    if (!str_cmp (arg, "all"))
-    {
-        all_colour (ch, argument);
-        return;
-    }
-
-    /*
-     * Yes, I know this is ugly and unnessessary repetition, but its old
-     * and I can't justify the time to make it pretty. -Lope
-     */
-    if (!str_cmp (arg, "text"))
-    {
-    ALTER_COLOUR (text)}
-    else if (!str_cmp (arg, "auction"))
-    {
-    ALTER_COLOUR (auction)}
-    else if (!str_cmp (arg, "auction_text"))
-    {
-    ALTER_COLOUR (auction_text)}
-    else if (!str_cmp (arg, "gossip"))
-    {
-    ALTER_COLOUR (gossip)}
-    else if (!str_cmp (arg, "gossip_text"))
-    {
-    ALTER_COLOUR (gossip_text)}
-    else if (!str_cmp (arg, "music"))
-    {
-    ALTER_COLOUR (music)}
-    else if (!str_cmp (arg, "music_text"))
-    {
-    ALTER_COLOUR (music_text)}
-    else if (!str_cmp (arg, "question"))
-    {
-    ALTER_COLOUR (question)}
-    else if (!str_cmp (arg, "question_text"))
-    {
-    ALTER_COLOUR (question_text)}
-    else if (!str_cmp (arg, "answer"))
-    {
-    ALTER_COLOUR (answer)}
-    else if (!str_cmp (arg, "answer_text"))
-    {
-    ALTER_COLOUR (answer_text)}
-    else if (!str_cmp (arg, "quote"))
-    {
-    ALTER_COLOUR (quote)}
-    else if (!str_cmp (arg, "quote_text"))
-    {
-    ALTER_COLOUR (quote_text)}
-    else if (!str_cmp (arg, "immtalk_text"))
-    {
-    ALTER_COLOUR (immtalk_text)}
-    else if (!str_cmp (arg, "immtalk_type"))
-    {
-    ALTER_COLOUR (immtalk_type)}
-    else if (!str_cmp (arg, "info"))
-    {
-    ALTER_COLOUR (info)}
-    else if (!str_cmp (arg, "say"))
-    {
-    ALTER_COLOUR (say)}
-    else if (!str_cmp (arg, "say_text"))
-    {
-    ALTER_COLOUR (say_text)}
-    else if (!str_cmp (arg, "tell"))
-    {
-    ALTER_COLOUR (tell)}
-    else if (!str_cmp (arg, "tell_text"))
-    {
-    ALTER_COLOUR (tell_text)}
-    else if (!str_cmp (arg, "reply"))
-    {
-    ALTER_COLOUR (reply)}
-    else if (!str_cmp (arg, "reply_text"))
-    {
-    ALTER_COLOUR (reply_text)}
-    else if (!str_cmp (arg, "gtell_text"))
-    {
-    ALTER_COLOUR (gtell_text)}
-    else if (!str_cmp (arg, "gtell_type"))
-    {
-    ALTER_COLOUR (gtell_type)}
-    else if (!str_cmp (arg, "wiznet"))
-    {
-    ALTER_COLOUR (wiznet)}
-    else if (!str_cmp (arg, "room_title"))
-    {
-    ALTER_COLOUR (room_title)}
-    else if (!str_cmp (arg, "room_text"))
-    {
-    ALTER_COLOUR (room_text)}
-    else if (!str_cmp (arg, "room_exits"))
-    {
-    ALTER_COLOUR (room_exits)}
-    else if (!str_cmp (arg, "room_things"))
-    {
-    ALTER_COLOUR (room_things)}
-    else if (!str_cmp (arg, "prompt"))
-    {
-    ALTER_COLOUR (prompt)}
-    else if (!str_cmp (arg, "fight_death"))
-    {
-    ALTER_COLOUR (fight_death)}
-    else if (!str_cmp (arg, "fight_yhit"))
-    {
-    ALTER_COLOUR (fight_yhit)}
-    else if (!str_cmp (arg, "fight_ohit"))
-    {
-    ALTER_COLOUR (fight_ohit)}
-    else if (!str_cmp (arg, "fight_thit"))
-    {
-    ALTER_COLOUR (fight_thit)}
-    else if (!str_cmp (arg, "fight_skill"))
-    {
-    ALTER_COLOUR (fight_skill)}
-    else
-    {
-        send_to_char_bw ("Unrecognised Colour Parameter Not Set.\n\r", ch);
-        return;
-    }
-
-    send_to_char_bw ("New Colour Parameter Set.\n\r", ch);
-    return;
 }
