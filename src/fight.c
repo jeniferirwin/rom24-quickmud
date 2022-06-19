@@ -857,15 +857,15 @@ bool damage (CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt,
             break;
 
         case POS_DEAD:
-            act ("#R$n is DEAD!!#w", victim, 0, 0, TO_ROOM);
-            send_to_char ("#RYou have been KILLED!!#w\n\r\n\r", victim);
+            act ("#w$n is #rDEAD#w!!#w", victim, 0, 0, TO_ROOM);
+            send_to_char ("You have been #RKILLED#w!!\n\r\n\r", victim);
             break;
 
         default:
             if (dam > victim->max_hit / 4)
-                send_to_char ("#RThat really did HURT!#w\n\r", victim);
+                send_to_char ("#wThat really did #RHURT#w!#w\n\r", victim);
             if (victim->hit < victim->max_hit / 4)
-                send_to_char ("#RYou sure are BLEEDING!#w\n\r", victim);
+                send_to_char ("#wYou sure are #RBLEEDING#w!#w\n\r", victim);
             break;
     }
 
