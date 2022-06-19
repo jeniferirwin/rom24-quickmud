@@ -141,7 +141,7 @@ typedef void SPELL_FUN args( ( int sn, int level, CHAR_DATA *ch, void *vo,
 #define MAX_IN_GROUP       15
 #define MAX_ALIAS          5
 #define MAX_CLASS          4
-#define MAX_PC_RACE        5
+#define MAX_PC_RACE        6
 #define MAX_CLAN           3
 #define MAX_DAMAGE_MESSAGE 41
 #define MAX_LEVEL          60
@@ -944,6 +944,7 @@ struct    kill_data
 #define PART_HORNS              (W)
 #define PART_SCALES             (X)
 #define PART_TUSKS        (Y)
+#define PART_HOOVES             (Z)
 
 
 /*
