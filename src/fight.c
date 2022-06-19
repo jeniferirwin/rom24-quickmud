@@ -2040,132 +2040,139 @@ void dam_message (CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt,
     const char *vp;
     const char *attack;
     char punct;
-    int dam_percent = ((100 * dam) / victim->max_hit);
 
     if (ch == NULL || victim == NULL)
         return;
 
-
     if (dam == 0)
     {
         vs = "miss";
-        vp = "misses";
+        vs = "misses";
     }
-    else if (dam_percent <= 5)
+    else if (dam <= 4)
     {
-        vs = "scratch";
-        vp = "scratches";
+        vs = "{rscratch{x";
+        vp = "{rscratches{x";
     }
-    else if (dam_percent <= 10)
+    else if (dam <= 8)
     {
-        vs = "graze";
-        vp = "grazes";
+        vs = "{rgraze{x";
+        vp = "{rgrazes{x";
     }
-    else if (dam_percent <= 15)
+    else if (dam <= 12)
     {
-        vs = "hit";
-        vp = "hits";
+        vs = "{rhit{x";
+        vp = "{rhits{x";
     }
-    else if (dam_percent <= 20)
+    else if (dam <= 16)
     {
-        vs = "injure";
-        vp = "injures";
+        vs = "{rinjure{x";
+        vp = "{rinjures{x";
     }
-    else if (dam_percent <= 25)
+    else if (dam <= 20)
     {
-        vs = "wound";
-        vp = "wounds";
+        vs = "{rwound{x";
+        vp = "{rwounds{x";
     }
-    else if (dam_percent <= 30)
+    else if (dam <= 24)
     {
-        vs = "maul";
-        vp = "mauls";
+        vs = "{rmaul{x";
+        vp = "{rmauls{x";
     }
-    else if (dam_percent <= 35)
+    else if (dam <= 28)
     {
-        vs = "decimate";
-        vp = "decimates";
+        vs = "{rdecimate{x";
+        vp = "{rdecimates{x";
     }
-    else if (dam_percent <= 40)
+    else if (dam <= 32)
     {
-        vs = "devastate";
-        vp = "devastates";
+        vs = "{rdevastate{x";
+        vp = "{rdevastates{x";
+        
     }
-    else if (dam_percent <= 45)
+    else if (dam <= 36)
     {
-        vs = "maim";
-        vp = "maims";
+        vs = "{rmaim{x";
+        vp = "{rmaims{x";
     }
-    else if (dam_percent <= 50)
+    else if (dam <= 40)
     {
-        vs = "MUTILATE";
-        vp = "MUTILATES";
+        vs = "{rMUTILATE{x";
+        vp = "{rMUTILATES{x";
     }
-    else if (dam_percent <= 55)
+    else if (dam <= 44)
     {
-        vs = "DISEMBOWEL";
-        vp = "DISEMBOWELS";
+        vs = "{rDISEMBOWEL{x";
+        vp = "{rDISEMBOWELS{x";
     }
-    else if (dam_percent <= 60)
+    else if (dam <= 48)
     {
-        vs = "DISMEMBER";
-        vp = "DISMEMBERS";
+        vs = "{rDISMEMBER{x";
+        vp = "{rDISMEMBERS{x";
     }
-    else if (dam_percent <= 65)
+    else if (dam <= 52)
     {
-        vs = "MASSACRE";
-        vp = "MASSACRES";
+        vs = "{rMASSACRE{x";
+        vp = "{rMASSACRES{x";
     }
-    else if (dam_percent <= 70)
+    else if (dam <= 56)
     {
-        vs = "MANGLE";
-        vp = "MANGLES";
+        vs = "{rMANGLE{x";
+        vp = "{rMANGLES{x";
     }
-    else if (dam_percent <= 75)
+    else if (dam <= 60)
     {
-        vs = "*** DEMOLISH ***";
-        vp = "*** DEMOLISHES ***";
+        vs = "{W*** DEMOLISH ***{x";
+        vp = "{W*** DEMOLISHES ***{x";
     }
-    else if (dam_percent <= 80)
+    else if (dam <= 75)
     {
-        vs = "*** DEVASTATE ***";
-        vp = "*** DEVASTATES ***";
+        vs = "{W*** {rDEV{RAST{rATE {W***{x";
+        vp = "{W*** {rDEV{RAST{rATES {W***{x";
     }
-    else if (dam_percent <= 85)
+    else if (dam <= 100)
     {
-        vs = "=== OBLITERATE ===";
-        vp = "=== OBLITERATES ===";
+        vs = "{w=== {mOBLITERATE {w==={x";
+        vp = "{w=== {mOBLITERATES {w==={x";
     }
-    else if (dam_percent <= 90)
+    else if (dam <= 125)
     {
-        vs = ">>> ANNIHILATE <<<";
-        vp = ">>> ANNIHILATES <<<";
+        vs = "{w>>> {BANNIHILATE {w<<<{x";
+        vp = "{w>>> {BANNIHILATES {w<<<{x";
+        
     }
-    else if (dam_percent <= 95)
+    else if (dam <= 150)
     {
-        vs = "<<< ERADICATE >>>";
-        vp = "<<< ERADICATES >>>";
+        vs = "{w<<< {YERADICATE {w>>>{x";
+        vp = "{w<<< {YERADICATES {w>>>{x";
+        
+    }
+    else if (dam <= 300)
+    {
+        vs = "{wdo really {DUNKIND{w things to{x";
+        vp = "{wdoes really {DUNKIND{w things to{x";
+        
     }
     else
     {
-        vs = "do UNSPEAKABLE things to";
-        vp = "does UNSPEAKABLE things to";
+        vs = "{wdo ...{DUNSPEAKABLE{w... things to{x";
+        vp = "{wdoes ...{DUNSPEAKABLE{w... to{x";
     }
 
-    punct = (dam_percent <= 45) ? '.' : '!';
+    punct = (dam <= 40) ? '.' : '!';
 
     if (dt == TYPE_HIT)
     {
         if (ch == victim)
         {
-            sprintf (buf1, "{3$n %s $melf%c{x", vp, punct);
-            sprintf (buf2, "{2You %s yourself%c{x", vs, punct);
+            sprintf (buf1, "{x$n %s $melf%c{x", vp, punct);
+            sprintf (buf2, "{xYou %s yourself%c{x", vs, punct);
         }
         else
         {
-            sprintf (buf1, "{3$n %s $N%c{x", vp, punct);
-            sprintf (buf2, "{2You %s $N%c{x", vs, punct);
-            sprintf (buf3, "{4$n %s you%c{x", vp, punct);
+            sprintf (buf1, "{x$n %s $N%c{x", vp, punct);
+            sprintf (buf2, "{xYou %s $N%c{x", vs, punct);
+            sprintf (buf3, "{x$n %s you%c{x", vp, punct);
         }
     }
     else

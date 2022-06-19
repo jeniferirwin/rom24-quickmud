@@ -1770,8 +1770,8 @@ void reset_room (ROOM_INDEX_DATA * pRoom)
                     continue;
                 }
 
-                if (pRoom->area->nplayer > 0
-                    || count_obj_list (pObjIndex, pRoom->contents) > 0)
+                //if (pRoom->area->nplayer > 0 ||
+                if (count_obj_list (pObjIndex, pRoom->contents) > 0)
                 {
                     last = FALSE;
                     break;
@@ -1916,6 +1916,7 @@ void reset_room (ROOM_INDEX_DATA * pRoom)
                         }
 
                     pObj = create_object (pObjIndex, olevel);
+                    
                     SET_BIT (pObj->extra_flags, ITEM_INVENTORY);    /* ROM OLC */
 
 #if 0                            /* envy version */
