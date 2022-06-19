@@ -2047,7 +2047,7 @@ void dam_message (CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt,
     if (dam == 0)
     {
         vs = "miss";
-        vs = "misses";
+        vp = "misses";
     }
     else if (dam <= 4)
     {
@@ -2165,14 +2165,14 @@ void dam_message (CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt,
     {
         if (ch == victim)
         {
-            sprintf (buf1, "{x$n %s $melf%c{x", vp, punct);
-            sprintf (buf2, "{xYou %s yourself%c{x", vs, punct);
+            sprintf (buf1, "{x$n %s $melf%c {R({r%i{R){x", vp, punct, dam);
+            sprintf (buf2, "{xYou %s yourself%c {R({r%i{R){x", vs, punct, dam);
         }
         else
         {
-            sprintf (buf1, "{x$n %s $N%c{x", vp, punct);
-            sprintf (buf2, "{xYou %s $N%c{x", vs, punct);
-            sprintf (buf3, "{x$n %s you%c{x", vp, punct);
+            sprintf (buf1, "{x$n %s $N%c {R({r%i{R){x", vp, punct, dam);
+            sprintf (buf2, "{xYou %s $N%c {R({r%i{R){x", vs, punct, dam);
+            sprintf (buf3, "{x$n %s you%c {R({r%i{R){x", vp, punct, dam);
         }
     }
     else
@@ -2207,14 +2207,14 @@ void dam_message (CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt,
         {
             if (ch == victim)
             {
-                sprintf (buf1, "{3$n's %s %s $m%c{x", attack, vp, punct);
-                sprintf (buf2, "{2Your %s %s you%c{x", attack, vp, punct);
+                sprintf (buf1, "{3$n's %s %s $m%c {R({r%i{R){x", attack, vp, punct, dam);
+                sprintf (buf2, "{2Your %s %s you%c {{R({r%i{R){x", attack, vp, punct, dam);
             }
             else
             {
-                sprintf (buf1, "{3$n's %s %s $N%c{x", attack, vp, punct);
-                sprintf (buf2, "{2Your %s %s $N%c{x", attack, vp, punct);
-                sprintf (buf3, "{4$n's %s %s you%c{x", attack, vp, punct);
+                sprintf (buf1, "{3$n's %s %s $N%c {R({r%i{R){x", attack, vp, punct, dam);
+                sprintf (buf2, "{2Your %s %s $N%c {R({r%i{R){x", attack, vp, punct, dam);
+                sprintf (buf3, "{4$n's %s %s you%c {R({r%i{R){x", attack, vp, punct, dam);
             }
         }
     }
