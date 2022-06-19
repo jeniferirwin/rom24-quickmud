@@ -102,37 +102,37 @@ void do_channels (CHAR_DATA * ch, char *argument)
     send_to_char ("   channel     status\n\r", ch);
     send_to_char ("---------------------\n\r", ch);
 
-    send_to_char ("{dgossip{x         ", ch);
+    send_to_char ("{Cgossip{x         ", ch);
     if (!IS_SET (ch->comm, COMM_NOGOSSIP))
         send_to_char ("ON\n\r", ch);
     else
         send_to_char ("OFF\n\r", ch);
 
-    send_to_char ("{aauction{x        ", ch);
+    send_to_char ("{Gauction{x        ", ch);
     if (!IS_SET (ch->comm, COMM_NOAUCTION))
         send_to_char ("ON\n\r", ch);
     else
         send_to_char ("OFF\n\r", ch);
 
-    send_to_char ("{emusic{x          ", ch);
+    send_to_char ("{Bmusic{x          ", ch);
     if (!IS_SET (ch->comm, COMM_NOMUSIC))
         send_to_char ("ON\n\r", ch);
     else
         send_to_char ("OFF\n\r", ch);
 
-    send_to_char ("{qQ{x/{fA{x            ", ch);
+    send_to_char ("{WQ{x/{WA{x            ", ch);
     if (!IS_SET (ch->comm, COMM_NOQUESTION))
         send_to_char ("ON\n\r", ch);
     else
         send_to_char ("OFF\n\r", ch);
 
-    send_to_char ("{hQuote{x          ", ch);
+    send_to_char ("{wQuote{x          ", ch);
     if (!IS_SET (ch->comm, COMM_NOQUOTE))
         send_to_char ("ON\n\r", ch);
     else
         send_to_char ("OFF\n\r", ch);
 
-    send_to_char ("{tgrats{x          ", ch);
+    send_to_char ("{Ygrats{x          ", ch);
     if (!IS_SET (ch->comm, COMM_NOGRATS))
         send_to_char ("ON\n\r", ch);
     else
@@ -140,26 +140,26 @@ void do_channels (CHAR_DATA * ch, char *argument)
 
     if (IS_IMMORTAL (ch))
     {
-        send_to_char ("{igod channel{x    ", ch);
+        send_to_char ("{Rgod channel{x    ", ch);
         if (!IS_SET (ch->comm, COMM_NOWIZ))
             send_to_char ("ON\n\r", ch);
         else
             send_to_char ("OFF\n\r", ch);
     }
 
-    send_to_char ("{tshouts{x         ", ch);
+    send_to_char ("{Mshouts{x         ", ch);
     if (!IS_SET (ch->comm, COMM_SHOUTSOFF))
         send_to_char ("ON\n\r", ch);
     else
         send_to_char ("OFF\n\r", ch);
 
-    send_to_char ("{ktells{x          ", ch);
+    send_to_char ("{gtells{x          ", ch);
     if (!IS_SET (ch->comm, COMM_DEAF))
         send_to_char ("ON\n\r", ch);
     else
         send_to_char ("OFF\n\r", ch);
 
-    send_to_char ("{tquiet mode{x     ", ch);
+    send_to_char ("{wquiet mode{x     ", ch);
     if (IS_SET (ch->comm, COMM_QUIET))
         send_to_char ("ON\n\r", ch);
     else
@@ -282,12 +282,12 @@ void do_auction (CHAR_DATA * ch, char *argument)
     {
         if (IS_SET (ch->comm, COMM_NOAUCTION))
         {
-            send_to_char ("{aAuction channel is now ON.{x\n\r", ch);
+            send_to_char ("{GAuction channel is now {wON{G.{x\n\r", ch);
             REMOVE_BIT (ch->comm, COMM_NOAUCTION);
         }
         else
         {
-            send_to_char ("{aAuction channel is now OFF.{x\n\r", ch);
+            send_to_char ("{GAuction channel is now {wOFF{G.{x\n\r", ch);
             SET_BIT (ch->comm, COMM_NOAUCTION);
         }
     }
@@ -310,7 +310,7 @@ void do_auction (CHAR_DATA * ch, char *argument)
         REMOVE_BIT (ch->comm, COMM_NOAUCTION);
     }
 
-    sprintf (buf, "{aYou auction '{A%s{a'{x\n\r", argument);
+    sprintf (buf, "{GYou auction '{w%s{G'{x\n\r", argument);
     send_to_char (buf, ch);
     for (d = descriptor_list; d != NULL; d = d->next)
     {
@@ -323,7 +323,7 @@ void do_auction (CHAR_DATA * ch, char *argument)
             !IS_SET (victim->comm, COMM_NOAUCTION) &&
             !IS_SET (victim->comm, COMM_QUIET))
         {
-            act_new ("{a$n auctions '{A$t{a'{x",
+            act_new ("{G$n auctions '{w$t{G'{x",
                      ch, argument, d->character, TO_VICT, POS_DEAD);
         }
     }
@@ -339,12 +339,12 @@ void do_gossip (CHAR_DATA * ch, char *argument)
     {
         if (IS_SET (ch->comm, COMM_NOGOSSIP))
         {
-            send_to_char ("Gossip channel is now ON.\n\r", ch);
+            send_to_char ("{CGossip channel is now {cON{C.{x\n\r", ch);
             REMOVE_BIT (ch->comm, COMM_NOGOSSIP);
         }
         else
         {
-            send_to_char ("Gossip channel is now OFF.\n\r", ch);
+            send_to_char ("{CGossip channel is now {cOFF{C.{x\n\r", ch);
             SET_BIT (ch->comm, COMM_NOGOSSIP);
         }
     }
@@ -367,7 +367,7 @@ void do_gossip (CHAR_DATA * ch, char *argument)
 
         REMOVE_BIT (ch->comm, COMM_NOGOSSIP);
 
-        sprintf (buf, "{dYou gossip '{9%s{d'{x\n\r", argument);
+        sprintf (buf, "{CYou gossip '{c%s{C'{x\n\r", argument);
         send_to_char (buf, ch);
         for (d = descriptor_list; d != NULL; d = d->next)
         {
@@ -380,7 +380,7 @@ void do_gossip (CHAR_DATA * ch, char *argument)
                 !IS_SET (victim->comm, COMM_NOGOSSIP) &&
                 !IS_SET (victim->comm, COMM_QUIET))
             {
-                act_new ("{d$n gossips '{9$t{d'{x",
+                act_new ("{C$n gossips '{c$t{C'{x",
                          ch, argument, d->character, TO_VICT, POS_SLEEPING);
             }
         }
@@ -396,12 +396,12 @@ void do_grats (CHAR_DATA * ch, char *argument)
     {
         if (IS_SET (ch->comm, COMM_NOGRATS))
         {
-            send_to_char ("Grats channel is now ON.\n\r", ch);
+            send_to_char ("{YCongratulations is now ON.{x\n\r", ch);
             REMOVE_BIT (ch->comm, COMM_NOGRATS);
         }
         else
         {
-            send_to_char ("Grats channel is now OFF.\n\r", ch);
+            send_to_char ("{YCongratulations is now OFF.{x\n\r", ch);
             SET_BIT (ch->comm, COMM_NOGRATS);
         }
     }
@@ -417,14 +417,14 @@ void do_grats (CHAR_DATA * ch, char *argument)
         if (IS_SET (ch->comm, COMM_NOCHANNELS))
         {
             send_to_char
-                ("The gods have revoked your channel priviliges.\n\r", ch);
+                ("The gods have revoked your channel privileges.\n\r", ch);
             return;
 
         }
 
         REMOVE_BIT (ch->comm, COMM_NOGRATS);
 
-        sprintf (buf, "{tYou grats '%s'{x\n\r", argument);
+        sprintf (buf, "{YYou grats '%s'{x\n\r", argument);
         send_to_char (buf, ch);
         for (d = descriptor_list; d != NULL; d = d->next)
         {
@@ -437,7 +437,7 @@ void do_grats (CHAR_DATA * ch, char *argument)
                 !IS_SET (victim->comm, COMM_NOGRATS) &&
                 !IS_SET (victim->comm, COMM_QUIET))
             {
-                act_new ("{t$n grats '$t'{x",
+                act_new ("{Y$n grats '$t'{x",
                          ch, argument, d->character, TO_VICT, POS_SLEEPING);
             }
         }
