@@ -23,6 +23,7 @@ ABJKRVb DF 0 0
 FHN ABCD 0 0
 stand stand male 15000
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9501
 cleric guildmaster~
 the guildmaster~
@@ -37,6 +38,7 @@ ABJKQVb DFH 250 0
 EFGIK ABCD 0 0
 stand stand male 15000
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9502
 warrior guildmaster~
 the guildmaster~
@@ -51,6 +53,7 @@ ABJKTVb DF 0 0
 ACEFHIK ABCD 0 0
 stand stand male 15000
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9503
 thief guildmaster~
 the guildmaster~
@@ -67,6 +70,7 @@ ABJKTVb DFJ -100 0
 BEFHJKN ABCD B Z
 stand stand male 35000
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9504
 oldstyle receptionist~
 the receptionist~
@@ -83,6 +87,7 @@ AB 0 800 0
 EFNU 0 0 0
 sit sit female 505
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9505
 oldstyle bartender~
@@ -98,6 +103,7 @@ ABRVXYZ D 800 0
 EFNU 0 0 0
 stand stand male 505
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9506
 oldstyle john brother singer lead~
@@ -113,6 +119,7 @@ ABG D 0 0
 EFNU 0 0 0
 stand stand male 250
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9507
 oldstyle panhandler~
@@ -128,6 +135,7 @@ ACGH 0 -20 0
 EFNU 0 0 0
 rest rest male 1
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9508
 oldstyle panhandler~
@@ -143,6 +151,7 @@ ACGH 0 -20 0
 EFNU 0 0 0
 rest rest male 2
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9509
 oldstyle beggar~
@@ -158,6 +167,7 @@ ACGHS 0 -20 0
 EFNU 0 0 0
 stand stand male 1
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9510
 oldstyle baker~
@@ -173,6 +183,7 @@ ABVXYZ D 800 0
 EFNU 0 0 0
 stand stand male 505
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9511
 oldstyle shopkeeper~
@@ -188,6 +199,7 @@ ABVXYZ D 800 0
 EFNU 0 0 0
 stand stand male 505
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9512
 oldstyle Nabil shopkeeper~
@@ -205,6 +217,7 @@ AB D 800 0
 EFNU ABCD 0 0
 stand stand male 505
 AHMV ABCDEF medium unknown
+0 
 F par GHIJK
 #9513
 oldstyle ahkeem tailor~
@@ -221,6 +234,7 @@ ABVXYZ D 800 0
 EFNU 0 0 0
 stand stand male 505
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9514
 oldstyle vera~
@@ -236,6 +250,7 @@ ABVXYZ D 800 0
 EFNU 0 0 0
 stand stand female 505
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9515
 oldstyle butch~
@@ -252,6 +267,7 @@ ABTVXYZ D 800 0
 EFNU 0 0 0
 stand stand male 505
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9516
 oldstyle abdul armorer~
@@ -268,6 +284,7 @@ ABTVXYZ D 800 0
 EFNU 0 0 0
 stand stand male 505
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9517
 oldstyle igor weaponsmith~
@@ -283,6 +300,7 @@ ABTVXYZ D 800 0
 EFNU 0 0 0
 stand stand male 505
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9518
 oldstyle cassandra~
@@ -300,6 +318,7 @@ AB D 800 0
 EFNU 0 0 0
 stand stand female 505
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9519
 oldstyle foreman man~
@@ -316,6 +335,7 @@ ABGT 0 0 0
 EFNU 0 0 0
 stand stand male 125
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9520
 oldstyle construction worker~
@@ -331,6 +351,7 @@ ABGT 0 10 0
 EFNU 0 0 0
 stand stand male 45
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9521
 oldstyle statue~
@@ -345,6 +366,7 @@ ABQTX 0 1000 0
 EIKU 0 0 0
 stand stand female 1150
 AHMV ABCDEF huge unknown
+0 
 F par GHIJK
 #9522
 oldstyle statue~
@@ -362,6 +384,7 @@ ABQTX 0 1000 0
 EIKU 0 0 0
 stand stand male 1150
 AHMV ABCDEF huge unknown
+0 
 F par GHIJK
 #9523
 oldstyle statue~
@@ -377,6 +400,7 @@ ABQTX 0 1000 0
 EIKU 0 0 0
 stand stand male 1150
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9524
 oldstyle statue~
@@ -393,6 +417,7 @@ ABQTX 0 1000 0
 EIKU 0 0 0
 stand stand male 1190
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9525
 oldstyle statue~
@@ -409,6 +434,7 @@ ABQTX 0 1000 0
 EIKU 0 0 0
 stand stand female 1150
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9526
 oldstyle statue~
@@ -425,6 +451,7 @@ ABQTX 0 1000 0
 EIKU 0 0 0
 stand stand female 1150
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9527
 oldstyle statue~
@@ -440,6 +467,7 @@ ABQRTX 0 1000 0
 EIKU 0 0 0
 stand stand male 3250
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9528
 oldstyle statue~
@@ -456,6 +484,7 @@ ABQRTUWX 0 1000 0
 EIKU 0 0 0
 stand stand male 3250
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9529
 oldstyle aziz~
@@ -471,6 +500,7 @@ ACGHQR D 0 0
 FU 0 0 0
 stand stand male 65
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9530
 oldstyle mustafah~
@@ -486,6 +516,7 @@ ACGHS DF 0 0
 BEFJNU 0 0 0
 stand stand male 11
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9531
 oldstyle fatima~
@@ -501,6 +532,7 @@ ACGHRU D 0 0
 FU 0 0 0
 stand stand male 30
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9532
 oldstyle kareem~
@@ -516,6 +548,7 @@ ACGHT D 0 0
 CDEIKLU 0 0 0
 stand stand male 60
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9533
 oldstyle nomad merchant~
@@ -532,6 +565,7 @@ ACFHT 0 -100 0
 EFNU 0 0 0
 stand stand male 45
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9534
 oldstyle bodyguard~
@@ -547,6 +581,7 @@ AGT 0 0 0
 EFNU 0 0 0
 stand stand male 60
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9535
 oldstyle kid thief~
@@ -562,6 +597,7 @@ ACHS DF 100 0
 BEFJNU 0 0 0
 stand stand male 11
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9536
 oldstyle dockworker~
@@ -578,6 +614,7 @@ AGT 0 0 0
 EFNU 0 0 0
 stand stand male 60
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9537
 oldstyle man tax collector~
@@ -594,6 +631,7 @@ AGH 0 0 0
 EFNU 0 0 0
 stand stand male 3
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9538
 oldstyle gord~
@@ -609,6 +647,7 @@ ACGSTU DF -200 0
 BEFJNU 0 0 0
 stand stand male 615
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9539
 oldstyle caramon~
@@ -624,6 +663,7 @@ AGTU 0 -200 0
 CDEIKLU 0 0 0
 stand stand male 615
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9540
 oldstyle raistlin~
@@ -639,6 +679,7 @@ ACGHR D 200 0
 FU 0 0 0
 stand stand male 615
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9541
 oldstyle curley greenleaf~
@@ -654,6 +695,7 @@ AGQT D 0 0
 EIKU 0 0 0
 stand stand male 615
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9542
 oldstyle man wandering prophet~
@@ -670,6 +712,7 @@ AHQ 0 0 0
 EIKU 0 0 0
 stand stand male 11
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9543
 oldstyle alley cat feline~
@@ -685,6 +728,7 @@ ACHU 0 -10 0
 EFNU 0 0 0
 stand stand male 1
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9544
 oldstyle vulture~
@@ -700,6 +744,7 @@ AGH 0 -200 0
 EFNU 0 0 0
 stand stand male 0
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9545
 oldstyle old man~
@@ -715,6 +760,7 @@ AH 0 200 0
 EFNU 0 0 0
 stand stand male 3
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9546
 oldstyle conan librarian~
@@ -730,6 +776,7 @@ ABETU 0 300 0
 EFNU 0 0 0
 sit sit male 345
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9547
 oldstyle dirt devil~
@@ -745,6 +792,7 @@ ACFU 0 -1000 0
 EFNU 0 0 0
 stand stand male 1
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9548
 oldstyle lamia~
@@ -760,6 +808,7 @@ ACFRT 0 -500 0
 FU 0 0 0
 stand stand female 18
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9549
 oldstyle dervish~
@@ -775,6 +824,7 @@ AEFR U -750 0
 EFNU 0 0 0
 stand stand male 30
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9550
 oldstyle sultan~
@@ -790,6 +840,7 @@ ABTW D 200 0
 EFNU 0 0 0
 rest rest male 2200
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9551
 oldstyle harem girl~
@@ -806,6 +857,7 @@ AB 0 0 0
 EFNU 0 0 0
 stand stand female 2
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9552
 oldstyle jailer~
@@ -822,6 +874,7 @@ ABCHT D -100 0
 EFNU 0 0 0
 sleep sleep male 250
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9553
 oldstyle eunuch~
@@ -838,6 +891,7 @@ ABFT D 0 0
 EFNU 0 0 0
 stand stand none 125
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9554
 oldstyle sultans favorite girl nichole~
@@ -854,6 +908,7 @@ AET D 100 0
 EFNU 0 0 0
 rest rest female 345
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9555
 oldstyle allah~
@@ -869,6 +924,7 @@ ABQRTUWX DHU 1000 0
 EIKU 0 0 0
 rest rest none 1400
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9556
 oldstyle mage guildguard~
@@ -884,6 +940,7 @@ ABRT D 0 0
 EFNU 0 0 0
 stand stand male 395
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9557
 oldstyle cleric guildguard~
@@ -899,6 +956,7 @@ ABQT D 0 0
 EFNU 0 0 0
 stand stand male 395
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9558
 oldstyle warrior guildguard~
@@ -914,6 +972,7 @@ ABTU D 0 0
 EFNU 0 0 0
 stand stand male 395
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9559
 oldstyle thief guildguard~
@@ -930,6 +989,7 @@ ABST D 0 0
 EFNU 0 0 0
 stand stand male 395
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9560
 oldstyle servant boy~
@@ -945,6 +1005,7 @@ AG 0 0 0
 EFNU 0 0 0
 stand stand male 1
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9561
 oldstyle sultans guard~
@@ -960,6 +1021,7 @@ AGHT 0 1000 0
 CDEIKLU 0 0 0
 stand stand male 45
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9562
 oldstyle sultans guard~
@@ -975,6 +1037,7 @@ ABGT 0 1000 0
 CDEIKLU 0 0 0
 stand stand male 45
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9563
 oldstyle sultans guard chief~
@@ -990,6 +1053,7 @@ ABGTU D 1000 0
 EFNU 0 0 0
 stand stand male 345
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9564
 oldstyle mercenary~
@@ -1005,6 +1069,7 @@ ABTU 0 0 0
 CDEIKLU 0 0 0
 stand stand male 3
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9565
 oldstyle shipwright captain~
@@ -1021,6 +1086,7 @@ ABVXYZ 0 0 0
 EFNU 0 0 0
 stand stand male 1150
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9566
 oldstyle blacksmith~
@@ -1037,6 +1103,7 @@ ABVXYZ 0 0 0
 EFNU 0 0 0
 stand stand male 1150
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9567
 oldstyle horse~
@@ -1052,6 +1119,7 @@ ACGHU 0 0 0
 EFNU 0 0 0
 stand stand male 3
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9568
 oldstyle tourist~
@@ -1069,6 +1137,7 @@ ACGH 0 0 0
 EFNU 0 0 0
 stand stand male 3
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9569
 oldstyle shelbye~
@@ -1084,6 +1153,7 @@ A 0 -1000 0
 EFNU 0 0 0
 stand stand male 1150
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9570
 oldstyle cryohydra~
@@ -1099,6 +1169,7 @@ AFGTW 0 0 0
 EFNU 0 0 0
 stand stand none 18
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9571
 oldstyle giant minotaur lizard~
@@ -1114,6 +1185,7 @@ AFGT 0 0 0
 EFNR 0 HI JP
 stand stand none 18
 AHMV ABCDEFGHIJK tiny unknown
+0 
 #9572
 oldstyle dog death~
 the death dog~
@@ -1128,6 +1200,7 @@ AFGU 0 0 0
 EFHNR 0 0 0
 stand stand none 18
 AGV ACDEFHJKUV tiny unknown
+0 
 #9573
 oldstyle lion spotted~
 the spotted lion~
@@ -1142,6 +1215,7 @@ AFGU 0 0 0
 EFNU 0 0 0
 stand stand none 18
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9574
 oldstyle behir~
@@ -1157,6 +1231,7 @@ ABFT D -300 0
 EFNU 0 0 0
 stand stand male 60
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9575
 oldstyle chimera~
@@ -1174,6 +1249,7 @@ ABFT D -500 0
 EFNU 0 0 0
 stand stand male 30
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9576
 oldstyle couatl~
@@ -1190,6 +1266,7 @@ ABEQU B 300 0
 EFNU 0 0 0
 stand stand male 125
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9577
 oldstyle giant hornet~
@@ -1206,6 +1283,7 @@ AFGU 0 0 0
 EFNR 0 HI JP
 stand stand male 3
 AHMV ABCDEFGHIJK tiny unknown
+0 
 #9578
 oldstyle pegasus~
 the pegasus~
@@ -1221,6 +1299,7 @@ ABHU 0 1000 0
 EFNU 0 0 0
 stand stand male 45
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9579
 oldstyle elvira~
@@ -1237,6 +1316,7 @@ ABRVXYZ 0 0 0
 EFNU 0 0 0
 stand stand female 1190
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9580
 oldstyle braheem~
@@ -1252,6 +1332,7 @@ ABRVXYZ 0 0 0
 EFNU 0 0 0
 stand stand male 1190
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9581
 oldstyle high priest~
@@ -1267,6 +1348,7 @@ ABEQ DH 1000 0
 EFNU 0 0 0
 stand stand male 1190
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9582
 oldstyle royal guard elite~
@@ -1283,6 +1365,7 @@ AGHTU D 1000 0
 CDEIKLU 0 0 0
 stand stand male 1250
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9583
 oldstyle patch bartender~
@@ -1299,6 +1382,7 @@ ABHVXYZ D -500 0
 EFNU 0 0 0
 stand stand male 345
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9584
 oldstyle stitch~
@@ -1315,6 +1399,7 @@ ABHVXYZ D -500 0
 EFNU 0 0 0
 stand stand male 345
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9585
 oldstyle gardener small elf~
@@ -1331,6 +1416,7 @@ ABU 0 0 0
 EFNU 0 0 0
 stand stand male 345
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9586
 oldstyle nightmare demon horse~
@@ -1348,6 +1434,7 @@ ABGTU BDU 1000 0
 EFNU 0 0 0
 stand stand female 60
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9587
 oldstyle wolverine~
@@ -1364,6 +1451,7 @@ ABETUW D 0 0
 EFNU 0 0 0
 stand stand female 60
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9588
 oldstyle mimic painting~
@@ -1379,6 +1467,7 @@ ABR 0 0 0
 EFNU 0 0 0
 stand stand male 45
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9589
 oldstyle mayor~
@@ -1394,6 +1483,7 @@ AG 0 1000 0
 EFNU 0 0 0
 stand stand male 345
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9590
 oldstyle chef~
@@ -1409,6 +1499,7 @@ AB 0 400 0
 EFNU 0 0 0
 stand stand male 345
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9591
 oldstyle ixitxachitl~
@@ -1424,6 +1515,7 @@ ABEQT D -500 0
 EFNU 0 0 0
 stand stand none 1190
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #9592
 oldstyle guard bodyguard~
@@ -1439,6 +1531,7 @@ AT 0 1000 0
 CDEIKLU 0 0 0
 stand stand male 45
 AHMV ABCDEF tiny unknown
+0 
 F par GHIJK
 #0
 
@@ -2224,9 +2317,9 @@ armor G AG
 A A A 0 0
 7 10 770 P
 A
-2 1
-A
 14 10
+A
+2 1
 #9598
 daemon claw~
 the Daemon Claw~
@@ -2254,9 +2347,9 @@ weapon GI AN
 polearm 3 7 chop F
 22 160 1240 P
 A
-18 2
-A
 19 2
+A
+18 2
 #9601
 fountain water~
 a fountain~
@@ -2317,14 +2410,9 @@ tavern of the Dancing Daemon Inn, and your future adventures in New Thalos.
 ~
 0 124 0
 E
-4.picture~
-You see a picture of Loki... at least you think it's Loki.
-He seems to be hiding from the camera.
-~
-E
-3.picture~
-You see a picture of Hammor on the front porch of the Danjerhaus,
-drinking a guinness stout and petting Big Guy the Cat.
+1.1picture~
+You see a picture of Felix here, standing before the arena.
+He seems to be doing a body count.
 ~
 E
 2.picture~
@@ -2333,9 +2421,14 @@ Through a window in the back you see a large aquarium. The newbie seems to
 be cowering in fear.
 ~
 E
-1.1picture~
-You see a picture of Felix here, standing before the arena.
-He seems to be doing a body count.
+3.picture~
+You see a picture of Hammor on the front porch of the Danjerhaus,
+drinking a guinness stout and petting Big Guy the Cat.
+~
+E
+4.picture~
+You see a picture of Loki... at least you think it's Loki.
+He seems to be hiding from the camera.
 ~
 D5
 The stairs lead down to the Daemon.
@@ -4668,10 +4761,6 @@ blood, there is a barely readable sign.
 ~
 0 120 0
 E
-vat~
-You think you hear noises from the vat....nah.
-~
-E
 note sign~
 LIST : gives you a list of items for sale.
 VALUE : tells you how much an item is worth
@@ -4679,6 +4768,10 @@ SELL : sells an item to Butch for a generous sum
 BUY : Butch's FAVORITE command lets you have an item for his low low price.
 
                                         NEWBEE INTRUCTOR COMMITEE
+~
+E
+vat~
+You think you hear noises from the vat....nah.
 ~
 D3
 ~
@@ -5594,13 +5687,13 @@ hallway.
 ~
 0 8 0
 E
+mirror~
+You see a the fighting image of some armor clad humanoid wielding a weapon.
+~
+E
 window~
 Looking out this window you can see the grounds of the palace that
 seperate the walls of the palace from the building itself.
-~
-E
-mirror~
-You see a the fighting image of some armor clad humanoid wielding a weapon.
 ~
 D0
 ~

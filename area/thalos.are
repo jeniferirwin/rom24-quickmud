@@ -25,6 +25,7 @@ ABFHR D -870 0
 FU 0 0 0
 stand stand none 1128
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5201
 oldstyle lamia beast~
 The lamia~
@@ -40,6 +41,7 @@ ACFG 0 -999 0
 EFNU 0 0 0
 stand stand female 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5202
 oldstyle mimic chest~
 The mimic~
@@ -55,6 +57,7 @@ ABCFGH P 10 0
 EFNU 0 0 0
 stand stand none 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5203
 oldstyle mimic boulder~
 The mimic~
@@ -68,6 +71,7 @@ ABCFGH P -10 0
 EFNU 0 0 0
 stand stand none 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5204
 oldstyle mimic floor~
 The mimic~
@@ -81,6 +85,7 @@ ABCFGH P -140 0
 EFNU 0 0 0
 stand stand none 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5205
 oldstyle mimic pottery~
 The mimic~
@@ -94,6 +99,7 @@ ABCFGH P 200 0
 EFNU 0 0 0
 stand stand none 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5206
 oldstyle mimic planks~
 The mimic~
@@ -107,6 +113,7 @@ ABCFGH P 0 0
 EFNU 0 0 0
 stand stand none 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5207
 oldstyle lizard horned~
 The horned lizard~
@@ -121,6 +128,7 @@ AH 0 0 0
 EFNR 0 L I
 stand stand none 0
 AGXc ACDEFHKQV medium unknown
+0 
 #5208
 oldstyle golem stone~
 The stone golem~
@@ -136,6 +144,7 @@ AB N 600 0
 EFNU 0 0 0
 stand stand none 212
 AHMV ABCDEFGHIJK medium unknown
+0 
 #0
 
 
@@ -150,9 +159,9 @@ armor GK AD
 D D D B 0
 26 300 7600 P
 A
-1 2
-A
 19 1
+A
+1 2
 #5201
 helm mithril~
 a mithril helm~
@@ -172,9 +181,9 @@ armor GK AH
 D D D B 0
 25 100 2700 P
 A
-19 1
-A
 18 1
+A
+19 1
 #5203
 sleeves mithril~
 some mithril sleeves~
@@ -184,9 +193,9 @@ armor GK AI
 D D D B 0
 25 100 2700 P
 A
-19 1
-A
 18 1
+A
+19 1
 #5204
 boots mithril~
 a pair of mithril boots~
@@ -196,9 +205,9 @@ armor GK AG
 D D D B 0
 25 60 3100 P
 A
-2 1
-A
 18 1
+A
+2 1
 #5205
 leggings mithril~
 a set of mithril leggings~
@@ -208,9 +217,9 @@ armor GK AF
 D D D B 0
 25 100 3100 P
 A
-2 1
-A
 18 1
+A
+2 1
 #5206
 girth mithril~
 a mithril girth~
@@ -302,9 +311,9 @@ jewelry AG AC
 0 0 0 0 0
 0 110 0 P
 A
-2 -8
-A
 1 -10
+A
+2 -8
 #5219
 venison chunk~
 a chunk of venison~
@@ -330,9 +339,9 @@ weapon GK AN
 sword 2 12 chop F
 26 240 3300 P
 A
-19 3
-A
 18 2
+A
+19 3
 #5222
 robe black silk~
 a black silk robe~
@@ -518,9 +527,9 @@ weapon G AN
 dagger 2 5 pierce 0
 8 10 590 P
 A
-19 1
-A
 18 1
+A
+19 1
 #0
 
 
@@ -1864,15 +1873,15 @@ Some writings are on this wall.
 ~
 0 1 3
 E
-skeleton skeletons~
-Something is strange about these skeletons.  Upon further investigation, these
-skeletons appear illusionary.
-~
-E
 writings writing words~
 This cave along with the valley and dwarf forest is made by Hatchet for any
 Merc Mud.
 copyright 1992
+~
+E
+skeleton skeletons~
+Something is strange about these skeletons.  Upon further investigation, these
+skeletons appear illusionary.
 ~
 D0
 You see more of the cave.

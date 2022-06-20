@@ -22,21 +22,21 @@ ABJKTab H 0 0
 0 ABCD 0 0
 stand stand none 0
 AHMV ABCDEFGHIJK medium unknown
+A 
 #32601
 Karen~
-(no short description)~
-(no long description)
+Karen~
+Karen demands to see the manager!
 ~
 ~
 human~
-A H 0 0
-91 0 0d0+0 0d0+0 0d0+0 none
+A H -1000 0
+91 0 1d1+29999 0d0+0 0d0+0 none
 -70 -70 -70 -70
 0 0 0 0
-stand stand none 0
-0 0 medium unknown
-F for AHMV
-F par ABCDEFGHIJK
+stand stand female 0
+ABHMV ABCDEFGHIJK medium unknown
+A 
 #0
 
 
@@ -72,6 +72,7 @@ S
 #RESETS
 O 0 32600 0 32600 A glock loaded to Liminal Space
 M 0 32600 1 32600 1 Load Morpheus
+M 0 32601 1 32600 1 Load Karen
 S
 
 

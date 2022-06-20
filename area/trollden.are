@@ -25,6 +25,7 @@ ABCFG DPQ -200 0
 EFNU 0 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2801
 oldstyle young troll~
 the young troll~
@@ -41,6 +42,7 @@ ACFG P -500 0
 EFNU 0 0 0
 sit stand male 25
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2802
 oldstyle medium troll~
 the medium troll~
@@ -57,6 +59,7 @@ ABCFG P -500 0
 EFNU 0 0 0
 stand stand male 75
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2803
 oldstyle baby troll~
 a baby troll~
@@ -73,6 +76,7 @@ ABCF P -100 0
 EFNU 0 0 0
 sit stand male 12
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2804
 oldstyle giant troll~
 the giant troll~
@@ -89,6 +93,7 @@ ABCFG P -1000 0
 EFNR 0 HI JP
 rest stand male 150
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2805
 oldstyle large troll female~
 the large female troll~
@@ -105,6 +110,7 @@ ABCFG P -800 0
 EFNU 0 0 0
 rest stand female 125
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2806
 oldstyle fat worm~
 a fat worm~
@@ -120,6 +126,7 @@ ACFH PQ 0 0
 EFNU 0 0 0
 stand stand none 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2807
 oldstyle roving beast~
 the roving beast~
@@ -137,6 +144,7 @@ ABCFG DP -200 0
 EFNU 0 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2808
 oldstyle medium troll~
 the medium troll~
@@ -153,6 +161,7 @@ ACFG P -500 0
 EFNU 0 0 0
 stand stand male 75
 AHMV ABCDEFGHIJK medium unknown
+0 
 #0
 
 
@@ -224,9 +233,9 @@ weapon 0 AN
 mace 3 3 pound 0
 6 30 350 P
 A
-18 -1
-A
 19 -1
+A
+18 -1
 E
 bone~
 This piece of bone looks sturdy enough to be used as a weapon, but you

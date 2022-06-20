@@ -23,6 +23,7 @@ ABGQTV CH 1000 0
 ACEFHIKN ABCD 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #3701
 blob~
 the blob~
@@ -39,6 +40,7 @@ ABG C 0 0
 AN AB CD 0
 stand stand none 0
 BSc 0 large unknown
+0 
 #3702
 monster~
 the monster~
@@ -54,6 +56,7 @@ ABU 0 0 0
 0 AB 0 C
 stand stand none 10
 AMV ABCDEFHJKQU medium unknown
+0 
 #3703
 monster wimpy~
 the wimpy monster~
@@ -69,6 +72,7 @@ ABHU 0 0 0
 O AB 0 C
 stand stand none 10
 AMV ABCDEFHJKQU medium unknown
+0 
 #3704
 monster aggressive~
 the aggressive monster~
@@ -84,6 +88,7 @@ ABFU 0 0 0
 EK AB 0 C
 stand stand none 10
 AMV ABCDEFHJKQU medium unknown
+0 
 #3705
 monster wimpy aggressive~
 the wimpy aggressive monster~
@@ -99,6 +104,7 @@ ABFHU 0 0 0
 J AB 0 C
 stand stand none 10
 AMV ABCDEFHJKQU medium unknown
+0 
 #3706
 big creature~
 the big creature~
@@ -114,6 +120,7 @@ ABU JZ 0 0
 FN AB 0 C
 stand stand none 25
 AMV ABCDEFHJKQU medium unknown
+0 
 #3707
 adept cleric~
 the adept of Satin~
@@ -128,6 +135,7 @@ ABGQTV CH 1000 0
 ACEFHIKN ABCD 0 0
 stand stand female 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #3708
 adept~
 the adept of Alander~
@@ -142,6 +150,7 @@ ABGQTV CH 1000 0
 ACEFHIKN ABCD 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #3709
 rabbit~
 the rabbit~
@@ -156,6 +165,7 @@ AGHU 0 100 0
 FH 0 0 0
 stand stand either 0
 AGV ACDEFHJK tiny unknown
+0 
 #3710
 lizard~
 the lizard~
@@ -170,6 +180,7 @@ AGU 0 -100 0
 R 0 L I
 stand stand either 0
 AGXc ACDEFHKQV small unknown
+0 
 #3711
 boar~
 the boar~
@@ -184,6 +195,7 @@ AGU 0 0 0
 CDFR 0 0 0
 stand stand either 0
 AGV ACDEFHJK medium unknown
+0 
 #3712
 fox~
 the fox~
@@ -198,6 +210,7 @@ AGHU Z 100 0
 FHNR 0 0 0
 stand stand either 0
 AGV ACDEFHJKQV small unknown
+0 
 #3713
 snail~
 the snail~
@@ -212,6 +225,7 @@ AGU 0 0 0
 0 0 0 0
 stand stand none 0
 AGQc AFHM tiny unknown
+0 
 #3714
 beast~
 the beast~
@@ -226,6 +240,7 @@ AFTU Z 0 0
 EKM AB HI C
 stand stand none 50
 AMV ABCDEFHJKQU large unknown
+0 
 #3715
 bear~
 the bear~
@@ -240,6 +255,7 @@ AGU 0 0 0
 CDEOR 0 EI 0
 stand stand either 0
 AGV ABCDEFHJKUV large unknown
+0 
 #3716
 wolf~
 the wolf~
@@ -254,6 +270,7 @@ AGU Z 0 0
 FHNR 0 0 0
 stand stand either 0
 AGV ACDEFJKQV medium unknown
+0 
 #3717
 adept cleric~
 the adept of Selene~
@@ -268,6 +285,7 @@ ABCQTV CH 1000 0
 ACEFHIKN ABCD 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #3718
 adept cleric~
 the adept of Furey~
@@ -282,6 +300,7 @@ ABCJQTV CH 1000 0
 ACEFHIKN ABCD 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #3719
 priest cleric~
 the priest of Circe~
@@ -296,6 +315,7 @@ ABCKQTV CH 1000 0
 ACEFHIKN ABCD 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #3720
 diploma beast~
 the diploma beast~
@@ -311,6 +331,7 @@ ABU J 0 0
 EFN AB 0 C
 stand stand none 30
 AMV ABCDEFHJKQU medium unknown
+0 
 #0
 
 
@@ -521,9 +542,9 @@ treasure GU AO
 0 0 0 0 0
 0 10 1140 P
 A
-4 1
-A
 5 1
+A
+4 1
 E
 diploma~
 This document shows that you have graduated from Mud School.
@@ -540,9 +561,9 @@ light AG A
 0 0 DGH 0 0
 0 20 380 P
 A
-17 -1
-A
 20 -1
+A
+17 -1
 E
 banner~
 This is the official Merc war banner to see you through the darkest realm!
@@ -571,9 +592,9 @@ weapon U AN
 staff 1 5 pound F
 1 40 290 P
 A
-18 2
-A
 19 1
+A
+18 2
 E
 staff~
 You see a staff of great but cheap craftsmanship.  Imprinted on the side is:
@@ -678,6 +699,11 @@ wall.
 ~
 0 131084 0
 E
+plaque~
+This zone (Mud School) is created by Hatchet for any Merc Mud.
+Copyright 1992, 1993.
+~
+E
 sign~
 Equipment check time!  Type 'EQUIPMENT' to see your current equipment.  Right
 now, you have just a vest, a shield, and a weapon.  As you go through Mud
@@ -692,11 +718,6 @@ To stop using a piece of equipment, type 'REMOVE item'.
 Finally, to see the items in your inventory, type 'INVENTORY'.
 
 When you are ready to continue, go west.
-~
-E
-plaque~
-This zone (Mud School) is created by Hatchet for any Merc Mud.
-Copyright 1992, 1993.
 ~
 D2
 You see a path into another room.

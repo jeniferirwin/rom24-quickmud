@@ -26,6 +26,7 @@ ACT N 1000 0
 CDEIKLU 0 0 0
 stand stand male 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #601
 oldstyle marshall diana~
 Marshall Diana~
@@ -44,6 +45,7 @@ ABQ DHN 1000 0
 EIKU 0 0 0
 stand stand female 250
 AHMV ABCDEFGHIJK medium unknown
+0 
 #602
 oldstyle derrick captain guard cityguard~
 Captain Derrick~
@@ -61,6 +63,7 @@ AGQ DHN 1000 0
 EIKU 0 0 0
 stand stand male 250
 AHMV ABCDEFGHIJK medium unknown
+0 
 #603
 oldstyle jacklyn captain guard cityguard~
 Captain Jacklyn~
@@ -79,6 +82,7 @@ ABR DN 1000 0
 FU 0 0 0
 stand stand female 250
 AHMV ABCDEFGHIJK medium unknown
+0 
 #604
 oldstyle jim blacksmith~
 Jim the Blacksmith~
@@ -95,6 +99,7 @@ AB N 1000 0
 EFNU 0 0 0
 stand stand male 3750
 AHMV ABCDEFGHIJK medium unknown
+0 
 #605
 oldstyle sam~
 Sam~
@@ -110,6 +115,7 @@ AB N 1000 0
 EFNU 0 0 0
 stand stand male 750
 AHMV ABCDEFGHIJK medium unknown
+0 
 #606
 oldstyle madam tracy~
 Madam Tracy~
@@ -126,6 +132,7 @@ AB N 1000 0
 EFNU 0 0 0
 stand stand female 1250
 AHMV ABCDEFGHIJK medium unknown
+0 
 #607
 oldstyle marty~
 Marty~
@@ -142,6 +149,7 @@ AB N 1000 0
 EFNU 0 0 0
 stand stand male 250
 AHMV ABCDEFGHIJK medium unknown
+0 
 #608
 oldstyle elizabeth farmer~
 Farmer Elizabeth~
@@ -159,6 +167,7 @@ AB N 1000 0
 EFNU 0 0 0
 stand stand female 250
 AHMV ABCDEFGHIJK medium unknown
+0 
 #609
 oldstyle granny jenkins~
 Granny Jenkins~
@@ -176,6 +185,7 @@ AB N 500 0
 EFNU 0 0 0
 stand stand female 5
 AHMV ABCDEFGHIJK medium unknown
+0 
 #610
 oldstyle jack~
 Jack~
@@ -192,6 +202,7 @@ ABFH 0 200 0
 EFNU 0 0 0
 stand stand male 5
 AHMV ABCDEFGHIJK medium unknown
+0 
 #611
 oldstyle Sarah farmer~
 Farmer Sara~
@@ -208,6 +219,7 @@ ABH 0 800 0
 EFNU 0 0 0
 stand stand female 5
 AHMV ABCDEFGHIJK medium unknown
+0 
 #612
 oldstyle chicken hen~
 a hen~
@@ -223,6 +235,7 @@ AHI 0 0 0
 EFNU 0 0 0
 stand stand female 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #613
 oldstyle cow~
 the cow~
@@ -237,6 +250,7 @@ AI 0 0 0
 EFNU 0 0 0
 stand stand none 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #614
 oldstyle cow~
 the cow~
@@ -251,6 +265,7 @@ ABI 0 0 0
 EFNU 0 0 0
 stand stand female 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #615
 oldstyle horse young~
 the young horse~
@@ -266,6 +281,7 @@ AFHI 0 0 0
 EFNU 0 0 0
 stand stand none 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #616
 oldstyle pig~
 the pig~
@@ -280,6 +296,7 @@ ABI 0 0 0
 EFNR 0 0 0
 stand stand none 0
 AGV ACDEFHJK medium unknown
+0 
 #617
 oldstyle citizen man~
 the citizen~
@@ -296,6 +313,7 @@ AH 0 500 0
 EFNU 0 0 0
 stand stand male 5
 AHMV ABCDEFGHIJK medium unknown
+0 
 #618
 oldstyle citizen woman~
 the citizen~
@@ -312,6 +330,7 @@ AH 0 500 0
 EFNU 0 0 0
 stand stand female 5
 AHMV ABCDEFGHIJK medium unknown
+0 
 #619
 oldstyle child boy~
 the boy~
@@ -327,6 +346,7 @@ AH 0 500 0
 EFNU 0 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #620
 oldstyle child girl~
 the girl~
@@ -342,6 +362,7 @@ AH 0 500 0
 EFNU 0 0 0
 stand stand female 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #621
 oldstyle maid woman~
 the maid~
@@ -358,6 +379,7 @@ AH 0 500 0
 EFNU 0 0 0
 stand stand female 2
 AHMV ABCDEFGHIJK medium unknown
+0 
 #622
 oldstyle Nyles~
 Nyles the Bartender~
@@ -374,6 +396,7 @@ AB 0 1000 0
 EFNU 0 0 0
 stand stand male 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #623
 oldstyle cityguard guard~
 the Ofcol cityguard~
@@ -391,6 +414,7 @@ ABT N 1000 0
 CDEIKLU 0 0 0
 stand stand male 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #624
 oldstyle bard~
 a bard~
@@ -407,6 +431,7 @@ AB N 800 0
 EFNU 0 0 0
 stand stand male 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #625
 oldstyle servant~
 a servant~
@@ -421,6 +446,7 @@ AG N 1000 0
 EFNU 0 0 0
 stand stand male 5
 AHMV ABCDEFGHIJK medium unknown
+0 
 #626
 oldstyle squire~
 a squire~
@@ -435,6 +461,7 @@ AG N 1000 0
 EFNU 0 0 0
 stand stand male 5
 AHMV ABCDEFGHIJK medium unknown
+0 
 #627
 oldstyle page~
 a page~
@@ -449,6 +476,7 @@ AG N 1000 0
 EFNU 0 0 0
 stand stand male 5
 AHMV ABCDEFGHIJK medium unknown
+0 
 #628
 oldstyle priestess~
 the Priestess of Ofcol~
@@ -466,6 +494,7 @@ AB BHN 1000 0
 EFNU 0 0 0
 stand stand female 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #629
 oldstyle chaplain Jerrold~
 Chaplain Jerrold~
@@ -483,6 +512,7 @@ AGT BHN 1000 0
 CDEIKLU 0 0 0
 stand stand male 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #630
 oldstyle dragonlord lord dragon~
 a Dragonlord~
@@ -499,6 +529,7 @@ AB BHN 1000 0
 EFNU 0 0 0
 stand stand male 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #631
 oldstyle dragon gold~
 The Ancient Gold Dragon~
@@ -516,6 +547,7 @@ ABC BHJNT 1000 0
 EFNR 0 BEH FI
 stand stand male 5000
 AHZ ACDEFGHIJKPQUVX medium unknown
+0 
 #632
 oldstyle attendant~
 an attendant of the dragon~
@@ -531,6 +563,7 @@ ABR BN 1000 0
 FU 0 0 0
 stand stand male 250
 AHMV ABCDEFGHIJK medium unknown
+0 
 #633
 oldstyle dragonknight knight dragon~
 a Dragonknight~
@@ -547,6 +580,7 @@ AG BN 1000 0
 EFNU 0 0 0
 stand stand male 250
 AHMV ABCDEFGHIJK medium unknown
+0 
 #634
 oldstyle cityguard guard~
 the Ofcol cityguard~
@@ -564,6 +598,7 @@ ABT N 1000 0
 CDEIKLU 0 0 0
 stand stand male 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #0
 
 
@@ -753,11 +788,11 @@ jewelry G AB
 0 0 0 0 0
 10 10 730 P
 A
-17 -2
+20 -1
 A
 13 5
 A
-20 -1
+17 -2
 #621
 plate brass~
 brass plate~
@@ -767,9 +802,9 @@ armor G AD
 BC AC BC A 0
 16 100 2400 P
 A
-13 10
-A
 20 -1
+A
+13 10
 #622
 helm brass~
 a brass helm~
@@ -779,9 +814,9 @@ armor G AE
 BC AC BC A 0
 16 100 1280 P
 A
-13 5
-A
 20 -1
+A
+13 5
 #623
 leggings brass~
 brass leggings~
@@ -791,9 +826,9 @@ armor G AF
 BC AC BC A 0
 16 100 1280 P
 A
-13 5
-A
 20 -1
+A
+13 5
 #624
 boots brass~
 brass boots~
@@ -803,9 +838,9 @@ armor G AG
 BC AC BC A 0
 16 100 1280 P
 A
-13 5
-A
 20 -1
+A
+13 5
 #625
 gauntlets brass~
 brass gauntlets~
@@ -815,9 +850,9 @@ armor G AH
 BC AC BC A 0
 16 100 1280 P
 A
-13 5
-A
 20 -1
+A
+13 5
 #626
 sleeves brass~
 brass sleeves~
@@ -827,9 +862,9 @@ armor G AI
 BC AC BC A 0
 16 100 1280 P
 A
-13 5
-A
 20 -1
+A
+13 5
 #627
 shield brass~
 a brass shield~
@@ -839,9 +874,9 @@ armor G AJ
 BC AC BC B 0
 16 100 1850 P
 A
-13 5
-A
 20 -1
+A
+13 5
 #628
 girth brass~
 a brass girth~
@@ -851,9 +886,9 @@ armor G AL
 BC AC BC A 0
 16 100 1280 P
 A
-13 5
-A
 20 -1
+A
+13 5
 #629
 bracer brass~
 a brass bracer~
@@ -863,9 +898,9 @@ armor G AM
 C AC BC A 0
 12 100 1040 P
 A
-13 5
-A
 20 -1
+A
+13 5
 #630
 claymore sword~
 a claymore~
@@ -875,9 +910,9 @@ weapon G AN
 sword 4 4 cleave F
 19 160 3100 P
 A
-19 5
-A
 18 -2
+A
+19 5
 #631
 plate silver~
 silver plate~
@@ -887,9 +922,9 @@ armor GK AD
 D D D B 0
 25 200 5000 P
 A
-1 1
-A
 12 10
+A
+1 1
 #632
 helm silver~
 a silver helm~
@@ -899,9 +934,9 @@ armor GK AE
 D D D B 0
 25 200 2900 P
 A
-2 1
-A
 12 5
+A
+2 1
 #633
 leggings silver~
 silver leggings~
@@ -911,9 +946,9 @@ armor GK AF
 D D D B 0
 25 200 2900 P
 A
-3 1
-A
 12 5
+A
+3 1
 #634
 boots silver~
 silver boots~
@@ -923,9 +958,9 @@ armor GK AG
 D D D B 0
 25 200 2900 P
 A
-4 1
-A
 12 5
+A
+4 1
 #635
 gauntlets silver~
 silver gauntlets~
@@ -935,9 +970,9 @@ armor GK AH
 D D D B 0
 25 200 2900 P
 A
-5 1
-A
 12 5
+A
+5 1
 #636
 sleeves silver~
 silver sleeves~
@@ -947,9 +982,9 @@ armor GK AI
 D D D B 0
 25 200 2400 P
 A
-18 1
-A
 12 5
+A
+18 1
 #637
 shield silver~
 the silver shield~
@@ -959,9 +994,9 @@ armor GK AJ
 D D D AB 0
 25 200 4200 P
 A
-17 -3
-A
 12 5
+A
+17 -3
 #638
 girth silver~
 the silver girth~
@@ -971,9 +1006,9 @@ armor GK AL
 D D D B 0
 25 200 2400 P
 A
-19 1
-A
 12 5
+A
+19 1
 #639
 plate platinum~
 platinum plate~
@@ -983,9 +1018,9 @@ armor GK AD
 AD AD AD AB 0
 30 500 9200 P
 A
-5 2
-A
 13 15
+A
+5 2
 #640
 helmet platinum~
 the platinum helmet~
@@ -995,9 +1030,9 @@ armor GK AE
 AD AD AD AB 0
 30 300 6300 P
 A
-4 2
-A
 12 10
+A
+4 2
 #641
 leggings platinum~
 platinum leggings~
@@ -1007,9 +1042,9 @@ armor GK AF
 AD AD AD AB 0
 30 400 6300 P
 A
-2 2
-A
 13 10
+A
+2 2
 #642
 boots platinum~
 platinum boots~
@@ -1019,9 +1054,9 @@ armor GK AG
 AD AD AD AB 0
 32 400 4100 P
 A
-14 25
-A
 13 10
+A
+14 25
 #643
 gauntlets platinum~
 platinum gauntlets~
@@ -1031,9 +1066,9 @@ armor GK AH
 AD AD AD AB 0
 31 400 4300 P
 A
-18 2
-A
 13 10
+A
+18 2
 #644
 sleeves platinum~
 platinum sleeves~
@@ -1043,9 +1078,9 @@ armor GK AI
 AD AD AD AB 0
 30 400 6300 P
 A
-1 2
-A
 13 10
+A
+1 2
 #645
 shield spiked platinum~
 the platinum spiked shield~
@@ -1055,9 +1090,9 @@ armor GK AJ
 AD AD AD AC 0
 31 400 6000 P
 A
-19 2
-A
 13 10
+A
+19 2
 #646
 girth platinum~
 the platinum girth~
@@ -1067,9 +1102,9 @@ armor GK AL
 AD AD AD AB 0
 31 400 4000 P
 A
-20 -2
-A
 13 10
+A
+20 -2
 #647
 avenger holy sword~
 holy Avenger~
@@ -1079,9 +1114,9 @@ weapon GK AN
 sword 4 6 slice 0
 32 250 5700 P
 A
-19 6
-A
 18 1
+A
+19 6
 #648
 whiskey shot~
 a shot of whiskey~
@@ -1123,11 +1158,11 @@ jewelry GIKL AC
 0 0 0 0 0
 17 50 3700 P
 A
-4 2
+17 -3
 A
 12 10
 A
-17 -3
+4 2
 #653
 ranseur polearm~
 a ranseur~
@@ -1137,9 +1172,9 @@ weapon GK AN
 polearm 4 6 thrust F
 24 200 1460 P
 A
-19 -1
-A
 18 3
+A
+19 -1
 #654
 torso dragonscale golden~
 a golden dragonscale torso~
@@ -1149,9 +1184,9 @@ armor GK AD
 ABC ABC ABC AB 0
 24 250 6200 P
 A
-18 2
-A
 17 -5
+A
+18 2
 #655
 dragonhelm golden~
 a golden dragonhelm~
@@ -1161,9 +1196,9 @@ armor GK AE
 ABC ABC ABC AB 0
 21 100 2800 P
 A
-18 1
-A
 17 -3
+A
+18 1
 #656
 leggings golden~
 golden dragonscale leggings~
@@ -1173,9 +1208,9 @@ armor GK AF
 ABC ABC ABC AB 0
 21 100 2800 P
 A
-18 1
-A
 17 -3
+A
+18 1
 #657
 boots golden~
 golden dragonscale boots~
@@ -1185,9 +1220,9 @@ armor GK AG
 ABC ABC ABC AB 0
 21 100 2800 P
 A
-18 1
-A
 17 -3
+A
+18 1
 #658
 gauntlets golden~
 golden dragonscale gauntlets~
@@ -1197,9 +1232,9 @@ armor GK AH
 ABC ABC ABC AB 0
 21 100 2800 P
 A
-18 1
-A
 17 -3
+A
+18 1
 #659
 sleeves golden~
 golden dragonscale sleeves~
@@ -1209,9 +1244,9 @@ armor GK AI
 ABC ABC ABC AB 0
 21 100 2800 P
 A
-18 1
-A
 17 -3
+A
+18 1
 #660
 shield golden~
 a golden dragonscale shield~
@@ -1221,9 +1256,9 @@ armor GK AJ
 ABC ABC ABC C 0
 21 100 3700 P
 A
-18 1
-A
 17 -3
+A
+18 1
 #661
 girth golden~
 a golden dragonscale girth~
@@ -1233,9 +1268,9 @@ armor GK AL
 ABC ABC ABC AB 0
 21 100 2800 P
 A
-18 1
-A
 17 -3
+A
+18 1
 #662
 claw golden~
 the golden claw~
@@ -1255,9 +1290,9 @@ staff GKL AO
 14 4 4 'heal' 0
 17 300 9000 P
 A
-4 2
-A
 3 1
+A
+4 2
 #664
 robe golden~
 a golden robe~
@@ -1285,9 +1320,9 @@ weapon 0 AN
 exotic 2 3 beating 0
 1 80 760 P
 A
-19 -3
-A
 18 3
+A
+19 -3
 #667
 chest~
 a chest~

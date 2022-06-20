@@ -24,6 +24,7 @@ AFGH D -700 0
 EFNR 0 0 C
 stand stand male 0
 ABGV ACDEFHJKQV medium unknown
+0 
 #9402
 oldstyle foreman floyd~
 Foreman Floyd~
@@ -40,6 +41,7 @@ ABG DFH 2 0
 EFNU 0 0 0
 sit stand male 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9403
 oldstyle cityguard guard head~
 The Cityguard head~
@@ -56,6 +58,7 @@ AG T 0 0
 EFNU 0 0 0
 stand stand none 0
 AHV AEJK medium unknown
+0 
 #9404
 oldstyle revolving drunk~
 The revolving drunk~
@@ -71,6 +74,7 @@ ACGH 0 1 0
 EFNU 0 0 0
 stand stand male 2
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9405
 oldstyle toxic slime~
 The toxic slime~
@@ -86,6 +90,7 @@ ABC 0 0 0
 EFNU 0 0 0
 sit sit none 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9406
 oldstyle worker~
 The factory worker~
@@ -101,6 +106,7 @@ AGH 0 100 0
 EFNU 0 0 0
 stand stand male 2
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9407
 oldstyle worker~
 The factory worker~
@@ -116,6 +122,7 @@ ABH 0 150 0
 EFNU 0 0 0
 sleep sit female 3
 AHMV ABCDEFGHIJK medium unknown
+0 
 #0
 
 

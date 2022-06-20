@@ -24,6 +24,7 @@ AG DFT -200 0
 CDFHNR L 0 S
 stand stand either 0
 ABGZ ACDEFHJKQVX huge unknown
+0 
 #3501
 goblin mountain~
 the goblin~
@@ -38,6 +39,7 @@ AFGT J -500 0
 KR 0 Q C
 stand stand male 25
 AHMV ABCDEFGHIJK small unknown
+0 
 #3502
 boy small~
 the small boy~
@@ -53,6 +55,7 @@ ABH 0 500 0
 I 0 0 C
 rest rest male 0
 AHMV ABCDEFGHIJK small unknown
+0 
 #3503
 innkeeper~
 the Innkeeper~
@@ -69,6 +72,7 @@ ABT 0 500 0
 BFKQ AB CD 0
 stand stand male 350
 AHMV ABCDEFGHIJK medium unknown
+0 
 #3504
 bard~
 the bard~
@@ -84,6 +88,7 @@ ABST D 600 0
 FIJKNQ 0 0 0
 sit sit male 260
 AHMV ABCDEFGHIJK medium unknown
+0 
 #3505
 horseman dark~
 the dark horseman~
@@ -99,6 +104,7 @@ AGHS P -900 0
 BFJKQ 0 0 0
 stand stand male 400
 AHMV ABCDEFGHIJK medium unknown
+0 
 #3506
 goblin lieutenant~
 the goblin lieutenant~
@@ -114,6 +120,7 @@ AFGT J -600 0
 DKNR 0 Q C
 stand stand male 55
 AHMV ABCDEFGHIJK medium unknown
+0 
 #3507
 goblin leader~
 the goblin leader~
@@ -129,6 +136,7 @@ ACFGT J -900 0
 DJKNR 0 Q C
 stand stand male 500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #0
 
 
@@ -1027,6 +1035,11 @@ return to the forest.
 ~
 0 0 3
 E
+sign~
+The sign reads:
+   The Woodsman
+~
+E
 credits credit author~
 +-------------------------------------------------+
 | This zone originally written for Copper II DIKU |
@@ -1034,11 +1047,6 @@ credits credit author~
 | Modification and alterations for MERCmud DIKU   |
 |   by VampLestat                        1 JAN 93 |
 +-------------------------------------------------+
-~
-E
-sign~
-The sign reads:
-   The Woodsman
 ~
 D0
 You can go north around the inn.

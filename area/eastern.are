@@ -24,6 +24,7 @@ ACGH P 900 0
 EFNU 0 0 0
 stand stand male 3
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5001
 oldstyle dervish large~
 The dervish~
@@ -39,6 +40,7 @@ AFG P 650 0
 EFNU 0 0 0
 stand stand male 7
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5002
 oldstyle snake coral~
 The coral snake~
@@ -54,6 +56,7 @@ AG 0 -10 0
 EFNR 0 L I
 stand stand none 0
 AGXYc ADEFKLQVX medium unknown
+0 
 #5003
 oldstyle scorpion small~
 The small scorpion~
@@ -68,6 +71,7 @@ AG 0 -50 0
 EFNU 0 0 0
 stand stand none 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5004
 oldstyle worm giant purple~
 The giant, purple sand worm~
@@ -82,6 +86,7 @@ ABF 0 -100 0
 EFNU 0 0 0
 stand stand none 127
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5005
 oldstyle dragon brass~
 the brass dragon~
@@ -96,6 +101,7 @@ ABCF DHJT 450 0
 EFNR 0 BEH FI
 stand stand female 275
 AHZ ACDEFGHIJKPQUVX medium unknown
+0 
 #5006
 oldstyle nomad leader~
 The nomad leader~
@@ -112,6 +118,7 @@ AGHL 0 950 0
 EFNU 0 0 0
 sit sit male 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5007
 oldstyle nomad commander~
 The nomad commander~
@@ -127,6 +134,7 @@ ABL 0 900 0
 EFNU 0 0 0
 stand stand male 30
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5008
 oldstyle nomad warrior~
 The nomad warrior~
@@ -140,6 +148,7 @@ AB 0 700 0
 EFNU 0 0 0
 stand stand male 15
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5009
 oldstyle slave young~
 The slave~
@@ -153,6 +162,7 @@ ABH 0 1000 0
 EFNU 0 0 0
 rest rest female 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5010
 oldstyle dracolich lich~
 The dracolich~
@@ -168,6 +178,7 @@ ABFL DH -1000 0
 EFNU 0 0 0
 stand stand none 3750
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5011
 oldstyle drider drow~
 The drider~
@@ -182,6 +193,7 @@ AFG D -1000 0
 EFNU 0 0 0
 stand stand female 10
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5012
 oldstyle duergar dwarf~
 The dark dwarf~
@@ -196,6 +208,7 @@ AFG D -850 0
 EFNU 0 0 0
 stand stand male 8
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5013
 oldstyle myconoid~
 the myconoid~
@@ -211,6 +224,7 @@ AGH D 850 0
 EFNU 0 0 0
 stand stand male 2
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5014
 oldstyle myconoid shaman~
 The myconoid shaman~
@@ -225,6 +239,7 @@ ABHQ DH 850 0
 EIKU 0 0 0
 stand stand male 75
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5015
 oldstyle dustdigger~
 The dustdigger~
@@ -238,6 +253,7 @@ ABCF 0 -200 0
 EFNU 0 0 0
 stand stand none 22
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5017
 oldstyle camel~
 The rabid camel~
@@ -252,6 +268,7 @@ ABF 0 -351 0
 EFNU 0 0 0
 stand stand none 13
 AHMV ABCDEFGHIJK medium unknown
+0 
 #0
 
 
@@ -274,9 +291,9 @@ armor AG AD
 ABC ABC ABC 0 0
 23 0 7300 P
 A
-17 -4
-A
 2 2
+A
+17 -4
 #5002
 halberd~
 the halberd~
@@ -286,9 +303,9 @@ weapon GI AN
 polearm 2 14 cleave F
 29 160 1620 P
 A
-19 2
-A
 18 2
+A
+19 2
 #5003
 amulet~
 the amulet~
@@ -474,9 +491,9 @@ jewelry GH AM
 0 0 0 0 0
 20 100 1300 P
 A
-19 2
-A
 13 10
+A
+19 2
 #5026
 gem ruby~
 a large ruby~

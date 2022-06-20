@@ -25,6 +25,7 @@ AGH P 0 0
 EFHNR 0 0 0
 stand stand none 0
 AGV ACDEFHJKUV medium unknown
+0 
 #7801
 oldstyle elf valley~
 a valley elf~
@@ -42,6 +43,7 @@ ACFGH JP 0 0
 EFNR 0 B Z
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #7802
 oldstyle elf valley~
 a valley elf~
@@ -57,6 +59,7 @@ ACFGH JP 0 0
 EFNR 0 B Z
 stand stand female 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #7803
 oldstyle elf sentry valley~
 a valley elf sentry~
@@ -72,6 +75,7 @@ ABF JP 0 0
 EFNR 0 B Z
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #7804
 oldstyle elf sentry valley~
 a valley elf sentry~
@@ -87,6 +91,7 @@ ABF JP 0 0
 EFNR 0 B Z
 stand stand female 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #7805
 oldstyle elf scout valley~
 a valley elf scout~
@@ -101,6 +106,7 @@ ACFG JP 0 0
 EFNR 0 B Z
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #7806
 oldstyle elf valley~
 a valley elf~
@@ -116,6 +122,7 @@ AGH JP 0 0
 EFNR 0 B Z
 stand stand female 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #7807
 oldstyle elf elder valley~
 a valley elf elder~
@@ -132,6 +139,7 @@ ABCFQ HJN 0 0
 EIKR 0 B Z
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #7808
 oldstyle elf elder valley~
 a valley elf elder~
@@ -148,6 +156,7 @@ ABCFR JN 0 0
 FR 0 B Z
 stand stand female 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #7809
 oldstyle pyrohydra pyro hydra~
 the pyrohydra~
@@ -163,6 +172,7 @@ ABF 0 0 0
 EFNU 0 0 0
 stand stand none 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #7810
 oldstyle hermit man old~
 an old hermit~
@@ -177,6 +187,7 @@ ABCH 0 0 0
 EFNU 0 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #7811
 oldstyle talemon wizard mage~
 Talemon~
@@ -191,6 +202,7 @@ ABCFR 0 0 0
 FU 0 0 0
 stand stand male 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #7812
 oldstyle guardian daemon~
 the guardian daemon~
@@ -206,6 +218,7 @@ ABF 0 -500 0
 EFNU 0 0 0
 stand stand none 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #7813
 oldstyle wolf~
 a wolf~
@@ -220,6 +233,7 @@ AFH Z 0 0
 EFHNR 0 0 0
 stand stand none 0
 AGV ACDEFJKQV medium unknown
+0 
 #7814
 oldstyle antelope~
 an antelope~
@@ -235,6 +249,7 @@ AH 0 0 0
 EFNU 0 0 0
 stand stand none 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #0
 
 

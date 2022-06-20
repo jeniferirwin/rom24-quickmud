@@ -24,6 +24,7 @@ AGHS DF 100 0
 BEFJNU 0 0 0
 stand stand male 1
 AHMV ABCDEFGHIJK medium unknown
+0 
 #102
 oldstyle smurf~
 a smurf~
@@ -38,6 +39,7 @@ ABHS DF 100 0
 BEFJNU 0 0 0
 stand stand male 1
 AHMV ABCDEFGHIJK medium unknown
+0 
 #103
 oldstyle brainy smurf~
 Brainy Smurf~
@@ -53,6 +55,7 @@ AGHS DF 100 0
 BEFJNU 0 0 0
 stand stand male 1
 AHMV ABCDEFGHIJK medium unknown
+0 
 #104
 oldstyle handy smurf~
 Handy Smurf~
@@ -68,6 +71,7 @@ AGHS DF 100 0
 BEFJNU 0 0 0
 stand stand male 1
 AHMV ABCDEFGHIJK medium unknown
+0 
 #105
 oldstyle sleepy smurf~
 Sleepy Smurf~
@@ -83,6 +87,7 @@ AGHS DF 100 0
 BEFJNU 0 0 0
 stand stand male 1
 AHMV ABCDEFGHIJK medium unknown
+0 
 #106
 oldstyle hefty smurf~
 Hefty Smurf~
@@ -98,6 +103,7 @@ AGHS DF 100 0
 BEFJNU 0 0 0
 stand stand male 1
 AHMV ABCDEFGHIJK medium unknown
+0 
 #107
 oldstyle grumpy smurf~
 Grumpy Smurf~
@@ -112,6 +118,7 @@ AGHS DF 100 0
 BEFJNU 0 0 0
 stand stand male 1
 AHMV ABCDEFGHIJK medium unknown
+0 
 #108
 oldstyle jokey smurf~
 Jokey Smurf~
@@ -127,6 +134,7 @@ AGHS DF 100 0
 BEFJNU 0 0 0
 stand stand male 1
 AHMV ABCDEFGHIJK medium unknown
+0 
 #109
 oldstyle smurfette~
 Smurfette~
@@ -142,6 +150,7 @@ AGHS DF 100 0
 BEFJNU 0 0 0
 stand stand female 1
 AHMV ABCDEFGHIJK medium unknown
+0 
 #110
 oldstyle papa smurf~
 Papa Smurf~
@@ -158,6 +167,7 @@ AGHR 0 100 0
 FU 0 0 0
 stand stand male 2
 AHMV ABCDEFGHIJK medium unknown
+0 
 #111
 oldstyle gargamel~
 Gargamel~
@@ -173,6 +183,7 @@ ABHQ 0 -100 0
 EIKU 0 0 0
 stand stand male 2
 AHMV ABCDEFGHIJK medium unknown
+0 
 #112
 oldstyle azreal cat~
 Azreal~
@@ -188,6 +199,7 @@ ABH 0 -100 0
 EFNU 0 0 0
 stand stand male 1
 AHMV ABCDEFGHIJK medium unknown
+0 
 #0
 
 
@@ -210,9 +222,9 @@ clothing A AE
 0 0 0 0 0
 3 20 270 P
 A
-4 1
-A
 2 -1
+A
+4 1
 #102
 smurf hat~
 a smurf hat~

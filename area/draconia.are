@@ -24,6 +24,7 @@ ABG JT -900 0
 EFNU 0 BE F
 stand stand none 100
 AHZ ACDEFGHIJKPQUVX medium unknown
+0 
 F res H
 F vul I
 #2201
@@ -42,6 +43,7 @@ ABCF D -900 0
 EFNU 0 0 0
 stand stand male 100
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2202
 oldstyle lord crypt master~
 the dragon master~
@@ -56,6 +58,7 @@ ABCF T -1000 0
 EFNU 0 0 0
 stand stand male 1750
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2203
 oldstyle man mage wizard~
 a powerful mage~
@@ -72,6 +75,7 @@ ABR BDH -900 0
 FU 0 0 0
 stand stand male 30
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2204
 oldstyle cleric draconian~
 the holy Draconian~
@@ -87,6 +91,7 @@ ABCFQ DH -900 0
 EIKU 0 0 0
 stand stand male 20
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2205
 oldstyle king draconian~
 the Draconian King~
@@ -103,6 +108,7 @@ ABC DH -900 0
 EFNU 0 0 0
 stand stand male 40
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2206
 oldstyle concubine draconian~
 a concubine~
@@ -119,6 +125,7 @@ AB 0 -500 0
 EFNU 0 0 0
 stand stand female 5
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2207
 oldstyle bodyguard draconian~
 A bodyguard~
@@ -134,6 +141,7 @@ ABF CDF -800 0
 EFNU 0 0 0
 stand stand male 250
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2220
 oldstyle tiamat dragon~
 Tiamat~
@@ -149,6 +157,7 @@ ABCF DFTV -1000 0
 EFNU AB CD 0
 stand stand female 2500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2221
 oldstyle dragon red~
 the Great Red Dragon~
@@ -164,6 +173,7 @@ ABCF DFJT -1000 0
 EFNR H BE FI
 stand stand male 500
 AHZ ACDEFGHIJKPQUVX medium unknown
+0 
 F res H
 #2222
 oldstyle dragon black~
@@ -180,6 +190,7 @@ ABCF DFJT -900 0
 EFNR K BE FJ
 stand stand male 1000
 AHZ ACDEFGHIJKPQUVX medium unknown
+0 
 F res H
 F vul I
 #2223
@@ -198,6 +209,7 @@ ABCF DFJT -1000 0
 EFNR I BE FH
 stand stand female 1750
 AHZ ACDEFGHIJKPQUVX medium unknown
+0 
 F res H
 F vul I
 #2225
@@ -216,6 +228,7 @@ ABCF DFJT -1000 0
 EFNR L BE FP
 stand stand female 1000
 AHZ ACDEFGHIJKPQUVX medium unknown
+0 
 F res H
 F vul I
 #2226
@@ -233,6 +246,7 @@ ABCF DF -800 0
 EFNU 0 0 0
 stand stand none 250
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2227
 oldstyle slave human~
 A human slave~
@@ -248,6 +262,7 @@ ABS DF 0 0
 BEFJNU 0 0 0
 stand stand male 5
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2240
 oldstyle zombie draconian~
 a Draconian zombie~
@@ -263,6 +278,7 @@ ABCF DF -400 0
 EFNU 0 0 0
 stand stand none 75
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2241
 oldstyle dragon phase~
 the phase dragon~
@@ -277,6 +293,7 @@ ACFGH DFJT -300 0
 EFNR 0 BEH FI
 stand stand male 250
 AHZ ACDEFGHIJKPQUVX medium unknown
+0 
 #2242
 oldstyle fool draconian~
 the draconian fool~
@@ -292,6 +309,7 @@ AGHS DF 0 0
 BEFJNU 0 0 0
 stand stand male 25
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2243
 oldstyle queen draconian~
 the Draconian Queen~
@@ -307,6 +325,7 @@ ABC DFH -600 0
 EFNU 0 0 0
 stand stand female 500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #0
 
 
@@ -339,9 +358,9 @@ weapon 0 AN
 dagger 5 5 pierce 0
 30 80 3200 P
 A
-19 2
-A
 2 1
+A
+19 2
 #2203
 bracelet dragon~
 a dragon skin bracelet~
@@ -423,9 +442,9 @@ jewelry 0 AB
 0 0 0 0 0
 37 60 6800 P
 A
-19 3
-A
 18 3
+A
+19 3
 #2230
 ring copper~
 a copper ring~
@@ -567,9 +586,9 @@ armor AG AH
 C C C 0 0
 20 100 2500 P
 A
-1 1
-A
 19 2
+A
+1 1
 #2260
 scimitar golden~
 a golden scimitar~
@@ -579,9 +598,9 @@ weapon A AN
 sword 3 5 slash 0
 16 100 2500 P
 A
-4 1
-A
 3 1
+A
+4 1
 #2261
 brooch diamond~
 a diamond brooch~
@@ -629,9 +648,9 @@ armor 0 AK
 BC BC BC A 0
 16 100 1910 P
 A
-13 10
-A
 1 1
+A
+13 10
 #2280
 leggings dragon scale~
 a pair of dragon scale leggings~
@@ -657,9 +676,9 @@ weapon BJ AN
 whip 4 5 whip 0
 24 140 1530 P
 A
-19 2
-A
 18 2
+A
+19 2
 #2286
 hammer copper~
 a copper hammer~
@@ -756,12 +775,12 @@ You trudge down the hallway.  You notice doors to the east and west.
 ~
 0 8 0
 E
-inscription~
-It says "STORAGE"
-~
-E
 sign~
 The sign says "NURSERY" in bold letters.     
+~
+E
+inscription~
+It says "STORAGE"
 ~
 D0
 The hall continues. 
@@ -1375,17 +1394,17 @@ path leads up the mountain.  The small opening is back to the north.
 ~
 0 0 2
 E
+well~
+You peer over the side of the well.  It looks VERY, VERY deep.  It appears
+to be ENDLESS.
+~
+E
 sign~
 The sign reads:
          This is a bottomless pit cleverly disguised as a well.  People have
 fallen in and never been heard from again.  Trust me, you don't want to go 
 down there.
                         The All Powerful Well Keeper
-~
-E
-well~
-You peer over the side of the well.  It looks VERY, VERY deep.  It appears
-to be ENDLESS.
 ~
 D0
 the small opening

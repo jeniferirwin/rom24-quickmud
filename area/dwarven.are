@@ -23,6 +23,7 @@ ABL DJ 500 0
 EFNR 0 LQ R
 stand stand male 500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6501
 oldstyle dwarf worker miner~
 the dwarven worker~
@@ -37,6 +38,7 @@ AGL J 900 0
 EFNR 0 LQ R
 stand stand male 175
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6502
 oldstyle wraith~
 the wraith~
@@ -51,6 +53,7 @@ AB DF -900 0
 EFNU 0 0 0
 stand stand male 2500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6503
 oldstyle storekeeper~
 the storekeeper~
@@ -65,6 +68,7 @@ ABL 0 900 0
 EFNU 0 0 0
 stand stand male 5000
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6504
 oldstyle baker~
 the baker~
@@ -79,6 +83,7 @@ ABL 0 900 0
 EFNU 0 0 0
 stand stand male 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6505
 oldstyle lizard~
 the giant lizard~
@@ -94,6 +99,7 @@ AG D 100 0
 EFNR 0 L I
 stand stand male 60
 AGXc ACDEFHKQV medium unknown
+0 
 #6506
 oldstyle giant~
 the giant~
@@ -108,6 +114,7 @@ AG 0 0 0
 EFNR 0 HI JP
 stand stand male 100
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6507
 oldstyle dwarf miner~
 the dwarven miner~
@@ -122,6 +129,7 @@ ABL J 0 0
 EFNR 0 LQ R
 stand stand male 2
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6508
 oldstyle dwarf leader~
 the dwarven mine leader~
@@ -136,6 +144,7 @@ ABL J 0 0
 EFNR 0 LQ R
 stand stand male 1000
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6509
 oldstyle dwarf doctor~
 the dwarven doctor~
@@ -150,6 +159,7 @@ ABL DHJ 1000 0
 EFNR 0 LQ R
 stand stand male 75
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6510
 oldstyle dwarf peon~
 the dwarven peon~
@@ -163,6 +173,7 @@ ABL J 500 0
 EFNR 0 LQ R
 stand stand male 3
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6511
 oldstyle dwarf~
 the dwarf~
@@ -176,6 +187,7 @@ ABL J 500 0
 EFNR 0 LQ R
 stand stand male 62
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6512
 oldstyle dwarf son~
 the unwanted son~
@@ -189,6 +201,7 @@ AG J 250 0
 EFNR 0 LQ R
 stand stand male 2
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6513
 oldstyle dwarf daughter~
 the unwanted daughter~
@@ -202,6 +215,7 @@ AG J 250 0
 EFNR 0 LQ R
 stand stand female 2
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6514
 oldstyle dwarf guard~
 the barracks guard~
@@ -215,6 +229,7 @@ ABL J 100 0
 EFNR 0 LQ R
 stand stand male 150
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6515
 oldstyle man~
 the man in waiting~
@@ -228,6 +243,7 @@ ABL 0 300 0
 EFNU 0 0 0
 stand stand male 348
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6516
 oldstyle mazekeeper~
 the mazekeeper~
@@ -242,6 +258,7 @@ ABFL H -1000 0
 EFNU 0 0 0
 stand stand male 4000
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6517
 oldstyle snake~
 the giant snake~
@@ -255,6 +272,7 @@ ABF 0 -1000 0
 EFNR 0 L I
 stand stand male 150
 AGXYc ADEFKLQVX medium unknown
+0 
 #0
 
 
@@ -317,9 +335,9 @@ weapon 0 AN
 axe 2 7 cleave F
 17 50 4100 P
 A
-1 2
-A
 18 2
+A
+1 2
 #6510
 helmet~
 a dwarven helmet~
@@ -337,9 +355,9 @@ gem G AB
 0 0 0 0 0
 7 10 460 P
 A
-19 1
-A
 18 1
+A
+19 1
 #6512
 gloves~
 dwarven gloves~
@@ -349,9 +367,9 @@ armor 0 AH
 AC AC AC 0 0
 13 20 2000 P
 A
-2 1
-A
 1 1
+A
+2 1
 #6513
 note~
 a note~

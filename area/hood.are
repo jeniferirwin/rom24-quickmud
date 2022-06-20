@@ -23,6 +23,7 @@ ACEG 0 -100 2100
 DFNU 0 0 0
 stand stand male 10
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2102
 ogre gang member~
 an ogre gang member~
@@ -37,6 +38,7 @@ ACEG 0 100 2101
 FJNR 0 0 0
 stand stand male 10
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2103
 gang leader troll~
 the Troll gang leader~
@@ -52,6 +54,7 @@ ABFGT 0 0 2100
 CDEKU 0 E 0
 stand stand male 100
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2104
 bruiser troll~
 a bruiser~
@@ -66,6 +69,7 @@ ACFGHT D -333 2100
 CDKU 0 C 0
 stand stand male 75
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2105
 gang doll~
 a doll~
@@ -80,6 +84,7 @@ ACGHS 0 0 0
 FHNU 0 0 0
 stand stand female 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2106
 patrolman patrol man~
 a patrolman~
@@ -94,6 +99,7 @@ AGT 0 700 0
 CKLU 0 0 0
 stand stand male 350
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2107
 vandal ogre~
 a vandal~
@@ -108,6 +114,7 @@ AGHS P -400 2101
 FHJNU 0 0 0
 stand stand male 25
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2108
 dog pit bull pitbull~
 a pitbull~
@@ -123,6 +130,7 @@ ABFG DQ -100 0
 CEGHQR 0 0 0
 stand stand male 0
 AGV ACDEFHJKUV small unknown
+0 
 #2109
 punk troll~
 a punk~
@@ -137,6 +145,7 @@ AFHS P -400 2100
 CDFJU 0 0 0
 stand stand male 25
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2110
 gang leader ogre~
 the Ogre gang leader~
@@ -151,6 +160,7 @@ ABFGS 0 0 2101
 EFHJKNU 0 G 0
 stand stand male 100
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2111
 thug~
 a thug~
@@ -166,6 +176,7 @@ ACFGHT D -333 2101
 JKNU 0 C 0
 stand stand male 75
 AHMV ABCDEFGHIJK medium unknown
+0 
 #0
 
 
@@ -196,9 +207,9 @@ weapon A AN
 whip 2 6 whip 0
 12 100 960 A
 A
-17 -2
-A
 18 1
+A
+17 -2
 #2104
 metal cover shield~
 a metal shield~
@@ -224,9 +235,9 @@ weapon 0 AN
 dagger 5 2 pierce 0
 9 20 1090 G
 A
-18 4
-A
 17 2
+A
+18 4
 #2107
 spiked heel boots~
 spiked heeled boots~
@@ -236,9 +247,9 @@ armor 0 AG
 AB AB AB 0 0
 5 40 260 G
 A
-2 -1
-A
 19 1
+A
+2 -1
 #2108
 mirror~
 a mirror~
@@ -266,9 +277,9 @@ weapon 0 AN
 mace 1 10 pound 0
 9 10 980 G
 A
-18 3
-A
 14 5
+A
+18 3
 #2111
 signet ring~
 a troll signet ring~
@@ -278,9 +289,9 @@ jewelry 0 AB
 0 0 0 0 0
 10 10 1090 P
 A
-17 -2
-A
 1 1
+A
+17 -2
 #2112
 knuckles brass~
 brass knuckles~
@@ -300,9 +311,9 @@ weapon 0 AN
 mace 2 6 pound 0
 11 60 0 A
 A
-18 -1
-A
 19 1
+A
+18 -1
 #2114
 troll jacket studded~
 a studded Troll gang jacket~

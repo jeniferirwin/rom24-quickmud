@@ -25,6 +25,7 @@ AG 0 350 0
 EFNU 0 0 0
 sit sit male 2
 AHMV ABCDEFGHIJK medium unknown
+0 
 #3601
 oldstyle zombie~
 the rotting zombie~
@@ -39,6 +40,7 @@ ABF J -750 0
 EFNU 0 0 0
 stand stand male 2
 AHMV ABCDEFGHIJK medium unknown
+0 
 #3602
 oldstyle ghoul~
 the ghastly ghoul~
@@ -54,6 +56,7 @@ ABF J -750 0
 EFNU 0 0 0
 stand stand male 5
 AHMV ABCDEFGHIJK medium unknown
+0 
 #3603
 oldstyle skeleton~
 a dusty skeleton~
@@ -69,6 +72,7 @@ ABF J -750 0
 EFNU 0 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #3604
 oldstyle skeleton~
 a dusty skeleton~
@@ -84,6 +88,7 @@ AF J -750 0
 EFNU 0 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #3605
 oldstyle zombie~
 the rotting zombie~
@@ -98,6 +103,7 @@ AF J -750 0
 EFNU 0 0 0
 stand stand male 5
 AHMV ABCDEFGHIJK medium unknown
+0 
 #0
 
 
@@ -216,9 +222,9 @@ jewelry 0 AC
 0 0 0 0 0
 7 10 800 P
 A
-1 1
-A
 17 -1
+A
+1 1
 E
 pendant silver~
 It resembles Thor's hammer and appears to be made of solid silver.

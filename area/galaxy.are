@@ -23,6 +23,7 @@ ACGS DF 0 0
 BEFJNU 0 0 0
 stand stand male 5
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9302
 oldstyle star~
 a beautiful star~
@@ -37,6 +38,7 @@ ABG 0 500 0
 EFNU 0 0 0
 stand stand female 25
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9303
 oldstyle nebula young~
 a young nebula~
@@ -51,6 +53,7 @@ AG 0 200 0
 EFNU 0 0 0
 stand stand female 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9304
 oldstyle comet speedy~
 a speedy comet~
@@ -65,6 +68,7 @@ ACFG 0 -500 0
 EFNU 0 0 0
 stand stand male 75
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9305
 oldstyle red supergiant~
 a red supergiant~
@@ -80,6 +84,7 @@ ABGH 0 0 0
 EFNU 0 0 0
 sleep sleep male 100
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9306
 oldstyle white dwarf~
 a white dwarf~
@@ -95,6 +100,7 @@ ACG 0 0 0
 EFNU 0 0 0
 stand stand male 100
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9307
 oldstyle horsehead nebula~
 a horsehead nebula~
@@ -110,6 +116,7 @@ ABG PQ -1000 0
 EFNU 0 0 0
 sit sit male 300
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9308
 oldstyle andromeda~
 poor Andromeda~
@@ -125,6 +132,7 @@ ABEG H 1000 0
 EFNU 0 0 0
 stand stand female 375
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9309
 oldstyle hercules~
 the mighty Hercules~
@@ -141,6 +149,7 @@ ABG H 1000 0
 EFNU 0 0 0
 stand stand male 375
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9310
 oldstyle pegasus~
 the wild Pegasus~
@@ -155,6 +164,7 @@ ABGH 0 300 0
 EFNU 0 0 0
 stand stand none 250
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9311
 oldstyle orion~
 Orion the hunter~
@@ -172,6 +182,7 @@ ABG H 300 0
 EFNU 0 0 0
 stand stand male 375
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9312
 oldstyle pleiades~
 the Pleiades~
@@ -187,6 +198,7 @@ ABG 0 300 0
 EFNU 0 0 0
 stand stand female 150
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9313
 oldstyle draco head~
 the Head of Draco~
@@ -203,6 +215,7 @@ ABFG DH -1000 0
 EFNU 0 0 0
 stand stand none 750
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9314
 oldstyle draco baby~
 a baby draco~
@@ -219,6 +232,7 @@ ACGH 0 -700 0
 EFNU 0 0 0
 stand stand none 200
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9315
 oldstyle aries~
 Aries~
@@ -234,6 +248,7 @@ ABGQ H 700 0
 EIKU 0 0 0
 sit sit male 500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9316
 oldstyle taurus~
 Taurus~
@@ -249,6 +264,7 @@ ABFGQ DH -100 0
 EIKU 0 0 0
 stand stand male 500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9317
 oldstyle gemini~
 Gemini~
@@ -264,6 +280,7 @@ ABGQ H 1000 0
 EIKU 0 0 0
 stand stand male 500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9318
 oldstyle gemini~
 Gemini~
@@ -279,6 +296,7 @@ ABCFGHQ DHU -1000 0
 EIKU 0 0 0
 stand stand male 250
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9319
 oldstyle cancer~
 Cancer~
@@ -295,6 +313,7 @@ ABGQ H 0 0
 EIKU 0 0 0
 stand stand male 600
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9320
 oldstyle leo~
 Leo~
@@ -311,6 +330,7 @@ ABFGQ DH -100 0
 EIKU 0 0 0
 stand stand male 500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9321
 oldstyle virgo~
 Virgo~
@@ -327,6 +347,7 @@ ABGQ H 1000 0
 EIKU 0 0 0
 sit sit female 500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9322
 oldstyle libra~
 Libra~
@@ -342,6 +363,7 @@ ABGQ H 1000 0
 EIKU 0 0 0
 stand stand male 500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9323
 oldstyle scorpio~
 Scorpio~
@@ -357,6 +379,7 @@ ABFGQ DH -200 0
 EIKU 0 0 0
 stand stand male 500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9324
 oldstyle sagittarius~
 Sagittarius~
@@ -371,6 +394,7 @@ ABGQ H 1000 0
 EIKU 0 0 0
 stand stand male 500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9325
 oldstyle capricorn~
 Capricorn~
@@ -387,6 +411,7 @@ ABGQ H 700 0
 EIKU 0 0 0
 stand stand male 500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9326
 oldstyle aquarius~
 Aquarius~
@@ -402,6 +427,7 @@ ABGQ H 1000 0
 EIKU 0 0 0
 stand stand female 500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9327
 oldstyle pisces mermaid~
 Pisces the mermaid~
@@ -417,6 +443,7 @@ ABGQ H 1000 0
 EIKU 0 0 0
 sit sit female 500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9328
 oldstyle pisces fish~
 Pisces the fish~
@@ -432,6 +459,7 @@ ABFGQ H -1000 0
 EIKU 0 0 0
 stand stand male 500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9329
 oldstyle bear ursa major~
 Ursa Major the bear~
@@ -447,6 +475,7 @@ ABFGQ DH 0 0
 DEIKOR 0 EI 0
 stand stand none 750
 AGV ABCDEFHJKUV medium unknown
+0 
 #9330
 oldstyle cassiopeia queen~
 Cassiopeia the Queen~
@@ -461,6 +490,7 @@ ABGR DH 700 0
 FU 0 0 0
 sit sit female 600
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9331
 oldstyle cepheus king~
 Cepheus the King~
@@ -476,6 +506,7 @@ ABGR H 700 0
 FU 0 0 0
 sit sit male 600
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9332
 oldstyle polaris polar star~
 Polaris, the polar star~
@@ -493,6 +524,7 @@ ABG BDH 1000 0
 EFNU 0 0 0
 stand stand male 1000
 AHMV ABCDEFGHIJK medium unknown
+0 
 #0
 
 
@@ -515,9 +547,9 @@ armor AGK AI
 BC BC BC 0 0
 22 100 3100 P
 A
-19 2
-A
 1 1
+A
+19 2
 E
 arm~
 These mighty armors have been worn by this immortal, since the ancient time.
@@ -568,9 +600,9 @@ armor AGK AG
 AB AB AB 0 0
 20 100 1280 P
 A
-19 1
-A
 14 20
+A
+19 1
 E
 hoof~
 It is with these hooves that Taurus can stand against Orion's attacks.
@@ -584,9 +616,9 @@ armor AGHK AE
 B B B 0 0
 16 70 3600 P
 A
-2 2
-A
 1 1
+A
+2 2
 E
 mask~
 You notice the mask has got two faces, one smiling and the other crying.
@@ -642,9 +674,9 @@ armor AGK AJ
 D D D 0 0
 25 150 3900 P
 A
-13 5
-A
 17 -3
+A
+13 5
 E
 scale~
 It is a shield of justice, used in the ancient battle against injustice.
@@ -658,9 +690,9 @@ armor BGH AJ
 A A A 0 0
 0 150 0 P
 A
-13 -30
-A
 17 6
+A
+13 -30
 E
 scale~
 It is a shield of injustice, it picks on the innocent.
@@ -674,9 +706,9 @@ weapon AGK AN
 exotic 4 4 pierce 0
 19 70 2700 P
 A
-19 1
-A
 18 3
+A
+19 1
 E
 sting~
 This dreadful weapon put a lot of mortals to death before Scorpio was banished.
@@ -702,9 +734,9 @@ weapon AGK AN
 exotic 2 9 blast 0
 20 200 2800 P
 A
-19 3
-A
 18 1
+A
+19 3
 E
 bow~
 The gigantic bow used by the Archer; it is a very powerful weapon.
@@ -718,9 +750,9 @@ armor AGK AH
 C C C 0 0
 22 60 3000 P
 A
-19 2
-A
 18 2
+A
+19 2
 E
 horn~
 These strange horns are the work of gods, shaped to fit on hands.
@@ -748,9 +780,9 @@ armor AGK AF
 D D D 0 0
 21 100 950 P
 A
-2 -2
-A
 17 -2
+A
+2 -2
 E
 tail~
 This tail can actually be worn by mortals somehow as leggings ... another
@@ -765,9 +797,9 @@ jewelry ABFGK AB
 0 0 0 0 0
 26 30 4200 P
 A
-3 2
-A
 12 25
+A
+3 2
 E
 ring~
 This ring belongs to Cassiopeia, queen of the Universe.
@@ -782,9 +814,9 @@ light ABFGK ACDEGHIJKLMN
 0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 22 40 2400 P
 A
-19 2
-A
 18 2
+A
+19 2
 E
 sceptre~
 You'd better give it back, or the king of the Universe will punish you.
@@ -798,9 +830,9 @@ jewelry ABFGI AB
 0 0 0 0 0
 30 30 1690 P
 A
-13 30
-A
 12 10
+A
+13 30
 E
 ring~
 It conceals the power of the universe.
@@ -814,9 +846,9 @@ weapon ABFGI AN
 exotic 4 6 blast 0
 29 200 4200 P
 A
-19 2
-A
 18 2
+A
+19 2
 #9324
 spring shoot~
 a spring shoot~

@@ -24,6 +24,7 @@ ABCFG FJc -600 0
 DEFNR 0 BE HK
 stand rest male 500
 ABHMV ABCDEFGHIJKUV medium unknown
+0 
 #8302
 oldstyle troll~
 a green troll~
@@ -40,6 +41,7 @@ ACFG FJc -400 0
 DEFNR 0 BE HK
 stand stand male 400
 ABHMV ABCDEFGHIJKUV medium unknown
+0 
 #8303
 oldstyle ogre~
 an ogre~
@@ -54,6 +56,7 @@ ACFG 0 -500 0
 EFNU 0 0 0
 stand stand male 500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #8304
 oldstyle thing~
 the Swamp Thing~
@@ -68,6 +71,7 @@ ACFG 0 -700 0
 EFNU 0 0 0
 stand rest none 1250
 AHMV ABCDEFGHIJK medium unknown
+0 
 #8305
 oldstyle gnoll~
 a gnoll~
@@ -82,6 +86,7 @@ ACG DF -1000 0
 EFNU 0 0 0
 stand stand male 1250
 AHMV ABCDEFGHIJK medium unknown
+0 
 #8306
 oldstyle beast~
 a huge hairy beast~
@@ -97,6 +102,7 @@ ACFG DF -450 0
 EFNU 0 0 0
 stand stand male 500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #8307
 oldstyle beast~
 a rather small beast~
@@ -112,6 +118,7 @@ ACGH P 0 0
 EFNU 0 0 0
 stand stand male 25
 AHMV ABCDEFGHIJK medium unknown
+0 
 #8308
 oldstyle will will-o-wisp~
 the Will-O-Wisp~
@@ -128,6 +135,7 @@ ACGH P 0 0
 EFNU 0 0 0
 stand stand none 150
 AHMV ABCDEFGHIJK medium unknown
+0 
 #8309
 oldstyle snake anaconda~
 the monstrous snake~
@@ -142,6 +150,7 @@ ACFGH PQ -100 0
 EFNR 0 L I
 stand stand male 500
 AGXYc ADEFKLQVX medium unknown
+0 
 #8310
 oldstyle snake python~
 a large snake~
@@ -156,6 +165,7 @@ ACFGH PQ -100 0
 EFNR 0 L I
 stand stand female 0
 AGXYc ADEFKLQVX medium unknown
+0 
 #8312
 oldstyle hag~
 the Marsh Hag~
@@ -171,6 +181,7 @@ ACGS DF -200 0
 BEFJNU 0 0 0
 stand stand female 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #8313
 oldstyle slaad~
 a Death Slaad~
@@ -186,6 +197,7 @@ ACG DF -200 0
 EFNU 0 0 0
 stand stand male 700
 AHMV ABCDEFGHIJK medium unknown
+0 
 #8314
 oldstyle wolf~
 a marsh wolf~
@@ -201,6 +213,7 @@ ACFG Z -200 0
 EFHNR 0 0 0
 stand stand female 0
 AGV ACDEFJKQV medium unknown
+0 
 #8318
 oldstyle mound shambling~
 a shambling mound~
@@ -215,6 +228,7 @@ ACG Q -100 0
 EFNU 0 0 0
 stand stand none 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #8319
 oldstyle shaman orc~
 the orc shaman~
@@ -230,6 +244,7 @@ ABCDFGQ DF -100 0
 EIKU 0 0 0
 stand stand male 17
 AHMV ABCDEFGHIJK medium unknown
+0 
 #8320
 oldstyle giant~
 a marsh giant~
@@ -244,6 +259,7 @@ ABCDFG DF -100 0
 EFNR 0 HI JP
 stand stand male 600
 AHMV ABCDEFGHIJK medium unknown
+0 
 #8321
 oldstyle gargoyle~
 a gargoyle~
@@ -258,6 +274,7 @@ ABCDFG DF -100 0
 EFNU 0 0 0
 stand stand none 100
 AHMV ABCDEFGHIJK medium unknown
+0 
 #0
 
 
@@ -272,9 +289,9 @@ weapon J AN
 staff 1 12 stab F
 11 100 1330 P
 A
-2 1
-A
 19 3
+A
+2 1
 #8302
 horned helmet~
 a dark horned helmet~
@@ -284,9 +301,9 @@ armor J AE
 BC BC AC B 0
 10 50 0 P
 A
-3 -3
-A
 19 1
+A
+3 -3
 E
 horns horn~
 These horns appear to be made of adamantite.~
@@ -307,9 +324,9 @@ weapon HJ AN
 polearm 4 4 slice F
 19 160 1770 P
 A
-19 3
-A
 18 3
+A
+19 3
 #8307
 green potion~
 a murky green potion~
@@ -389,13 +406,13 @@ distance.  And feel fear creep into your heart.
 ~
 0 1 5
 E
-pieces~
-You see severed limbs and spongy intestines.
-~
-E
 humanoid corpse~
 He looks mangled and shredded.  You see one large gash mark that looks
 like it came from the claw of some huge beast.
+~
+E
+pieces~
+You see severed limbs and spongy intestines.
 ~
 D1
 Eastward is the thick bog of ooze...
@@ -496,12 +513,12 @@ be taunting you towards the pool.
 ~
 0 1 6
 E
-quicksand~
-It looks deadly to the foolish.
-~
-E
 lights ~
 From the stories you have heard, you recognize them as will-o-wisps.
+~
+E
+quicksand~
+It looks deadly to the foolish.
 ~
 D1
 The swamp thing's lair.
@@ -555,8 +572,12 @@ huge fortress, half buried in the marsh.
 ~
 0 1 6
 E
-vegetation~
-It looks sentient.
+clouds~
+The clouds look dark and foreboding.
+~
+E
+beast~
+It looks to be a demon of some foul breed.
 ~
 E
 fortress~
@@ -564,12 +585,8 @@ It is surrounded by walls nearly 20 meters high.  In a tall tower on the
 northeast side, a window glows blue with magical energy.
 ~
 E
-beast~
-It looks to be a demon of some foul breed.
-~
-E
-clouds~
-The clouds look dark and foreboding.
+vegetation~
+It looks sentient.
 ~
 D0
 To the north a hill protrudes from the marshes.

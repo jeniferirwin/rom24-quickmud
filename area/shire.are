@@ -27,6 +27,7 @@ ABGR D 500 0
 FU 0 0 0
 stand stand male 105
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1101
 oldstyle ring keeper~
 the Keeper of the Ring~
@@ -45,6 +46,7 @@ ABGS BDF 0 0
 BEFJNU 0 0 0
 stand stand male 61
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1102
 oldstyle farmer gamgee~
 Farmer Gamgee~
@@ -61,6 +63,7 @@ ABH 0 350 0
 EFNU 0 0 0
 rest rest male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1103
 oldstyle toddler~
 a toddler~
@@ -76,6 +79,7 @@ ABH 0 100 0
 EFNU 0 0 0
 sit sit male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1104
 oldstyle nursemaid~
 a nursemaid~
@@ -92,6 +96,7 @@ AB 0 100 0
 EFNU 0 0 0
 stand stand female 1
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1105
 oldstyle cow~
 a cow~
@@ -108,6 +113,7 @@ AGI 0 0 0
 EFNU 0 0 0
 rest rest none 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1106
 oldstyle pig~
 a pig~
@@ -124,6 +130,7 @@ AGI 0 0 0
 EFNR 0 0 0
 rest rest none 0
 AGV ACDEFHJK medium unknown
+0 
 #1107
 oldstyle chicken~
 a chicken~
@@ -138,6 +145,7 @@ AGI 0 0 0
 EFNU 0 0 0
 sit sit female 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1108
 oldstyle bull~
 a bull~
@@ -154,6 +162,7 @@ ABF 0 0 0
 EFNU 0 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1109
 oldstyle horse~
 a horse~
@@ -168,6 +177,7 @@ ABGI 0 0 0
 EFNU 0 0 0
 stand stand none 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1110
 oldstyle shiriff~
 a shiriff~
@@ -185,6 +195,7 @@ ACGT 0 150 0
 CDEIKLU 0 0 0
 sit sit male 2
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1111
 oldstyle shiriff~
 a shiriff~
@@ -202,6 +213,7 @@ ACGT 0 150 0
 CDEIKLU 0 0 0
 sit sit male 2
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1112
 oldstyle thain~
 the Thain~
@@ -219,6 +231,7 @@ AGT 0 400 0
 CDEIKLU 0 0 0
 sit sit male 25
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1113
 oldstyle innkeeper~
 the Innkeeper~
@@ -234,6 +247,7 @@ ABG 0 200 0
 EFNU 0 0 0
 stand stand male 35
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1114
 oldstyle miller~
 the Miller~
@@ -250,6 +264,7 @@ ACGH 0 50 0
 EFNU 0 0 0
 stand stand male 10
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1115
 oldstyle mill worker~
 the mill worker~
@@ -266,6 +281,7 @@ AB 0 0 0
 EFNU 0 0 0
 stand stand male 2
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1116
 oldstyle elven warrior~
 the elven warrior~
@@ -282,6 +298,7 @@ ABR 0 600 0
 FU 0 0 0
 sit sit male 25
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1117
 oldstyle dwarven prince~
 the dwarven prince~
@@ -298,6 +315,7 @@ ABQ 0 200 0
 EIKU 0 0 0
 sit sit male 35
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1118
 oldstyle shopkeeper~
 the shopkeeper~
@@ -313,6 +331,7 @@ AB 0 600 0
 EFNU 0 0 0
 stand stand male 600
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1119
 oldstyle grocer~
 the grocer~
@@ -329,6 +348,7 @@ AB 0 600 0
 EFNU 0 0 0
 stand stand male 75
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1120
 oldstyle blacksmith~
 the blacksmith~
@@ -344,6 +364,7 @@ AB 0 600 0
 EFNU 0 0 0
 stand stand male 900
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1121
 oldstyle battle master~
 the battle master~
@@ -358,6 +379,7 @@ ABT 0 350 0
 CDEIKLU 0 0 0
 stand stand male 75
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1122
 oldstyle halfling youth~
 a halfling youth~
@@ -373,6 +395,7 @@ AGHS DF 0 0
 BEFJNU 0 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1123
 oldstyle seasoned adventurer~
 a seasoned adventurer~
@@ -389,6 +412,7 @@ AB 0 100 0
 EFNU 0 0 0
 sit sit male 8
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1124
 oldstyle local gossip~
 a local gossip~
@@ -404,6 +428,7 @@ ABH 0 0 0
 EFNU 0 0 0
 sit sit female 1
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1125
 oldstyle halfling beauty~
 a halfling beauty~
@@ -421,6 +446,7 @@ AB 0 1000 0
 EFNU 0 0 0
 stand stand female 3
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1126
 oldstyle trainee~
 a trainee~
@@ -437,6 +463,7 @@ AB 0 0 0
 EFNU 0 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1127
 oldstyle chic urbanite~
 a chic urbanite~
@@ -453,6 +480,7 @@ ABH 0 0 0
 EFNU 0 0 0
 sit sit male 5
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1128
 oldstyle country bumpkin~
 a country bumpkin~
@@ -467,6 +495,7 @@ AB 0 0 0
 EFNU 0 0 0
 sleep sleep male 3
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1130
 oldstyle innkeeper~
 the Innkeeper~
@@ -482,6 +511,7 @@ AB 0 200 0
 EFNU 0 0 0
 stand stand male 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1131
 oldstyle receptionist~
 the receptionist~
@@ -496,6 +526,7 @@ AB 0 200 0
 EFNU 0 0 0
 stand stand male 3
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1132
 oldstyle shiriff~
 a shiriff~
@@ -512,6 +543,7 @@ ABT 0 150 0
 CDEIKLU 0 0 0
 stand stand male 2
 AHMV ABCDEFGHIJK medium unknown
+0 
 #0
 
 
@@ -583,10 +615,10 @@ oldstyle~
 jewelry G AB
 0 0 0 0 0
 20 30 1660 P
-F
-A 0 0 B
 A
 1 -1
+F
+A 0 0 B
 #1106
 elven spear~
 an elven spear~
@@ -686,9 +718,9 @@ weapon 0 AN
 dagger 2 4 pierce 0
 6 10 480 P
 A
-19 1
-A
 18 1
+A
+19 1
 #1117
 club heavy~
 the Thain's club~

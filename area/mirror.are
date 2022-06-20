@@ -25,6 +25,7 @@ ABCHR D 500 0
 FU 0 0 0
 stand stand none 11
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5301
 oldstyle lamia pet~
 the pet lamia~
@@ -40,6 +41,7 @@ ACH 0 500 0
 EFNU 0 0 0
 stand stand female 2
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5302
 oldstyle citizen man~
 a citizen of Thalos~
@@ -55,6 +57,7 @@ AGH 0 500 0
 EFNU 0 0 0
 stand stand male 5
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5303
 oldstyle guard imperial cityguard~
 an imperial cityguard~
@@ -70,6 +73,7 @@ ACGT H 1000 0
 CDEIKLU 0 0 0
 stand stand male 75
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5304
 oldstyle citizen woman female~
 a female citizen of Thalos~
@@ -86,6 +90,7 @@ AGH 0 500 0
 EFNU 0 0 0
 stand stand female 5
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5305
 oldstyle gordon defender~
 Gordon the Brave~
@@ -103,6 +108,7 @@ AT H 1000 0
 CDEIKLU 0 0 0
 stand stand male 500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5306
 oldstyle priest~
 the fanatic priest~
@@ -120,6 +126,7 @@ ABHQ 0 -500 0
 EIKU 0 0 0
 stand stand male 5
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5307
 oldstyle priest~
 the priest of Thalos~
@@ -135,6 +142,7 @@ ABQ H 1000 0
 EIKU 0 0 0
 stand stand male 5
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5308
 oldstyle golem stone~
 the stone golem~
@@ -150,6 +158,7 @@ AB N 1000 0
 EFNU 0 0 0
 stand stand none 212
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5309
 oldstyle mayor~
 the mayor of Thalos~
@@ -165,6 +174,7 @@ AB 0 800 0
 EFNU 0 0 0
 stand stand female 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5310
 oldstyle dan barkeep~
 Dan the Barkeep~
@@ -179,6 +189,7 @@ AB 0 600 0
 EFNU 0 0 0
 stand stand male 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5311
 oldstyle george butcher~
 George the Butcher~
@@ -194,6 +205,7 @@ AB 0 600 0
 EFNU 0 0 0
 stand stand male 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5312
 oldstyle farmer betty~
 Farmer Betty~
@@ -208,6 +220,7 @@ AB 0 650 0
 EFNU 0 0 0
 stand stand female 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5313
 oldstyle thaellor dwarf~
 Thaellor the dwarf~
@@ -223,6 +236,7 @@ AB 0 550 0
 EFNU 0 0 0
 stand stand female 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5314
 oldstyle ben smith~
 Ben the Smith~
@@ -237,6 +251,7 @@ AB 0 600 0
 EFNU 0 0 0
 stand stand male 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5315
 oldstyle librarian~
 the librarian~
@@ -251,6 +266,7 @@ ABH 0 500 0
 EFNU 0 0 0
 stand stand female 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5316
 oldstyle scholar boy~
 a young scholar~
@@ -265,6 +281,7 @@ ABH 0 500 0
 EFNU 0 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5317
 oldstyle wizard~
 an old wizard~
@@ -279,6 +296,7 @@ ABR D 550 0
 FU 0 0 0
 stand stand male 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5318
 oldstyle masseuse woman~
 a beautiful masseuse~
@@ -295,6 +313,7 @@ ABH 0 700 0
 EFNU 0 0 0
 stand stand female 2
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5319
 oldstyle bather man~
 a man~
@@ -310,6 +329,7 @@ ABH 0 650 0
 EFNU 0 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5320
 oldstyle guard imperial cityguard~
 An imperial cityguard~
@@ -326,6 +346,7 @@ ABCGT H 1000 0
 CDEIKLU 0 0 0
 stand stand male 75
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5321
 oldstyle guard cityguard~
 an imperial cityguard~
@@ -341,6 +362,7 @@ ABCGT H 1000 0
 CDEIKLU 0 0 0
 stand stand male 75
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5322
 oldstyle doe~
 a doe~
@@ -356,6 +378,7 @@ AGH 0 0 0
 EFNU 0 0 0
 stand stand female 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5323
 oldstyle deer~
 a deer~
@@ -371,6 +394,7 @@ AGH 0 0 0
 EFNU 0 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5324
 oldstyle stag deer~
 a stag~
@@ -385,6 +409,7 @@ AFGH 0 0 0
 EFNU 0 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5325
 oldstyle bunny rabbit~
 a small bunny~
@@ -399,6 +424,7 @@ AGH 0 0 0
 EFNU 0 0 0
 stand stand none 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5326
 oldstyle snake~
 a harmless snake~
@@ -413,6 +439,7 @@ AFGH P 0 0
 EFNR 0 L I
 stand stand none 0
 AGXYc ADEFKLQVX medium unknown
+0 
 #5327
 oldstyle druid~
 a druid~
@@ -427,6 +454,7 @@ AGHQ DN 1000 0
 EIKU 0 0 0
 stand stand male 2
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5328
 oldstyle druidess~
 a druidess~
@@ -441,6 +469,7 @@ AGHQ DN 1000 0
 EIKU 0 0 0
 stand stand female 2
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5329
 oldstyle musician bard~
 bard of Thalos~
@@ -455,6 +484,7 @@ ABC 0 450 0
 EFNU 0 0 0
 stand stand male 5
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5330
 oldstyle musician bard~
 bard of Thalos~
@@ -469,6 +499,7 @@ AC 0 550 0
 EFNU 0 0 0
 stand stand male 7
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5331
 oldstyle cityguard guard~
 the cityguard~
@@ -483,6 +514,7 @@ ACGT 0 1000 0
 CDEIKLU 0 0 0
 stand stand male 25
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5332
 oldstyle janitor~
 the janitor~
@@ -496,6 +528,7 @@ A 0 900 0
 EFNU 0 0 0
 stand stand male 1
 AHMV ABCDEFGHIJK medium unknown
+0 
 #5333
 oldstyle fido dog~
 the beastly fido~
@@ -511,6 +544,7 @@ AFH 0 -200 0
 EFNR 0 0 C
 stand stand male 0
 ABGV ACDEFHJKQV medium unknown
+0 
 #5334
 oldstyle cityguard guard~
 the cityguard~
@@ -525,6 +559,7 @@ ABGT 0 1000 0
 CDEIKLU 0 0 0
 stand stand male 25
 AHMV ABCDEFGHIJK medium unknown
+0 
 #0
 
 
@@ -690,9 +725,9 @@ weapon G AN
 sword 3 4 slash 0
 14 50 1420 P
 A
-19 2
-A
 18 2
+A
+19 2
 E
 sword~
 You see a sword of great craftsmanship.  Imprinted on the side is:
@@ -707,9 +742,9 @@ weapon G AN
 mace 2 7 pound 0
 15 50 1180 P
 A
-19 2
-A
 18 2
+A
+19 2
 E
 mace~
 You see a mace of great craftsmanship.  Imprinted on the side is:
@@ -867,9 +902,9 @@ jewelry G AB
 0 0 0 0 0
 16 10 1280 P
 A
-20 -1
-A
 17 -4
+A
+20 -1
 #5331
 imperial banner~
 an imperial war banner~
@@ -879,9 +914,9 @@ light AG A
 0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 20 10 1440 P
 A
-17 -2
-A
 20 -2
+A
+17 -2
 E
 banner~
 This is the official Merc war banner to see you through the darkest realm!
@@ -895,9 +930,9 @@ weapon GK AN
 sword 4 7 cleave DF
 34 240 4400 P
 A
-19 3
-A
 18 2
+A
+19 3
 #0
 
 
@@ -2415,11 +2450,6 @@ You see stars.
 ~
 ~
 0 0 5378
-D1
-You see stars.
-~
-~
-0 0 5378
 D4
 You see stars.
 ~
@@ -2430,6 +2460,11 @@ You see a fuzzy portal of some sort and a little green.
 ~
 ~
 0 0 5368
+D1
+You see stars.
+~
+~
+0 0 5378
 D5
 You see stars.
 ~
@@ -2445,12 +2480,7 @@ either.  Occasionally, the starry 'sky' fades into a fuzzy, yet bright,
 rainbow then back to its normal state.
 ~
 0 0 3
-D1
-You see stars.
-~
-~
-0 0 5376
-D0
+D2
 You see stars.
 ~
 ~
@@ -2465,16 +2495,21 @@ You see stars.
 ~
 ~
 0 0 5376
+D0
+You see stars.
+~
+~
+0 0 5377
+D1
+You see stars.
+~
+~
+0 0 5376
 D4
 You see stars.
 ~
 ~
 0 0 5375
-D2
-You see stars.
-~
-~
-0 0 5377
 S
 #5377
 The Void~
@@ -2485,26 +2520,6 @@ either.  Occasionally, the starry 'sky' fades into a fuzzy, yet bright,
 rainbow then back to its normal state.
 ~
 0 0 3
-D0
-You see stars.
-~
-~
-0 0 5376
-D3
-You see stars.
-~
-~
-0 0 5377
-D5
-You see stars.
-~
-~
-0 0 5378
-D1
-You see stars.
-~
-~
-0 0 5377
 D2
 You see stars.
 ~
@@ -2515,6 +2530,26 @@ You see stars.
 ~
 ~
 0 0 5378
+D5
+You see stars.
+~
+~
+0 0 5378
+D0
+You see stars.
+~
+~
+0 0 5376
+D3
+You see stars.
+~
+~
+0 0 5377
+D1
+You see stars.
+~
+~
+0 0 5377
 S
 #5378
 The Void~
@@ -2526,16 +2561,16 @@ rainbow then back to its normal state.  In the middle of this room is
 a ladder standing vertical.
 ~
 0 0 3
-D2
-You see a fuzzy portal of some sort and a little green.
-~
-~
-0 0 8903
 D1
 You see stars.
 ~
 ~
 0 0 5375
+D2
+You see a fuzzy portal of some sort and a little green.
+~
+~
+0 0 8903
 D4
 You see stars.
 ~
@@ -2665,14 +2700,9 @@ Main Street leads west from here.
 ~
 0 0 1
 E
-wall~
-It is built from large grey rocks that have been fastened to each other with
-some kind of mortar.  It is far too high to climb.
-~
-E
-tower towers~
-Both of the towers are built from large grey rocks that have been fastened to
-each other with some kind of mortar, just like the city wall.
+bridge footbridge~
+It is too high up to reach but it looks as if one easily could walk across it
+from one tower to the other.
 ~
 E
 gate~
@@ -2681,9 +2711,14 @@ reinforced with large iron bands to make them even more sturdy.  One of the
 doors is equipped with a very big lock.
 ~
 E
-bridge footbridge~
-It is too high up to reach but it looks as if one easily could walk across it
-from one tower to the other.
+tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
+~
+E
+wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
 ~
 D1
 You see the city gate.
@@ -2703,14 +2738,9 @@ plains stretch out in the distance.
 ~
 0 0 1
 E
-wall~
-It is built from large grey rocks that have been fastened to each other with
-some kind of mortar.  It is far too high to climb.
-~
-E
-tower towers~
-Both of the towers are built from large grey rocks that have been fastened to
-each other with some kind of mortar, just like the city wall.
+bridge footbridge~
+It is too high up to reach but it looks as if one easily could walk across it
+from one tower to the other.
 ~
 E
 gate~
@@ -2719,9 +2749,14 @@ reinforced with large iron bands to make them even more sturdy.  One of the
 doors is equipped with a very big lock.
 ~
 E
-bridge footbridge~
-It is too high up to reach but it looks as if one easily could walk across it
-from one tower to the other.
+tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
+~
+E
+wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
 ~
 D1
 You see the plains.~
@@ -2741,16 +2776,16 @@ behind it is a ten foot tall sitting statue of Odin, the King of the Gods.
 ~
 0 1032 0
 E
+altar~
+Even though the altar is more than ten feet long it appears to be made from a
+single block of white virgin marble.
+~
+E
 statue odin king god~
 The statue represents the one-eyed Odin sitting on a his throne.  He has
 long, grey hair and beard and a strict look on his face.  On top of the
 throne, just above his shoulders, his two ravens Hugin and Munin are sitting
 and at his feet are his wolves Gere and Freke.
-~
-E
-altar~
-Even though the altar is more than ten feet long it appears to be made from a
-single block of white virgin marble.
 ~
 D2
 You see the southern end of the temple.

@@ -23,6 +23,7 @@ ABFG 0 -300 0
 EFNU 0 0 0
 stand stand none 1
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1602
 oldstyle stone gargoyle~
 the stone gargoyle~
@@ -37,6 +38,7 @@ ABFGH 0 -400 0
 EFNU 0 0 0
 stand stand male 20
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1603
 oldstyle angry gargoyle~
 an angry gargoyle~
@@ -51,6 +53,7 @@ ACFG 0 -600 0
 EFNU 0 0 0
 stand stand male 25
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1604
 oldstyle elite gargoyle~
 the elite gargoyle~
@@ -65,6 +68,7 @@ ABC 0 -600 0
 EFNU 0 0 0
 stand stand male 40
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1605
 oldstyle gargoyle shaman~
 the gargoyle shaman~
@@ -79,6 +83,7 @@ ABCGQ DF -900 0
 EIKU 0 0 0
 stand stand female 150
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1606
 oldstyle carnivorous plant~
 a carnivorous plant~
@@ -93,6 +98,7 @@ ABFG 0 0 0
 EFNU 0 0 0
 stand stand none 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1607
 oldstyle gruesome ogre~
 a gruesome ogre~
@@ -107,6 +113,7 @@ ABCFG 0 -200 0
 EFNU 0 0 0
 sit stand none 60
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1608
 oldstyle shadow~
 a shadow~
@@ -121,6 +128,7 @@ ACFG BDF -1000 0
 EFNU 0 0 0
 stand stand none 45
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1609
 oldstyle evil wight~
 an evil wight~
@@ -135,6 +143,7 @@ ABCFG DF -1000 0
 EFNU 0 0 0
 stand stand male 110
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1610
 oldstyle burly minotaur~
 A burly minotaur~
@@ -149,6 +158,7 @@ ACG D -600 0
 EFNU 0 0 0
 stand stand male 75
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1612
 oldstyle savage minotaur~
 the savage minotaur~
@@ -163,6 +173,7 @@ ABCFG D -600 0
 EFNU 0 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1613
 oldstyle minotaur captain~
 the captain~
@@ -177,6 +188,7 @@ ABCFG D -900 0
 EFNU 0 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1614
 oldstyle black pudding~
 the black pudding~
@@ -191,6 +203,7 @@ ACFG 0 -1000 0
 EFNU 0 0 0
 stand stand none 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1615
 oldstyle lesser golem~
 a lesser golem~
@@ -205,6 +218,7 @@ ABG D 0 0
 EFNU 0 0 0
 stand stand none 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1616
 oldstyle ancient wyvern~
 the ancient wyvern~
@@ -219,6 +233,7 @@ ACFG DF -1000 0
 EFNU 0 0 0
 stand rest male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1617
 oldstyle spectre~
 the spectre~
@@ -233,6 +248,7 @@ ACFG BDH -1000 0
 EFNU 0 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1702
 oldstyle trapper~
 a trapper~
@@ -247,6 +263,7 @@ AC 0 0 0
 EFNU 0 0 0
 stand stand male 6
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1704
 oldstyle hunter~
 a hunter~
@@ -261,6 +278,7 @@ AC 0 0 0
 EFNU 0 0 0
 rest stand male 6
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1706
 oldstyle ranger~
 a ranger~
@@ -275,6 +293,7 @@ ACG D 200 0
 EFNU 0 0 0
 rest stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1707
 oldstyle ranger leader~
 a ranger leader~
@@ -289,6 +308,7 @@ ABC D 300 0
 EFNU 0 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1708
 oldstyle ranger lord~
 the Lord of the Rangers~
@@ -302,6 +322,7 @@ ABC D 400 0
 EFNU 0 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1710
 oldstyle male centaur~
 a centaur~
@@ -316,6 +337,7 @@ AC 0 200 0
 EFNU 0 0 0
 stand stand male 6
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1711
 oldstyle female centaur~
 a centaur~
@@ -330,6 +352,7 @@ AC 0 200 0
 EFNU 0 0 0
 stand stand female 5
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1712
 oldstyle old centaur~
 an old centaur~
@@ -344,6 +367,7 @@ AC 0 200 0
 EFNU 0 0 0
 rest rest male 5
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1714
 oldstyle centaur elder~
 an elder centaur~
@@ -358,6 +382,7 @@ ABC B 200 0
 EFNU 0 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1715
 oldstyle centaur guard~
 a centaur guard~
@@ -372,6 +397,7 @@ AB B 200 0
 EFNU 0 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1716
 oldstyle centaur chief~
 the centaur chief~
@@ -387,6 +413,7 @@ ABC B 200 0
 EFNU 0 0 0
 rest stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #1720
 oldstyle displacer beast~
 a displacer beast~
@@ -401,6 +428,7 @@ AH 0 0 0
 EFNU 0 0 0
 stand stand none 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #0
 
 
@@ -443,9 +471,9 @@ weapon AG AN
 sword 2 6 slash 0
 11 120 910 P
 A
-19 1
-A
 18 1
+A
+19 1
 #1605
 steel broad sword~
 a steel broad sword~
@@ -455,9 +483,9 @@ weapon AG AN
 sword 2 7 slash 0
 15 120 1510 P
 A
-19 2
-A
 18 2
+A
+19 2
 #1606
 rod might~
 the rod of might~
@@ -467,9 +495,9 @@ weapon BG AN
 mace 2 7 blast 0
 14 130 1550 P
 A
-1 1
-A
 18 2
+A
+1 1
 #1612
 black kite shield~
 a black kite shield~
@@ -589,9 +617,9 @@ weapon BG AN
 sword 2 8 slash 0
 19 100 2500 P
 A
-19 3
-A
 18 3
+A
+19 3
 #1711
 fur cap~
 a fur cap~

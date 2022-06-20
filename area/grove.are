@@ -25,6 +25,7 @@ AGHQ DHN 1000 0
 EIKU 0 0 0
 stand stand male 2
 AHMV ABCDEFGHIJK medium unknown
+0 
 #8901
 oldstyle hierophant~
 The Hierophant~
@@ -41,6 +42,7 @@ AGHQ DHN 1000 0
 EIKU 0 0 0
 stand stand female 2
 AHMV ABCDEFGHIJK medium unknown
+0 
 #8902
 oldstyle elder druid~
 an elder druid~
@@ -56,6 +58,7 @@ AGHQ N 1000 0
 EIKU 0 0 0
 stand stand male 2
 AHMV ABCDEFGHIJK medium unknown
+0 
 #8903
 oldstyle elder druidess~
 an elder druidess~
@@ -70,6 +73,7 @@ AGHQ N 1000 0
 EIKU 0 0 0
 stand stand female 2
 AHMV ABCDEFGHIJK medium unknown
+0 
 #8904
 oldstyle doe~
 a doe~
@@ -85,6 +89,7 @@ AGH 0 0 0
 EFNU 0 0 0
 stand stand female 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #8905
 oldstyle deer~
 a deer~
@@ -100,6 +105,7 @@ AGH 0 0 0
 EFNU 0 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #8906
 oldstyle stag deer large~
 a stag~
@@ -114,6 +120,7 @@ AFGH 0 0 0
 EFNU 0 0 0
 stand stand male 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #8907
 oldstyle bunny rabbit~
 a small bunny~
@@ -128,6 +135,7 @@ AGH 0 0 0
 EFNU 0 0 0
 stand stand none 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #8908
 oldstyle snake~
 a harmless snake~
@@ -142,6 +150,7 @@ AFGH P 0 0
 EFNR 0 L I
 stand stand none 0
 AGXYc ADEFKLQVX medium unknown
+0 
 #8909
 oldstyle druid~
 a druid~
@@ -156,6 +165,7 @@ AGHQ DN 1000 0
 EIKU 0 0 0
 stand stand male 2
 AHMV ABCDEFGHIJK medium unknown
+0 
 #8910
 oldstyle druidess~
 a druidess~
@@ -170,6 +180,7 @@ AGHQ DN 1000 0
 EIKU 0 0 0
 stand stand female 2
 AHMV ABCDEFGHIJK medium unknown
+0 
 #0
 
 

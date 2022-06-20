@@ -24,6 +24,7 @@ ACG D 0 0
 EFNU 0 0 0
 stand stand female 5
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6302
 oldstyle dragon Yevaud~
 Yevaud~
@@ -38,6 +39,7 @@ ABCG DJT -1000 0
 EFNR 0 BEH FI
 stand stand male 500
 AHZ ACDEFGHIJKPQUVX medium unknown
+0 
 #6303
 oldstyle spider wolf~
 the Wolf Spider~
@@ -52,6 +54,7 @@ ABF 0 -300 0
 EFNU 0 0 0
 stand stand female 62
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6304
 oldstyle orc~
 the orc~
@@ -66,6 +69,7 @@ AB J -400 0
 EFNR 0 Q S
 stand stand male 5
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6305
 oldstyle wasp queen~
 the Queen Wasp~
@@ -81,6 +85,7 @@ ABF 0 -800 0
 EFNU 0 0 0
 stand stand female 75
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6306
 oldstyle spider drone~
 the drone spider~
@@ -95,6 +100,7 @@ ACG 0 -300 0
 EFNU 0 0 0
 stand stand male 10
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6307
 oldstyle spider ethereal~
 the ethereal spider~
@@ -109,6 +115,7 @@ ACG 0 1000 0
 EFNU 0 0 0
 stand stand female 62
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6308
 oldstyle slave human~
 the slave of Arachnos~
@@ -123,6 +130,7 @@ ACG 0 0 0
 EFNU 0 0 0
 stand stand male 25
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6309
 oldstyle quasit~
 the quasit~
@@ -138,6 +146,7 @@ ACEH BDP 1000 0
 EFNU 0 0 0
 stand stand male 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6310
 oldstyle spider bird~
 the Bird Spider~
@@ -152,6 +161,7 @@ ABF 0 -800 0
 EFNU 0 0 0
 stand stand female 87
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6311
 oldstyle hermit~
 the Hermit~
@@ -167,6 +177,7 @@ ABC D -400 0
 EFNU 0 0 0
 stand stand male 37
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6312
 oldstyle donjonkeeper~
 the Donjonkeeper~
@@ -181,6 +192,7 @@ ABC D 1000 0
 EFNU 0 0 0
 stand stand male 300
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6313
 oldstyle guardian~
 The guardian~
@@ -195,6 +207,7 @@ AFG P 250 0
 EFNU 0 0 0
 sleep sleep male 80
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6314
 oldstyle spider empress arachnos~
 Arachnos~
@@ -212,6 +225,7 @@ ABF BD -1000 0
 EFNU 0 0 0
 stand stand female 500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6315
 oldstyle ki-rin~
 the Ki-Rin~
@@ -227,6 +241,7 @@ ABC D 1000 0
 EFNU 0 0 0
 stand stand female 750
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6316
 oldstyle dragon wormkin young~
 the young dragon wormkin~
@@ -241,6 +256,7 @@ AB DJT 1000 0
 EFNR 0 BEH FI
 stand stand male 50
 AHZ ACDEFGHIJKPQUVX medium unknown
+0 
 #6317
 oldstyle dragon wormkin medium~
 the medium dragon wormkin~
@@ -255,6 +271,7 @@ AB DJT 100 0
 EFNR 0 BEH FI
 stand stand male 250
 AHZ ACDEFGHIJKPQUVX medium unknown
+0 
 #6318
 oldstyle spider poisonous~
 the huge, poisonous spider~
@@ -271,6 +288,7 @@ ABG 0 -350 0
 EFNU 0 0 0
 stand stand none 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #6319
 oldstyle queen spider~
 the Queen Spider~
@@ -287,6 +305,7 @@ ABG D -1000 0
 EFNU 0 0 0
 stand stand female 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #0
 
 
@@ -301,9 +320,9 @@ armor FG AE
 BC BC BC AB 0
 18 50 4600 P
 A
-17 -2
-A
 4 2
+A
+17 -2
 #6304
 visor black knight's~
 a black knight's visor~
@@ -313,9 +332,9 @@ armor FG AE
 BC BC BC B 0
 17 50 4600 P
 A
-5 2
-A
 1 1
+A
+5 2
 #6308
 coins silver gold~
 a big pile of coins~

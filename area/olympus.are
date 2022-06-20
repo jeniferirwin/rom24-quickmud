@@ -25,6 +25,7 @@ ABCQ BDFHNT 1000 0
 EIKU 0 0 0
 stand stand male 5000
 AHMV ABCDEFGHIJK medium unknown
+0 
 #902
 oldstyle prometheus~
 Prometheus~
@@ -40,6 +41,7 @@ ABC BDFHNT 1000 0
 EFNU 0 0 0
 stand stand male 2000
 AHMV ABCDEFGHIJK medium unknown
+0 
 #903
 oldstyle hermes~
 Hermes~
@@ -56,6 +58,7 @@ ACS BDFHNPT 1000 0
 BEFJNU 0 0 0
 stand stand male 2500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #904
 oldstyle poseidon~
 Poseidon~
@@ -72,6 +75,7 @@ ABCR BDFHNT 1000 0
 FU 0 0 0
 sit stand male 5000
 AHMV ABCDEFGHIJK medium unknown
+0 
 #905
 oldstyle apollo~
 Apollo~
@@ -88,6 +92,7 @@ ABC BDFHNT 1000 0
 EFNU 0 0 0
 stand stand male 2000
 AHMV ABCDEFGHIJK medium unknown
+0 
 #906
 oldstyle ares~
 Ares~
@@ -103,6 +108,7 @@ ABCF BDFHT -1000 0
 EFNU 0 0 0
 stand stand male 2500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #907
 oldstyle athena~
 Athena~
@@ -118,6 +124,7 @@ ABC BDFHNT 1000 0
 EFNU 0 0 0
 stand stand female 3000
 AHMV ABCDEFGHIJK medium unknown
+0 
 #908
 oldstyle hephaestus smith~
 Hephaestus~
@@ -134,6 +141,7 @@ ABC BDFHNT 1000 0
 EFNU 0 0 0
 stand stand male 3000
 AHMV ABCDEFGHIJK medium unknown
+0 
 #909
 oldstyle handmaid golden~
 A Golden Maiden~
@@ -149,6 +157,7 @@ ABCT BDFHNT 0 0
 CDEIKLU 0 0 0
 stand stand female 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #910
 oldstyle soldier~
 A Soldier~
@@ -164,6 +173,7 @@ ABCF BDFHT 0 0
 EFNU 0 0 0
 stand stand male 250
 AHMV ABCDEFGHIJK medium unknown
+0 
 #911
 oldstyle musician apprentice~
 an apprentice musician~
@@ -179,6 +189,7 @@ ABC BDFHT 1000 0
 EFNU 0 0 0
 stand stand male 125
 AHMV ABCDEFGHIJK medium unknown
+0 
 #912
 oldstyle boy serving servant~
 A serving boy~
@@ -193,6 +204,7 @@ ABC BDFHT 1000 0
 EFNU 0 0 0
 stand stand male 25
 AHMV ABCDEFGHIJK medium unknown
+0 
 #913
 oldstyle hound dog war~
 A hound of war~
@@ -208,6 +220,7 @@ ABCF BDFHT -600 0
 EFNU 0 0 0
 stand stand none 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #914
 oldstyle Odin~
 Odin~
@@ -224,6 +237,7 @@ ABC BDFHNT 1000 0
 EFNU 0 0 0
 stand stand male 5000
 AHMV ABCDEFGHIJK medium unknown
+0 
 #915
 oldstyle grocer greengrocer julius~
 Julius the Green Grocer~
@@ -241,6 +255,7 @@ ABC BDFHNT 1000 0
 EFNU 0 0 0
 stand stand male 500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #916
 oldstyle alchemist~
 the Alchemist~
@@ -257,6 +272,7 @@ ABC BDFHNT 1000 0
 EFNU 0 0 0
 stand stand male 500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #917
 oldstyle clive~
 Clive the Weapons Master~
@@ -272,6 +288,7 @@ ABC BDFHNT 1000 0
 EFNU 0 0 0
 stand stand male 2000
 AHMV ABCDEFGHIJK medium unknown
+0 
 #918
 oldstyle armourer samuel~
 Samuel the Armourer~
@@ -287,6 +304,7 @@ ABCF BDFHNT 1000 0
 EFNU 0 0 0
 stand stand male 500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #919
 oldstyle ra sun god~
 Ra the Sun God~
@@ -303,6 +321,7 @@ ABC BDFHNT 1000 0
 EFHNR 0 0 0
 stand stand male 5000
 AGV ACDEFHJK medium unknown
+0 
 #920
 oldstyle chimera~
 a chimera~
@@ -318,6 +337,7 @@ ABCF BDFHT -1000 0
 EFNU 0 0 0
 stand stand male 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #921
 oldstyle hera~
 Hera~
@@ -333,6 +353,7 @@ ABCQ BDFHNT 1000 0
 EIKU 0 0 0
 stand stand female 5000
 AHMV ABCDEFGHIJK medium unknown
+0 
 #922
 oldstyle roc~
 a roc~
@@ -348,6 +369,7 @@ AC BDFHNT 0 0
 EFNU 0 0 0
 stand stand none 250
 AHMV ABCDEFGHIJK medium unknown
+0 
 #923
 oldstyle citizen resident~
 A citizen~
@@ -362,6 +384,7 @@ ACS BDFHNT 1000 0
 BEFJNU 0 0 0
 stand stand male 3
 AHMV ABCDEFGHIJK medium unknown
+0 
 #924
 oldstyle pegasus horse~
 a pegasus~
@@ -377,6 +400,7 @@ AC BDFHNT 0 0
 EFNU 0 0 0
 stand stand none 40
 AHMV ABCDEFGHIJK medium unknown
+0 
 #925
 oldstyle cook~
 A Cook~
@@ -391,6 +415,7 @@ ABC BDFHNT 1000 0
 EFNU 0 0 0
 stand stand male 5
 AHMV ABCDEFGHIJK medium unknown
+0 
 #926
 oldstyle jailer~
 The Jailer~
@@ -406,6 +431,7 @@ ABCR BDFHNT 0 0
 FU 0 0 0
 stand stand male 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #0
 
 
@@ -430,9 +456,9 @@ weapon FGK AN
 mace 7 6 blast G
 50 240 5400 P
 A
-18 3
-A
 4 -1
+A
+18 3
 #902
 helmet winged~
 a Winged Helmet~
@@ -452,9 +478,9 @@ weapon FGJ AN
 staff 5 8 thrust 0
 48 180 2000 P
 A
-19 2
-A
 18 2
+A
+19 2
 #904
 sandals winged~
 a pair of winged sandals~
@@ -492,9 +518,9 @@ weapon FGK AN
 exotic 6 7 pierce F
 47 150 10300 P
 A
-19 1
-A
 18 1
+A
+19 1
 #908
 gauntlets flaming~
 flaming gauntlets~
@@ -532,9 +558,9 @@ jewelry FGK AB
 0 0 0 0 0
 35 10 6900 P
 A
-19 3
-A
 4 2
+A
+19 3
 #912
 shield glowing~
 a brightly glowing shield~

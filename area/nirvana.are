@@ -23,6 +23,7 @@ ACG J 300 0
 NQR BMNPQ HIK 0
 stand stand none 0
 H ABCGHIJK medium unknown
+0 
 #9001
 quadrone~
 the quadrone~
@@ -37,6 +38,7 @@ AFGT DJ 300 0
 CEKQR BMNPQ HIK 0
 stand stand none 0
 H ABCGHIJK medium unknown
+0 
 #9002
 pentadrone~
 the pentadrone~
@@ -51,6 +53,7 @@ ABFGT DJ 300 0
 CEFLNQR BMNPQR HIK 0
 stand stand none 0
 H ABCGHJKN medium unknown
+0 
 #9003
 decaton~
 the decaton~
@@ -65,6 +68,7 @@ ABFGQT DJ 300 0
 ACEKNQR BMNPQR HIK 0
 stand stand none 0
 HM ABCGHJKN medium unknown
+0 
 #9004
 nonaton~
 the nonaton~
@@ -79,6 +83,7 @@ ABFGQT DHJ 300 0
 AEFNQR BMNPQR HIK G
 stand stand none 0
 HM ABCGHJKN large unknown
+0 
 #9005
 octon~
 the octon~
@@ -94,6 +99,7 @@ ABFGQ DJ 300 0
 ACEHKQR BMNPQR HIK G
 stand stand none 0
 HM ABCGHJKN large unknown
+0 
 #9006
 septon~
 the septon~
@@ -109,6 +115,7 @@ ABFGQR DJ 300 0
 AFKOQR BMNPQR HIK 0
 stand stand none 0
 HM ABCGHIJKN medium unknown
+0 
 #9007
 hexton~
 the hexton~
@@ -124,6 +131,7 @@ ABFGQT DFHJ 300 0
 ACEFHIKLNQR ABMNPQR CHIK 0
 stand stand none 0
 HM ABCGHIJKNP large unknown
+0 
 #9008
 quinton~
 the quinton~
@@ -140,6 +148,7 @@ ABFGQ DJ 300 0
 AKMOQR ABMNPQR HIK 0
 stand stand none 0
 HM ABCGHIJKNPQ large unknown
+0 
 #9009
 tertian~
 the tertian~
@@ -156,6 +165,7 @@ ABFGQRT DJ 300 0
 CEFQR ABMNPQR CHIK 0
 stand stand none 0
 HM ABCGHIJKW huge unknown
+0 
 #9010
 secundus~
 secundus~
@@ -171,6 +181,7 @@ ABFGQRT DFHJ 0 0
 EFHIKNQR ABHIKMNPQR CHIK 0
 stand stand none 0
 HM ABCGHIJK huge unknown
+0 
 #9011
 Primus~
 Primus~
@@ -187,6 +198,7 @@ ABFGQRT DFHJ 0 0
 AHQR ABHIKMNPQRS CHIK 0
 stand stand none 0
 HM ABCGHIJK giant unknown
+0 
 #0
 
 
@@ -201,9 +213,9 @@ weapon AGJK AN
 sword 5 6 slash EF
 39 400 8800 P
 A
-19 5
-A
 18 5
+A
+19 5
 E
 sword long the~
 This is an extremely long and heavy sword, with many magical runes inscribed

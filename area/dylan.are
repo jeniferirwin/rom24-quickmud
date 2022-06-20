@@ -25,6 +25,7 @@ ACF DFP -500 0
 EFNU 0 0 0
 stand stand female 1525
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9102
 oldstyle harpy leader~
 the screaming harpy leader~
@@ -42,6 +43,7 @@ ABCF DFP -750 0
 EFNU 0 0 0
 stand stand female 2125
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9103
 oldstyle air elemental~
 the ghostly air elemental~
@@ -57,6 +59,7 @@ ACF DFPQ 0 0
 EFNU 0 0 0
 stand stand none 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9104
 oldstyle mysterious efreeti~
 the mysterious efreeti~
@@ -72,6 +75,7 @@ AC DHP -100 0
 EFNU 0 0 0
 stand stand none 2500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9105
 oldstyle roc~
 the gigantic roc~
@@ -86,6 +90,7 @@ AG 0 50 0
 EFNU 0 0 0
 stand stand female 0
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9106
 oldstyle roc~
 the gigantic roc~
@@ -101,6 +106,7 @@ AG 0 50 0
 EFNU 0 0 0
 stand stand male 2000
 AHMV ABCDEFGHIJK medium unknown
+0 
 #9107
 oldstyle wicked witch~
 the ugly, wicked witch~
@@ -117,6 +123,7 @@ ABCF DH -600 0
 EFNU 0 0 0
 stand stand female 3000
 AHMV ABCDEFGHIJK medium unknown
+0 
 #0
 
 
@@ -130,12 +137,12 @@ oldstyle~
 armor G AG
 AB AB AB 0 0
 13 100 2800 P
-A
-20 1
-A
-2 2
 F
 A 0 0 T
+A
+2 2
+A
+20 1
 #9102
 bronze bracer~
 A carved bronze bracer~
@@ -153,9 +160,9 @@ jewelry F AC
 0 0 0 0 0
 7 100 1140 P
 A
-4 1
-A
 3 1
+A
+4 1
 #9104
 magenta potion~
 magenta potion~

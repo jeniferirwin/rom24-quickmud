@@ -23,6 +23,7 @@ ABF FTZ 0 0
 EFHNR 0 0 S
 stand stand none 0
 AGV ACDEFHJKP medium unknown
+0 
 #2002
 oldstyle page templar~
 a templar page~
@@ -37,6 +38,7 @@ AH 0 200 0
 EFNU 0 0 0
 stand stand male 30
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2003
 oldstyle spelunker explorer~
 a spelunker~
@@ -54,6 +56,7 @@ ACH F 100 0
 EFNU 0 0 0
 stand stand male 40
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2004
 oldstyle gravedigger digger robber graverobber~
 a graverobber~
@@ -69,6 +72,7 @@ ACF 0 -500 0
 EFNU 0 0 0
 stand stand male 5
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2005
 oldstyle mist swirling~
 some mist~
@@ -83,6 +87,7 @@ A HPU 0 0
 EFNU 0 0 0
 stand stand none 10
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2006
 oldstyle ~
 It~
@@ -95,6 +100,7 @@ AF 0 0 0
 EFNU 0 0 0
 stand stand none 50
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2007
 oldstyle skeleton skeletal soldier~
 a skeleton~
@@ -110,6 +116,7 @@ ACF 0 -290 0
 EFNU 0 0 0
 stand stand male 55
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2008
 oldstyle templar~
 a templar~
@@ -128,6 +135,7 @@ ACF 0 600 0
 EFNU 0 0 0
 stand stand male 25
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2009
 oldstyle wraith~
 a mysterious wraith~
@@ -142,6 +150,7 @@ ACF FU 0 0
 EFNU 0 0 0
 stand stand male 30
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2010
 oldstyle officer templar~
 the templar officer~
@@ -156,6 +165,7 @@ AF D 700 0
 EFNU 0 0 0
 stand stand male 30
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2011
 oldstyle zombie mage~
 zombie~
@@ -170,6 +180,7 @@ ACFR 0 -100 0
 FU 0 0 0
 stand stand male 27
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2012
 oldstyle shadow shadows~
 the shadow~
@@ -184,6 +195,7 @@ A FPU 0 0
 EFNU 0 0 0
 stand stand none 40
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2013
 oldstyle bat vampire~
 The vampire~
@@ -198,6 +210,7 @@ ABF FTZ -100 0
 EFHNR 0 0 S
 stand stand male 50
 AGV ACDEFHJKP medium unknown
+0 
 #2014
 oldstyle necromancer necro cleric~
 the evil necromancer~
@@ -213,6 +226,7 @@ ABF 0 -888 0
 EFNU 0 0 0
 stand stand male 55
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2015
 oldstyle grand templar leader~
 the grand templar~
@@ -228,6 +242,7 @@ AB DFH 1000 0
 EFNU 0 0 0
 stand stand male 75
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2016
 oldstyle prism dragon prismdragon~
 the prism dragon~
@@ -242,6 +257,7 @@ ABF DF -303 0
 EFNU 0 0 0
 stand stand male 1500
 AHMV ABCDEFGHIJK medium unknown
+0 
 #2017
 oldstyle darken dark beast darkenbeast~
 The DarkenBeast~
@@ -256,6 +272,7 @@ ABF 0 -1000 0
 EFNU 0 0 0
 stand stand none 1000
 AHMV ABCDEFGHIJK medium unknown
+0 
 #0
 
 
@@ -288,9 +305,9 @@ jewelry J AB
 0 0 0 0 0
 7 10 800 P
 A
-4 1
-A
 17 -1
+A
+4 1
 #2004
 neutralizer sword~
 the neutralizer~
@@ -300,9 +317,9 @@ weapon BJK AN
 sword 3 5 slash 0
 16 90 1280 P
 A
-19 1
-A
 18 1
+A
+19 1
 #2005
 sword excalibur~
 the sword Excalibur~
@@ -312,9 +329,9 @@ weapon AGKL AN
 sword 5 4 slash 0
 24 150 3400 P
 A
-1 1
-A
 18 3
+A
+1 1
 #2006
 crown~
 a kingly crown~
@@ -368,15 +385,15 @@ armor G AJ
 BC BC BC C 0
 13 150 1920 P
 A
-19 -1
-A
-18 -2
-A
-13 10
+17 -2
 A
 12 10
 A
-17 -2
+13 10
+A
+18 -2
+A
+19 -1
 #2012
 scale shield dragonscale~
 a dragonscale shield~
