@@ -299,7 +299,8 @@ void load_mobiles (FILE * fp)
         CHECK_POS (pMobIndex->size, size_lookup (fread_word (fp)), "size");
 /*    pMobIndex->size            = size_lookup(fread_word(fp)); */
         pMobIndex->material = str_dup (fread_word (fp));
-        pMobIndex->affected2_by = race_table[pMobIndex->race].aff2;
+        pMobIndex->affected2_by = fread_flag (fp)
+            | race_table[pMobIndex->race].aff2;
 
         for (;;)
         {

@@ -217,7 +217,7 @@ void save_mobile (FILE * fp, MOB_INDEX_DATA * pMobIndex)
     fprintf (fp, "%s\n",
              IS_NULLSTR (pMobIndex->
                          material) ? pMobIndex->material : "unknown");
-    fprintf (fp, "%s ", fwrite_flag (pMobIndex->affected2_by, buf));
+    fprintf (fp, "%s \n", fwrite_flag (pMobIndex->affected2_by, buf));
 
     if ((temp = DIF (race_table[race].act, pMobIndex->act)))
         fprintf (fp, "F act %s\n", fwrite_flag (temp, buf));
