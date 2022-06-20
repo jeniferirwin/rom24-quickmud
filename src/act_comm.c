@@ -538,7 +538,7 @@ void do_question (CHAR_DATA * ch, char *argument)
 
         REMOVE_BIT (ch->comm, COMM_NOQUESTION);
 
-        sprintf (buf, "{qYou question '{Q%s{q'#w\n\r", argument);
+        sprintf (buf, "#WYou question '#w%s#W'#w\n\r", argument);
         send_to_char (buf, ch);
         for (d = descriptor_list; d != NULL; d = d->next)
         {
@@ -551,7 +551,7 @@ void do_question (CHAR_DATA * ch, char *argument)
                 !IS_SET (victim->comm, COMM_NOQUESTION) &&
                 !IS_SET (victim->comm, COMM_QUIET))
             {
-                act_new ("{q$n questions '{Q$t{q'#w",
+                act_new ("#W$n questions '#w$t#W'#w",
                          ch, argument, d->character, TO_VICT, POS_SLEEPING);
             }
         }
