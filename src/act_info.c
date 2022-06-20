@@ -249,31 +249,56 @@ void show_char_to_char_0 (CHAR_DATA * victim, CHAR_DATA * ch)
     char buf[MAX_STRING_LENGTH], message[MAX_STRING_LENGTH];
 
     buf[0] = '\0';
+    int brackets = 0;
 
     if (IS_SET (victim->comm, COMM_AFK))
         strcat (buf, "#M[#mAFK#M]#w");
+    if (IS_AFFECTED (victim, AFF_INVISIBLE)
+    || victim->invis_level >= LEVEL_HERO
+    || IS_AFFECTED (victim, AFF_HIDE)
+    || IS_AFFECTED (victim, AFF_CHARM)
+    || IS_AFFECTED (victim, AFF_PASS_DOOR)
+    || IS_AFFECTED (victim, AFF_FAERIE_FIRE)
+    || (IS_EVIL (victim) && IS_AFFECTED (ch, AFF_DETECT_EVIL))
+    || (IS_GOOD (victim) && IS_AFFECTED (ch, AFF_DETECT_GOOD))
+    || IS_AFFECTED (victim, AFF_SANCTUARY))
+    {
+        brackets = 1;
+    }
+    if (brackets == 1)
+    {
+        strcat(buf, "#B[");
+    }
     if (IS_AFFECTED (victim, AFF_INVISIBLE))
-        strcat (buf, "#w(Invis) ");
+        strcat (buf, "#wI");
     if (victim->invis_level >= LEVEL_HERO)
-        strcat (buf, "#D(Wizi)#w ");
+        strcat (buf, "#DZ");
     if (IS_AFFECTED (victim, AFF_HIDE))
-        strcat (buf, "#D(H)#w ");
+        strcat (buf, "#DH");
     if (IS_AFFECTED (victim, AFF_CHARM))
-        strcat (buf, "#y(C)#w ");
+        strcat (buf, "#yC");
     if (IS_AFFECTED (victim, AFF_PASS_DOOR))
-        strcat (buf, "#W(T)#w ");
+        strcat (buf, "#WT");
     if (IS_AFFECTED (victim, AFF_FAERIE_FIRE))
-        strcat (buf, "#M(P)#w ");
+        strcat (buf, "#MP");
     if (IS_EVIL (victim) && IS_AFFECTED (ch, AFF_DETECT_EVIL))
-        strcat (buf, "#R(R)#w ");
+        strcat (buf, "#RR");
     if (IS_GOOD (victim) && IS_AFFECTED (ch, AFF_DETECT_GOOD))
-        strcat (buf, "#Y(G)#w ");
+        strcat (buf, "#YG");
     if (IS_AFFECTED (victim, AFF_SANCTUARY))
-        strcat (buf, "#W(W)#w ");
+        strcat (buf, "#WW");
+    if (brackets == 1)
+    {
+        strcat(buf, "#B]#w ");
+    }
     if (!IS_NPC (victim) && IS_SET (victim->act, PLR_KILLER))
-        strcat (buf, "#R(KLR)#w ");
+    {
+        strcat (buf, "#R[KLR]#w ");
+    }
     if (!IS_NPC (victim) && IS_SET (victim->act, PLR_THIEF))
-        strcat (buf, "#M(THF)#w ");
+    {
+        strcat (buf, "#M[THF]#w ");
+    }
     if (victim->position == victim->start_pos
         && victim->long_descr[0] != '\0')
     {
