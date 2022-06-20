@@ -251,29 +251,29 @@ void show_char_to_char_0 (CHAR_DATA * victim, CHAR_DATA * ch)
     buf[0] = '\0';
 
     if (IS_SET (victim->comm, COMM_AFK))
-        strcat (buf, "[AFK] ");
+        strcat (buf, "#M[#mAFK#M]#w");
     if (IS_AFFECTED (victim, AFF_INVISIBLE))
-        strcat (buf, "(Invis) ");
+        strcat (buf, "#w(Invis) ");
     if (victim->invis_level >= LEVEL_HERO)
-        strcat (buf, "(Wizi) ");
+        strcat (buf, "#D(Wizi)#w ");
     if (IS_AFFECTED (victim, AFF_HIDE))
-        strcat (buf, "(Hide) ");
+        strcat (buf, "#D(H)#w ");
     if (IS_AFFECTED (victim, AFF_CHARM))
-        strcat (buf, "(Charmed) ");
+        strcat (buf, "#y(C)#w ");
     if (IS_AFFECTED (victim, AFF_PASS_DOOR))
-        strcat (buf, "(Translucent) ");
+        strcat (buf, "#W(T)#w ");
     if (IS_AFFECTED (victim, AFF_FAERIE_FIRE))
-        strcat (buf, "(Pink Aura) ");
+        strcat (buf, "#M(P)#w ");
     if (IS_EVIL (victim) && IS_AFFECTED (ch, AFF_DETECT_EVIL))
-        strcat (buf, "(Red Aura) ");
+        strcat (buf, "#R(R)#w ");
     if (IS_GOOD (victim) && IS_AFFECTED (ch, AFF_DETECT_GOOD))
-        strcat (buf, "(Golden Aura) ");
+        strcat (buf, "#Y(G)#w ");
     if (IS_AFFECTED (victim, AFF_SANCTUARY))
-        strcat (buf, "(White Aura) ");
+        strcat (buf, "#W(W)#w ");
     if (!IS_NPC (victim) && IS_SET (victim->act, PLR_KILLER))
-        strcat (buf, "(KILLER) ");
+        strcat (buf, "#R(KLR)#w ");
     if (!IS_NPC (victim) && IS_SET (victim->act, PLR_THIEF))
-        strcat (buf, "(THIEF) ");
+        strcat (buf, "#M(THF)#w ");
     if (victim->position == victim->start_pos
         && victim->long_descr[0] != '\0')
     {
