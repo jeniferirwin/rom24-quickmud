@@ -72,6 +72,7 @@ extern	const	struct	size_type	size_table[];
 extern	const	struct	flag_type	act_flags[];
 extern	const	struct	flag_type	plr_flags[];
 extern	const	struct	flag_type	affect_flags[];
+extern	const	struct	flag_type	affect2_flags[];
 extern	const	struct	flag_type	off_flags[];
 extern	const	struct	flag_type	imm_flags[];
 extern	const	struct	flag_type	form_flags[];

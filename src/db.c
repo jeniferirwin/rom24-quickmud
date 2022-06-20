@@ -149,7 +149,7 @@ sh_int gsn_scrolls;
 sh_int gsn_staves;
 sh_int gsn_wands;
 sh_int gsn_recall;
-
+sh_int gsn_dark_favor;
 
 
 /*
@@ -726,6 +726,7 @@ void load_old_mob (FILE * fp)
 
         pMobIndex->act = fread_flag (fp) | ACT_IS_NPC;
         pMobIndex->affected_by = fread_flag (fp);
+        pMobIndex->affected2_by = fread_flag (fp);
         pMobIndex->pShop = NULL;
         pMobIndex->alignment = fread_number (fp);
         letter = fread_letter (fp);
@@ -2068,6 +2069,7 @@ CHAR_DATA *create_mobile (MOB_INDEX_DATA * pMobIndex)
         mob->act = pMobIndex->act;
         mob->comm = COMM_NOCHANNELS | COMM_NOSHOUT | COMM_NOTELL;
         mob->affected_by = pMobIndex->affected_by;
+        mob->affected2_by = pMobIndex->affected2_by;
         mob->alignment = pMobIndex->alignment;
         mob->level = pMobIndex->level;
         mob->hitroll = pMobIndex->hitroll;
@@ -2165,6 +2167,18 @@ CHAR_DATA *create_mobile (MOB_INDEX_DATA * pMobIndex)
             affect_to_char (mob, &af);
         }
 
+        if (IS_AFFECTED2 (mob, AFF2_DARK_FAVOR))
+        {
+            af.where = TO_AFFECTS;
+            af.type = skill_lookup ("dark favor");
+            af.level = mob->level;
+            af.duration = -1;
+            af.location = APPLY_NONE;
+            af.modifier = 0;
+            af.bitvector = AFF2_DARK_FAVOR;
+            affect_to_char (mob, &af);
+        }
+
         if (IS_AFFECTED (mob, AFF_HASTE))
         {
             af.where = TO_AFFECTS;
@@ -2207,6 +2221,7 @@ CHAR_DATA *create_mobile (MOB_INDEX_DATA * pMobIndex)
 
         mob->act = pMobIndex->act;
         mob->affected_by = pMobIndex->affected_by;
+        mob->affected2_by = pMobIndex->affected2_by;
         mob->alignment = pMobIndex->alignment;
         mob->level = pMobIndex->level;
         mob->hitroll = pMobIndex->hitroll;
@@ -2299,6 +2314,7 @@ void clone_mobile (CHAR_DATA * parent, CHAR_DATA * clone)
     clone->vuln_flags = parent->vuln_flags;
     clone->invis_level = parent->invis_level;
     clone->affected_by = parent->affected_by;
+    clone->affected2_by = parent->affected2_by;
     clone->position = parent->position;
     clone->practice = parent->practice;
     clone->train = parent->train;

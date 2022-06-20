@@ -242,6 +242,7 @@ DECLARE_OLC_FUN( medit_spec		);
 DECLARE_OLC_FUN( medit_sex		);  /* ROM */
 DECLARE_OLC_FUN( medit_act		);  /* ROM */
 DECLARE_OLC_FUN( medit_affect		);  /* ROM */
+DECLARE_OLC_FUN( medit_affect2		);  /* technitaur */
 DECLARE_OLC_FUN( medit_ac		);  /* ROM */
 DECLARE_OLC_FUN( medit_form		);  /* ROM */
 DECLARE_OLC_FUN( medit_part		);  /* ROM */

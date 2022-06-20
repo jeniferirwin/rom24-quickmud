@@ -224,6 +224,8 @@ void fwrite_char (CHAR_DATA * ch, FILE * fp)
         fprintf (fp, "Act  %s\n", print_flags (ch->act));
     if (ch->affected_by != 0)
         fprintf (fp, "AfBy %s\n", print_flags (ch->affected_by));
+    if (ch->affected2_by != 0)
+        fprintf (fp, "Af2By %s\n", print_flags (ch->affected2_by));
     fprintf (fp, "Comm %s\n", print_flags (ch->comm));
     if (ch->wiznet)
         fprintf (fp, "Wizn %s\n", print_flags (ch->wiznet));
@@ -373,6 +375,8 @@ void fwrite_pet (CHAR_DATA * pet, FILE * fp)
         fprintf (fp, "Act  %s\n", print_flags (pet->act));
     if (pet->affected_by != pet->pIndexData->affected_by)
         fprintf (fp, "AfBy %s\n", print_flags (pet->affected_by));
+    if (pet->affected2_by != pet->pIndexData->affected2_by)
+        fprintf (fp, "Af2By %s\n", print_flags (pet->affected2_by));
     if (pet->comm != 0)
         fprintf (fp, "Comm %s\n", print_flags (pet->comm));
     fprintf (fp, "Pos  %d\n", pet->position =
@@ -661,6 +665,7 @@ bool load_char_obj (DESCRIPTOR_DATA * d, char *name)
             group_add (ch, pc_race_table[ch->race].skills[i], FALSE);
         }
         ch->affected_by = ch->affected_by | race_table[ch->race].aff;
+        ch->affected2_by = ch->affected2_by | race_table[ch->race].aff2;
         ch->imm_flags = ch->imm_flags | race_table[ch->race].imm;
         ch->res_flags = ch->res_flags | race_table[ch->race].res;
         ch->vuln_flags = ch->vuln_flags | race_table[ch->race].vuln;
@@ -786,6 +791,7 @@ void fread_char (CHAR_DATA * ch, FILE * fp)
                 KEY ("Act", ch->act, fread_flag (fp));
                 KEY ("AffectedBy", ch->affected_by, fread_flag (fp));
                 KEY ("AfBy", ch->affected_by, fread_flag (fp));
+                KEY ("Af2By", ch->affected2_by, fread_flag (fp));
                 KEY ("Alignment", ch->alignment, fread_number (fp));
                 KEY ("Alig", ch->alignment, fread_number (fp));
 
@@ -1226,6 +1232,7 @@ void fread_pet (CHAR_DATA * ch, FILE * fp)
             case 'A':
                 KEY ("Act", pet->act, fread_flag (fp));
                 KEY ("AfBy", pet->affected_by, fread_flag (fp));
+                KEY ("Af2By", pet->affected2_by, fread_flag (fp));
                 KEY ("Alig", pet->alignment, fread_number (fp));
 
                 if (!str_cmp (word, "ACs"))

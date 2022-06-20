@@ -776,12 +776,27 @@ bool damage (CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt,
         && victim->pcdata->condition[COND_DRUNK] > 10)
         dam = 9 * dam / 10;
 
-    if (dam > 1 && IS_AFFECTED (victim, AFF_SANCTUARY))
+    // this is a bit extreme, but it seems like this is how it is on AR
+    if (dam > 1 &&
+            ((IS_AFFECTED (victim, AFF_SANCTUARY) && IS_NEUTRAL (victim)) &&
+            (IS_AFFECTED2 (victim, AFF2_DARK_FAVOR) && IS_NEUTRAL (victim)))
+    )
+        dam /= 4;
+        
+    if (dam > 1 &&
+        (
+        (IS_AFFECTED (victim, AFF_SANCTUARY) && IS_GOOD (victim)) ||
+        (IS_AFFECTED2 (victim, AFF2_DARK_FAVOR) && IS_EVIL (victim))
+        )
+    )
         dam /= 2;
 
-    if (dam > 1 && ((IS_AFFECTED (victim, AFF_PROTECT_EVIL) && IS_EVIL (ch))
-                    || (IS_AFFECTED (victim, AFF_PROTECT_GOOD)
-                        && IS_GOOD (ch))))
+    if (dam > 1 && (
+        (IS_AFFECTED (victim, AFF_PROTECT_EVIL) && IS_EVIL (ch))
+        || (IS_AFFECTED (victim, AFF_PROTECT_GOOD) && IS_GOOD (ch))
+        || (IS_AFFECTED2 (victim, AFF2_PROTECT_NEUTRAL) && IS_NEUTRAL (ch))
+    )
+    )
         dam -= dam / 4;
 
     immune = FALSE;
@@ -1712,6 +1727,7 @@ void raw_kill (CHAR_DATA * victim)
     while (victim->affected)
         affect_remove (victim, victim->affected);
     victim->affected_by = race_table[victim->race].aff;
+    victim->affected2_by = race_table[victim->race].aff2;
     for (i = 0; i < 4; i++)
         victim->armor[i] = 100;
     victim->position = POS_RESTING;

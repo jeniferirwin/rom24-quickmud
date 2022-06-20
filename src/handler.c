@@ -1030,6 +1030,9 @@ void affect_modify (CHAR_DATA * ch, AFFECT_DATA * paf, bool fAdd)
             case TO_AFFECTS:
                 SET_BIT (ch->affected_by, paf->bitvector);
                 break;
+            case TO_AFFECTS2:
+                SET_BIT (ch->affected_by, paf->bitvector);
+                break;
             case TO_IMMUNE:
                 SET_BIT (ch->imm_flags, paf->bitvector);
                 break;
@@ -1047,6 +1050,9 @@ void affect_modify (CHAR_DATA * ch, AFFECT_DATA * paf, bool fAdd)
         {
             case TO_AFFECTS:
                 REMOVE_BIT (ch->affected_by, paf->bitvector);
+                break;
+            case TO_AFFECTS2:
+                REMOVE_BIT (ch->affected2_by, paf->bitvector);
                 break;
             case TO_IMMUNE:
                 REMOVE_BIT (ch->imm_flags, paf->bitvector);
@@ -1195,6 +1201,9 @@ void affect_check (CHAR_DATA * ch, int where, int vector)
                 case TO_AFFECTS:
                     SET_BIT (ch->affected_by, vector);
                     break;
+                case TO_AFFECTS2:
+                    SET_BIT (ch->affected2_by, vector);
+                    break;
                 case TO_IMMUNE:
                     SET_BIT (ch->imm_flags, vector);
                     break;
@@ -1221,6 +1230,9 @@ void affect_check (CHAR_DATA * ch, int where, int vector)
                     case TO_AFFECTS:
                         SET_BIT (ch->affected_by, vector);
                         break;
+                    case TO_AFFECTS2:
+                        SET_BIT (ch->affected2_by, vector);
+                        break;
                     case TO_IMMUNE:
                         SET_BIT (ch->imm_flags, vector);
                         break;
@@ -1245,6 +1257,9 @@ void affect_check (CHAR_DATA * ch, int where, int vector)
                     case TO_AFFECTS:
                         SET_BIT (ch->affected_by, vector);
                         break;
+                    case TO_AFFECTS2:
+                        SET_BIT (ch->affected2_by, vector);
+                        break;
                     case TO_IMMUNE:
                         SET_BIT (ch->imm_flags, vector);
                         break;
@@ -1259,6 +1274,7 @@ void affect_check (CHAR_DATA * ch, int where, int vector)
             }
     }
 }
+
 
 /*
  * Give an affect to a char.
@@ -1438,8 +1454,6 @@ void affect_strip (CHAR_DATA * ch, int sn)
     return;
 }
 
-
-
 /*
  * Return true if a char is affected by a spell.
  */
@@ -1455,8 +1469,6 @@ bool is_affected (CHAR_DATA * ch, int sn)
 
     return FALSE;
 }
-
-
 
 /*
  * Add or enhance an affect.
@@ -2774,6 +2786,16 @@ char *affect_loc_name (int location)
 }
 
 
+char *affect2_bit_name (int vector)
+{
+    static char buf[512];
+    buf[0] = '\0';
+    if (vector & AFF2_DARK_FAVOR)
+        strcat (buf, " dark_favor");
+    if (vector & AFF2_PROTECT_NEUTRAL)
+        strcat (buf, " protect_neutral");
+    return (buf[0] != '\0') ? buf + 1 : "none";
+}
 
 /*
  * Return ascii name of an affect bit vector.

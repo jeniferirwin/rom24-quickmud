@@ -1702,6 +1702,13 @@ void do_mstat (CHAR_DATA * ch, char *argument)
         send_to_char (buf, ch);
     }
 
+    if (victim->affected2_by)
+    {
+        sprintf (buf, "Affected2 by %s\n\r",
+                 affect_bit_name (victim->affected2_by));
+        send_to_char (buf, ch);
+    }
+
     sprintf (buf, "Master: %s  Leader: %s  Pet: %s\n\r",
              victim->master ? victim->master->name : "(none)",
              victim->leader ? victim->leader->name : "(none)",

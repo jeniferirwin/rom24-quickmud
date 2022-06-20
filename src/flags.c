@@ -132,6 +132,12 @@ void do_flag (CHAR_DATA * ch, char *argument)
             flag_table = affect_flags;
         }
 
+        else if (!str_prefix (arg3, "aff2"))
+        {
+            flag = &victim->affected2_by;
+            flag_table = affect2_flags;
+        }
+
         else if (!str_prefix (arg3, "immunity"))
         {
             flag = &victim->imm_flags;

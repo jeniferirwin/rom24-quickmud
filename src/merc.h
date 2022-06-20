@@ -598,6 +598,7 @@ struct race_type
     long    vuln;     /* vuln bits for the race         */
     long    form;     /* default form flag for the race */
     long    parts;    /* default parts for the race     */
+    long    aff2;      /* aff2 bits for the race          */
 };
 
 
@@ -665,6 +666,7 @@ struct    affect_data
 #define TO_RESIST    3
 #define TO_VULN      4
 #define TO_WEAPON    5
+#define TO_AFFECTS2  6
 
 
 /*
@@ -982,6 +984,9 @@ struct    kill_data
 #define AFF_REGENERATION        (cc)
 #define AFF_SLOW        (dd)
 
+
+#define AFF2_DARK_FAVOR (A)
+#define AFF2_PROTECT_NEUTRAL (B)
 
 
 
@@ -1493,6 +1498,7 @@ struct    mob_index_data
     char *            description;
     long              act;
     long              affected_by;
+    long              affected2_by;
     sh_int            alignment;
     sh_int            level;
     sh_int            hitroll;
@@ -1606,6 +1612,7 @@ struct    char_data
     sh_int             invis_level;
     sh_int             incog_level;
     long               affected_by;
+    long               affected2_by;
     sh_int             position;
     sh_int             practice;
     sh_int             train;
@@ -2025,6 +2032,7 @@ extern sh_int  gsn_scrolls;
 extern sh_int  gsn_staves;
 extern sh_int  gsn_wands;
 extern sh_int  gsn_recall;
+extern sh_int  gsn_dark_favor;
 
 
 
@@ -2058,6 +2066,7 @@ extern sh_int  gsn_recall;
 #define IS_HERO(ch)        (get_trust(ch) >= LEVEL_HERO)
 #define IS_TRUSTED(ch,level)    (get_trust((ch)) >= (level))
 #define IS_AFFECTED(ch, sn)    (IS_SET((ch)->affected_by, (sn)))
+#define IS_AFFECTED2(ch, sn)    (IS_SET((ch)->affected2_by, (sn)))
 
 #define GET_AGE(ch)        ((int) (17 + ((ch)->played \
                     + current_time - (ch)->logon )/72000))

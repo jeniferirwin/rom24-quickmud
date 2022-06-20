@@ -334,6 +334,7 @@ const struct olc_cmd_type medit_table[] = {
     {"sex", medit_sex},            /* ROM */
     {"act", medit_act},            /* ROM */
     {"affect", medit_affect},    /* ROM */
+    {"affect2", medit_affect2},    /* custom - technitaur */
     {"armor", medit_ac},        /* ROM */
     {"form", medit_form},        /* ROM */
     {"part", medit_part},        /* ROM */

@@ -164,7 +164,8 @@ const struct race_type race_table[] = {
     name,        pc_race?,
     act bits,    aff_by bits,    off bits,
     imm,        res,        vuln,
-    form,        parts 
+    form,        parts, 
+    aff2_by bits
     },
 */
     {"unique", FALSE, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -173,62 +174,72 @@ const struct race_type race_table[] = {
      "human", TRUE,
      0, 0, 0,
      0, 0, 0,
-     A | H | M | V, A | B | C | D | E | F | G | H | I | J | K},
+     A | H | M | V, A | B | C | D | E | F | G | H | I | J | K,
+     0},
 
     {
      "elf", TRUE,
      0, AFF_INFRARED, 0,
      0, RES_CHARM, VULN_IRON,
-     A | H | M | V, A | B | C | D | E | F | G | H | I | J | K},
+     A | H | M | V, A | B | C | D | E | F | G | H | I | J | K,
+     0},
 
     {
      "dwarf", TRUE,
      0, AFF_INFRARED, 0,
      0, RES_POISON | RES_DISEASE, VULN_DROWNING,
-     A | H | M | V, A | B | C | D | E | F | G | H | I | J | K},
+     A | H | M | V, A | B | C | D | E | F | G | H | I | J | K,
+     0},
 
     {
      "giant", TRUE,
      0, 0, 0,
      0, RES_FIRE | RES_COLD, VULN_MENTAL | VULN_LIGHTNING,
-     A | H | M | V, A | B | C | D | E | F | G | H | I | J | K},
+     A | H | M | V, A | B | C | D | E | F | G | H | I | J | K,
+     0},
     
     {
         "minotaur", TRUE,
         0, 0, 0,
         0, RES_COLD, VULN_ACID,
-        A | H | M | V, A | B | C | D | E | F | G | H | I | J | K
+        A | H | M | V, A | B | C | D | E | F | G | H | I | J | K,
+        0
     },
 
     {
      "bat", FALSE,
      0, AFF_FLYING | AFF_DARK_VISION, OFF_DODGE | OFF_FAST,
      0, 0, VULN_LIGHT,
-     A | G | V, A | C | D | E | F | H | J | K | P},
+     A | G | V, A | C | D | E | F | H | J | K | P,
+     0},
 
     {
      "bear", FALSE,
      0, 0, OFF_CRUSH | OFF_DISARM | OFF_BERSERK,
      0, RES_BASH | RES_COLD, 0,
-     A | G | V, A | B | C | D | E | F | H | J | K | U | V},
+     A | G | V, A | B | C | D | E | F | H | J | K | U | V,
+     0},
 
     {
      "cat", FALSE,
      0, AFF_DARK_VISION, OFF_FAST | OFF_DODGE,
      0, 0, 0,
-     A | G | V, A | C | D | E | F | H | J | K | Q | U | V},
+     A | G | V, A | C | D | E | F | H | J | K | Q | U | V,
+     0},
 
     {
      "centipede", FALSE,
      0, AFF_DARK_VISION, 0,
      0, RES_PIERCE | RES_COLD, VULN_BASH,
-     A | B | G | O, A | C | K},
+     A | B | G | O, A | C | K,
+     0},
 
     {
      "dog", FALSE,
      0, 0, OFF_FAST,
      0, 0, 0,
-     A | G | V, A | C | D | E | F | H | J | K | U | V},
+     A | G | V, A | C | D | E | F | H | J | K | U | V,
+     0},
 
     {
      "doll", FALSE,
@@ -236,128 +247,148 @@ const struct race_type race_table[] = {
      IMM_COLD | IMM_POISON | IMM_HOLY | IMM_NEGATIVE | IMM_MENTAL |
      IMM_DISEASE | IMM_DROWNING, RES_BASH | RES_LIGHT,
      VULN_SLASH | VULN_FIRE | VULN_ACID | VULN_LIGHTNING | VULN_ENERGY,
-     E | J | M | cc, A | B | C | G | H | K},
+     E | J | M | cc, A | B | C | G | H | K,
+     0},
 
     {"dragon", FALSE,
      0, AFF_INFRARED | AFF_FLYING, 0,
      0, RES_FIRE | RES_BASH | RES_CHARM,
      VULN_PIERCE | VULN_COLD,
-     A | H | Z, A | C | D | E | F | G | H | I | J | K | P | Q | U | V | X},
+     A | H | Z, A | C | D | E | F | G | H | I | J | K | P | Q | U | V | X,
+     0},
 
     {
      "fido", FALSE,
      0, 0, OFF_DODGE | ASSIST_RACE,
      0, 0, VULN_MAGIC,
-     A | B | G | V, A | C | D | E | F | H | J | K | Q | V},
+     A | B | G | V, A | C | D | E | F | H | J | K | Q | V,
+     0},
 
     {
      "fox", FALSE,
      0, AFF_DARK_VISION, OFF_FAST | OFF_DODGE,
      0, 0, 0,
-     A | G | V, A | C | D | E | F | H | J | K | Q | V},
+     A | G | V, A | C | D | E | F | H | J | K | Q | V,
+     0},
 
     {
      "goblin", FALSE,
      0, AFF_INFRARED, 0,
      0, RES_DISEASE, VULN_MAGIC,
-     A | H | M | V, A | B | C | D | E | F | G | H | I | J | K},
+     A | H | M | V, A | B | C | D | E | F | G | H | I | J | K,
+     0},
 
     {
      "hobgoblin", FALSE,
      0, AFF_INFRARED, 0,
      0, RES_DISEASE | RES_POISON, 0,
-     A | H | M | V, A | B | C | D | E | F | G | H | I | J | K | Y},
+     A | H | M | V, A | B | C | D | E | F | G | H | I | J | K | Y,
+     0},
 
     {
      "kobold", FALSE,
      0, AFF_INFRARED, 0,
      0, RES_POISON, VULN_MAGIC,
-     A | B | H | M | V, A | B | C | D | E | F | G | H | I | J | K | Q},
+     A | B | H | M | V, A | B | C | D | E | F | G | H | I | J | K | Q,
+     0},
 
     {
      "lizard", FALSE,
      0, 0, 0,
      0, RES_POISON, VULN_COLD,
-     A | G | X | cc, A | C | D | E | F | H | K | Q | V},
+     A | G | X | cc, A | C | D | E | F | H | K | Q | V,
+     0},
 
     {
      "modron", FALSE,
      0, AFF_INFRARED, ASSIST_RACE | ASSIST_ALIGN,
      IMM_CHARM | IMM_DISEASE | IMM_MENTAL | IMM_HOLY | IMM_NEGATIVE,
      RES_FIRE | RES_COLD | RES_ACID, 0,
-     H, A | B | C | G | H | J | K},
+     H, A | B | C | G | H | J | K,
+     0},
 
     {
      "orc", FALSE,
      0, AFF_INFRARED, 0,
      0, RES_DISEASE, VULN_LIGHT,
-     A | H | M | V, A | B | C | D | E | F | G | H | I | J | K},
+     A | H | M | V, A | B | C | D | E | F | G | H | I | J | K,
+     0},
 
     {
      "pig", FALSE,
      0, 0, 0,
      0, 0, 0,
-     A | G | V, A | C | D | E | F | H | J | K},
+     A | G | V, A | C | D | E | F | H | J | K,
+     0},
 
     {
      "rabbit", FALSE,
      0, 0, OFF_DODGE | OFF_FAST,
      0, 0, 0,
-     A | G | V, A | C | D | E | F | H | J | K},
+     A | G | V, A | C | D | E | F | H | J | K,
+     0},
 
     {
      "school monster", FALSE,
      ACT_NOALIGN, 0, 0,
      IMM_CHARM | IMM_SUMMON, 0, VULN_MAGIC,
-     A | M | V, A | B | C | D | E | F | H | J | K | Q | U},
+     A | M | V, A | B | C | D | E | F | H | J | K | Q | U,
+     0},
 
     {
      "snake", FALSE,
      0, 0, 0,
      0, RES_POISON, VULN_COLD,
-     A | G | X | Y | cc, A | D | E | F | K | L | Q | V | X},
+     A | G | X | Y | cc, A | D | E | F | K | L | Q | V | X,
+     0},
 
     {
      "song bird", FALSE,
      0, AFF_FLYING, OFF_FAST | OFF_DODGE,
      0, 0, 0,
-     A | G | W, A | C | D | E | F | H | K | P},
+     A | G | W, A | C | D | E | F | H | K | P,
+     0},
 
     {
      "troll", FALSE,
      0, AFF_REGENERATION | AFF_INFRARED | AFF_DETECT_HIDDEN,
      OFF_BERSERK,
      0, RES_CHARM | RES_BASH, VULN_FIRE | VULN_ACID,
-     A | B | H | M | V, A | B | C | D | E | F | G | H | I | J | K | U | V},
+     A | B | H | M | V, A | B | C | D | E | F | G | H | I | J | K | U | V,
+     0},
 
     {
      "water fowl", FALSE,
      0, AFF_SWIM | AFF_FLYING, 0,
      0, RES_DROWNING, 0,
-     A | G | W, A | C | D | E | F | H | K | P},
+     A | G | W, A | C | D | E | F | H | K | P,
+     0},
 
     {
      "wolf", FALSE,
      0, AFF_DARK_VISION, OFF_FAST | OFF_DODGE,
      0, 0, 0,
-     A | G | V, A | C | D | E | F | J | K | Q | V},
+     A | G | V, A | C | D | E | F | J | K | Q | V,
+     0},
 
     {
      "wyvern", FALSE,
      0, AFF_FLYING | AFF_DETECT_INVIS | AFF_DETECT_HIDDEN,
      OFF_BASH | OFF_FAST | OFF_DODGE,
      IMM_POISON, 0, VULN_LIGHT,
-     A | B | G | Z, A | C | D | E | F | H | J | K | Q | V | X},
+     A | B | G | Z, A | C | D | E | F | H | J | K | Q | V | X,
+     0},
 
     {
      "unique", FALSE,
      0, 0, 0,
      0, 0, 0,
-     0, 0},
+     0, 0,
+     0},
 
 
     {
-     NULL, 0, 0, 0, 0, 0, 0}
+     NULL, 0, 0, 0, 0, 0, 0, 0}
 };
 
 const struct pc_race_type pc_race_table[] = {
@@ -1139,6 +1170,13 @@ const struct skill_type skill_table[MAX_SKILL] = {
      "$p is no longer impure."},
 
     {
+        "dark favor", {36, 20, 42, 30}, {1, 1, 2, 2},
+        spell_dark_favor, TAR_CHAR_DEFENSIVE, POS_STANDING,
+        &gsn_dark_favor, SLOT(92), 75, 12,
+        "", "The black aura around your body fades.",
+        ""
+    },
+    {
      "demonfire", {53, 34, 53, 45}, {1, 1, 2, 2},
      spell_demonfire, TAR_CHAR_OFFENSIVE, POS_FIGHTING,
      NULL, SLOT (505), 20, 12,
@@ -1417,6 +1455,12 @@ const struct skill_type skill_table[MAX_SKILL] = {
      "protection good", {12, 9, 17, 11}, {1, 1, 2, 2},
      spell_protection_good, TAR_CHAR_SELF, POS_STANDING,
      NULL, SLOT (514), 5, 12,
+     "", "You feel less protected.", ""},
+
+    {
+     "protection neutral", {12, 9, 17, 11}, {1, 1, 2, 2},
+     spell_protection_neutral, TAR_CHAR_SELF, POS_STANDING,
+     NULL, SLOT (515), 5, 12,
      "", "You feel less protected.", ""},
 
     {

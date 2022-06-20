@@ -103,6 +103,7 @@ extern int flag_lookup (const char *word, const struct flag_type *flag_table);
 #define CHK_OBJVAL3     (49)
 #define CHK_OBJVAL4     (50)
 #define CHK_GRPSIZE     (51)
+#define CHK_AFFECTED2   (52)
 
 /*
  * These defines correspond to the entries in fn_evals[] table.
@@ -150,6 +151,7 @@ const char *fn_keyword[] = {
     "exists",                    /* if exists $n     - does $n exist somewhere */
 
     "affected",                    /* if affected $n blind - is $n affected by blind */
+    "affect2d",                    /* if affected $n blind - is $n affected by blind */
     "act",                        /* if act $i sentinel   - is $i flagged sentinel */
     "off",                        /* if off $i berserk    - is $i flagged berserk */
     "imm",                        /* if imm $i fire   - is $i immune to fire */
@@ -547,6 +549,10 @@ int cmd_eval (sh_int vnum, char *line, int check,
             return (lval_char != NULL
                     && IS_SET (lval_char->affected_by,
                                flag_lookup (buf, affect_flags)));
+        case CHK_AFFECTED2:
+            return (lval_char != NULL
+                    && IS_SET (lval_char->affected2_by,
+                               flag_lookup (buf, affect2_flags)));
         case CHK_ACT:
             return (lval_char != NULL
                     && IS_SET (lval_char->act, flag_lookup (buf, act_flags)));

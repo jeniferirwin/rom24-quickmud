@@ -299,6 +299,7 @@ void load_mobiles (FILE * fp)
         CHECK_POS (pMobIndex->size, size_lookup (fread_word (fp)), "size");
 /*    pMobIndex->size            = size_lookup(fread_word(fp)); */
         pMobIndex->material = str_dup (fread_word (fp));
+        pMobIndex->affected2_by = race_table[pMobIndex->race].aff2;
 
         for (;;)
         {
@@ -316,6 +317,8 @@ void load_mobiles (FILE * fp)
                     REMOVE_BIT (pMobIndex->act, vector);
                 else if (!str_prefix (word, "aff"))
                     REMOVE_BIT (pMobIndex->affected_by, vector);
+                else if (!str_prefix (word, "aff2"))
+                    REMOVE_BIT (pMobIndex->affected2_by, vector);
                 else if (!str_prefix (word, "off"))
                     REMOVE_BIT (pMobIndex->off_flags, vector);
                 else if (!str_prefix (word, "imm"))

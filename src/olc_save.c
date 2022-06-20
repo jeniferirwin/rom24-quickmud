@@ -217,12 +217,14 @@ void save_mobile (FILE * fp, MOB_INDEX_DATA * pMobIndex)
     fprintf (fp, "%s\n",
              IS_NULLSTR (pMobIndex->
                          material) ? pMobIndex->material : "unknown");
+    fprintf (fp, "%s ", fwrite_flag (pMobIndex->affected2_by, buf));
 
     if ((temp = DIF (race_table[race].act, pMobIndex->act)))
         fprintf (fp, "F act %s\n", fwrite_flag (temp, buf));
 
     if ((temp = DIF (race_table[race].aff, pMobIndex->affected_by)))
         fprintf (fp, "F aff %s\n", fwrite_flag (temp, buf));
+
 
     if ((temp = DIF (race_table[race].off, pMobIndex->off_flags)))
         fprintf (fp, "F off %s\n", fwrite_flag (temp, buf));
@@ -241,6 +243,9 @@ void save_mobile (FILE * fp, MOB_INDEX_DATA * pMobIndex)
 
     if ((temp = DIF (race_table[race].parts, pMobIndex->parts)))
         fprintf (fp, "F par %s\n", fwrite_flag (temp, buf));
+
+    if ((temp = DIF (race_table[race].aff2, pMobIndex->affected2_by)))
+        fprintf (fp, "F aff2 %s\n", fwrite_flag (temp, buf));
 
     for (pMprog = pMobIndex->mprogs; pMprog; pMprog = pMprog->next)
     {

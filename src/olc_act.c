@@ -89,6 +89,7 @@ const struct olc_help_type help_table[] = {
     {"sex", sex_flags, "Sexes."},
     {"act", act_flags, "Mobile attributes."},
     {"affect", affect_flags, "Mobile affects."},
+    {"affect2", affect2_flags, "Non-stock mobile effects."},
     {"wear-loc", wear_loc_flags, "Where mobile wears object."},
     {"spells", skill_table, "Names of current spells."},
     {"container", container_flags, "Container status."},
@@ -3575,6 +3576,10 @@ MEDIT (medit_show)
              flag_string (affect_flags, pMob->affected_by));
     send_to_char (buf, ch);
 
+    sprintf (buf, "Aff2       : [%s]\n\r",
+             flag_string (affect2_flags, pMob->affected2_by));
+    send_to_char (buf, ch);
+
 /* ROM values: */
 
     sprintf (buf,
@@ -4187,6 +4192,28 @@ MEDIT (medit_affect)
     return FALSE;
 }
 
+MEDIT (medit_affect2)
+{                                /* Moved out of medit() due to naming conflicts -- Hugin */
+    MOB_INDEX_DATA *pMob;
+    int value;
+
+    if (argument[0] != '\0')
+    {
+        EDIT_MOB (ch, pMob);
+
+        if ((value = flag_value (affect2_flags, argument)) != NO_FLAG)
+        {
+            pMob->affected2_by ^= value;
+
+            send_to_char ("Affect2 flag toggled.\n\r", ch);
+            return TRUE;
+        }
+    }
+
+    send_to_char ("Syntax: affect2 [flag]\n\r"
+                  "Type '? affect2' for a list of flags.\n\r", ch);
+    return FALSE;
+}
 
 
 MEDIT (medit_ac)
@@ -4605,6 +4632,7 @@ MEDIT (medit_race)
         pMob->race = race;
         pMob->act |= race_table[race].act;
         pMob->affected_by |= race_table[race].aff;
+        pMob->affected2_by |= race_table[race].aff2;
         pMob->off_flags |= race_table[race].off;
         pMob->imm_flags |= race_table[race].imm;
         pMob->res_flags |= race_table[race].res;

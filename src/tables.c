@@ -160,6 +160,12 @@ const struct flag_type affect_flags[] = {
     {NULL, 0, 0}
 };
 
+const struct flag_type affect2_flags[] = {
+    {"dark_favor", A, TRUE},
+    {"protect_neutral", B, TRUE},
+    {NULL, 0, 0}
+};
+
 const struct flag_type off_flags[] = {
     {"area_attack", A, TRUE},
     {"backstab", B, TRUE},
@@ -742,6 +748,7 @@ const struct flag_type apply_types[] = {
 
 const struct bit_type bitvector_type[] = {
     {affect_flags, "affect"},
+    {affect2_flags, "affect2"},
     {apply_flags, "apply"},
     {imm_flags, "imm"},
     {res_flags, "res"},

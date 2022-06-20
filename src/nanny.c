@@ -477,6 +477,7 @@ void nanny (DESCRIPTOR_DATA * d, char *argument)
             for (i = 0; i < MAX_STATS; i++)
                 ch->perm_stat[i] = pc_race_table[race].stats[i];
             ch->affected_by = ch->affected_by | race_table[race].aff;
+            ch->affected2_by = ch->affected2_by | race_table[race].aff2;
             ch->imm_flags = ch->imm_flags | race_table[race].imm;
             ch->res_flags = ch->res_flags | race_table[race].res;
             ch->vuln_flags = ch->vuln_flags | race_table[race].vuln;
