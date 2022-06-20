@@ -196,9 +196,9 @@ weapon A AN
 whip 2 6 whip 0
 12 100 960 A
 A
-18 1
-A
 17 -2
+A
+18 1
 #2104
 metal cover shield~
 a metal shield~
@@ -224,9 +224,9 @@ weapon 0 AN
 dagger 5 2 pierce 0
 9 20 1090 G
 A
-17 2
-A
 18 4
+A
+17 2
 #2107
 spiked heel boots~
 spiked heeled boots~
@@ -236,9 +236,9 @@ armor 0 AG
 AB AB AB 0 0
 5 40 260 G
 A
-19 1
-A
 2 -1
+A
+19 1
 #2108
 mirror~
 a mirror~
@@ -266,9 +266,9 @@ weapon 0 AN
 mace 1 10 pound 0
 9 10 980 G
 A
-14 5
-A
 18 3
+A
+14 5
 #2111
 signet ring~
 a troll signet ring~
@@ -278,9 +278,9 @@ jewelry 0 AB
 0 0 0 0 0
 10 10 1090 P
 A
-1 1
-A
 17 -2
+A
+1 1
 #2112
 knuckles brass~
 brass knuckles~
@@ -300,9 +300,9 @@ weapon 0 AN
 mace 2 6 pound 0
 11 60 0 A
 A
-19 1
-A
 18 -1
+A
+19 1
 #2114
 troll jacket studded~
 a studded Troll gang jacket~

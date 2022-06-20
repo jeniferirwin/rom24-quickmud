@@ -317,9 +317,9 @@ weapon 0 AN
 axe 2 7 cleave F
 17 50 4100 P
 A
-18 2
-A
 1 2
+A
+18 2
 #6510
 helmet~
 a dwarven helmet~
@@ -337,9 +337,9 @@ gem G AB
 0 0 0 0 0
 7 10 460 P
 A
-18 1
-A
 19 1
+A
+18 1
 #6512
 gloves~
 dwarven gloves~
@@ -349,9 +349,9 @@ armor 0 AH
 AC AC AC 0 0
 13 20 2000 P
 A
-1 1
-A
 2 1
+A
+1 1
 #6513
 note~
 a note~

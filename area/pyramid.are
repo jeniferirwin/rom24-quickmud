@@ -353,9 +353,9 @@ armor G AE
 AC AC AC 0 0
 13 100 1470 P
 A
-2 1
-A
 13 5
+A
+2 1
 E
 cloth turban~
 The turban used to be white cloth, now it is covered with oil and dirt from
@@ -406,9 +406,9 @@ light AG AO
 0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 20 100 720 P
 A
-13 10
-A
 14 20
+A
+13 10
 E
 ball fire~
 The ball of fire is hot to the touch and very very bright.
@@ -422,9 +422,9 @@ weapon BG AN
 axe 3 6 slash 0
 20 180 1820 P
 A
-18 1
-A
 19 2
+A
+18 1
 E
 stone scimitar~
 The scimitar is formed from solid stone, chipped and carved to perfection,
@@ -495,9 +495,9 @@ staff ABGK AO
 25 5 5 'fly' 0
 20 100 4700 P
 A
-17 -5
-A
 18 1
+A
+17 -5
 E
 lamp~
 The lamp is quite old and tarnished.  You rub at it to get some of the
@@ -512,11 +512,11 @@ jewelry IK AO
 0 0 0 0 0
 14 90 2100 P
 A
-17 -3
+4 1
 A
 3 1
 A
-4 1
+17 -3
 E
 ankh~
 The ankh is a small brass symbol of an ancient religion.
@@ -545,11 +545,11 @@ weapon G AN
 exotic 5 4 claw 0
 26 200 4400 P
 A
-5 1
+19 2
 A
 18 2
 A
-19 2
+5 1
 E
 lion paw~
 The massive paw has straps on it formed of bronze, so that it will
@@ -603,15 +603,15 @@ trash EGHM AO
 0 0 0 0 0
 0 10 0 P
 A
-1 -3
-A
-2 -3
-A
-5 -3
+14 -100
 A
 13 -50
 A
-14 -100
+5 -3
+A
+2 -3
+A
+1 -3
 E
 curse mummy~
 Rumor has it that whomever disturbs the grave of the mummy shall be 
@@ -641,13 +641,13 @@ armor G AE
 D D D AB 0
 33 100 5500 P
 A
-12 25
-A
-13 10
+20 -1
 A
 14 30
 A
-20 -1
+13 10
+A
+12 25
 E
 golden mask~
 This beautiful mask was shaped from solid gold and magically enchanted
@@ -695,9 +695,9 @@ jewelry BG AB
 0 0 0 0 0
 20 50 1300 P
 A
-3 1
-A
 12 20
+A
+3 1
 E
 sandy ring~
 The ring is small, smooth, sandy-colored and unremarkable, save that
@@ -728,9 +728,9 @@ armor GK AF
 AD AD AD B 0
 32 200 7800 P
 A
-1 2
-A
 14 30
+A
+1 2
 E
 sphinxian leggings~
 These magically fashioned leggings impart the strength and stamina
@@ -934,15 +934,15 @@ cardinal directions.
 ~
 0 0 10
 E
+plaque~
+The plaque reads:
+This area (Great Pyramid) written by Andersen.
+~
+E
 stones~
 As you look closer you can make out a crack in the center of the stones
 beneath your feet.  With some effort you might be able to lift that 
 section up and get inside!
-~
-E
-plaque~
-The plaque reads:
-This area (Great Pyramid) written by Andersen.
 ~
 D0
 The north side of the pyramid slopes down into the sands.
@@ -1020,16 +1020,16 @@ inscriptions.
 ~
 0 8 0
 E
-door stone~
-The stone door is covered in strange inscriptions and hieroglyphs that warn
-you not to proceed any further.
-~
-E
 sigils hieroglyphs inscriptions writing~
 You cannot understand the strange glyphs that cover the door, but most of
 them seem to depict scenes of fire and massive creatures of apparently
 tremendous strength.  You have a feeling that the glyphs are serving as a
 warning.
+~
+E
+door stone~
+The stone door is covered in strange inscriptions and hieroglyphs that warn
+you not to proceed any further.
 ~
 D0
 You see a tiny crawlway raised about three feet off the ground.
@@ -1200,13 +1200,13 @@ small rocky crevasse.
 ~
 0 13 0
 E
-u up~
-The hole looks far too slippery to climb back up.
-~
-E
 bones~
 The bones have whitened and cracked in the dry air, apparently the remains 
 of adventurers, thieves, and creatures that did not survive the fall.
+~
+E
+u up~
+The hole looks far too slippery to climb back up.
 ~
 D2
 You see a rocky crevasse that proceeds deep under the pyramid.
@@ -1222,13 +1222,13 @@ small rocky crevasse.
 ~
 0 9 0
 E
-u up~
-The hole looks far too slippery to climb back up.
-~
-E
 bones~
 The bones have whitened and cracked in the dry air, apparently the remains 
 of adventurers, thieves, and creatures that did not survive the fall.
+~
+E
+u up~
+The hole looks far too slippery to climb back up.
 ~
 D2
 You see a rocky crevasse that proceeds deep under the pyramid.
@@ -1313,12 +1313,6 @@ source is too dim to see exactly what it is.
 ~
 0 9 0
 E
-black shape~
-Wind howls about your ears like the roar of a tiger.  As your eyes
-adjust to the light the shape to the south almost seems to take the
-form of a massive animal head.
-~
-E
 tiger head animal sesame~
 You are now certain that the wind is the cold breath of some unearthly
 giant animal, whose voice rumbles lowly on the breeze, and whose
@@ -1328,6 +1322,12 @@ You move closer for a better look, when suddenly a pair of eyes flashes.
 A cold voice echoes: 'SEEK YE THE DIAMOND... IN THE ROUGH...'
 
 ... Then all is silent.
+~
+E
+black shape~
+Wind howls about your ears like the roar of a tiger.  As your eyes
+adjust to the light the shape to the south almost seems to take the
+form of a massive animal head.
 ~
 D2
 You see a strange-looking black shape.
@@ -1414,6 +1414,14 @@ except a large stone coffin that leans against the western wall.
 ~
 0 8 0
 E
+man garments pharoah~
+As you look closer at the figure sculpted into the stone coffin you notice a
+small marking carved into its chest.  It looks like a scarab or small beetle
+would fit into the small space, if properly sized.
+
+Hmm.
+~
+E
 coffin lid~
 The coffin is sculpted into the form of a man, standing several heads above
 you, and clad in the garments of pharoahs.  It has apparently been untouched
@@ -1421,14 +1429,6 @@ by the ravages of time and the activities of looters.  Several markings on the
 side indicate spots where unsuccessful attempts were made to open the coffin.
 
 You can't see any way to open it.
-~
-E
-man garments pharoah~
-As you look closer at the figure sculpted into the stone coffin you notice a
-small marking carved into its chest.  It looks like a scarab or small beetle
-would fit into the small space, if properly sized.
-
-Hmm.
 ~
 D1
 To the east is another tomb.
@@ -1449,13 +1449,13 @@ of dust.  Some inscriptions are carved into the wall here.
 ~
 0 9 0
 E
+coffin lid~
+On this side the coffin lid is smooth featureless stone.
+~
+E
 inscriptions~
 You blow dust away from the inscriptions to read:
 'Beware the curse of the mummy.'
-~
-E
-coffin lid~
-On this side the coffin lid is smooth featureless stone.
 ~
 D1
 You see the backside of the coffin lid, featureless stone.
@@ -1794,14 +1794,14 @@ final resting place of the mighty pharoahs of this land.
 ~
 0 13 0
 E
-tomb~
-The tomb looks like it has stood for many years, much like the pyramid
-which encloses it.  It is covered in small hieroglyphics.
-~
-E
 hieroglyphics carvings~
 The markings indicate that this tomb is indeed the tomb of the greatest
 pharoahs of the ancient civilization that built this massive pyramid.
+~
+E
+tomb~
+The tomb looks like it has stood for many years, much like the pyramid
+which encloses it.  It is covered in small hieroglyphics.
 ~
 D0
 You see the tomb of the pharoahs.
@@ -1930,13 +1930,13 @@ they appear to have been used recently.
 ~
 0 8 0
 E
+bricks~
+The small golden bricks are very smooth and also quite soft.
+~
+E
 rug rugs tapestry tapestries~
 The rugs and tapestries are very fine and worn with age, their colors
 now faded.  They depict scenes of life in an ancient desert city.
-~
-E
-bricks~
-The small golden bricks are very smooth and also quite soft.
 ~
 D3
 You see an arched hall.
@@ -2017,6 +2017,16 @@ sand~
 Sand is about all you CAN see right now.  Unfortunately, it isn't very
 interesting sand, only white, dry, and blowing all over the place.
 ~
+D0
+You see only a wall of whirling, blowing, dry sand.
+~
+~
+0 -1 8753
+D2
+You see only a wall of whirling, blowing, dry sand.
+~
+~
+0 -1 8755
 D1
 You see only a wall of whirling, blowing, dry sand.
 ~
@@ -2027,16 +2037,6 @@ You see only a wall of whirling, blowing, dry sand.
 ~
 ~
 0 -1 8754
-D2
-You see only a wall of whirling, blowing, dry sand.
-~
-~
-0 -1 8755
-D0
-You see only a wall of whirling, blowing, dry sand.
-~
-~
-0 -1 8753
 S
 #8755
 A Swirling Sandstorm~
@@ -2055,6 +2055,11 @@ You see only a wall of whirling, blowing, dry sand.
 ~
 ~
 0 -1 8756
+D3
+You see only a wall of whirling, blowing, dry sand.
+~
+~
+0 -1 8755
 D1
 You see only a wall of whirling, blowing, dry sand.
 ~
@@ -2065,11 +2070,6 @@ You see only a wall of whirling, blowing, dry sand.
 ~
 ~
 0 -1 8754
-D3
-You see only a wall of whirling, blowing, dry sand.
-~
-~
-0 -1 8755
 S
 #8756
 A Swirling Sandstorm~
@@ -2088,16 +2088,16 @@ You see only a wall of whirling, blowing, dry sand.
 ~
 ~
 0 -1 8756
-D3
-You see only a wall of whirling, blowing, dry sand.
-~
-~
-0 -1 8756
 D0
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~
 0 -1 8755
+D3
+You see only a wall of whirling, blowing, dry sand.
+~
+~
+0 -1 8756
 D2
 You see only a wall of whirling, blowing, dry sand.
 ~
@@ -2147,18 +2147,18 @@ every other direction.
 ~
 0 0 10
 E
-sand dune~
-The sand is very white, and very sandy.  There sure is a lot of it.
+hieroglyphics symbols~
+Like most of the ancient hieroglyphics of this land, the symbols are
+totally incomprehensible to you.  Perhaps the Sphinx has the answer
+to this ancient riddle.
 ~
 E
 riddle~
 A vision forms before your eyes, in glowing hieroglyphic symbols.
 ~
 E
-hieroglyphics symbols~
-Like most of the ancient hieroglyphics of this land, the symbols are
-totally incomprehensible to you.  Perhaps the Sphinx has the answer
-to this ancient riddle.
+sand dune~
+The sand is very white, and very sandy.  There sure is a lot of it.
 ~
 D0
 You see only a wall of whirling, blowing, dry sand.

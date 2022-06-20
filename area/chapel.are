@@ -321,9 +321,9 @@ weapon H AN
 whip 2 4 slime 0
 7 80 540 P
 A
-18 1
-A
 19 2
+A
+18 1
 E
 tickler~
 A horrid black mass of gooey tentacles obviously ripped from the corpse
@@ -389,9 +389,9 @@ treasure GK AB
 0 0 0 0 0
 3 20 26 P
 A
-14 10
-A
 20 1
+A
+14 10
 E
 black marble ring~
 It is pitch black and has beautiful swirls characteristic of marble all
@@ -406,9 +406,9 @@ weapon B AN
 sword 4 2 pierce 0
 16 40 3500 P
 A
-2 2
-A
 18 1
+A
+2 2
 E
 thin rapier~
 It seems so thin that it would be useless but at the same time it looks deadly.
@@ -578,9 +578,9 @@ armor G AK
 AC AC AC 0 0
 0 100 100 P
 A
-13 10
-A
 17 10
+A
+13 10
 E
 dark black cape~
 The cape is gently flows and pulls in the light so evenly and perfectly
@@ -638,12 +638,12 @@ do not let much light through.  A few rows of worn wooden benches stand here.
 ~
 0 0 1
 E
-glass windows~
-The windows must be meant to be dark.  At least they are completely clean.
-~
-E
 benches rows~
 The benches are not of the comfortable kind.
+~
+E
+glass windows~
+The windows must be meant to be dark.  At least they are completely clean.
 ~
 D0
 The chapel door is made of dark wood.
@@ -718,13 +718,13 @@ blood stains, but their color seems a little wrong.
 ~
 0 9 0
 E
-stain stains~
-That's odd ... they seem a little GREEN.
-~
-E
 door writing~
 Above the door is some strange writing!  It is worn with age, but it refers
 to an ancient ruler named 'Shohan'.
+~
+E
+stain stains~
+That's odd ... they seem a little GREEN.
 ~
 D1
 ~
@@ -841,13 +841,6 @@ leading down.  The Ghost of Cristis the Kind stands here.
 ~
 0 9 0
 E
-altar~
-It stands 2 feet high with the remnants of candle-wax on top.  There is
-an inscription on the side:  'Praise the almighty Cristis the bringer of
-good and justice to the world.  He who fought the evilest finally is at
-peace.  May the Gods remember him forever ...'
-~
-E
 ghost cristis~
 His rest has been disturbed by evil creatures who have invaded his domain
 and grave.  He holds up a parchment for you to read:
@@ -861,6 +854,13 @@ and grave.  He holds up a parchment for you to read:
      Roch'tar, the reincarnate Vampire, now rules these tombs.
    You must find and defeat him and his minions!
      May God bless you on your Quest!
+~
+E
+altar~
+It stands 2 feet high with the remnants of candle-wax on top.  There is
+an inscription on the side:  'Praise the almighty Cristis the bringer of
+good and justice to the world.  He who fought the evilest finally is at
+peace.  May the Gods remember him forever ...'
 ~
 D2
 ~
@@ -910,10 +910,23 @@ doors lead off to the south and a large stone staircase leads up.
 ~
 0 9 0
 E
-stone door trapdoor~
-It's rather small and looks quite heavy but maybe with some kind of leverage
-you could move it.  It has a queerly shaped hole that looks big enough
-for an equally queerly shaped pole to fit inside.  If only you had it!
+letters graffiti~
+'Beware here all of man, because past here lies only death.'
+
+    Insho'rkthon brsskra-lehsn Roch'tar
+
+Beneath, there are two criss-crossing scratchmarks in an X formation that
+look like someone (or something) raked their claws across the wood.
+~
+E
+oak~
+They're HUGE!  They are at least 12 feet tall and about 10 feet wide.
+If not for one thing they would be perfectly preserved.  There appears
+to be some letters crudely scratched into the wood.
+~
+E
+staircase stairs~
+Though quite cracked they do look very stable.
 ~
 E
 tapestry tapestries~
@@ -923,23 +936,10 @@ Benevolent and Hroth Kragen's forces that eventually Jubal's army won (of
 course).
 ~
 E
-staircase stairs~
-Though quite cracked they do look very stable.
-~
-E
-oak~
-They're HUGE!  They are at least 12 feet tall and about 10 feet wide.
-If not for one thing they would be perfectly preserved.  There appears
-to be some letters crudely scratched into the wood.
-~
-E
-letters graffiti~
-'Beware here all of man, because past here lies only death.'
-
-    Insho'rkthon brsskra-lehsn Roch'tar
-
-Beneath, there are two criss-crossing scratchmarks in an X formation that
-look like someone (or something) raked their claws across the wood.
+stone door trapdoor~
+It's rather small and looks quite heavy but maybe with some kind of leverage
+you could move it.  It has a queerly shaped hole that looks big enough
+for an equally queerly shaped pole to fit inside.  If only you had it!
 ~
 D2
 Finely polished oak doors stand to the south.

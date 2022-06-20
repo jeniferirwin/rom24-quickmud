@@ -430,9 +430,9 @@ weapon FGK AN
 mace 7 6 blast G
 50 240 5400 P
 A
-4 -1
-A
 18 3
+A
+4 -1
 #902
 helmet winged~
 a Winged Helmet~
@@ -452,9 +452,9 @@ weapon FGJ AN
 staff 5 8 thrust 0
 48 180 2000 P
 A
-18 2
-A
 19 2
+A
+18 2
 #904
 sandals winged~
 a pair of winged sandals~
@@ -492,9 +492,9 @@ weapon FGK AN
 exotic 6 7 pierce F
 47 150 10300 P
 A
-18 1
-A
 19 1
+A
+18 1
 #908
 gauntlets flaming~
 flaming gauntlets~
@@ -532,9 +532,9 @@ jewelry FGK AB
 0 0 0 0 0
 35 10 6900 P
 A
-4 2
-A
 19 3
+A
+4 2
 #912
 shield glowing~
 a brightly glowing shield~

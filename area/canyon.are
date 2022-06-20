@@ -549,9 +549,9 @@ furniture I AB
 0 0 0 0 0
 7 50 1140 P
 A
-3 1
-A
 4 1
+A
+3 1
 #9202
 breastplate stoney breast plate~
 a stoney breastplate~
@@ -561,9 +561,9 @@ armor 0 AD
 BD BD BD B 0
 31 700 5500 P
 A
-2 -2
-A
 5 1
+A
+2 -2
 #9203
 dagger fiery~
 a fiery dagger~
@@ -613,9 +613,9 @@ weapon AB AN
 sword 5 4 slash H
 25 100 2200 P
 A
-18 -1
-A
 19 2
+A
+18 -1
 #9208
 shield electric~
 an electric shield~
@@ -625,9 +625,9 @@ armor B AJ
 AD AD AD C 0
 28 80 4500 P
 A
-1 -1
-A
 5 1
+A
+1 -1
 #9209
 girth icy~
 an icy girth~
@@ -647,9 +647,9 @@ armor 0 AK
 AD AD AD B 0
 30 60 3000 P
 A
-12 25
-A
 18 -2
+A
+12 25
 #9211
 amulet elemental~
 an elemental amulet~
@@ -679,9 +679,9 @@ armor 0 AM
 AD AD AD B 0
 26 40 1700 P
 A
-1 1
-A
 4 -2
+A
+1 1
 #9214
 legbands platinum bands~
 some platinum leg bands~
@@ -691,9 +691,9 @@ armor 0 AF
 AD AD AD B 0
 26 40 1700 P
 A
-2 1
-A
 3 -2
+A
+2 1
 #9215
 wand~
 elemental wand of fire~
@@ -743,9 +743,9 @@ weapon 0 AN
 mace 2 8 pound F
 13 160 730 P
 A
-18 -2
-A
 19 1
+A
+18 -2
 #9221
 lode load lodestone loadstone stone~
 a lodestone~
@@ -797,9 +797,9 @@ weapon A AN
 staff 2 15 thrust A
 29 140 220 P
 A
-13 -20
-A
 18 2
+A
+13 -20
 #9227
 icicle dagger ice~
 an icicle~
@@ -809,9 +809,9 @@ weapon A AN
 dagger 7 3 pierce B
 28 10 1630 P
 A
-19 2
-A
 1 -1
+A
+19 2
 #9228
 avalanche~
 the avalanche~
@@ -831,9 +831,9 @@ weapon A AN
 flail 6 3 crush 0
 23 110 3300 P
 A
-20 -2
-A
 17 -3
+A
+20 -2
 #9230
 shock whip~
 the Shock Whip~
@@ -843,9 +843,9 @@ weapon B AN
 whip 4 5 stab 0
 20 100 64 P
 A
-19 3
-A
 1 -2
+A
+19 3
 #9231
 elixir anti~
 anti-cyclops elixir~
@@ -1619,14 +1619,14 @@ east around the mountain.
 ~
 0 0 5
 E
+bodies body dead~
+They look as if their necks have been broken and their flesh, chewed.
+~
+E
 heaps stones tombs~
 You are sure glad that YOU aren't under one of those piles!
 Many of the tombstones have the same name on them, 'Raff'.  He must come
 here a lot.
-~
-E
-bodies body dead~
-They look as if their necks have been broken and their flesh, chewed.
 ~
 D4
 ~

@@ -40,24 +40,24 @@ reading desk is a large old-fashioned chair.
 ~
 0 524 0
 E
-bookcase bookcases volume volumes book books~
-Most of the books are heavy, leatherbound and covered in a thin layer of dust.
-There are many titles on necromancy, conjuring and other spheres of Magick,
-but also some on computer science (although these seem to be VERY dusty
-indeed) and a fair collection of horror literature, ranging from Bram Stoker
-and H. P. Lovecraft to Anne Rice and Stephen King.
-~
-E
-fireplace~
-The fireplace isn't particularly big, but the fire crackles merrily in it.
+chair~
+It is big and old-fashioned, but quite comfortable nevertheless.
 ~
 E
 desk~
 It is very massive and but seems worn from many years of use.
 ~
 E
-chair~
-It is big and old-fashioned, but quite comfortable nevertheless.
+fireplace~
+The fireplace isn't particularly big, but the fire crackles merrily in it.
+~
+E
+bookcase bookcases volume volumes book books~
+Most of the books are heavy, leatherbound and covered in a thin layer of dust.
+There are many titles on necromancy, conjuring and other spheres of Magick,
+but also some on computer science (although these seem to be VERY dusty
+indeed) and a fair collection of horror literature, ranging from Bram Stoker
+and H. P. Lovecraft to Anne Rice and Stephen King.
 ~
 D2
 The corridor leads south to the hall.
@@ -75,17 +75,17 @@ A magical portal is hovering in the air just in front of the east wall.
 ~
 0 524 0
 E
+desk~
+On the desk is a peculiar apparatus of glass bottles and globes connected by
+small pipelines.  The green liquid inside the apparatus' globes and pipelines
+is bubbling steadily.
+~
+E
 shelves~
 The shelves contain a mass of bottles, jars and boxes of different shapes and
 sizes, of which some contain powders and liquids in various colours.  Others
 contain dragon's claws, giant's eyes, rabbit's ears and other body parts of
 different monsters.
-~
-E
-desk~
-On the desk is a peculiar apparatus of glass bottles and globes connected by
-small pipelines.  The green liquid inside the apparatus' globes and pipelines
-is bubbling steadily.
 ~
 D1
 To the east is the magical portal.
@@ -114,9 +114,10 @@ A magical portal is hovering in the air to the west.
 ~
 0 520 0
 E
-balcony railing~
-Quite transparent, but visible anyway, because of the blue glow that surrounds
-the whole place.
+forest Haon-Dor view~
+Through the tree crowns, you see fellow adventurers walking around in the
+forest, gathering mushrooms, eating blackberries, committing rabbit genocide
+and generally having a good time.
 ~
 E
 plate~
@@ -135,10 +136,9 @@ quite easy to read, nevertheless :-
       and we wouldn't want to do that, would we?)
 ~
 E
-forest Haon-Dor view~
-Through the tree crowns, you see fellow adventurers walking around in the
-forest, gathering mushrooms, eating blackberries, committing rabbit genocide
-and generally having a good time.
+balcony railing~
+Quite transparent, but visible anyway, because of the blue glow that surrounds
+the whole place.
 ~
 D3
 The magical portal is to the west.

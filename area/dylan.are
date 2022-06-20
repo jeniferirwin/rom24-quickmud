@@ -130,12 +130,12 @@ oldstyle~
 armor G AG
 AB AB AB 0 0
 13 100 2800 P
-F
-A 0 0 T
-A
-2 2
 A
 20 1
+A
+2 2
+F
+A 0 0 T
 #9102
 bronze bracer~
 A carved bronze bracer~
@@ -153,9 +153,9 @@ jewelry F AC
 0 0 0 0 0
 7 100 1140 P
 A
-3 1
-A
 4 1
+A
+3 1
 #9104
 magenta potion~
 magenta potion~
