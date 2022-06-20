@@ -2821,6 +2821,8 @@ char *affect_bit_name (int vector)
         strcat (buf, " detect_hidden");
     if (vector & AFF_SANCTUARY)
         strcat (buf, " sanctuary");
+    if (vector & AFF2_DARK_FAVOR)
+        strcat (buf, " dark_favor");
     if (vector & AFF_FAERIE_FIRE)
         strcat (buf, " faerie_fire");
     if (vector & AFF_INFRARED)
