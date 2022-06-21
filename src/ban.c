@@ -134,7 +134,7 @@ bool check_ban (char *site, int type)
 
 void ban_site (CHAR_DATA * ch, char *argument, bool fPerm)
 {
-    char buf[MAX_STRING_LENGTH], buf2[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH * 2], buf2[MAX_STRING_LENGTH];
     char arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
     char *name;
     BUFFER *buffer;
