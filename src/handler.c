@@ -1466,7 +1466,6 @@ void affect_join (CHAR_DATA * ch, AFFECT_DATA * paf)
     AFFECT_DATA *paf_old;
     bool found;
 
-    found = FALSE;
     for (paf_old = ch->affected; paf_old != NULL; paf_old = paf_old->next)
     {
         if (paf_old->type == paf->type)
