@@ -25,7 +25,6 @@
  *    ROM license, in the file Rom24/doc/rom.license                       *
  ***************************************************************************/
 
-
 /*
  * Accommodate old non-Ansi compilers.
  */
@@ -169,10 +168,6 @@ typedef void SPELL_FUN args( ( int sn, int level, CHAR_DATA *ch, void *vo,
 #define ANGEL       (MAX_LEVEL - 7)
 #define AVATAR      (MAX_LEVEL - 8)
 #define HERO        LEVEL_HERO
-
-#ifdef IMC
-   #include "imc.h"
-#endif
 
 /*
  * ColoUr stuff v2.0, by Lope.
@@ -1700,9 +1695,6 @@ struct    pc_data
     int				fight_ohit[3];          /* {3 */
     int				fight_thit[3];          /* {4 */
     int				fight_skill[3];         /* {5 */              
-#ifdef IMC
-    IMC_CHARDATA *imcchardata;
-#endif
 };
 
 /* Data for generating characters -- only used during generation */
