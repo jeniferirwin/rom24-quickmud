@@ -880,7 +880,7 @@ AEDIT (aedit_builder)
 
     name[0] = UPPER (name[0]);
 
-    if (strstr (pArea->builders, name) != '\0')
+    if (strstr (pArea->builders, name) != NULL)
     {
         pArea->builders = string_replace (pArea->builders, name, "\0");
         pArea->builders = string_unpad (pArea->builders);
@@ -896,7 +896,7 @@ AEDIT (aedit_builder)
     else
     {
         buf[0] = '\0';
-        if (strstr (pArea->builders, "None") != '\0')
+        if (strstr (pArea->builders, "None") != NULL)
         {
             pArea->builders = string_replace (pArea->builders, "None", "\0");
             pArea->builders = string_unpad (pArea->builders);
@@ -3329,8 +3329,6 @@ OEDIT (oedit_ed)
 
     if (!str_cmp (command, "format"))
     {
-        EXTRA_DESCR_DATA *ped = NULL;
-
         if (keyword[0] == '\0')
         {
             send_to_char ("Syntax:  ed format [keyword]\n\r", ch);
@@ -3341,7 +3339,6 @@ OEDIT (oedit_ed)
         {
             if (is_name (keyword, ed->keyword))
                 break;
-            ped = ed;
         }
 
         if (!ed)
