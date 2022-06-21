@@ -2156,16 +2156,14 @@ void show_string (struct descriptor_data *d, char *input)
             *scan = '\0';
             write_to_buffer (d, buffer, strlen (buffer));
             for (chk = d->showstr_point; isspace (*chk); chk++);
+            if (!*chk)
             {
-                if (!*chk)
+                if (d->showstr_head)
                 {
-                    if (d->showstr_head)
-                    {
-                        free_mem (d->showstr_head, strlen (d->showstr_head));
-                        d->showstr_head = 0;
-                    }
-                    d->showstr_point = 0;
+                    free_mem (d->showstr_head, strlen (d->showstr_head));
+                    d->showstr_head = 0;
                 }
+                d->showstr_point = 0;
             }
             return;
         }
@@ -2199,7 +2197,7 @@ void act_new (const char *format, CHAR_DATA * ch, const void *arg1,
     char *point;
     char *pbuff;
     char buffer[MSL * 2];
-    bool fColour = FALSE;
+    //bool fColour = FALSE;
 
 
     /*
@@ -2252,7 +2250,7 @@ void act_new (const char *format, CHAR_DATA * ch, const void *arg1,
                 *point++ = *str++;
                 continue;
             }
-            fColour = TRUE;
+            //fColour = TRUE;
             ++str;
             i = " <@@@> ";
 
