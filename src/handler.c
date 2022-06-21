@@ -3445,7 +3445,7 @@ void default_colour (CHAR_DATA * ch)
 void all_colour (CHAR_DATA * ch, char *argument)
 {
     char buf[100];
-    char buf2[100];
+    char buf2[50];
     int colour;
     int bright;
 
