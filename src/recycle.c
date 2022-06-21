@@ -344,9 +344,6 @@ void free_char (CHAR_DATA * ch)
     free_string (ch->prompt);
     free_string (ch->prefix);
 /*    free_note (ch->pnote); */
-#ifdef IMC
-    imc_freechardata( ch );
-#endif
     free_pcdata (ch->pcdata);
 
     ch->next = char_free;

@@ -438,9 +438,6 @@ void fwrite_char (CHAR_DATA * ch, FILE * fp)
                  paf->level,
                  paf->duration, paf->modifier, paf->location, paf->bitvector);
     }
-#ifdef IMC
-    imc_savechar( ch, fp );
-#endif
     fprintf (fp, "End\n\n");
     return;
 }
@@ -790,9 +787,6 @@ bool load_char_obj (DESCRIPTOR_DATA * d, char *name)
     ch->pcdata->fight_skill[0] = (BRIGHT);
     ch->pcdata->fight_skill[1] = (WHITE);
     ch->pcdata->fight_skill[2] = 0;
-#ifdef IMC
-    imc_initchar( ch );
-#endif
     found = FALSE;
     fclose (fpReserve);
 
@@ -1325,10 +1319,6 @@ void fread_char (CHAR_DATA * ch, FILE * fp)
                 KEY ("InvisLevel", ch->invis_level, fread_number (fp));
                 KEY ("Inco", ch->incog_level, fread_number (fp));
                 KEY ("Invi", ch->invis_level, fread_number (fp));
-#ifdef IMC
-           if( ( fMatch = imc_loadchar( ch, fp, word ) ) )
-                break;
-#endif
                 break;
 
             case 'L':
