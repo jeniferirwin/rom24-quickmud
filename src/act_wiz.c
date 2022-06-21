@@ -1793,7 +1793,7 @@ void do_mstat (CHAR_DATA * ch, char *argument)
     if (victim->affected2_by)
     {
         sprintf (buf, "Affected2 by %s\n\r",
-                 affect_bit_name (victim->affected2_by));
+                 affect2_bit_name (victim->affected2_by));
         send_to_char (buf, ch);
     }
 

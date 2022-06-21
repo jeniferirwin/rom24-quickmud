@@ -1802,10 +1802,8 @@ void do_affects (CHAR_DATA * ch, char *argument)
     AFFECT2_DATA *paf2, *paf2_last = NULL;
 
     if (ch->affected != NULL || ch->affected2 != NULL)
-        send_to_char ("You are affected by the following spells:\n\r", ch);
-
-    if (ch->affected != NULL)
     {
+        send_to_char ("You are affected by the following spells:\n\r", ch);
         if (ch->affected != NULL)
         {
             for (paf = ch->affected; paf != NULL; paf = paf->next)

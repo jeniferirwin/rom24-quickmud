@@ -1200,7 +1200,7 @@ void spell_cancellation (int sn, int level, CHAR_DATA * ch, void *vo,
         found = TRUE;
     }
 
-    if (check_dispel (level, victim, skill_lookup ("dark favor")))
+    if (check_dispel2 (level, victim, skill_lookup ("dark favor")))
     {
         act ("The black aura around $n's body vanishes.",
              victim, NULL, NULL, TO_ROOM);
