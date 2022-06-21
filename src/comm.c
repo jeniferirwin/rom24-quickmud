@@ -2571,7 +2571,7 @@ int colour (char type, CHAR_DATA * ch, char *string)
                 sprintf (code, "\e[%d;3%dm", col->auction[0],
                          col->auction[1]);
             break;
-        case 'A':
+        case 'v':
             if (col->auction_text[2])
                 sprintf (code, "\e[%d;3%dm%c",
                          col->auction_text[0], col->auction_text[1], '\a');
@@ -2689,7 +2689,7 @@ int colour (char type, CHAR_DATA * ch, char *string)
         case 'Y':
             strcpy (code, C_B_YELLOW);
             break;
-        case 'D':
+        case 'A':
             strcpy (code, C_D_GREY);
             break;
         case '*':

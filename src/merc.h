@@ -1662,7 +1662,7 @@ struct    pc_data
     int				security;               /* OLC */ /* Builder security */
     int				text[3];                /* {t */
     int				auction[3];             /* {a */
-    int				auction_text[3];        /* {A */
+    int				auction_text[3];        /* {v */
     int				gossip[3];              /* {d */
     int				gossip_text[3];         /* {9 */
     int				music[3];               /* {e */
