@@ -117,7 +117,7 @@ void save_char_obj (CHAR_DATA * ch)
 	 * This might happen during the auto-logoff of players.
 	 * (or other places not yet found out)
 	 */
-	if ( !IS_VALID(ch)) {
+    if ( !IS_VALID(ch)) {
     	bug("save_char_obj: Trying to save an invalidated character.\n",0);
     	return;
 	}
