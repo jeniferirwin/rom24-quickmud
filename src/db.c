@@ -2360,6 +2360,7 @@ void clone_mobile (CHAR_DATA * parent, CHAR_DATA * clone)
 OBJ_DATA *create_object (OBJ_INDEX_DATA * pObjIndex, int level)
 {
     AFFECT_DATA *paf;
+    AFFECT2_DATA *paf2;
     OBJ_DATA *obj;
     int i;
 
@@ -2496,6 +2497,10 @@ OBJ_DATA *create_object (OBJ_INDEX_DATA * pObjIndex, int level)
         if (paf->location == APPLY_SPELL_AFFECT)
             affect_to_obj (obj, paf);
 
+    for (paf2 = pObjIndex->affected2; paf2 != NULL; paf2 = paf2->next)
+        if (paf2->location == APPLY_SPELL_AFFECT2)
+            affect2_to_obj (obj, paf2);
+
     obj->next = object_list;
     object_list = obj;
     pObjIndex->count++;
@@ -2508,6 +2513,7 @@ void clone_object (OBJ_DATA * parent, OBJ_DATA * clone)
 {
     int i;
     AFFECT_DATA *paf;
+    AFFECT2_DATA *paf2;
     EXTRA_DESCR_DATA *ed, *ed_new;
 
     if (parent == NULL || clone == NULL)
@@ -2535,6 +2541,9 @@ void clone_object (OBJ_DATA * parent, OBJ_DATA * clone)
 
     for (paf = parent->affected; paf != NULL; paf = paf->next)
         affect_to_obj (clone, paf);
+
+    for (paf2 = parent->affected2; paf2 != NULL; paf2 = paf2->next)
+        affect2_to_obj (clone, paf2);
 
     /* extended desc */
     for (ed = parent->extra_descr; ed != NULL; ed = ed->next)

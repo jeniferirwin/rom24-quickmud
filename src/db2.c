@@ -383,6 +383,7 @@ void load_mobiles (FILE * fp)
 void load_objects (FILE * fp)
 {
     OBJ_INDEX_DATA *pObjIndex;
+    bool firstaff = FALSE; // technitaur: for aff2
 
     if (!area_last)
     {                            /* OLC */
@@ -522,19 +523,39 @@ void load_objects (FILE * fp)
 
             if (letter == 'A')
             {
-                AFFECT_DATA *paf;
+                if (firstaff == FALSE)
+                {
+                    firstaff = TRUE;
+                    AFFECT_DATA *paf;
 
-                paf = alloc_perm (sizeof (*paf));
-                paf->where = TO_OBJECT;
-                paf->type = -1;
-                paf->level = pObjIndex->level;
-                paf->duration = -1;
-                paf->location = fread_number (fp);
-                paf->modifier = fread_number (fp);
-                paf->bitvector = 0;
-                paf->next = pObjIndex->affected;
-                pObjIndex->affected = paf;
-                top_affect++;
+                    paf = alloc_perm (sizeof (*paf));
+                    paf->where = TO_OBJECT;
+                    paf->type = -1;
+                    paf->level = pObjIndex->level;
+                    paf->duration = -1;
+                    paf->location = fread_number (fp);
+                    paf->modifier = fread_number (fp);
+                    paf->bitvector = 0;
+                    paf->next = pObjIndex->affected;
+                    pObjIndex->affected = paf;
+                    top_affect++;
+                }
+                else
+                {
+                    AFFECT2_DATA *paf;
+
+                    paf = alloc_perm (sizeof (*paf));
+                    paf->where = TO_OBJECT;
+                    paf->type = -1;
+                    paf->level = pObjIndex->level;
+                    paf->duration = -1;
+                    paf->location = fread_number (fp);
+                    paf->modifier = fread_number (fp);
+                    paf->bitvector = 0;
+                    paf->next = pObjIndex->affected2;
+                    pObjIndex->affected2 = paf;
+                    top_affect++;
+                }
             }
 
             else if (letter == 'F')

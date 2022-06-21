@@ -1738,41 +1738,87 @@ void do_score (CHAR_DATA * ch, char *argument)
         do_function (ch, &do_affects, "");
 }
 
+void show_affect_line(CHAR_DATA * ch, char * argument, AFFECT_DATA * paf, AFFECT_DATA * paf_last)
+{
+    char buf[MAX_STRING_LENGTH];
+    if (paf_last != NULL && paf->type == paf_last->type)
+        if (ch->level >= 20)
+            sprintf (buf, "                      ");
+        else
+            return;
+    else
+        sprintf (buf, "Spell: %-15s", skill_table[paf->type].name);
+
+    send_to_char (buf, ch);
+
+    if (ch->level >= 20)
+    {
+        sprintf (buf,
+                 ": modifies %s by %d ",
+                 affect_loc_name (paf->location), paf->modifier);
+        send_to_char (buf, ch);
+        if (paf->duration == -1)
+            sprintf (buf, "permanently");
+        else
+            sprintf (buf, "for %d hours", paf->duration);
+        send_to_char (buf, ch);
+    }
+    send_to_char ("\n\r", ch);
+    paf_last = paf;
+}
+
+void show_affect2_line(CHAR_DATA * ch, char * argument, AFFECT2_DATA * paf, AFFECT2_DATA * paf_last)
+{
+    char buf[MAX_STRING_LENGTH];
+    if (paf_last != NULL && paf->type == paf_last->type)
+        if (ch->level >= 20)
+            sprintf (buf, "                      ");
+        else
+            return;
+    else
+        sprintf (buf, "Spell: %-15s", skill_table[paf->type].name);
+
+    send_to_char (buf, ch);
+
+    if (ch->level >= 20)
+    {
+        sprintf (buf,
+                 ": modifies %s by %d ",
+                 affect2_loc_name (paf->location), paf->modifier);
+        send_to_char (buf, ch);
+        if (paf->duration == -1)
+            sprintf (buf, "permanently");
+        else
+            sprintf (buf, "for %d hours", paf->duration);
+        send_to_char (buf, ch);
+    }
+    send_to_char ("\n\r", ch);
+    paf_last = paf;
+}
+
 void do_affects (CHAR_DATA * ch, char *argument)
 {
     AFFECT_DATA *paf, *paf_last = NULL;
-    char buf[MAX_STRING_LENGTH];
+    AFFECT2_DATA *paf2, *paf2_last = NULL;
+
+    if (ch->affected != NULL || ch->affected2 != NULL)
+        send_to_char ("You are affected by the following spells:\n\r", ch);
 
     if (ch->affected != NULL)
     {
-        send_to_char ("You are affected by the following spells:\n\r", ch);
-        for (paf = ch->affected; paf != NULL; paf = paf->next)
+        if (ch->affected != NULL)
         {
-            if (paf_last != NULL && paf->type == paf_last->type)
-                if (ch->level >= 20)
-                    sprintf (buf, "                      ");
-                else
-                    continue;
-            else
-                sprintf (buf, "Spell: %-15s", skill_table[paf->type].name);
-
-            send_to_char (buf, ch);
-
-            if (ch->level >= 20)
+            for (paf = ch->affected; paf != NULL; paf = paf->next)
             {
-                sprintf (buf,
-                         ": modifies %s by %d ",
-                         affect_loc_name (paf->location), paf->modifier);
-                send_to_char (buf, ch);
-                if (paf->duration == -1)
-                    sprintf (buf, "permanently");
-                else
-                    sprintf (buf, "for %d hours", paf->duration);
-                send_to_char (buf, ch);
+                show_affect_line(ch,argument,paf,paf_last);
             }
-
-            send_to_char ("\n\r", ch);
-            paf_last = paf;
+        }
+        if (ch->affected2 != NULL)
+        {
+            for (paf2 = ch->affected2; paf2 != NULL; paf2 = paf2->next)
+            {
+                show_affect2_line(ch,argument,paf2,paf2_last);
+            }
         }
     }
     else

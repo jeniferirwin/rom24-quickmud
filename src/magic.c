@@ -283,6 +283,34 @@ bool check_dispel (int dis_level, CHAR_DATA * victim, int sn)
     return FALSE;
 }
 
+bool check_dispel2 (int dis_level, CHAR_DATA * victim, int sn)
+{
+    AFFECT2_DATA *af;
+
+    if (is_affected2 (victim, sn))
+    {
+        for (af = victim->affected2; af != NULL; af = af->next)
+        {
+            if (af->type == sn)
+            {
+                if (!saves_dispel (dis_level, af->level, af->duration))
+                {
+                    affect2_strip (victim, sn);
+                    if (skill_table[sn].msg_off)
+                    {
+                        send_to_char (skill_table[sn].msg_off, victim);
+                        send_to_char ("\n\r", victim);
+                    }
+                    return TRUE;
+                }
+                else
+                    af->level--;
+            }
+        }
+    }
+    return FALSE;
+}
+
 /* for finding mana costs -- temporary version */
 int mana_cost (CHAR_DATA * ch, int min_mana, int level)
 {
@@ -3368,6 +3396,7 @@ void spell_identify (int sn, int level, CHAR_DATA * ch, void *vo, int target)
     OBJ_DATA *obj = (OBJ_DATA *) vo;
     char buf[MAX_STRING_LENGTH];
     AFFECT_DATA *paf;
+    AFFECT2_DATA *paf2;
 
     sprintf (buf,
              "Object '%s' is type %s, extra flags %s.\n\rWeight is %d, value is %d, level is %d.\n\r",
@@ -3513,6 +3542,7 @@ void spell_identify (int sn, int level, CHAR_DATA * ch, void *vo, int target)
     }
 
     if (!obj->enchanted)
+    {
         for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next)
         {
             if (paf->location != APPLY_NONE && paf->modifier != 0)
@@ -3553,6 +3583,47 @@ void spell_identify (int sn, int level, CHAR_DATA * ch, void *vo, int target)
                 }
             }
         }
+        for (paf2 = obj->pIndexData->affected2; paf2 != NULL; paf2 = paf2->next)
+        {
+            if (paf2->location != APPLY_NONE && paf2->modifier != 0)
+            {
+                sprintf (buf, "Affects %s by %d.\n\r",
+                         affect2_loc_name (paf2->location), paf2->modifier);
+                send_to_char (buf, ch);
+                if (paf2->bitvector)
+                {
+                    switch (paf2->where)
+                    {
+                        case TO_AFFECTS2:
+                            sprintf (buf, "Adds %s affect.\n",
+                                     affect2_bit_name (paf2->bitvector));
+                            break;
+                        case TO_OBJECT:
+                            sprintf (buf, "Adds %s object flag.\n",
+                                     extra_bit_name (paf2->bitvector));
+                            break;
+                        case TO_IMMUNE:
+                            sprintf (buf, "Adds immunity to %s.\n",
+                                     imm_bit_name (paf2->bitvector));
+                            break;
+                        case TO_RESIST:
+                            sprintf (buf, "Adds resistance to %s.\n\r",
+                                     imm_bit_name (paf2->bitvector));
+                            break;
+                        case TO_VULN:
+                            sprintf (buf, "Adds vulnerability to %s.\n\r",
+                                     imm_bit_name (paf2->bitvector));
+                            break;
+                        default:
+                            sprintf (buf, "Unknown bit %d: %d\n\r",
+                                     paf->where, paf2->bitvector);
+                            break;
+                    }
+                    send_to_char (buf, ch);
+                }
+            }
+        }
+    }
 
     for (paf = obj->affected; paf != NULL; paf = paf->next)
     {
@@ -3597,6 +3668,55 @@ void spell_identify (int sn, int level, CHAR_DATA * ch, void *vo, int target)
                     default:
                         sprintf (buf, "Unknown bit %d: %d\n\r",
                                  paf->where, paf->bitvector);
+                        break;
+                }
+                send_to_char (buf, ch);
+            }
+        }
+    }
+    for (paf2 = obj->affected2; paf2 != NULL; paf2 = paf2->next)
+    {
+        if (paf2->location != APPLY_NONE && paf2->modifier != 0)
+        {
+            sprintf (buf, "Affects %s by %d",
+                     affect2_loc_name (paf2->location), paf2->modifier);
+            send_to_char (buf, ch);
+            if (paf2->duration > -1)
+                sprintf (buf, ", %d hours.\n\r", paf2->duration);
+            else
+                sprintf (buf, ".\n\r");
+            send_to_char (buf, ch);
+            if (paf2->bitvector)
+            {
+                switch (paf2->where)
+                {
+                    case TO_AFFECTS2:
+                        sprintf (buf, "Adds %s affect.\n",
+                                 affect2_bit_name (paf2->bitvector));
+                        break;
+                    case TO_OBJECT:
+                        sprintf (buf, "Adds %s object flag.\n",
+                                 extra_bit_name (paf2->bitvector));
+                        break;
+                    case TO_WEAPON:
+                        sprintf (buf, "Adds %s weapon flags.\n",
+                                 weapon_bit_name (paf2->bitvector));
+                        break;
+                    case TO_IMMUNE:
+                        sprintf (buf, "Adds immunity to %s.\n",
+                                 imm_bit_name (paf2->bitvector));
+                        break;
+                    case TO_RESIST:
+                        sprintf (buf, "Adds resistance to %s.\n\r",
+                                 imm_bit_name (paf2->bitvector));
+                        break;
+                    case TO_VULN:
+                        sprintf (buf, "Adds vulnerability to %s.\n\r",
+                                 imm_bit_name (paf2->bitvector));
+                        break;
+                    default:
+                        sprintf (buf, "Unknown bit %d: %d\n\r",
+                                 paf2->where, paf2->bitvector);
                         break;
                 }
                 send_to_char (buf, ch);
@@ -4364,7 +4484,7 @@ void spell_sanctuary (int sn, int level, CHAR_DATA * ch, void *vo, int target)
 void spell_dark_favor (int sn, int level, CHAR_DATA * ch, void *vo, int target)
 {
     CHAR_DATA *victim = (CHAR_DATA *) vo;
-    AFFECT_DATA af;
+    AFFECT2_DATA af;
 
     if (IS_AFFECTED2 (victim, AFF2_DARK_FAVOR))
     {
@@ -4382,7 +4502,7 @@ void spell_dark_favor (int sn, int level, CHAR_DATA * ch, void *vo, int target)
     af.location = APPLY_NONE;
     af.modifier = 0;
     af.bitvector = AFF2_DARK_FAVOR;
-    affect_to_char (victim, &af);
+    affect2_to_char (victim, &af);
     act ("$n is surrounded by a black aura.", victim, NULL, NULL, TO_ROOM);
     send_to_char ("You are surrounded by a black aura.\n\r", victim);
     return;

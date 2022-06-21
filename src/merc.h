@@ -80,6 +80,7 @@ typedef unsigned char            bool;
  * Structure types.
  */
 typedef struct    affect_data      AFFECT_DATA;
+typedef struct    affect2_data     AFFECT2_DATA;
 typedef struct    area_data        AREA_DATA;
 typedef struct    ban_data         BAN_DATA;
 typedef struct    buf_type         BUFFER;
@@ -649,6 +650,19 @@ struct    note_data
 struct    affect_data
 {
     AFFECT_DATA *  next;
+    bool           valid;
+    sh_int         where;
+    sh_int         type;
+    sh_int         level;
+    sh_int         duration;
+    sh_int         location;
+    sh_int         modifier;
+    int            bitvector;
+};
+
+struct    affect2_data
+{
+    AFFECT2_DATA * next;
     bool           valid;
     sh_int         where;
     sh_int         type;
@@ -1235,6 +1249,7 @@ struct    kill_data
 #define APPLY_SAVING_BREATH  23
 #define APPLY_SAVING_SPELL   24
 #define APPLY_SPELL_AFFECT   25
+#define APPLY_SPELL_AFFECT2  26
 
 /*
  * Values for containers (value[1]).
@@ -1565,6 +1580,7 @@ struct    char_data
     MOB_INDEX_DATA *   pIndexData;
     DESCRIPTOR_DATA *  desc;
     AFFECT_DATA *      affected;
+    AFFECT2_DATA *     affected2;
     OBJ_DATA *         carrying;
     OBJ_DATA *         on;
     ROOM_INDEX_DATA *  in_room;
@@ -1725,6 +1741,7 @@ struct    obj_index_data
     OBJ_INDEX_DATA *    next;
     EXTRA_DESCR_DATA *  extra_descr;
     AFFECT_DATA *       affected;
+    AFFECT2_DATA *      affected2;
     AREA_DATA *         area;        /* OLC */
     bool                new_format;
     char *              name;
@@ -1759,6 +1776,7 @@ struct    obj_data
     CHAR_DATA *         carried_by;
     EXTRA_DESCR_DATA *  extra_descr;
     AFFECT_DATA *       affected;
+    AFFECT2_DATA *      affected2;
     OBJ_INDEX_DATA *    pIndexData;
     ROOM_INDEX_DATA *   in_room;
     bool                valid;
@@ -2497,12 +2515,19 @@ bool    is_name        args( ( char *str, char *namelist ) );
 bool	is_full_name	args( ( const char *str, char *namelist ) );
 bool    is_exact_name    args( ( char *str, char *namelist ) );
 void    affect_to_char    args( ( CHAR_DATA *ch, AFFECT_DATA *paf ) );
+void    affect2_to_char    args( ( CHAR_DATA *ch, AFFECT2_DATA *paf ) );
 void    affect_to_obj    args( ( OBJ_DATA *obj, AFFECT_DATA *paf ) );
+void    affect2_to_obj    args( ( OBJ_DATA *obj, AFFECT2_DATA *paf ) );
 void    affect_remove    args( ( CHAR_DATA *ch, AFFECT_DATA *paf ) );
+void    affect2_remove    args( ( CHAR_DATA *ch, AFFECT2_DATA *paf ) );
 void    affect_remove_obj args( (OBJ_DATA *obj, AFFECT_DATA *paf ) );
+void    affect2_remove_obj args( (OBJ_DATA *obj, AFFECT2_DATA *paf ) );
 void    affect_strip    args( ( CHAR_DATA *ch, int sn ) );
+void    affect2_strip    args( ( CHAR_DATA *ch, int sn ) );
 bool    is_affected    args( ( CHAR_DATA *ch, int sn ) );
+bool    is_affected2    args( ( CHAR_DATA *ch, int sn ) );
 void    affect_join    args( ( CHAR_DATA *ch, AFFECT_DATA *paf ) );
+void    affect2_join    args( ( CHAR_DATA *ch, AFFECT2_DATA *paf ) );
 void    char_from_room    args( ( CHAR_DATA *ch ) );
 void    char_to_room    args( ( CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex ) );
 void    obj_to_char    args( ( OBJ_DATA *obj, CHAR_DATA *ch ) );
@@ -2540,7 +2565,9 @@ bool    can_see_obj    args( ( CHAR_DATA *ch, OBJ_DATA *obj ) );
 bool    can_see_room    args( ( CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex) );
 bool    can_drop_obj    args( ( CHAR_DATA *ch, OBJ_DATA *obj ) );
 char *    affect_loc_name    args( ( int location ) );
+char *    affect2_loc_name    args( ( int location ) );
 char *    affect_bit_name    args( ( int vector ) );
+char *    affect2_bit_name    args( ( int vector ) );
 char *    extra_bit_name    args( ( int extra_flags ) );
 char *     wear_bit_name    args( ( int wear_flags ) );
 char *    act_bit_name    args( ( int act_flags ) );

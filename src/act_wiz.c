@@ -1221,6 +1221,7 @@ void do_ostat (CHAR_DATA * ch, char *argument)
     char buf[MAX_STRING_LENGTH];
     char arg[MAX_INPUT_LENGTH];
     AFFECT_DATA *paf;
+    AFFECT2_DATA *paf2;
     OBJ_DATA *obj;
 
     one_argument (argument, arg);
@@ -1495,7 +1496,54 @@ void do_ostat (CHAR_DATA * ch, char *argument)
         }
     }
 
+    for (paf2 = obj->affected2; paf2 != NULL; paf2 = paf2->next)
+    {
+        sprintf (buf, "Affects %s by %d, level %d",
+                 affect2_loc_name (paf2->location), paf2->modifier, paf2->level);
+        send_to_char (buf, ch);
+        if (paf2->duration > -1)
+            sprintf (buf, ", %d hours.\n\r", paf2->duration);
+        else
+            sprintf (buf, ".\n\r");
+        send_to_char (buf, ch);
+        if (paf2->bitvector)
+        {
+            switch (paf2->where)
+            {
+                case TO_AFFECTS2:
+                    sprintf (buf, "Adds %s affect.\n",
+                             affect2_bit_name (paf2->bitvector));
+                    break;
+                case TO_WEAPON:
+                    sprintf (buf, "Adds %s weapon flags.\n",
+                             weapon_bit_name (paf2->bitvector));
+                    break;
+                case TO_OBJECT:
+                    sprintf (buf, "Adds %s object flag.\n",
+                             extra_bit_name (paf2->bitvector));
+                    break;
+                case TO_IMMUNE:
+                    sprintf (buf, "Adds immunity to %s.\n",
+                             imm_bit_name (paf2->bitvector));
+                    break;
+                case TO_RESIST:
+                    sprintf (buf, "Adds resistance to %s.\n\r",
+                             imm_bit_name (paf2->bitvector));
+                    break;
+                case TO_VULN:
+                    sprintf (buf, "Adds vulnerability to %s.\n\r",
+                             imm_bit_name (paf2->bitvector));
+                    break;
+                default:
+                    sprintf (buf, "Unknown bit %d: %d\n\r",
+                             paf2->where, paf2->bitvector);
+                    break;
+            }
+            send_to_char (buf, ch);
+        }
+    }
     if (!obj->enchanted)
+    {
         for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next)
         {
             sprintf (buf, "Affects %s by %d, level %d.\n\r",
@@ -1535,6 +1583,45 @@ void do_ostat (CHAR_DATA * ch, char *argument)
             }
         }
 
+        for (paf2 = obj->pIndexData->affected2; paf2 != NULL; paf2 = paf2->next)
+        {
+            sprintf (buf, "Affects2 %s by %d, level %d.\n\r",
+                     affect2_loc_name (paf2->location), paf2->modifier,
+                     paf2->level);
+            send_to_char (buf, ch);
+            if (paf2->bitvector)
+            {
+                switch (paf2->where)
+                {
+                    case TO_AFFECTS2:
+                        sprintf (buf, "Adds %s affect2.\n",
+                                 affect2_bit_name (paf2->bitvector));
+                        break;
+                    case TO_OBJECT:
+                        sprintf (buf, "Adds %s object flag.\n",
+                                 extra_bit_name (paf2->bitvector));
+                        break;
+                    case TO_IMMUNE:
+                        sprintf (buf, "Adds immunity to %s.\n",
+                                 imm_bit_name (paf2->bitvector));
+                        break;
+                    case TO_RESIST:
+                        sprintf (buf, "Adds resistance to %s.\n\r",
+                                 imm_bit_name (paf2->bitvector));
+                        break;
+                    case TO_VULN:
+                        sprintf (buf, "Adds vulnerability to %s.\n\r",
+                                 imm_bit_name (paf2->bitvector));
+                        break;
+                    default:
+                        sprintf (buf, "Unknown bit %d: %d\n\r",
+                                 paf2->where, paf2->bitvector);
+                        break;
+                }
+                send_to_char (buf, ch);
+            }
+        }
+    }
     return;
 }
 
@@ -1545,6 +1632,7 @@ void do_mstat (CHAR_DATA * ch, char *argument)
     char buf[MAX_STRING_LENGTH];
     char arg[MAX_INPUT_LENGTH];
     AFFECT_DATA *paf;
+    AFFECT2_DATA *paf2;
     CHAR_DATA *victim;
 
     one_argument (argument, arg);
@@ -1744,6 +1832,17 @@ void do_mstat (CHAR_DATA * ch, char *argument)
                  paf->duration, affect_bit_name (paf->bitvector), paf->level);
         send_to_char (buf, ch);
     }
+    for (paf2 = victim->affected2; paf2 != NULL; paf2 = paf2->next)
+    {
+        sprintf (buf,
+                 "Spell: '%s' modifies %s by %d for %d hours with bits %s, level %d.\n\r",
+                 skill_table[(int) paf2->type].name,
+                 affect2_loc_name (paf2->location),
+                 paf2->modifier,
+                 paf2->duration, affect2_bit_name (paf2->bitvector), paf2->level);
+        send_to_char (buf, ch);
+    }
+
 
     return;
 }

@@ -212,6 +212,38 @@ void free_affect (AFFECT_DATA * af)
     affect_free = af;
 }
 
+AFFECT2_DATA *affect2_free;
+
+AFFECT2_DATA *new_affect2 (void)
+{
+    static AFFECT2_DATA af_zero;
+    AFFECT2_DATA *af;
+
+    if (affect2_free == NULL)
+        af = alloc_perm (sizeof (*af));
+    else
+    {
+        af = affect2_free;
+        affect2_free = affect2_free->next;
+    }
+
+    *af = af_zero;
+
+
+    VALIDATE (af);
+    return af;
+}
+
+void free_affect2 (AFFECT2_DATA * af)
+{
+    if (!IS_VALID (af))
+        return;
+
+    INVALIDATE (af);
+    af->next = affect2_free;
+    affect2_free = af;
+}
+
 /* stuff for recycling objects */
 OBJ_DATA *obj_free;
 

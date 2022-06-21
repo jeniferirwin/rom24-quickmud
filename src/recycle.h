@@ -70,6 +70,11 @@ AD	*new_affect args( (void) );
 void	free_affect args( (AFFECT_DATA *af) );
 #undef AD
 
+#define A2D AFFECT2_DATA
+A2D	*new_affect2 args( (void) );
+void	free_affect2 args( (AFFECT2_DATA *af) );
+#undef A2D
+
 /* object recycling */
 #define OD OBJ_DATA
 OD	*new_obj args( (void) );
