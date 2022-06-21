@@ -2559,7 +2559,7 @@ void do_title (CHAR_DATA * ch, char *argument)
     if (strlen (argument) > 45)
         argument[45] = '\0';
 
-	i = strlen(argument);
+    i = strlen(argument);
     if (argument[i-1] == '{' && argument[i-2] != '{')
 		argument[i-1] = '\0';
 
