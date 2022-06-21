@@ -1195,14 +1195,14 @@ void spell_cancellation (int sn, int level, CHAR_DATA * ch, void *vo,
 
     if (check_dispel (level, victim, skill_lookup ("sanctuary")))
     {
-        act ("The white aura around $n's body vanishes.",
+        act ("The #Wwhite aura#w around $n's body vanishes.",
              victim, NULL, NULL, TO_ROOM);
         found = TRUE;
     }
 
     if (check_dispel2 (level, victim, skill_lookup ("dark favor")))
     {
-        act ("The black aura around $n's body vanishes.",
+        act ("The #Dblack aura#w around $n's body vanishes.",
              victim, NULL, NULL, TO_ROOM);
         found = TRUE;
     }
@@ -2241,7 +2241,7 @@ void spell_dispel_magic (int sn, int level, CHAR_DATA * ch, void *vo,
 
     if (check_dispel (level, victim, skill_lookup ("sanctuary")))
     {
-        act ("The white aura around $n's body vanishes.",
+        act ("The #Wwhite aura#w around $n's body vanishes.",
              victim, NULL, NULL, TO_ROOM);
         found = TRUE;
     }
@@ -2251,14 +2251,14 @@ void spell_dispel_magic (int sn, int level, CHAR_DATA * ch, void *vo,
         && !is_affected (victim, skill_lookup ("sanctuary")))
     {
         REMOVE_BIT (victim->affected_by, AFF_SANCTUARY);
-        act ("The white aura around $n's body vanishes.",
+        act ("The #Wwhite aura#w around $n's body vanishes.",
              victim, NULL, NULL, TO_ROOM);
         found = TRUE;
     }
 
     if (check_dispel2 (level, victim, skill_lookup ("dark favor")))
     {
-        act ("The black aura around $n's body vanishes.",
+        act ("The #Dblack aura#w around $n's body vanishes.",
              victim, NULL, NULL, TO_ROOM);
         found = TRUE;
     }
@@ -2268,7 +2268,7 @@ void spell_dispel_magic (int sn, int level, CHAR_DATA * ch, void *vo,
         && !is_affected2 (victim, skill_lookup ("dark favor")))
     {
         REMOVE_BIT (victim->affected2_by, AFF2_DARK_FAVOR);
-        act ("The black aura around $n's body vanishes.",
+        act ("The #Dblack aura#w around $n's body vanishes.",
              victim, NULL, NULL, TO_ROOM);
         found = TRUE;
     }
@@ -4476,8 +4476,8 @@ void spell_sanctuary (int sn, int level, CHAR_DATA * ch, void *vo, int target)
     af.modifier = 0;
     af.bitvector = AFF_SANCTUARY;
     affect_to_char (victim, &af);
-    act ("$n is surrounded by a white aura.", victim, NULL, NULL, TO_ROOM);
-    send_to_char ("You are surrounded by a white aura.\n\r", victim);
+    act ("$n is surrounded by a #Wwhite aura#w.", victim, NULL, NULL, TO_ROOM);
+    send_to_char ("You are surrounded by a #Wwhite aura#w.\n\r", victim);
     return;
 }
 
@@ -4503,8 +4503,8 @@ void spell_dark_favor (int sn, int level, CHAR_DATA * ch, void *vo, int target)
     af.modifier = 0;
     af.bitvector = AFF2_DARK_FAVOR;
     affect2_to_char (victim, &af);
-    act ("$n is surrounded by a black aura.", victim, NULL, NULL, TO_ROOM);
-    send_to_char ("You are surrounded by a black aura.\n\r", victim);
+    act ("$n is surrounded by a #Dblack aura#w.", victim, NULL, NULL, TO_ROOM);
+    send_to_char ("You are surrounded by a #Dblack aura#w.\n\r", victim);
     return;
 }
 

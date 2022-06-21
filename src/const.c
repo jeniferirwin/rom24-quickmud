@@ -1173,7 +1173,7 @@ const struct skill_type skill_table[MAX_SKILL] = {
         "dark favor", {36, 20, 42, 30}, {1, 1, 2, 2},
         spell_dark_favor, TAR_CHAR_DEFENSIVE, POS_STANDING,
         &gsn_dark_favor, SLOT(92), 75, 12,
-        "", "The black aura around your body fades.",
+        "", "The #Dblack aura#w around your body fades.",
         ""
     },
     {
@@ -1491,7 +1491,7 @@ const struct skill_type skill_table[MAX_SKILL] = {
      "sanctuary", {36, 20, 42, 30}, {1, 1, 2, 2},
      spell_sanctuary, TAR_CHAR_DEFENSIVE, POS_STANDING,
      &gsn_sanctuary, SLOT (36), 75, 12,
-     "", "The white aura around your body fades.",
+     "", "The #Wwhite aura#w around your body fades.",
      ""},
 
     {
