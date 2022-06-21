@@ -652,7 +652,7 @@ void fwrite_obj (CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 bool load_char_obj (DESCRIPTOR_DATA * d, char *name)
 {
     char strsave[MAX_INPUT_LENGTH];
-    char buf[100];
+    char buf[MAX_INPUT_LENGTH * 2];
     CHAR_DATA *ch;
     FILE *fp;
     bool found;
