@@ -676,8 +676,8 @@ char *merc_getline (char *str, char *buf)
 char *numlines (char *string)
 {
     int cnt = 1;
-    static char buf[MAX_STRING_LENGTH * 2];
-    char buf2[MAX_STRING_LENGTH], tmpb[MAX_STRING_LENGTH];
+    static char buf[MAX_STRING_LENGTH * 4];
+    char buf2[MAX_STRING_LENGTH * 2], tmpb[MAX_STRING_LENGTH];
 
     buf[0] = '\0';
 
