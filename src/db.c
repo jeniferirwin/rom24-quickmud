@@ -2024,6 +2024,7 @@ CHAR_DATA *create_mobile (MOB_INDEX_DATA * pMobIndex)
     CHAR_DATA *mob;
     int i;
     AFFECT_DATA af;
+    AFFECT2_DATA af2;
 
     mobile_count++;
 
@@ -2169,14 +2170,14 @@ CHAR_DATA *create_mobile (MOB_INDEX_DATA * pMobIndex)
 
         if (IS_AFFECTED2 (mob, AFF2_DARK_FAVOR))
         {
-            af.where = TO_AFFECTS;
-            af.type = skill_lookup ("dark favor");
-            af.level = mob->level;
-            af.duration = -1;
-            af.location = APPLY_NONE;
-            af.modifier = 0;
-            af.bitvector = AFF2_DARK_FAVOR;
-            affect_to_char (mob, &af);
+            af2.where = TO_AFFECTS2;
+            af2.type = skill_lookup ("dark favor");
+            af2.level = mob->level;
+            af2.duration = -1;
+            af2.location = APPLY_NONE;
+            af2.modifier = 0;
+            af2.bitvector = AFF2_DARK_FAVOR;
+            affect2_to_char (mob, &af2);
         }
 
         if (IS_AFFECTED (mob, AFF_HASTE))

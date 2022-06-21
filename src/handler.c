@@ -2169,6 +2169,7 @@ OBJ_DATA *get_eq_char (CHAR_DATA * ch, int iWear)
 void equip_char (CHAR_DATA * ch, OBJ_DATA * obj, int iWear)
 {
     AFFECT_DATA *paf;
+    AFFECT2_DATA *paf2;
     int i;
 
     if (get_eq_char (ch, iWear) != NULL)
@@ -2196,15 +2197,29 @@ void equip_char (CHAR_DATA * ch, OBJ_DATA * obj, int iWear)
     obj->wear_loc = iWear;
 
     if (!obj->enchanted)
+    {
         for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next)
             if (paf->location != APPLY_SPELL_AFFECT)
                 affect_modify (ch, paf, TRUE);
-    for (paf = obj->affected; paf != NULL; paf = paf->next)
-        if (paf->location == APPLY_SPELL_AFFECT)
-            affect_to_char (ch, paf);
-        else
-            affect_modify (ch, paf, TRUE);
 
+        for (paf2 = obj->pIndexData->affected2; paf2 != NULL; paf2 = paf2->next)
+            if (paf2->location != APPLY_SPELL_AFFECT2)
+                affect2_modify (ch, paf2, TRUE);
+    }
+    else
+    {
+        for (paf = obj->affected; paf != NULL; paf = paf->next)
+            if (paf->location == APPLY_SPELL_AFFECT)
+                affect_to_char (ch, paf);
+            else
+                affect_modify (ch, paf, TRUE);
+
+        for (paf2 = obj->affected2; paf2 != NULL; paf2 = paf2->next)
+            if (paf2->location == APPLY_SPELL_AFFECT2)
+                affect2_to_char (ch, paf2);
+            else
+                affect2_modify (ch, paf2, TRUE);
+    }
     if (obj->item_type == ITEM_LIGHT
         && obj->value[2] != 0 && ch->in_room != NULL) ++ch->in_room->light;
 
@@ -3282,8 +3297,6 @@ char *affect_bit_name (int vector)
         strcat (buf, " detect_hidden");
     if (vector & AFF_SANCTUARY)
         strcat (buf, " sanctuary");
-    if (vector & AFF2_DARK_FAVOR)
-        strcat (buf, " dark_favor");
     if (vector & AFF_FAERIE_FIRE)
         strcat (buf, " faerie_fire");
     if (vector & AFF_INFRARED)

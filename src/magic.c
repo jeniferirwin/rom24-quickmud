@@ -2256,7 +2256,7 @@ void spell_dispel_magic (int sn, int level, CHAR_DATA * ch, void *vo,
         found = TRUE;
     }
 
-    if (check_dispel (level, victim, skill_lookup ("dark favor")))
+    if (check_dispel2 (level, victim, skill_lookup ("dark favor")))
     {
         act ("The black aura around $n's body vanishes.",
              victim, NULL, NULL, TO_ROOM);
@@ -2265,7 +2265,7 @@ void spell_dispel_magic (int sn, int level, CHAR_DATA * ch, void *vo,
 
     if (IS_AFFECTED2 (victim, AFF2_DARK_FAVOR)
         && !saves_dispel (level, victim->level, -1)
-        && !is_affected (victim, skill_lookup ("dark favor")))
+        && !is_affected2 (victim, skill_lookup ("dark favor")))
     {
         REMOVE_BIT (victim->affected2_by, AFF2_DARK_FAVOR);
         act ("The black aura around $n's body vanishes.",
