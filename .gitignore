@@ -4,3 +4,5 @@
 /src/obj/**
 src/log
 src/area
+area/shutdown.txt
+src/results.txt
