@@ -249,31 +249,56 @@ void show_char_to_char_0 (CHAR_DATA * victim, CHAR_DATA * ch)
     char buf[MAX_STRING_LENGTH], message[MAX_STRING_LENGTH];
 
     buf[0] = '\0';
+    int brackets = 0;
 
     if (IS_SET (victim->comm, COMM_AFK))
-        strcat (buf, "[AFK] ");
+        strcat (buf, "#M[#mAFK#M]#w");
+    if (IS_AFFECTED (victim, AFF_INVISIBLE)
+    || victim->invis_level >= LEVEL_HERO
+    || IS_AFFECTED (victim, AFF_HIDE)
+    || IS_AFFECTED (victim, AFF_CHARM)
+    || IS_AFFECTED (victim, AFF_PASS_DOOR)
+    || IS_AFFECTED (victim, AFF_FAERIE_FIRE)
+    || (IS_EVIL (victim) && IS_AFFECTED (ch, AFF_DETECT_EVIL))
+    || (IS_GOOD (victim) && IS_AFFECTED (ch, AFF_DETECT_GOOD))
+    || IS_AFFECTED (victim, AFF_SANCTUARY))
+    {
+        brackets = 1;
+    }
+    if (brackets == 1)
+    {
+        strcat(buf, "#U[");
+    }
     if (IS_AFFECTED (victim, AFF_INVISIBLE))
-        strcat (buf, "(Invis) ");
+        strcat (buf, "#wI");
     if (victim->invis_level >= LEVEL_HERO)
-        strcat (buf, "(Wizi) ");
+        strcat (buf, "#AZ");
     if (IS_AFFECTED (victim, AFF_HIDE))
-        strcat (buf, "(Hide) ");
+        strcat (buf, "#AH");
     if (IS_AFFECTED (victim, AFF_CHARM))
-        strcat (buf, "(Charmed) ");
+        strcat (buf, "#oC");
     if (IS_AFFECTED (victim, AFF_PASS_DOOR))
-        strcat (buf, "(Translucent) ");
+        strcat (buf, "#WT");
     if (IS_AFFECTED (victim, AFF_FAERIE_FIRE))
-        strcat (buf, "(Pink Aura) ");
+        strcat (buf, "#PP");
     if (IS_EVIL (victim) && IS_AFFECTED (ch, AFF_DETECT_EVIL))
-        strcat (buf, "(Red Aura) ");
+        strcat (buf, "#RR");
     if (IS_GOOD (victim) && IS_AFFECTED (ch, AFF_DETECT_GOOD))
-        strcat (buf, "(Golden Aura) ");
+        strcat (buf, "#OG");
     if (IS_AFFECTED (victim, AFF_SANCTUARY))
-        strcat (buf, "(White Aura) ");
+        strcat (buf, "#WW");
+    if (brackets == 1)
+    {
+        strcat(buf, "#U]#w ");
+    }
     if (!IS_NPC (victim) && IS_SET (victim->act, PLR_KILLER))
-        strcat (buf, "(KILLER) ");
+    {
+        strcat (buf, "#R[KLR]#w ");
+    }
     if (!IS_NPC (victim) && IS_SET (victim->act, PLR_THIEF))
-        strcat (buf, "(THIEF) ");
+    {
+        strcat (buf, "#M[THF]#w ");
+    }
     if (victim->position == victim->start_pos
         && victim->long_descr[0] != '\0')
     {
@@ -1558,7 +1583,7 @@ void do_score (CHAR_DATA * ch, char *argument)
     switch (ch->position)
     {
         case POS_DEAD:
-            send_to_char ("You are DEAD!!\n\r", ch);
+            send_to_char ("#wYou are #RDEAD#w!!\n\r", ch);
             break;
         case POS_MORTAL:
             send_to_char ("You are mortally wounded.\n\r", ch);
