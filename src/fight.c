@@ -857,7 +857,7 @@ bool damage (CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt,
             break;
 
         case POS_DEAD:
-            act ("#w$n is #RDEAD#w!!", victim, 0, 0, TO_ROOM);
+            act ("#w$n is #rDEAD#w!!", victim, 0, 0, TO_ROOM);
             send_to_char ("#wYou have been #RKILLED#w!!\n\r\n\r", victim);
             break;
 
