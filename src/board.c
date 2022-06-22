@@ -76,7 +76,7 @@ BOARD_DATA boards[MAX_BOARD] =
 };
 
 /* The prompt that the character is given after finishing a note with ~ or END */
-const char * szFinishPrompt = "({WC{x)ontinue, ({WV{x)iew, ({WP{x)ost or ({WF{x)orget it?";
+const char * szFinishPrompt = "(#WC#w)ontinue, (#WV#w)iew, (#WP#w)ost or (#WF#w)orget it?";
 
 long last_note_stamp = 0; /* To generate unique timestamps on notes */
 
@@ -271,10 +271,10 @@ static void show_note_to_char (CHAR_DATA *ch, NOTE_DATA *note, int num)
 {
 	/* Ugly colors ? */	
 	printf_to_char (ch,
-			 "[{W%4d{x] {Y%s{x: {g%s{x\n\r"
-	         "{YDate{x:  %s\n\r"
-			 "{YTo{x:    %s\n\r"
-	         "{g==========================================================================={x\n\r"
+			 "[#W%4d#w] #C%s#w: #g%s#w\n\r"
+	         "#CDate#w:  %s\n\r"
+			 "#CTo#w:    %s\n\r"
+	         "#g===========================================================================#w\n\r"
 	         "%s\n\r",
 	         num, note->sender, note->subject,
 	         note->date,
@@ -500,38 +500,38 @@ static void do_nwrite (CHAR_DATA *ch, char *argument)
 		ch->pcdata->in_progress->date = str_dup (strtime);
 	}
 
-	act ("{G$n starts writing a note.{x", ch, NULL, NULL, TO_ROOM);
+	act ("#G$n starts writing a note.#w", ch, NULL, NULL, TO_ROOM);
 	
 	/* Begin writing the note ! */
-	printf_to_char (ch, "You are now %s a new note on the {W%s{x board.\n\r"
+	printf_to_char (ch, "You are now %s a new note on the #W%s#w board.\n\r"
 	              "If you are using tintin, type #verbose to turn off alias expansion!\n\r\n\r",
 	               ch->pcdata->in_progress->text ? "continuing" : "posting",
 	               ch->pcdata->board->short_name);
 	
-	printf_to_char (ch, "{YFrom{x:    %s\n\r\n\r", ch->name);
+	printf_to_char (ch, "#CFrom#w:    %s\n\r\n\r", ch->name);
 
 	if (!ch->pcdata->in_progress->text) /* Are we continuing an old note or not? */
 	{
 		switch (ch->pcdata->board->force_type)
 		{
 		case DEF_NORMAL:
-			sprintf (buf, "If you press Return, default recipient \"{W%s{x\" will be chosen.\n\r",
+			sprintf (buf, "If you press Return, default recipient \"#W%s#w\" will be chosen.\n\r",
 					  ch->pcdata->board->names);
 			break;
 		case DEF_INCLUDE:
-			sprintf (buf, "The recipient list MUST include \"{W%s{x\". If not, it will be added automatically.\n\r",
+			sprintf (buf, "The recipient list MUST include \"#W%s#w\". If not, it will be added automatically.\n\r",
 						   ch->pcdata->board->names);
 			break;
 	
 		case DEF_EXCLUDE:
-			sprintf (buf, "The recipient of this note must NOT include: \"{W%s{x\".",
+			sprintf (buf, "The recipient of this note must NOT include: \"#W%s#w\".",
 						   ch->pcdata->board->names);
 	
 			break;
 		}			
 		
 		send_to_char (buf,ch);
-		send_to_char ("\n\r{YTo{x:      ",ch);
+		send_to_char ("\n\r#CTo#w:      ",ch);
 	
 		ch->desc->connected = CON_NOTE_TO;
 		/* nanny takes over from here */
@@ -539,16 +539,16 @@ static void do_nwrite (CHAR_DATA *ch, char *argument)
 	}
 	else /* we are continuing, print out all the fields and the note so far*/
 	{
-		printf_to_char (ch, "{YTo{x:      %s\n\r"
-		              "{YExpires{x: %s\n\r"
-		              "{YSubject{x: %s\n\r", 
+		printf_to_char (ch, "#CTo#w:      %s\n\r"
+		              "#CExpires#w: %s\n\r"
+		              "#CSubject#w: %s\n\r", 
 		               ch->pcdata->in_progress->to_list,
 		               ctime(&ch->pcdata->in_progress->expire),
 		               ch->pcdata->in_progress->subject);
-		send_to_char ("{GYour note so far:{x\n\r", ch);
+		send_to_char ("#GYour note so far:#w\n\r", ch);
 		send_to_char (ch->pcdata->in_progress->text,ch);
 		
-		send_to_char ("\n\rEnter text. Type {W~{x or {WEND{x on an empty line to end note.\n\r"
+		send_to_char ("\n\rEnter text. Type #W~#w or #WEND#w on an empty line to end note.\n\r"
 		                    "=======================================================\n\r",ch);
 		
 
@@ -662,8 +662,8 @@ static void do_nlist (CHAR_DATA *ch, char *argument)
 				count++;
 	}
 	
-	send_to_char ("{WNotes on this board:{x\n\r"
-	              "{rNum> Author        Subject{x\n\r",ch);
+	send_to_char ("#WNotes on this board:#w\n\r"
+	              "#rNum> Author        Subject#w\n\r",ch);
 	              
 	last_note = ch->pcdata->last_note[board_number (ch->pcdata->board)];
 	
@@ -675,7 +675,7 @@ static void do_nlist (CHAR_DATA *ch, char *argument)
 			has_shown++; /* note that we want to see X VISIBLE note, not just last X */
 			if (!show || ((count-show) < has_shown))
 			{
-				sprintf (buf, "{W%3d{x>{B%c{x{Y%-13s{x{y%s{x\n\r",
+				sprintf (buf, "#W%3d#w>#B%c#w#C%-13s#w#w%s#w\n\r",
 				               num, 
 				               last_note < p->date_stamp ? '*' : ' ',
 				               p->sender, p->subject);
@@ -753,22 +753,22 @@ void do_board (CHAR_DATA *ch, char *argument)
 		int unread;
 		
 		count = 1;
-		send_to_char ("{RNum          Name Unread Description{x\n\r"
-		              "{R==== ============ ====== ============================={x\n\r",ch);
+		send_to_char ("#RNum          Name Unread Description#w\n\r"
+		              "#R==== ============ ====== =============================#w\n\r",ch);
 		for (i = 0; i < MAX_BOARD; i++)
 		{
 			unread = unread_notes (ch,&boards[i]); /* how many unread notes? */
 			if (unread != BOARD_NOACCESS)
 			{ 
-				printf_to_char (ch, "({W%2d{x) {g%12s{x [%s%4d{x] {y%s{x\n\r", 
-				                   count, boards[i].short_name, unread ? "{G" : "{g", 
+				printf_to_char (ch, "(#W%2d#w) #g%12s#w [%s%4d#w] #w%s#w\n\r", 
+				                   count, boards[i].short_name, unread ? "#G" : "#g", 
 				                    unread, boards[i].long_name);
 				count++;
 			} /* if has access */
 			
 		} /* for each board */
 		
-		printf_to_char (ch, "\n\rYou current board is {W%s{x.\n\r", ch->pcdata->board->short_name);
+		printf_to_char (ch, "\n\rYou current board is #W%s#w.\n\r", ch->pcdata->board->short_name);
 
 		/* Inform of rights */		
 		if (ch->pcdata->board->read_level > get_trust(ch))
@@ -800,7 +800,7 @@ void do_board (CHAR_DATA *ch, char *argument)
 		if (count == number) /* found the board.. change to it */
 		{
 			ch->pcdata->board = &boards[i];
-			sprintf (buf, "Current board changed to {W%s{x. %s.\n\r",boards[i].short_name,
+			sprintf (buf, "Current board changed to #W%s#w. %s.\n\r",boards[i].short_name,
 			              (get_trust(ch) < boards[i].write_level) 
 			              ? "You can only read here" 
 			              : "You can both read and write here");
@@ -832,7 +832,7 @@ void do_board (CHAR_DATA *ch, char *argument)
 	}
 	
 	ch->pcdata->board = &boards[i];
-	sprintf (buf, "Current board changed to {W%s{x. %s.\n\r",boards[i].short_name,
+	sprintf (buf, "Current board changed to #W%s#w. %s.\n\r",boards[i].short_name,
 	              (get_trust(ch) < boards[i].write_level) 
 	              ? "You can only read here" 
 	              : "You can both read and write here");
@@ -923,7 +923,7 @@ void handle_con_note_to (DESCRIPTOR_DATA *d, char * argument)
 			if (!buf[0]) /* empty string? */
 			{
 				ch->pcdata->in_progress->to_list = str_dup (ch->pcdata->board->names);
-				printf_to_desc (d, "Assumed default recipient: {W%s{x\n\r", ch->pcdata->board->names);
+				printf_to_desc (d, "Assumed default recipient: #W%s#w\n\r", ch->pcdata->board->names);
 			}
 			else
 				ch->pcdata->in_progress->to_list = str_dup (buf);
@@ -938,7 +938,7 @@ void handle_con_note_to (DESCRIPTOR_DATA *d, char * argument)
 				ch->pcdata->in_progress->to_list = str_dup(buf);
 
 				printf_to_desc (d, "\n\rYou did not specify %s as recipient, so it was automatically added.\n\r"
-				         "{YNew To{x :  %s\n\r",
+				         "#CNew To#w :  %s\n\r",
 						 ch->pcdata->board->names, ch->pcdata->in_progress->to_list);
 			}
 			else
@@ -949,14 +949,14 @@ void handle_con_note_to (DESCRIPTOR_DATA *d, char * argument)
 			if (!buf[0])
 			{
 				send_to_desc ("You must specify a recipient.\n\r"
-									"{YTo{x:      ", d);
+									"#CTo#w:      ", d);
 				return;
 			}
 			
 			if (is_full_name (ch->pcdata->board->names, buf))
 			{
 				sprintf (buf, "You are not allowed to send notes to %s on this board. Try again.\n\r"
-				         "{YTo{x:      ", ch->pcdata->board->names);
+				         "#CTo#w:      ", ch->pcdata->board->names);
 				send_to_desc (buf, d);
 				return; /* return from nanny, not changing to the next state! */
 			}
@@ -966,7 +966,7 @@ void handle_con_note_to (DESCRIPTOR_DATA *d, char * argument)
 		
 	}		
 
-	send_to_desc ("{Y\n\rSubject{x: ", d);
+	send_to_desc ("#C\n\rSubject#w: ", d);
 	d->connected = CON_NOTE_SUBJECT;
 }
 
@@ -990,7 +990,7 @@ void handle_con_note_subject (DESCRIPTOR_DATA *d, char * argument)
 	if (!buf[0])		
 	{
 		write_to_buffer (d, "Please find a meaningful subject!\n\r",0);
-		printf_to_desc (d, "{YSubject{x: ");
+		printf_to_desc (d, "#CSubject#w: ");
 	}
 	else  if (strlen(buf)>60)
 	{
@@ -1003,8 +1003,8 @@ void handle_con_note_subject (DESCRIPTOR_DATA *d, char * argument)
 		if (IS_IMMORTAL(ch)) /* immortals get to choose number of expire days */
 		{
 			printf_to_desc (d,"\n\rHow many days do you want this note to expire in?\n\r"
-			             "Press Enter for default value for this board, {W%d{x days.\n\r"
-           				 "{YExpire{x:  ",
+			             "Press Enter for default value for this board, #W%d#w days.\n\r"
+           				 "#CExpire#w:  ",
 		                 ch->pcdata->board->purge_days);
 			d->connected = CON_NOTE_EXPIRE;
 		}
@@ -1013,7 +1013,7 @@ void handle_con_note_subject (DESCRIPTOR_DATA *d, char * argument)
 			ch->pcdata->in_progress->expire = 
 				current_time + ch->pcdata->board->purge_days * 24L * 3600L;				
 			printf_to_desc (d, "This note will expire %s\r",ctime(&ch->pcdata->in_progress->expire));
-			send_to_desc ("\n\rEnter text. Type {W~{x or {WEND{x on an empty line to end note.\n\r"
+			send_to_desc ("\n\rEnter text. Type #W~#w or #WEND#w on an empty line to end note.\n\r"
 			                    "=======================================================\n\r",d);
 			d->connected = CON_NOTE_TEXT;
 		}
@@ -1042,7 +1042,7 @@ void handle_con_note_expire(DESCRIPTOR_DATA *d, char * argument)
 		if (!is_number(buf))
 		{
 			write_to_buffer (d,"Write the number of days!\n\r",0);
-			send_to_desc ("{YExpire{x:  ",d);
+			send_to_desc ("#CExpire#w:  ",d);
 			return;
 		}
 		else
@@ -1051,7 +1051,7 @@ void handle_con_note_expire(DESCRIPTOR_DATA *d, char * argument)
 			if (days <= 0)
 			{
 				write_to_buffer (d, "This is a positive MUD. Use positive numbers only! :)\n\r",0);
-				send_to_desc ("{YExpire{x:  ",d);
+				send_to_desc ("#CExpire#w:  ",d);
 				return;
 			}
 		}
@@ -1062,7 +1062,7 @@ void handle_con_note_expire(DESCRIPTOR_DATA *d, char * argument)
 	
 	/* note that ctime returns XXX\n so we only need to add an \r */
 
-	send_to_desc ("\n\rEnter text. Type {W~{x or {WEND{x on an empty line to end note.\n\r"
+	send_to_desc ("\n\rEnter text. Type #W~#w or #WEND#w on an empty line to end note.\n\r"
 	                    "=======================================================\n\r",d);
 
 	d->connected = CON_NOTE_TEXT;
@@ -1163,7 +1163,7 @@ void handle_con_note_finish (DESCRIPTOR_DATA *d, char * argument)
 			case 'v': /* view note so far */
 				if (ch->pcdata->in_progress->text)
 				{
-					send_to_desc ("{gText of your note so far:{x\n\r",d);
+					send_to_desc ("#gText of your note so far:#w\n\r",d);
 					write_to_buffer (d, ch->pcdata->in_progress->text, 0);
 				}
 				else
@@ -1178,7 +1178,7 @@ void handle_con_note_finish (DESCRIPTOR_DATA *d, char * argument)
 				d->connected = CON_PLAYING;
 				/* remove AFK status */
 				ch->pcdata->in_progress = NULL;
-				act ("{G$n finishes $s note.{x", ch, NULL, NULL, TO_ROOM);
+				act ("#G$n finishes $s note.#w", ch, NULL, NULL, TO_ROOM);
 				break;
 				
 			case 'f':

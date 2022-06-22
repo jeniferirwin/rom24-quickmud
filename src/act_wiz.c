@@ -186,7 +186,7 @@ void wiznet (char *string, CHAR_DATA * ch, OBJ_DATA * obj,
             else
                 send_to_char ("{Z", d->character);
             act_new (string, d->character, obj, ch, TO_CHAR, POS_DEAD);
-            send_to_char ("{x", d->character);
+            send_to_char ("#w", d->character);
         }
     }
 
@@ -4704,10 +4704,10 @@ void do_qmconfig (CHAR_DATA * ch, char * argument)
 
 	if (!str_prefix(arg1, "show"))
 	{
-		printf_to_char(ch, "ANSI prompt: %s", mud_ansiprompt ? "{GON{x\n\r" : "{ROFF{x\n\r");
-		printf_to_char(ch, "ANSI color : %s", mud_ansicolor ? "{GON{x\n\r" : "{ROFF{x\n\r");
+		printf_to_char(ch, "ANSI prompt: %s", mud_ansiprompt ? "#GON#w\n\r" : "#ROFF#w\n\r");
+		printf_to_char(ch, "ANSI color : %s", mud_ansicolor ? "#GON#w\n\r" : "#ROFF#w\n\r");
 		printf_to_char(ch, "IP Address : %s\n\r", mud_ipaddress);
-		printf_to_char(ch, "Telnet GA  : %s", mud_telnetga ? "{GON{x\n\r" : "{ROFF{x\n\r");
+		printf_to_char(ch, "Telnet GA  : %s", mud_telnetga ? "#GON#w\n\r" : "#ROFF#w\n\r");
 		return;
 	}
 

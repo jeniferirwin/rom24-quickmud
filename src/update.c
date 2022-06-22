@@ -128,7 +128,7 @@ void gain_exp (CHAR_DATA * ch, int gain)
     while (ch->level < LEVEL_HERO && ch->exp >=
            exp_per_level (ch, ch->pcdata->points) * (ch->level + 1))
     {
-        send_to_char ("{GYou raise a level!!  {x", ch);
+        send_to_char ("#GYou raise a level!!  #w", ch);
         ch->level += 1;
         sprintf (buf, "%s gained level %d", ch->name, ch->level);
         log_string (buf);

@@ -190,7 +190,7 @@ void fwrite_char (CHAR_DATA * ch, FILE * fp)
     if (ch->description[0] != '\0')
         fprintf (fp, "Desc %s~\n", ch->description);
     if (ch->prompt != NULL || !str_cmp (ch->prompt, "<%hhp %mm %vmv> ")
-        || !str_cmp (ch->prompt, "{c<%hhp %mm %vmv>{x "))
+        || !str_cmp (ch->prompt, "#c<%hhp %mm %vmv>#w "))
         fprintf (fp, "Prom %s~\n", ch->prompt);
     fprintf (fp, "Race %s~\n", pc_race_table[ch->race].name);
     if (ch->clan)

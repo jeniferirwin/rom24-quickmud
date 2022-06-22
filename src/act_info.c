@@ -249,31 +249,56 @@ void show_char_to_char_0 (CHAR_DATA * victim, CHAR_DATA * ch)
     char buf[MAX_STRING_LENGTH], message[MAX_STRING_LENGTH];
 
     buf[0] = '\0';
+    int brackets = 0;
 
     if (IS_SET (victim->comm, COMM_AFK))
-        strcat (buf, "[AFK] ");
+        strcat (buf, "#M[#mAFK#M]#w");
+    if (IS_AFFECTED (victim, AFF_INVISIBLE)
+    || victim->invis_level >= LEVEL_HERO
+    || IS_AFFECTED (victim, AFF_HIDE)
+    || IS_AFFECTED (victim, AFF_CHARM)
+    || IS_AFFECTED (victim, AFF_PASS_DOOR)
+    || IS_AFFECTED (victim, AFF_FAERIE_FIRE)
+    || (IS_EVIL (victim) && IS_AFFECTED (ch, AFF_DETECT_EVIL))
+    || (IS_GOOD (victim) && IS_AFFECTED (ch, AFF_DETECT_GOOD))
+    || IS_AFFECTED (victim, AFF_SANCTUARY))
+    {
+        brackets = 1;
+    }
+    if (brackets == 1)
+    {
+        strcat(buf, "#U[");
+    }
     if (IS_AFFECTED (victim, AFF_INVISIBLE))
-        strcat (buf, "(Invis) ");
+        strcat (buf, "#wI");
     if (victim->invis_level >= LEVEL_HERO)
-        strcat (buf, "(Wizi) ");
+        strcat (buf, "#AZ");
     if (IS_AFFECTED (victim, AFF_HIDE))
-        strcat (buf, "(Hide) ");
+        strcat (buf, "#AH");
     if (IS_AFFECTED (victim, AFF_CHARM))
-        strcat (buf, "(Charmed) ");
+        strcat (buf, "#oC");
     if (IS_AFFECTED (victim, AFF_PASS_DOOR))
-        strcat (buf, "(Translucent) ");
+        strcat (buf, "#WT");
     if (IS_AFFECTED (victim, AFF_FAERIE_FIRE))
-        strcat (buf, "(Pink Aura) ");
+        strcat (buf, "#PP");
     if (IS_EVIL (victim) && IS_AFFECTED (ch, AFF_DETECT_EVIL))
-        strcat (buf, "(Red Aura) ");
+        strcat (buf, "#RR");
     if (IS_GOOD (victim) && IS_AFFECTED (ch, AFF_DETECT_GOOD))
-        strcat (buf, "(Golden Aura) ");
+        strcat (buf, "#OG");
     if (IS_AFFECTED (victim, AFF_SANCTUARY))
-        strcat (buf, "(White Aura) ");
+        strcat (buf, "#WW");
+    if (brackets == 1)
+    {
+        strcat(buf, "#U]#w ");
+    }
     if (!IS_NPC (victim) && IS_SET (victim->act, PLR_KILLER))
-        strcat (buf, "(KILLER) ");
+    {
+        strcat (buf, "#R[KLR]#w ");
+    }
     if (!IS_NPC (victim) && IS_SET (victim->act, PLR_THIEF))
-        strcat (buf, "(THIEF) ");
+    {
+        strcat (buf, "#M[THF]#w ");
+    }
     if (victim->position == victim->start_pos
         && victim->long_descr[0] != '\0')
     {
@@ -667,63 +692,63 @@ void do_autolist (CHAR_DATA * ch, char *argument)
 
     send_to_char ("autoassist     ", ch);
     if (IS_SET (ch->act, PLR_AUTOASSIST))
-        send_to_char ("{GON{x\n\r", ch);
+        send_to_char ("#GON#w\n\r", ch);
     else
-        send_to_char ("{ROFF{x\n\r", ch);
+        send_to_char ("#ROFF#w\n\r", ch);
 
     send_to_char ("autoexit       ", ch);
     if (IS_SET (ch->act, PLR_AUTOEXIT))
-        send_to_char ("{GON{x\n\r", ch);
+        send_to_char ("#GON#w\n\r", ch);
     else
-        send_to_char ("{ROFF{x\n\r", ch);
+        send_to_char ("#ROFF#w\n\r", ch);
 
     send_to_char ("autogold       ", ch);
     if (IS_SET (ch->act, PLR_AUTOGOLD))
-        send_to_char ("{GON{x\n\r", ch);
+        send_to_char ("#GON#w\n\r", ch);
     else
-        send_to_char ("{ROFF{x\n\r", ch);
+        send_to_char ("#ROFF#w\n\r", ch);
 
     send_to_char ("autoloot       ", ch);
     if (IS_SET (ch->act, PLR_AUTOLOOT))
-        send_to_char ("{GON{x\n\r", ch);
+        send_to_char ("#GON#w\n\r", ch);
     else
-        send_to_char ("{ROFF{x\n\r", ch);
+        send_to_char ("#ROFF#w\n\r", ch);
 
     send_to_char ("autosac        ", ch);
     if (IS_SET (ch->act, PLR_AUTOSAC))
-        send_to_char ("{GON{x\n\r", ch);
+        send_to_char ("#GON#w\n\r", ch);
     else
-        send_to_char ("{ROFF{x\n\r", ch);
+        send_to_char ("#ROFF#w\n\r", ch);
 
     send_to_char ("autosplit      ", ch);
     if (IS_SET (ch->act, PLR_AUTOSPLIT))
-        send_to_char ("{GON{x\n\r", ch);
+        send_to_char ("#GON#w\n\r", ch);
     else
-        send_to_char ("{ROFF{x\n\r", ch);
+        send_to_char ("#ROFF#w\n\r", ch);
 
     send_to_char ("telnetga       ", ch);
     if (IS_SET (ch->comm, COMM_TELNET_GA))
-	    send_to_char ("{GON{x\n\r", ch);
+	    send_to_char ("#GON#w\n\r", ch);
     else
-	    send_to_char ("{ROFF{x\n\r",ch);
+	    send_to_char ("#ROFF#w\n\r",ch);
 
     send_to_char ("compact mode   ", ch);
     if (IS_SET (ch->comm, COMM_COMPACT))
-        send_to_char ("{GON{x\n\r", ch);
+        send_to_char ("#GON#w\n\r", ch);
     else
-        send_to_char ("{ROFF{x\n\r", ch);
+        send_to_char ("#ROFF#w\n\r", ch);
 
     send_to_char ("prompt         ", ch);
     if (IS_SET (ch->comm, COMM_PROMPT))
-        send_to_char ("{GON{x\n\r", ch);
+        send_to_char ("#GON#w\n\r", ch);
     else
-        send_to_char ("{ROFF{x\n\r", ch);
+        send_to_char ("#ROFF#w\n\r", ch);
 
     send_to_char ("combine items  ", ch);
     if (IS_SET (ch->comm, COMM_COMBINE))
-        send_to_char ("{GON{x\n\r", ch);
+        send_to_char ("#GON#w\n\r", ch);
     else
-        send_to_char ("{ROFF{x\n\r", ch);
+        send_to_char ("#ROFF#w\n\r", ch);
 
     if (!IS_SET (ch->act, PLR_CANLOOT))
         send_to_char ("Your corpse is safe from thieves.\n\r", ch);
@@ -1081,15 +1106,15 @@ void do_look (CHAR_DATA * ch, char *argument)
     if (arg1[0] == '\0' || !str_cmp (arg1, "auto"))
     {
         /* 'look' or 'look auto' */
-        send_to_char ("{s", ch);
+        send_to_char ("#W", ch);
         send_to_char (ch->in_room->name, ch);
-        send_to_char ("{x", ch);
+        send_to_char ("#w", ch);
 
         if ((IS_IMMORTAL (ch)
              && (IS_NPC (ch) || IS_SET (ch->act, PLR_HOLYLIGHT)))
             || IS_BUILDER (ch, ch->in_room->area))
         {
-            sprintf (buf, "{r [{RRoom %d{r]{x", ch->in_room->vnum);
+            sprintf (buf, "#r [#RRoom %d#r]#w", ch->in_room->vnum);
             send_to_char (buf, ch);
         }
 
@@ -1099,9 +1124,9 @@ void do_look (CHAR_DATA * ch, char *argument)
             || (!IS_NPC (ch) && !IS_SET (ch->comm, COMM_BRIEF)))
         {
             send_to_char ("  ", ch);
-            send_to_char ("{S", ch);
+            send_to_char ("#w", ch);
             send_to_char (ch->in_room->description, ch);
-            send_to_char ("{x", ch);
+            send_to_char ("#w", ch);
         }
 
         if (!IS_NPC (ch) && IS_SET (ch->act, PLR_AUTOEXIT))
@@ -1405,7 +1430,7 @@ void do_exits (CHAR_DATA * ch, char *argument)
         return;
 
     if (fAuto)
-        sprintf (buf, "{o[Exits:");
+        sprintf (buf, "#p[Exits:");
     else if (IS_IMMORTAL (ch))
         sprintf (buf, "Obvious exits from room %d:\n\r", ch->in_room->vnum);
     else
@@ -1444,7 +1469,7 @@ void do_exits (CHAR_DATA * ch, char *argument)
         strcat (buf, fAuto ? " none" : "None.\n\r");
 
     if (fAuto)
-        strcat (buf, "]{x\n\r");
+        strcat (buf, "]#w\n\r");
 
     send_to_char (buf, ch);
     return;
@@ -1558,7 +1583,7 @@ void do_score (CHAR_DATA * ch, char *argument)
     switch (ch->position)
     {
         case POS_DEAD:
-            send_to_char ("You are DEAD!!\n\r", ch);
+            send_to_char ("#wYou are #RDEAD#w!!\n\r", ch);
             break;
         case POS_MORTAL:
             send_to_char ("You are mortally wounded.\n\r", ch);

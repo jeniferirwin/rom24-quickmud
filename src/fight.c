@@ -857,15 +857,15 @@ bool damage (CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt,
             break;
 
         case POS_DEAD:
-            act ("{R$n is DEAD!!{x", victim, 0, 0, TO_ROOM);
-            send_to_char ("{RYou have been KILLED!!{x\n\r\n\r", victim);
+            act ("#w$n is #rDEAD#w!!", victim, 0, 0, TO_ROOM);
+            send_to_char ("#wYou have been #RKILLED#w!!\n\r\n\r", victim);
             break;
 
         default:
             if (dam > victim->max_hit / 4)
-                send_to_char ("{RThat really did HURT!{x\n\r", victim);
+                send_to_char ("#wThat really did #RHURT#w!\n\r", victim);
             if (victim->hit < victim->max_hit / 4)
-                send_to_char ("{RYou sure are BLEEDING!{x\n\r", victim);
+                send_to_char ("#wYou sure are #RBLEEDING#w!\n\r", victim);
             break;
     }
 
@@ -2040,132 +2040,139 @@ void dam_message (CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt,
     const char *vp;
     const char *attack;
     char punct;
-    int dam_percent = ((100 * dam) / victim->max_hit);
 
     if (ch == NULL || victim == NULL)
         return;
-
 
     if (dam == 0)
     {
         vs = "miss";
         vp = "misses";
     }
-    else if (dam_percent <= 5)
+    else if (dam <= 4)
     {
-        vs = "scratch";
-        vp = "scratches";
+        vs = "#rscratch#w";
+        vp = "#rscratches#w";
     }
-    else if (dam_percent <= 10)
+    else if (dam <= 8)
     {
-        vs = "graze";
-        vp = "grazes";
+        vs = "#rgraze#w";
+        vp = "#rgrazes#w";
     }
-    else if (dam_percent <= 15)
+    else if (dam <= 12)
     {
-        vs = "hit";
-        vp = "hits";
+        vs = "#rhit#w";
+        vp = "#rhits#w";
     }
-    else if (dam_percent <= 20)
+    else if (dam <= 16)
     {
-        vs = "injure";
-        vp = "injures";
+        vs = "#rinjure#w";
+        vp = "#rinjures#w";
     }
-    else if (dam_percent <= 25)
+    else if (dam <= 20)
     {
-        vs = "wound";
-        vp = "wounds";
+        vs = "#rwound#w";
+        vp = "#rwounds#w";
     }
-    else if (dam_percent <= 30)
+    else if (dam <= 24)
     {
-        vs = "maul";
-        vp = "mauls";
+        vs = "#rmaul#w";
+        vp = "#rmauls#w";
     }
-    else if (dam_percent <= 35)
+    else if (dam <= 28)
     {
-        vs = "decimate";
-        vp = "decimates";
+        vs = "#rdecimate#w";
+        vp = "#rdecimates#w";
     }
-    else if (dam_percent <= 40)
+    else if (dam <= 32)
     {
-        vs = "devastate";
-        vp = "devastates";
+        vs = "#rdevastate#w";
+        vp = "#rdevastates#w";
+        
     }
-    else if (dam_percent <= 45)
+    else if (dam <= 36)
     {
-        vs = "maim";
-        vp = "maims";
+        vs = "#rmaim#w";
+        vp = "#rmaims#w";
     }
-    else if (dam_percent <= 50)
+    else if (dam <= 40)
     {
-        vs = "MUTILATE";
-        vp = "MUTILATES";
+        vs = "#rMUTILATE#w";
+        vp = "#rMUTILATES#w";
     }
-    else if (dam_percent <= 55)
+    else if (dam <= 44)
     {
-        vs = "DISEMBOWEL";
-        vp = "DISEMBOWELS";
+        vs = "#rDISEMBOWEL#w";
+        vp = "#rDISEMBOWELS#w";
     }
-    else if (dam_percent <= 60)
+    else if (dam <= 48)
     {
-        vs = "DISMEMBER";
-        vp = "DISMEMBERS";
+        vs = "#rDISMEMBER#w";
+        vp = "#rDISMEMBERS#w";
     }
-    else if (dam_percent <= 65)
+    else if (dam <= 52)
     {
-        vs = "MASSACRE";
-        vp = "MASSACRES";
+        vs = "#rMASSACRE#w";
+        vp = "#rMASSACRES#w";
     }
-    else if (dam_percent <= 70)
+    else if (dam <= 56)
     {
-        vs = "MANGLE";
-        vp = "MANGLES";
+        vs = "#rMANGLE#w";
+        vp = "#rMANGLES#w";
     }
-    else if (dam_percent <= 75)
+    else if (dam <= 60)
     {
-        vs = "*** DEMOLISH ***";
-        vp = "*** DEMOLISHES ***";
+        vs = "#W*** DEMOLISH ***#w";
+        vp = "#W*** DEMOLISHES ***#w";
     }
-    else if (dam_percent <= 80)
+    else if (dam <= 75)
     {
-        vs = "*** DEVASTATE ***";
-        vp = "*** DEVASTATES ***";
+        vs = "#W*** #rDEV#RAST#rATE #W***#w";
+        vp = "#W*** #rDEV#RAST#rATES #W***#w";
     }
-    else if (dam_percent <= 85)
+    else if (dam <= 100)
     {
-        vs = "=== OBLITERATE ===";
-        vp = "=== OBLITERATES ===";
+        vs = "#w=== #mOBLITERATE #w===#w";
+        vp = "#w=== #mOBLITERATES #w===#w";
     }
-    else if (dam_percent <= 90)
+    else if (dam <= 125)
     {
-        vs = ">>> ANNIHILATE <<<";
-        vp = ">>> ANNIHILATES <<<";
+        vs = "#w>>> #BANNIHILATE #w<<<#w";
+        vp = "#w>>> #BANNIHILATES #w<<<#w";
+        
     }
-    else if (dam_percent <= 95)
+    else if (dam <= 150)
     {
-        vs = "<<< ERADICATE >>>";
-        vp = "<<< ERADICATES >>>";
+        vs = "#w<<< #YERADICATE #w>>>#w";
+        vp = "#w<<< #YERADICATES #w>>>#w";
+        
+    }
+    else if (dam <= 300)
+    {
+        vs = "#wdo really #DUNKIND#w things to#w";
+        vp = "#wdoes really #DUNKIND#w things to#w";
+        
     }
     else
     {
-        vs = "do UNSPEAKABLE things to";
-        vp = "does UNSPEAKABLE things to";
+        vs = "#wdo ...#DUNSPEAKABLE#w... things to#w";
+        vp = "#wdoes ...#DUNSPEAKABLE#w... to#w";
     }
 
-    punct = (dam_percent <= 45) ? '.' : '!';
+    punct = (dam <= 24) ? '.' : '!';
 
     if (dt == TYPE_HIT)
     {
         if (ch == victim)
         {
-            sprintf (buf1, "{3$n %s $melf%c{x", vp, punct);
-            sprintf (buf2, "{2You %s yourself%c{x", vs, punct);
+            sprintf (buf1, "#w$n %s $melf%c #R(#r%i#R)#w", vp, punct, dam);
+            sprintf (buf2, "#wYou %s yourself%c #R(#r%i#R)#w", vs, punct, dam);
         }
         else
         {
-            sprintf (buf1, "{3$n %s $N%c{x", vp, punct);
-            sprintf (buf2, "{2You %s $N%c{x", vs, punct);
-            sprintf (buf3, "{4$n %s you%c{x", vp, punct);
+            sprintf (buf1, "#w$n %s $N%c #R(#r%i#R)#w", vp, punct, dam);
+            sprintf (buf2, "#wYou %s $N%c #R(#r%i#R)#w", vs, punct, dam);
+            sprintf (buf3, "#w$n %s you%c #R(#r%i#R)#w", vp, punct, dam);
         }
     }
     else
@@ -2185,14 +2192,14 @@ void dam_message (CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt,
         {
             if (ch == victim)
             {
-                sprintf (buf1, "{3$n is unaffected by $s own %s.{x", attack);
-                sprintf (buf2, "{2Luckily, you are immune to that.{x");
+                sprintf (buf1, "#w$n is unaffected by $s own %s.#w", attack);
+                sprintf (buf2, "#wLuckily, you are immune to that.#w");
             }
             else
             {
-                sprintf (buf1, "{3$N is unaffected by $n's %s!{x", attack);
-                sprintf (buf2, "{2$N is unaffected by your %s!{x", attack);
-                sprintf (buf3, "{4$n's %s is powerless against you.{x",
+                sprintf (buf1, "#w$N is unaffected by $n's %s!#w", attack);
+                sprintf (buf2, "#w$N is unaffected by your %s!#w", attack);
+                sprintf (buf3, "#w$n's %s is powerless against you.#w",
                          attack);
             }
         }
@@ -2200,14 +2207,14 @@ void dam_message (CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt,
         {
             if (ch == victim)
             {
-                sprintf (buf1, "{3$n's %s %s $m%c{x", attack, vp, punct);
-                sprintf (buf2, "{2Your %s %s you%c{x", attack, vp, punct);
+                sprintf (buf1, "#w$n's %s %s $m%c #R(#r%i#R)#w", attack, vp, punct, dam);
+                sprintf (buf2, "#wYour %s %s you%c {#R(#r%i#R)#w", attack, vp, punct, dam);
             }
             else
             {
-                sprintf (buf1, "{3$n's %s %s $N%c{x", attack, vp, punct);
-                sprintf (buf2, "{2Your %s %s $N%c{x", attack, vp, punct);
-                sprintf (buf3, "{4$n's %s %s you%c{x", attack, vp, punct);
+                sprintf (buf1, "#w$n's %s %s $N%c #R(#r%i#R)#w", attack, vp, punct, dam);
+                sprintf (buf2, "#wYour %s %s $N%c #R(#r%i#R)#w", attack, vp, punct, dam);
+                sprintf (buf3, "#w$n's %s %s you%c #R(#r%i#R)#w", attack, vp, punct, dam);
             }
         }
     }
@@ -2241,18 +2248,18 @@ void disarm (CHAR_DATA * ch, CHAR_DATA * victim)
 
     if (IS_OBJ_STAT (obj, ITEM_NOREMOVE))
     {
-        act ("{5$S weapon won't budge!{x", ch, NULL, victim, TO_CHAR);
-        act ("{5$n tries to disarm you, but your weapon won't budge!{x",
+        act ("#w$S weapon won't budge!#w", ch, NULL, victim, TO_CHAR);
+        act ("#w$n tries to disarm you, but your weapon won't budge!#w",
              ch, NULL, victim, TO_VICT);
-        act ("{5$n tries to disarm $N, but fails.{x", ch, NULL, victim,
+        act ("#w$n tries to disarm $N, but fails.#w", ch, NULL, victim,
              TO_NOTVICT);
         return;
     }
 
-    act ("{5$n DISARMS you and sends your weapon flying!{x",
+    act ("#w$n DISARMS you and sends your weapon flying!#w",
          ch, NULL, victim, TO_VICT);
-    act ("{5You disarm $N!{x", ch, NULL, victim, TO_CHAR);
-    act ("{5$n disarms $N!{x", ch, NULL, victim, TO_NOTVICT);
+    act ("#wYou disarm $N!#w", ch, NULL, victim, TO_CHAR);
+    act ("#w$n disarms $N!#w", ch, NULL, victim, TO_NOTVICT);
 
     obj_from_char (obj);
     if (IS_OBJ_STAT (obj, ITEM_NODROP) || IS_OBJ_STAT (obj, ITEM_INVENTORY))
@@ -2446,8 +2453,8 @@ void do_bash (CHAR_DATA * ch, char *argument)
 
     if (!IS_NPC (victim) && chance < get_skill (victim, gsn_dodge))
     {                            /*
-                                   act("{5$n tries to bash you, but you dodge it.{x",ch,NULL,victim,TO_VICT);
-                                   act("{5$N dodges your bash, you fall flat on your face.{x",ch,NULL,victim,TO_CHAR);
+                                   act("#w$n tries to bash you, but you dodge it.#w",ch,NULL,victim,TO_VICT);
+                                   act("#w$N dodges your bash, you fall flat on your face.#w",ch,NULL,victim,TO_CHAR);
                                    WAIT_STATE(ch,skill_table[gsn_bash].beats);
                                    return; */
         chance -= 3 * (get_skill (victim, gsn_dodge) - chance);
@@ -2457,11 +2464,11 @@ void do_bash (CHAR_DATA * ch, char *argument)
     if (number_percent () < chance)
     {
 
-        act ("{5$n sends you sprawling with a powerful bash!{x",
+        act ("#w$n sends you sprawling with a powerful bash!#w",
              ch, NULL, victim, TO_VICT);
-        act ("{5You slam into $N, and send $M flying!{x", ch, NULL, victim,
+        act ("#wYou slam into $N, and send $M flying!#w", ch, NULL, victim,
              TO_CHAR);
-        act ("{5$n sends $N sprawling with a powerful bash.{x", ch, NULL,
+        act ("#w$n sends $N sprawling with a powerful bash.#w", ch, NULL,
              victim, TO_NOTVICT);
         check_improve (ch, gsn_bash, TRUE, 1);
 
@@ -2475,9 +2482,9 @@ void do_bash (CHAR_DATA * ch, char *argument)
     else
     {
         damage (ch, victim, 0, gsn_bash, DAM_BASH, FALSE);
-        act ("{5You fall flat on your face!{x", ch, NULL, victim, TO_CHAR);
-        act ("{5$n falls flat on $s face.{x", ch, NULL, victim, TO_NOTVICT);
-        act ("{5You evade $n's bash, causing $m to fall flat on $s face.{x",
+        act ("#wYou fall flat on your face!#w", ch, NULL, victim, TO_CHAR);
+        act ("#w$n falls flat on $s face.#w", ch, NULL, victim, TO_NOTVICT);
+        act ("#wYou evade $n's bash, causing $m to fall flat on $s face.#w",
              ch, NULL, victim, TO_VICT);
         check_improve (ch, gsn_bash, FALSE, 1);
         ch->position = POS_RESTING;
@@ -2611,11 +2618,11 @@ void do_dirt (CHAR_DATA * ch, char *argument)
     if (number_percent () < chance)
     {
         AFFECT_DATA af;
-        act ("{5$n is blinded by the dirt in $s eyes!{x", victim, NULL, NULL,
+        act ("#w$n is blinded by the dirt in $s eyes!#w", victim, NULL, NULL,
              TO_ROOM);
-        act ("{5$n kicks dirt in your eyes!{x", ch, NULL, victim, TO_VICT);
+        act ("#w$n kicks dirt in your eyes!#w", ch, NULL, victim, TO_VICT);
         damage (ch, victim, number_range (2, 5), gsn_dirt, DAM_NONE, FALSE);
-        send_to_char ("{5You can't see a thing!{x\n\r", victim);
+        send_to_char ("#wYou can't see a thing!#w\n\r", victim);
         check_improve (ch, gsn_dirt, TRUE, 2);
         WAIT_STATE (ch, skill_table[gsn_dirt].beats);
 
@@ -2696,9 +2703,9 @@ void do_trip (CHAR_DATA * ch, char *argument)
 
     if (victim == ch)
     {
-        send_to_char ("{5You fall flat on your face!{x\n\r", ch);
+        send_to_char ("#wYou fall flat on your face!#w\n\r", ch);
         WAIT_STATE (ch, 2 * skill_table[gsn_trip].beats);
-        act ("{5$n trips over $s own feet!{x", ch, NULL, NULL, TO_ROOM);
+        act ("#w$n trips over $s own feet!#w", ch, NULL, NULL, TO_ROOM);
         return;
     }
 
@@ -2732,9 +2739,9 @@ void do_trip (CHAR_DATA * ch, char *argument)
     /* now the attack */
     if (number_percent () < chance)
     {
-        act ("{5$n trips you and you go down!{x", ch, NULL, victim, TO_VICT);
-        act ("{5You trip $N and $N goes down!{x", ch, NULL, victim, TO_CHAR);
-        act ("{5$n trips $N, sending $M to the ground.{x", ch, NULL, victim,
+        act ("#w$n trips you and you go down!#w", ch, NULL, victim, TO_VICT);
+        act ("#wYou trip $N and $N goes down!#w", ch, NULL, victim, TO_CHAR);
+        act ("#w$n trips $N, sending $M to the ground.#w", ch, NULL, victim,
              TO_NOTVICT);
         check_improve (ch, gsn_trip, TRUE, 1);
 
@@ -3086,9 +3093,9 @@ void do_rescue (CHAR_DATA * ch, char *argument)
         return;
     }
 
-    act ("{5You rescue $N!{x", ch, NULL, victim, TO_CHAR);
-    act ("{5$n rescues you!{x", ch, NULL, victim, TO_VICT);
-    act ("{5$n rescues $N!{x", ch, NULL, victim, TO_NOTVICT);
+    act ("#wYou rescue $N!#w", ch, NULL, victim, TO_CHAR);
+    act ("#w$n rescues you!#w", ch, NULL, victim, TO_VICT);
+    act ("#w$n rescues $N!#w", ch, NULL, victim, TO_NOTVICT);
     check_improve (ch, gsn_rescue, TRUE, 1);
 
     stop_fighting (fch, FALSE);
@@ -3208,10 +3215,10 @@ void do_disarm (CHAR_DATA * ch, char *argument)
     else
     {
         WAIT_STATE (ch, skill_table[gsn_disarm].beats);
-        act ("{5You fail to disarm $N.{x", ch, NULL, victim, TO_CHAR);
-        act ("{5$n tries to disarm you, but fails.{x", ch, NULL, victim,
+        act ("#wYou fail to disarm $N.#w", ch, NULL, victim, TO_CHAR);
+        act ("#w$n tries to disarm you, but fails.#w", ch, NULL, victim,
              TO_VICT);
-        act ("{5$n tries to disarm $N, but fails.{x", ch, NULL, victim,
+        act ("#w$n tries to disarm $N, but fails.#w", ch, NULL, victim,
              TO_NOTVICT);
         check_improve (ch, gsn_disarm, FALSE, 1);
     }
@@ -3279,9 +3286,9 @@ void do_slay (CHAR_DATA * ch, char *argument)
         return;
     }
 
-    act ("{1You slay $M in cold blood!{x", ch, NULL, victim, TO_CHAR);
-    act ("{1$n slays you in cold blood!{x", ch, NULL, victim, TO_VICT);
-    act ("{1$n slays $N in cold blood!{x", ch, NULL, victim, TO_NOTVICT);
+    act ("#wYou slay $M in cold blood!#w", ch, NULL, victim, TO_CHAR);
+    act ("#w$n slays you in cold blood!#w", ch, NULL, victim, TO_VICT);
+    act ("#w$n slays $N in cold blood!#w", ch, NULL, victim, TO_NOTVICT);
     raw_kill (victim);
     return;
 }

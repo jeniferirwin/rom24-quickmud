@@ -1764,8 +1764,16 @@ void reset_room (ROOM_INDEX_DATA * pRoom)
                     continue;
                 }
 
+                // technitaur: commenting this out because it's preventing
+                // redit reset from working. this will have the side effect
+                // of making it so that items will naturally spawn even while
+                // players are in the area, which might not be desired on
+                // some MUDs.
+                /*
                 if (pRoom->area->nplayer > 0
-                    || count_obj_list (pObjIndex, pRoom->contents) > 0)
+                    || 
+                */
+                if (count_obj_list (pObjIndex, pRoom->contents) > 0)
                 {
                     last = FALSE;
                     break;
