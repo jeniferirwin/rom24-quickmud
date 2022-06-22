@@ -778,7 +778,7 @@ AEDIT (aedit_age)
 
     if (!is_number (age) || age[0] == '\0')
     {
-        send_to_char ("Syntax:  age [#xage]\n\r", ch);
+        send_to_char ("Syntax:  age [#wage]\n\r", ch);
         return FALSE;
     }
 
@@ -802,7 +802,7 @@ AEDIT (aedit_recall)
 
     if (!is_number (argument) || argument[0] == '\0')
     {
-        send_to_char ("Syntax:  recall [#xrvnum]\n\r", ch);
+        send_to_char ("Syntax:  recall [#wrvnum]\n\r", ch);
         return FALSE;
     }
 
@@ -835,7 +835,7 @@ AEDIT (aedit_security)
 
     if (!is_number (sec) || sec[0] == '\0')
     {
-        send_to_char ("Syntax:  security [#xlevel]\n\r", ch);
+        send_to_char ("Syntax:  security [#wlevel]\n\r", ch);
         return FALSE;
     }
 
@@ -937,7 +937,7 @@ AEDIT (aedit_vnum)
     if (!is_number (lower) || lower[0] == '\0'
         || !is_number (upper) || upper[0] == '\0')
     {
-        send_to_char ("Syntax:  vnum [#xlower] [#xupper]\n\r", ch);
+        send_to_char ("Syntax:  vnum [#wlower] [#wupper]\n\r", ch);
         return FALSE;
     }
 
@@ -989,7 +989,7 @@ AEDIT (aedit_lvnum)
 
     if (!is_number (lower) || lower[0] == '\0')
     {
-        send_to_char ("Syntax:  min_vnum [#xlower]\n\r", ch);
+        send_to_char ("Syntax:  min_vnum [#wlower]\n\r", ch);
         return FALSE;
     }
 
@@ -1032,7 +1032,7 @@ AEDIT (aedit_uvnum)
 
     if (!is_number (upper) || upper[0] == '\0')
     {
-        send_to_char ("Syntax:  max_vnum [#xupper]\n\r", ch);
+        send_to_char ("Syntax:  max_vnum [#wupper]\n\r", ch);
         return FALSE;
     }
 
@@ -1817,7 +1817,7 @@ REDIT (redit_heal)
         return TRUE;
     }
 
-    send_to_char ("Syntax: heal <#xnumber>\n\r", ch);
+    send_to_char ("Syntax: heal <#wnumber>\n\r", ch);
     return FALSE;
 }
 
@@ -1834,7 +1834,7 @@ REDIT (redit_mana)
         return TRUE;
     }
 
-    send_to_char ("Syntax: mana <#xnumber>\n\r", ch);
+    send_to_char ("Syntax: mana <#wnumber>\n\r", ch);
     return FALSE;
 }
 
@@ -1882,7 +1882,7 @@ REDIT (redit_mreset)
 
     if (arg[0] == '\0' || !is_number (arg))
     {
-        send_to_char ("Syntax:  mreset <vnum> <max #x> <mix #x>\n\r", ch);
+        send_to_char ("Syntax:  mreset <vnum> <max #w> <mix #w>\n\r", ch);
         return FALSE;
     }
 
@@ -2830,7 +2830,7 @@ OEDIT (oedit_addaffect)
 
     if (loc[0] == '\0' || mod[0] == '\0' || !is_number (mod))
     {
-        send_to_char ("Syntax:  addaffect [location] [#xmod]\n\r", ch);
+        send_to_char ("Syntax:  addaffect [location] [#wmod]\n\r", ch);
         return FALSE;
     }
 
@@ -2899,7 +2899,7 @@ OEDIT (oedit_addapply)
     if (mod[0] == '\0' || !is_number (mod))
     {
         send_to_char
-            ("Syntax:  addapply [type] [location] [#xmod] [bitvector]\n\r",
+            ("Syntax:  addapply [type] [location] [#wmod] [bitvector]\n\r",
              ch);
         return FALSE;
     }
@@ -2938,7 +2938,7 @@ OEDIT (oedit_delaffect)
 
     if (!is_number (affect) || affect[0] == '\0')
     {
-        send_to_char ("Syntax:  delaffect [#xaffect]\n\r", ch);
+        send_to_char ("Syntax:  delaffect [#waffect]\n\r", ch);
         return FALSE;
     }
 
@@ -3939,10 +3939,10 @@ MEDIT (medit_shop)
 
     if (command[0] == '\0')
     {
-        send_to_char ("Syntax:  shop hours [#xopening] [#xclosing]\n\r", ch);
-        send_to_char ("         shop profit [#xbuying%] [#xselling%]\n\r",
+        send_to_char ("Syntax:  shop hours [#wopening] [#wclosing]\n\r", ch);
+        send_to_char ("         shop profit [#wbuying%] [#wselling%]\n\r",
                       ch);
-        send_to_char ("         shop type [#x0-4] [item type]\n\r", ch);
+        send_to_char ("         shop type [#w0-4] [item type]\n\r", ch);
         send_to_char ("         shop assign\n\r", ch);
         send_to_char ("         shop remove\n\r", ch);
         return FALSE;
@@ -3954,7 +3954,7 @@ MEDIT (medit_shop)
         if (arg1[0] == '\0' || !is_number (arg1)
             || argument[0] == '\0' || !is_number (argument))
         {
-            send_to_char ("Syntax:  shop hours [#xopening] [#xclosing]\n\r",
+            send_to_char ("Syntax:  shop hours [#wopening] [#wclosing]\n\r",
                           ch);
             return FALSE;
         }
@@ -3980,7 +3980,7 @@ MEDIT (medit_shop)
         if (arg1[0] == '\0' || !is_number (arg1)
             || argument[0] == '\0' || !is_number (argument))
         {
-            send_to_char ("Syntax:  shop profit [#xbuying%] [#xselling%]\n\r",
+            send_to_char ("Syntax:  shop profit [#wbuying%] [#wselling%]\n\r",
                           ch);
             return FALSE;
         }
@@ -4008,7 +4008,7 @@ MEDIT (medit_shop)
 
         if (arg1[0] == '\0' || !is_number (arg1) || argument[0] == '\0')
         {
-            send_to_char ("Syntax:  shop type [#x0-4] [item type]\n\r", ch);
+            send_to_char ("Syntax:  shop type [#w0-4] [item type]\n\r", ch);
             return FALSE;
         }
 

@@ -144,7 +144,7 @@ void nanny (DESCRIPTOR_DATA * d, char *argument)
             if (argument[0] == '\0' || UPPER (argument[0]) == 'Y')
             {
                 d->ansi = TRUE;
-                send_to_desc ("{RAnsi enabled!{x\n\r", d);
+                send_to_desc ("#RAnsi enabled!#w\n\r", d);
                 d->connected = CON_GET_NAME;
                 {
                     extern char *help_greeting;

@@ -667,63 +667,63 @@ void do_autolist (CHAR_DATA * ch, char *argument)
 
     send_to_char ("autoassist     ", ch);
     if (IS_SET (ch->act, PLR_AUTOASSIST))
-        send_to_char ("{GON{x\n\r", ch);
+        send_to_char ("#GON#w\n\r", ch);
     else
-        send_to_char ("{ROFF{x\n\r", ch);
+        send_to_char ("#ROFF#w\n\r", ch);
 
     send_to_char ("autoexit       ", ch);
     if (IS_SET (ch->act, PLR_AUTOEXIT))
-        send_to_char ("{GON{x\n\r", ch);
+        send_to_char ("#GON#w\n\r", ch);
     else
-        send_to_char ("{ROFF{x\n\r", ch);
+        send_to_char ("#ROFF#w\n\r", ch);
 
     send_to_char ("autogold       ", ch);
     if (IS_SET (ch->act, PLR_AUTOGOLD))
-        send_to_char ("{GON{x\n\r", ch);
+        send_to_char ("#GON#w\n\r", ch);
     else
-        send_to_char ("{ROFF{x\n\r", ch);
+        send_to_char ("#ROFF#w\n\r", ch);
 
     send_to_char ("autoloot       ", ch);
     if (IS_SET (ch->act, PLR_AUTOLOOT))
-        send_to_char ("{GON{x\n\r", ch);
+        send_to_char ("#GON#w\n\r", ch);
     else
-        send_to_char ("{ROFF{x\n\r", ch);
+        send_to_char ("#ROFF#w\n\r", ch);
 
     send_to_char ("autosac        ", ch);
     if (IS_SET (ch->act, PLR_AUTOSAC))
-        send_to_char ("{GON{x\n\r", ch);
+        send_to_char ("#GON#w\n\r", ch);
     else
-        send_to_char ("{ROFF{x\n\r", ch);
+        send_to_char ("#ROFF#w\n\r", ch);
 
     send_to_char ("autosplit      ", ch);
     if (IS_SET (ch->act, PLR_AUTOSPLIT))
-        send_to_char ("{GON{x\n\r", ch);
+        send_to_char ("#GON#w\n\r", ch);
     else
-        send_to_char ("{ROFF{x\n\r", ch);
+        send_to_char ("#ROFF#w\n\r", ch);
 
     send_to_char ("telnetga       ", ch);
     if (IS_SET (ch->comm, COMM_TELNET_GA))
-	    send_to_char ("{GON{x\n\r", ch);
+	    send_to_char ("#GON#w\n\r", ch);
     else
-	    send_to_char ("{ROFF{x\n\r",ch);
+	    send_to_char ("#ROFF#w\n\r",ch);
 
     send_to_char ("compact mode   ", ch);
     if (IS_SET (ch->comm, COMM_COMPACT))
-        send_to_char ("{GON{x\n\r", ch);
+        send_to_char ("#GON#w\n\r", ch);
     else
-        send_to_char ("{ROFF{x\n\r", ch);
+        send_to_char ("#ROFF#w\n\r", ch);
 
     send_to_char ("prompt         ", ch);
     if (IS_SET (ch->comm, COMM_PROMPT))
-        send_to_char ("{GON{x\n\r", ch);
+        send_to_char ("#GON#w\n\r", ch);
     else
-        send_to_char ("{ROFF{x\n\r", ch);
+        send_to_char ("#ROFF#w\n\r", ch);
 
     send_to_char ("combine items  ", ch);
     if (IS_SET (ch->comm, COMM_COMBINE))
-        send_to_char ("{GON{x\n\r", ch);
+        send_to_char ("#GON#w\n\r", ch);
     else
-        send_to_char ("{ROFF{x\n\r", ch);
+        send_to_char ("#ROFF#w\n\r", ch);
 
     if (!IS_SET (ch->act, PLR_CANLOOT))
         send_to_char ("Your corpse is safe from thieves.\n\r", ch);
@@ -1081,15 +1081,15 @@ void do_look (CHAR_DATA * ch, char *argument)
     if (arg1[0] == '\0' || !str_cmp (arg1, "auto"))
     {
         /* 'look' or 'look auto' */
-        send_to_char ("{s", ch);
+        send_to_char ("#W", ch);
         send_to_char (ch->in_room->name, ch);
-        send_to_char ("{x", ch);
+        send_to_char ("#w", ch);
 
         if ((IS_IMMORTAL (ch)
              && (IS_NPC (ch) || IS_SET (ch->act, PLR_HOLYLIGHT)))
             || IS_BUILDER (ch, ch->in_room->area))
         {
-            sprintf (buf, "{r [{RRoom %d{r]{x", ch->in_room->vnum);
+            sprintf (buf, "#r [#RRoom %d#r]#w", ch->in_room->vnum);
             send_to_char (buf, ch);
         }
 
@@ -1099,9 +1099,9 @@ void do_look (CHAR_DATA * ch, char *argument)
             || (!IS_NPC (ch) && !IS_SET (ch->comm, COMM_BRIEF)))
         {
             send_to_char ("  ", ch);
-            send_to_char ("{S", ch);
+            send_to_char ("#w", ch);
             send_to_char (ch->in_room->description, ch);
-            send_to_char ("{x", ch);
+            send_to_char ("#w", ch);
         }
 
         if (!IS_NPC (ch) && IS_SET (ch->act, PLR_AUTOEXIT))
@@ -1405,7 +1405,7 @@ void do_exits (CHAR_DATA * ch, char *argument)
         return;
 
     if (fAuto)
-        sprintf (buf, "{o[Exits:");
+        sprintf (buf, "#p[Exits:");
     else if (IS_IMMORTAL (ch))
         sprintf (buf, "Obvious exits from room %d:\n\r", ch->in_room->vnum);
     else
@@ -1444,7 +1444,7 @@ void do_exits (CHAR_DATA * ch, char *argument)
         strcat (buf, fAuto ? " none" : "None.\n\r");
 
     if (fAuto)
-        strcat (buf, "]{x\n\r");
+        strcat (buf, "]#w\n\r");
 
     send_to_char (buf, ch);
     return;
