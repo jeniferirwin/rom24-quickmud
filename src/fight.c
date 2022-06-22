@@ -857,15 +857,15 @@ bool damage (CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt,
             break;
 
         case POS_DEAD:
-            act ("#R$n is DEAD!!#w", victim, 0, 0, TO_ROOM);
-            send_to_char ("#RYou have been KILLED!!#w\n\r\n\r", victim);
+            act ("#w$n is #RDEAD#w!!", victim, 0, 0, TO_ROOM);
+            send_to_char ("#wYou have been #RKILLED#w!!\n\r\n\r", victim);
             break;
 
         default:
             if (dam > victim->max_hit / 4)
-                send_to_char ("#RThat really did HURT!#w\n\r", victim);
+                send_to_char ("#wThat really did #RHURT#w!\n\r", victim);
             if (victim->hit < victim->max_hit / 4)
-                send_to_char ("#RYou sure are BLEEDING!#w\n\r", victim);
+                send_to_char ("#wYou sure are #RBLEEDING#w!\n\r", victim);
             break;
     }
 
@@ -2040,132 +2040,139 @@ void dam_message (CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt,
     const char *vp;
     const char *attack;
     char punct;
-    int dam_percent = ((100 * dam) / victim->max_hit);
 
     if (ch == NULL || victim == NULL)
         return;
-
 
     if (dam == 0)
     {
         vs = "miss";
         vp = "misses";
     }
-    else if (dam_percent <= 5)
+    else if (dam <= 4)
     {
-        vs = "scratch";
-        vp = "scratches";
+        vs = "#rscratch#w";
+        vp = "#rscratches#w";
     }
-    else if (dam_percent <= 10)
+    else if (dam <= 8)
     {
-        vs = "graze";
-        vp = "grazes";
+        vs = "#rgraze#w";
+        vp = "#rgrazes#w";
     }
-    else if (dam_percent <= 15)
+    else if (dam <= 12)
     {
-        vs = "hit";
-        vp = "hits";
+        vs = "#rhit#w";
+        vp = "#rhits#w";
     }
-    else if (dam_percent <= 20)
+    else if (dam <= 16)
     {
-        vs = "injure";
-        vp = "injures";
+        vs = "#rinjure#w";
+        vp = "#rinjures#w";
     }
-    else if (dam_percent <= 25)
+    else if (dam <= 20)
     {
-        vs = "wound";
-        vp = "wounds";
+        vs = "#rwound#w";
+        vp = "#rwounds#w";
     }
-    else if (dam_percent <= 30)
+    else if (dam <= 24)
     {
-        vs = "maul";
-        vp = "mauls";
+        vs = "#rmaul#w";
+        vp = "#rmauls#w";
     }
-    else if (dam_percent <= 35)
+    else if (dam <= 28)
     {
-        vs = "decimate";
-        vp = "decimates";
+        vs = "#rdecimate#w";
+        vp = "#rdecimates#w";
     }
-    else if (dam_percent <= 40)
+    else if (dam <= 32)
     {
-        vs = "devastate";
-        vp = "devastates";
+        vs = "#rdevastate#w";
+        vp = "#rdevastates#w";
+        
     }
-    else if (dam_percent <= 45)
+    else if (dam <= 36)
     {
-        vs = "maim";
-        vp = "maims";
+        vs = "#rmaim#w";
+        vp = "#rmaims#w";
     }
-    else if (dam_percent <= 50)
+    else if (dam <= 40)
     {
-        vs = "MUTILATE";
-        vp = "MUTILATES";
+        vs = "#rMUTILATE#w";
+        vp = "#rMUTILATES#w";
     }
-    else if (dam_percent <= 55)
+    else if (dam <= 44)
     {
-        vs = "DISEMBOWEL";
-        vp = "DISEMBOWELS";
+        vs = "#rDISEMBOWEL#w";
+        vp = "#rDISEMBOWELS#w";
     }
-    else if (dam_percent <= 60)
+    else if (dam <= 48)
     {
-        vs = "DISMEMBER";
-        vp = "DISMEMBERS";
+        vs = "#rDISMEMBER#w";
+        vp = "#rDISMEMBERS#w";
     }
-    else if (dam_percent <= 65)
+    else if (dam <= 52)
     {
-        vs = "MASSACRE";
-        vp = "MASSACRES";
+        vs = "#rMASSACRE#w";
+        vp = "#rMASSACRES#w";
     }
-    else if (dam_percent <= 70)
+    else if (dam <= 56)
     {
-        vs = "MANGLE";
-        vp = "MANGLES";
+        vs = "#rMANGLE#w";
+        vp = "#rMANGLES#w";
     }
-    else if (dam_percent <= 75)
+    else if (dam <= 60)
     {
-        vs = "*** DEMOLISH ***";
-        vp = "*** DEMOLISHES ***";
+        vs = "#W*** DEMOLISH ***#w";
+        vp = "#W*** DEMOLISHES ***#w";
     }
-    else if (dam_percent <= 80)
+    else if (dam <= 75)
     {
-        vs = "*** DEVASTATE ***";
-        vp = "*** DEVASTATES ***";
+        vs = "#W*** #rDEV#RAST#rATE #W***#w";
+        vp = "#W*** #rDEV#RAST#rATES #W***#w";
     }
-    else if (dam_percent <= 85)
+    else if (dam <= 100)
     {
-        vs = "=== OBLITERATE ===";
-        vp = "=== OBLITERATES ===";
+        vs = "#w=== #mOBLITERATE #w===#w";
+        vp = "#w=== #mOBLITERATES #w===#w";
     }
-    else if (dam_percent <= 90)
+    else if (dam <= 125)
     {
-        vs = ">>> ANNIHILATE <<<";
-        vp = ">>> ANNIHILATES <<<";
+        vs = "#w>>> #BANNIHILATE #w<<<#w";
+        vp = "#w>>> #BANNIHILATES #w<<<#w";
+        
     }
-    else if (dam_percent <= 95)
+    else if (dam <= 150)
     {
-        vs = "<<< ERADICATE >>>";
-        vp = "<<< ERADICATES >>>";
+        vs = "#w<<< #YERADICATE #w>>>#w";
+        vp = "#w<<< #YERADICATES #w>>>#w";
+        
+    }
+    else if (dam <= 300)
+    {
+        vs = "#wdo really #DUNKIND#w things to#w";
+        vp = "#wdoes really #DUNKIND#w things to#w";
+        
     }
     else
     {
-        vs = "do UNSPEAKABLE things to";
-        vp = "does UNSPEAKABLE things to";
+        vs = "#wdo ...#DUNSPEAKABLE#w... things to#w";
+        vp = "#wdoes ...#DUNSPEAKABLE#w... to#w";
     }
 
-    punct = (dam_percent <= 45) ? '.' : '!';
+    punct = (dam <= 24) ? '.' : '!';
 
     if (dt == TYPE_HIT)
     {
         if (ch == victim)
         {
-            sprintf (buf1, "#w$n %s $melf%c#w", vp, punct);
-            sprintf (buf2, "#wYou %s yourself%c#w", vs, punct);
+            sprintf (buf1, "#w$n %s $melf%c #R(#r%i#R)#w", vp, punct, dam);
+            sprintf (buf2, "#wYou %s yourself%c #R(#r%i#R)#w", vs, punct, dam);
         }
         else
         {
-            sprintf (buf1, "#w$n %s $N%c#w", vp, punct);
-            sprintf (buf2, "#wYou %s $N%c#w", vs, punct);
-            sprintf (buf3, "#w$n %s you%c#w", vp, punct);
+            sprintf (buf1, "#w$n %s $N%c #R(#r%i#R)#w", vp, punct, dam);
+            sprintf (buf2, "#wYou %s $N%c #R(#r%i#R)#w", vs, punct, dam);
+            sprintf (buf3, "#w$n %s you%c #R(#r%i#R)#w", vp, punct, dam);
         }
     }
     else
@@ -2200,14 +2207,14 @@ void dam_message (CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt,
         {
             if (ch == victim)
             {
-                sprintf (buf1, "#w$n's %s %s $m%c#w", attack, vp, punct);
-                sprintf (buf2, "#wYour %s %s you%c#w", attack, vp, punct);
+                sprintf (buf1, "#w$n's %s %s $m%c #R(#r%i#R)#w", attack, vp, punct, dam);
+                sprintf (buf2, "#wYour %s %s you%c {#R(#r%i#R)#w", attack, vp, punct, dam);
             }
             else
             {
-                sprintf (buf1, "#w$n's %s %s $N%c#w", attack, vp, punct);
-                sprintf (buf2, "#wYour %s %s $N%c#w", attack, vp, punct);
-                sprintf (buf3, "#w$n's %s %s you%c#w", attack, vp, punct);
+                sprintf (buf1, "#w$n's %s %s $N%c #R(#r%i#R)#w", attack, vp, punct, dam);
+                sprintf (buf2, "#wYour %s %s $N%c #R(#r%i#R)#w", attack, vp, punct, dam);
+                sprintf (buf3, "#w$n's %s %s you%c #R(#r%i#R)#w", attack, vp, punct, dam);
             }
         }
     }
