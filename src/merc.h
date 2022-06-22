@@ -329,11 +329,11 @@ typedef void SPELL_FUN args( ( int sn, int level, CHAR_DATA *ch, void *vo,
 
 struct    ban_data
 {
-    BAN_DATA *  next;
-    bool        valid;
-    sh_int      ban_flags;
-    sh_int      level;
-    char *      name;
+    BAN_DATA *         next;
+    bool               valid;
+    unsigned long long ban_flags;
+    sh_int             level;
+    char *             name;
 };
 
 struct buf_type
@@ -370,10 +370,10 @@ struct    time_info_data
 
 struct    weather_data
 {
-    int        mmhg;
-    int        change;
-    int        sky;
-    int        sunlight;
+    int                mmhg;
+    int                change;
+    unsigned long long sky;
+    unsigned long long sunlight;
 };
 
 
@@ -694,41 +694,70 @@ struct    kill_data
 
 
 /* RT ASCII conversions -- used so we can have letters in this file */
-
-#define A            1
-#define B            2
-#define C            4
-#define D            8
-#define E           16
-#define F           32
-#define G           64
-#define H          128
-
-#define I          256
-#define J          512
-#define K         1024
-#define L         2048
-#define M         4096
-#define N         8192
-#define O        16384
-#define P        32768
-
-#define Q        65536
-#define R       131072
-#define S       262144
-#define T       524288
-#define U      1048576
-#define V      2097152
-#define W      4194304
-#define X      8388608
-
-#define Y     16777216
-#define Z     33554432
-#define aa    67108864  /* doubled due to conflicts */
-#define bb   134217728
-#define cc   268435456    
-#define dd   536870912
-#define ee  1073741824
+#define A 1ULL << 0ULL
+#define B 1ULL << 1ULL
+#define C 1ULL << 2ULL
+#define D 1ULL << 3ULL
+#define E 1ULL << 4ULL
+#define F 1ULL << 5ULL
+#define G 1ULL << 6ULL
+#define H 1ULL << 7ULL
+#define I 1ULL << 8ULL
+#define J 1ULL << 9ULL
+#define K 1ULL << 10ULL
+#define L 1ULL << 11ULL
+#define M 1ULL << 12ULL
+#define N 1ULL << 13ULL
+#define O 1ULL << 14ULL
+#define P 1ULL << 15ULL
+#define Q 1ULL << 16ULL
+#define R 1ULL << 17ULL
+#define S 1ULL << 18ULL
+#define T 1ULL << 19ULL
+#define U 1ULL << 20ULL
+#define V 1ULL << 21ULL
+#define W 1ULL << 22ULL
+#define X 1ULL << 23ULL
+#define Y 1ULL << 24ULL
+#define Z 1ULL << 25ULL
+#define aa 1ULL << 26ULL
+#define bb 1ULL << 27ULL
+#define cc 1ULL << 28ULL
+#define dd 1ULL << 29ULL
+#define ee 1ULL << 30ULL
+#define ff 1ULL << 31ULL
+#define gg 1ULL << 32ULL
+#define hh 1ULL << 33ULL
+#define ii 1ULL << 34ULL
+#define jj 1ULL << 35ULL
+#define kk 1ULL << 36ULL
+#define ll 1ULL << 37ULL
+#define mm 1ULL << 38ULL
+#define nn 1ULL << 39ULL
+#define oo 1ULL << 40ULL
+#define pp 1ULL << 41ULL
+#define qq 1ULL << 42ULL
+#define rr 1ULL << 43ULL
+#define ss 1ULL << 44ULL
+#define tt 1ULL << 45ULL
+#define uu 1ULL << 46ULL
+#define vv 1ULL << 47ULL
+#define ww 1ULL << 48ULL
+#define xx 1ULL << 49ULL
+#define yy 1ULL << 50ULL
+#define zz 1ULL << 51ULL
+#define aaa 1ULL << 52ULL
+#define bbb 1ULL << 53ULL
+#define ccc 1ULL << 54ULL
+#define ddd 1ULL << 55ULL
+#define eee 1ULL << 56ULL
+#define fff 1ULL << 57ULL
+#define ggg 1ULL << 58ULL
+#define hhh 1ULL << 59ULL
+#define iii 1ULL << 60ULL
+#define jjj 1ULL << 61ULL
+#define kkk 1ULL << 62ULL
+#define lll 1ULL << 63ULL
 
 /*
  * ACT bits for mobs.
@@ -1471,44 +1500,44 @@ struct    kill_data
  */
 struct    mob_index_data
 {
-    MOB_INDEX_DATA *  next;
-    SPEC_FUN *        spec_fun;
-    SHOP_DATA *       pShop;
-    MPROG_LIST *      mprogs;
-    AREA_DATA *       area;        /* OLC */
-    sh_int            vnum;
-    sh_int            group;
-    bool              new_format;
-    sh_int            count;
-    sh_int            killed;
-    char *            player_name;
-    char *            short_descr;
-    char *            long_descr;
-    char *            description;
-    long              act;
-    long              affected_by;
-    sh_int            alignment;
-    sh_int            level;
-    sh_int            hitroll;
-    sh_int            hit[3];
-    sh_int            mana[3];
-    sh_int            damage[3];
-    sh_int            ac[4];
-    sh_int            dam_type;
-    long              off_flags;
-    long              imm_flags;
-    long              res_flags;
-    long              vuln_flags;
-    sh_int            start_pos;
-    sh_int            default_pos;
-    sh_int            sex;
-    sh_int            race;
-    long              wealth;
-    long              form;
-    long              parts;
-    sh_int            size;
-    char *            material;
-    long              mprog_flags;
+    MOB_INDEX_DATA *   next;
+    SPEC_FUN *         spec_fun;
+    SHOP_DATA *        pShop;
+    MPROG_LIST *       mprogs;
+    AREA_DATA *        area;        /* OLC */
+    sh_int             vnum;
+    sh_int             group;
+    bool               new_format;
+    sh_int             count;
+    sh_int             killed;
+    char *             player_name;
+    char *             short_descr;
+    char *             long_descr;
+    char *             description;
+    unsigned long long act;
+    unsigned long long affected_by;
+    sh_int             alignment;
+    sh_int             level;
+    sh_int             hitroll;
+    sh_int             hit[3];
+    sh_int             mana[3];
+    sh_int             damage[3];
+    sh_int             ac[4];
+    sh_int             dam_type;
+    unsigned long long off_flags;
+    unsigned long long imm_flags;
+    unsigned long long res_flags;
+    unsigned long long vuln_flags;
+    sh_int             start_pos;
+    sh_int             default_pos;
+    sh_int             sex;
+    sh_int             race;
+    long               wealth;
+    unsigned long long form;
+    unsigned long long parts;
+    sh_int             size;
+    char *             material;
+    unsigned long long mprog_flags;
 };
 
 
@@ -1594,12 +1623,12 @@ struct    char_data
     long               act;
     long               comm;   /* RT added to pad the vector */
     long               wiznet; /* wiz stuff */
-    long               imm_flags;
-    long               res_flags;
-    long               vuln_flags;
+    unsigned long long imm_flags;
+    unsigned long long res_flags;
+    unsigned long long vuln_flags;
     sh_int             invis_level;
     sh_int             incog_level;
-    long               affected_by;
+    unsigned long long affected_by;
     sh_int             position;
     sh_int             practice;
     sh_int             train;
@@ -1615,12 +1644,12 @@ struct    char_data
     sh_int             perm_stat[MAX_STATS];
     sh_int             mod_stat[MAX_STATS];
     /* parts stuff */
-    long               form;
-    long               parts;
+    unsigned long long form;
+    unsigned long long parts;
     sh_int             size;
     char*              material;
     /* mobile stuff */
-    long               off_flags;
+    unsigned long long off_flags;
     sh_int             damage[3];
     sh_int             dam_type;
     sh_int             start_pos;
