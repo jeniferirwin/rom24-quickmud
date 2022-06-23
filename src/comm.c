@@ -2424,12 +2424,25 @@ int colour (char type, CHAR_DATA * ch, char *string)
         case 'A':
             strcpy (code, C_D_GREY);
             break;
+        /*
+            technitaur: I have never seen anyone use beeps or newlines
+            for any purpose other than trolling people by spamming with
+            beeps or using newlines to cause client triggers to fire
+            when they shouldn't. Some people might think that trigger
+            users deserve to be trolled, but I do not - if someone writes
+            a well-constructed, ANSI-sensitive trigger, it shouldn't be
+            possible to force it to fire by cheesing it with escape codes.
+
+            For those who do have a place for beeps and newlines in their
+            MUD, I've left the code here to uncomment out if you like.
+
         case '*':
             sprintf (code, "%c", '\a');
             break;
         case '/':
             strcpy (code, "\n\r");
             break;
+        */
         case '-':
             sprintf (code, "%c", '~');
             break;
