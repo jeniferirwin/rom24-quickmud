@@ -993,6 +993,7 @@ struct    kill_data
 #define AFF_SWIM        (bb)
 #define AFF_REGENERATION        (cc)
 #define AFF_SLOW        (dd)
+#define AFF_DARK_FAVOR (ee)
 
 
 
@@ -2034,6 +2035,8 @@ extern sh_int  gsn_scrolls;
 extern sh_int  gsn_staves;
 extern sh_int  gsn_wands;
 extern sh_int  gsn_recall;
+
+extern  sh_int  gsn_dark_favor;
 
 
 

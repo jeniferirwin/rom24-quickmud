@@ -287,6 +287,8 @@ void show_char_to_char_0 (CHAR_DATA * victim, CHAR_DATA * ch)
         strcat (buf, "#OG");
     if (IS_AFFECTED (victim, AFF_SANCTUARY))
         strcat (buf, "#WW");
+    if (IS_AFFECTED (victim, AFF_DARK_FAVOR))
+        strcat (buf, "#AD");
     if (brackets == 1)
     {
         strcat(buf, "#U]#w ");

@@ -1,0 +1,58 @@
+#AREADATA
+Name All and Sundry~
+Builders Kenneth~
+VNUMs 31 99
+Credits (null)~
+Security 1
+End
+
+
+
+#MOBILES
+#0
+
+
+
+#OBJECTS
+#31
+glock~
+(no short description)~
+(no description)~
+steel~
+weapon Y AN
+exotic 50 1 blast F
+60 60 1000000 P
+#0
+
+
+
+#ROOMS
+#31
+Default Room~
+You are in an infinite expanse of white.
+~
+0 32768 0
+S
+#0
+
+
+
+#SPECIALS
+S
+
+
+
+#RESETS
+S
+
+
+
+#SHOPS
+0
+
+
+
+#MOBPROGS
+#0
+
+#$

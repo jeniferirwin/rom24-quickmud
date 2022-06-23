@@ -1127,6 +1127,13 @@ const struct skill_type skill_table[MAX_SKILL] = {
      "$p is no longer impure."},
 
     {
+     "dark favor", {36, 20, 42, 30}, {1, 1, 2, 2},
+     spell_dark_favor, TAR_CHAR_DEFENSIVE, POS_STANDING,
+     &gsn_dark_favor, SLOT (360), 75, 12,
+     "", "The #Ablack aura#w around your body fades.",
+     ""},
+
+    {
      "demonfire", {53, 34, 53, 45}, {1, 1, 2, 2},
      spell_demonfire, TAR_CHAR_OFFENSIVE, POS_FIGHTING,
      NULL, SLOT (505), 20, 12,
@@ -1916,7 +1923,7 @@ const struct group_type group_table[MAX_GROUP] = {
      "protective", {4, 4, 7, 8},
      {"armor", "cancellation", "dispel magic", "fireproof",
       "protection evil", "protection good", "sanctuary", "shield",
-      "stone skin"}
+      "stone skin", "dark favor"}
      },
 
     {

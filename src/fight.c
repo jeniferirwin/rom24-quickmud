@@ -776,8 +776,25 @@ bool damage (CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt,
         && victim->pcdata->condition[COND_DRUNK] > 10)
         dam = 9 * dam / 10;
 
-    if (dam > 1 && IS_AFFECTED (victim, AFF_SANCTUARY))
+    if (dam > 1 && IS_NEUTRAL (victim))
+    {
+        if (IS_AFFECTED(victim, AFF_SANCTUARY) && IS_AFFECTED(victim, AFF_DARK_FAVOR))
+        {
+            dam /= 4;
+        }
+        else if (IS_AFFECTED(victim, AFF_SANCTUARY) || IS_AFFECTED(victim, AFF_DARK_FAVOR))
+        {
+            dam -= dam / 4;
+        }
+    }
+
+    if (dam > 1 && IS_AFFECTED (victim, AFF_SANCTUARY) && IS_GOOD(victim))
         dam /= 2;
+
+    if (dam > 1 && IS_AFFECTED (victim, AFF_DARK_FAVOR) && IS_EVIL(victim))
+        dam /= 2;
+    
+    if (dam > 1 && IS_AFFECTED (victim, AFF_DARK_FAVOR) && IS_NEUTRAL(victim))
 
     if (dam > 1 && ((IS_AFFECTED (victim, AFF_PROTECT_EVIL) && IS_EVIL (ch))
                     || (IS_AFFECTED (victim, AFF_PROTECT_GOOD)

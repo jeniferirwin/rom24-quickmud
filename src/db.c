@@ -115,6 +115,7 @@ sh_int gsn_third_attack;
 sh_int gsn_blindness;
 sh_int gsn_charm_person;
 sh_int gsn_curse;
+sh_int gsn_dark_favor;
 sh_int gsn_invis;
 sh_int gsn_mass_invis;
 sh_int gsn_poison;
@@ -2154,6 +2155,18 @@ CHAR_DATA *create_mobile (MOB_INDEX_DATA * pMobIndex)
         mob->perm_stat[STAT_CON] += (mob->size - SIZE_MEDIUM) / 2;
 
         /* let's get some spell action */
+        if (IS_AFFECTED (mob, AFF_DARK_FAVOR))
+        {
+            af.where = TO_AFFECTS;
+            af.type = skill_lookup ("dark favor");
+            af.level = mob->level;
+            af.duration = -1;
+            af.location = APPLY_NONE;
+            af.modifier = 0;
+            af.bitvector = AFF_DARK_FAVOR;
+            affect_to_char (mob, &af);
+        }
+
         if (IS_AFFECTED (mob, AFF_SANCTUARY))
         {
             af.where = TO_AFFECTS;

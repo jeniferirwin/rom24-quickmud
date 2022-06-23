@@ -60,6 +60,7 @@ DECLARE_SPELL_FUN(	spell_cure_light	);
 DECLARE_SPELL_FUN(	spell_cure_poison	);
 DECLARE_SPELL_FUN(	spell_cure_serious	);
 DECLARE_SPELL_FUN(	spell_curse		);
+DECLARE_SPELL_FUN(	spell_dark_favor		);
 DECLARE_SPELL_FUN(      spell_demonfire		);
 DECLARE_SPELL_FUN(	spell_detect_evil	);
 DECLARE_SPELL_FUN(	spell_detect_good	);

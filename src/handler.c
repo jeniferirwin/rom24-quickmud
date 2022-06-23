@@ -2782,10 +2782,20 @@ char *affect_bit_name (int vector)
     static char buf[512];
 
     buf[0] = '\0';
+    if (vector & AFF_BERSERK)
+        strcat (buf, " berserk");
     if (vector & AFF_BLIND)
         strcat (buf, " blind");
-    if (vector & AFF_INVISIBLE)
-        strcat (buf, " invisible");
+    if (vector & AFF_CALM)
+        strcat (buf, " calm");
+    if (vector & AFF_CHARM)
+        strcat (buf, " charm");
+    if (vector & AFF_CURSE)
+        strcat (buf, " curse");
+    if (vector & AFF_DARK_FAVOR)
+        strcat (buf, " dark_favor");
+    if (vector & AFF_DARK_VISION)
+        strcat (buf, " dark_vision");
     if (vector & AFF_DETECT_EVIL)
         strcat (buf, " detect_evil");
     if (vector & AFF_DETECT_GOOD)
@@ -2796,44 +2806,36 @@ char *affect_bit_name (int vector)
         strcat (buf, " detect_magic");
     if (vector & AFF_DETECT_HIDDEN)
         strcat (buf, " detect_hidden");
-    if (vector & AFF_SANCTUARY)
-        strcat (buf, " sanctuary");
     if (vector & AFF_FAERIE_FIRE)
         strcat (buf, " faerie_fire");
+    if (vector & AFF_FLYING)
+        strcat (buf, " flying");
+    if (vector & AFF_HASTE)
+        strcat (buf, " haste");
+    if (vector & AFF_HIDE)
+        strcat (buf, " hide");
+    if (vector & AFF_INVISIBLE)
+        strcat (buf, " invisible");
     if (vector & AFF_INFRARED)
         strcat (buf, " infrared");
-    if (vector & AFF_CURSE)
-        strcat (buf, " curse");
+    if (vector & AFF_PASS_DOOR)
+        strcat (buf, " pass_door");
+    if (vector & AFF_PLAGUE)
+        strcat (buf, " plague");
     if (vector & AFF_POISON)
         strcat (buf, " poison");
     if (vector & AFF_PROTECT_EVIL)
         strcat (buf, " prot_evil");
     if (vector & AFF_PROTECT_GOOD)
         strcat (buf, " prot_good");
+    if (vector & AFF_SANCTUARY)
+        strcat (buf, " sanctuary");
     if (vector & AFF_SLEEP)
         strcat (buf, " sleep");
     if (vector & AFF_SNEAK)
         strcat (buf, " sneak");
-    if (vector & AFF_HIDE)
-        strcat (buf, " hide");
-    if (vector & AFF_CHARM)
-        strcat (buf, " charm");
-    if (vector & AFF_FLYING)
-        strcat (buf, " flying");
-    if (vector & AFF_PASS_DOOR)
-        strcat (buf, " pass_door");
-    if (vector & AFF_BERSERK)
-        strcat (buf, " berserk");
-    if (vector & AFF_CALM)
-        strcat (buf, " calm");
-    if (vector & AFF_HASTE)
-        strcat (buf, " haste");
     if (vector & AFF_SLOW)
         strcat (buf, " slow");
-    if (vector & AFF_PLAGUE)
-        strcat (buf, " plague");
-    if (vector & AFF_DARK_VISION)
-        strcat (buf, " dark_vision");
     return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
