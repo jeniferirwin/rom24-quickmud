@@ -261,7 +261,8 @@ void show_char_to_char_0 (CHAR_DATA * victim, CHAR_DATA * ch)
     || IS_AFFECTED (victim, AFF_FAERIE_FIRE)
     || (IS_EVIL (victim) && IS_AFFECTED (ch, AFF_DETECT_EVIL))
     || (IS_GOOD (victim) && IS_AFFECTED (ch, AFF_DETECT_GOOD))
-    || IS_AFFECTED (victim, AFF_SANCTUARY))
+    || IS_AFFECTED (victim, AFF_SANCTUARY)
+    || IS_AFFECTED (victim, AFF_DARK_FAVOR))
     {
         brackets = 1;
     }

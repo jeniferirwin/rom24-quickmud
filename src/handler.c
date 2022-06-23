@@ -2828,6 +2828,8 @@ char *affect_bit_name (int vector)
         strcat (buf, " prot_evil");
     if (vector & AFF_PROTECT_GOOD)
         strcat (buf, " prot_good");
+    if (vector & AFF_PROTECT_NEUTRAL)
+        strcat (buf, " prot_neutral");
     if (vector & AFF_SANCTUARY)
         strcat (buf, " sanctuary");
     if (vector & AFF_SLEEP)

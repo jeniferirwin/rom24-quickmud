@@ -107,6 +107,7 @@ DECLARE_SPELL_FUN(	spell_poison		);
 DECLARE_SPELL_FUN(	spell_portal		);
 DECLARE_SPELL_FUN(	spell_protection_evil	);
 DECLARE_SPELL_FUN(	spell_protection_good	);
+DECLARE_SPELL_FUN(	spell_protection_neutral	);
 DECLARE_SPELL_FUN(	spell_ray_of_truth	);
 DECLARE_SPELL_FUN(	spell_recharge		);
 DECLARE_SPELL_FUN(	spell_refresh		);

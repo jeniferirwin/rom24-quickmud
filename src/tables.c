@@ -158,6 +158,8 @@ const struct flag_type affect_flags[] = {
     {"swim", bb, TRUE},
     {"regeneration", cc, TRUE},
     {"slow", dd, TRUE},
+    {"dark_favor", ee, TRUE},
+    {"protect_neutral", ff, TRUE},
     {NULL, 0, 0}
 };
 

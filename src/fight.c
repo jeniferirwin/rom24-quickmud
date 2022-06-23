@@ -714,11 +714,13 @@ bool damage (CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt,
 
 
     /* damage reduction */
+    /* technitaur: removing these while I test other damage stuff
+
     if (dam > 35)
         dam = (dam - 35) / 2 + 35;
     if (dam > 80)
         dam = (dam - 80) / 2 + 80;
-
+    */
 
 
 
@@ -794,12 +796,15 @@ bool damage (CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt,
     if (dam > 1 && IS_AFFECTED (victim, AFF_DARK_FAVOR) && IS_EVIL(victim))
         dam /= 2;
     
-    if (dam > 1 && IS_AFFECTED (victim, AFF_DARK_FAVOR) && IS_NEUTRAL(victim))
-
-    if (dam > 1 && ((IS_AFFECTED (victim, AFF_PROTECT_EVIL) && IS_EVIL (ch))
-                    || (IS_AFFECTED (victim, AFF_PROTECT_GOOD)
-                        && IS_GOOD (ch))))
+    if (dam > 1 && (
+                        (IS_AFFECTED (victim, AFF_PROTECT_EVIL) && IS_EVIL (ch))
+                        || (IS_AFFECTED (victim, AFF_PROTECT_GOOD) && IS_GOOD (ch))
+                        || (IS_AFFECTED (victim, AFF_PROTECT_NEUTRAL) && IS_NEUTRAL (ch))
+                    )
+        )
+    {
         dam -= dam / 4;
+    }
 
     immune = FALSE;
 

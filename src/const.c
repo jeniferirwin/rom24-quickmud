@@ -1413,6 +1413,11 @@ const struct skill_type skill_table[MAX_SKILL] = {
      spell_protection_good, TAR_CHAR_SELF, POS_STANDING,
      NULL, SLOT (514), 5, 12,
      "", "You feel less protected.", ""},
+    {
+     "protection neutral", {12, 9, 17, 11}, {1, 1, 2, 2},
+     spell_protection_neutral, TAR_CHAR_SELF, POS_STANDING,
+     NULL, SLOT (599), 5, 12,
+     "", "You feel less protected.", ""},
 
     {
      "ray of truth", {53, 35, 53, 47}, {1, 1, 2, 2},
@@ -1923,7 +1928,7 @@ const struct group_type group_table[MAX_GROUP] = {
      "protective", {4, 4, 7, 8},
      {"armor", "cancellation", "dispel magic", "fireproof",
       "protection evil", "protection good", "sanctuary", "shield",
-      "stone skin", "dark favor"}
+      "stone skin", "dark favor", "protection neutral"}
      },
 
     {

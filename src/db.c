@@ -2215,6 +2215,17 @@ CHAR_DATA *create_mobile (MOB_INDEX_DATA * pMobIndex)
             af.bitvector = AFF_PROTECT_GOOD;
             affect_to_char (mob, &af);
         }
+        if (IS_AFFECTED (mob, AFF_PROTECT_NEUTRAL))
+        {
+            af.where = TO_AFFECTS;
+            af.type = skill_lookup ("protection neutral");
+            af.level = mob->level;
+            af.duration = -1;
+            af.location = APPLY_SAVES;
+            af.modifier = -1;
+            af.bitvector = AFF_PROTECT_NEUTRAL;
+            affect_to_char (mob, &af);
+        }
     }
     else
     {                            /* read in old format and convert */

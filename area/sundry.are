@@ -9,6 +9,32 @@ End
 
 
 #MOBILES
+#31
+unprotected dummy~
+an unprotected dummy~
+An unprotected dummy stands here.
+~
+~
+human~
+A 0 -1000 0
+60 1000 1d1+29999 0d0+0 1d1+1 punch
+0 0 0 0
+0 0 0 0
+stand stand none 0
+AHMV ABCDEFGHIJK medium unknown
+#32
+protected dummy~
+a protected dummy~
+A protected dummy stands here.
+~
+~
+human~
+A f -1000 0
+60 0 1d1+29999 0d0+0 0d0+0 punch
+0 0 0 0
+0 0 0 0
+stand stand none 0
+AHMV ABCDEFGHIJK medium unknown
 #0
 
 
@@ -16,11 +42,11 @@ End
 #OBJECTS
 #31
 glock~
-(no short description)~
-(no description)~
+a glock~
+A glock lies here.~
 steel~
 weapon Y AN
-exotic 50 1 blast F
+exotic 100 1 blast F
 60 60 1000000 P
 #0
 
@@ -31,7 +57,7 @@ exotic 50 1 blast F
 Default Room~
 You are in an infinite expanse of white.
 ~
-0 32768 0
+0 32772 0
 S
 #0
 
@@ -43,6 +69,8 @@ S
 
 
 #RESETS
+M 0 31 1 31 1 Load an unprotected dummy
+M 0 32 1 31 1 Load a protected dummy
 S
 
 
