@@ -785,6 +785,7 @@ struct    kill_data
 #define ACT_GAIN           (bb)
 #define ACT_UPDATE_ALWAYS  (cc)
 #define ACT_IS_CHANGER     (dd)
+#define ACT_IS_AWESOME     (gg)
 
 /* damage classes */
 #define DAM_NONE            0
@@ -1620,8 +1621,8 @@ struct    char_data
     long               gold;
     long               silver;
     int                exp;
-    long               act;
-    long               comm;   /* RT added to pad the vector */
+    unsigned long long act;
+    unsigned long long comm;   /* RT added to pad the vector */
     long               wiznet; /* wiz stuff */
     unsigned long long imm_flags;
     unsigned long long res_flags;
@@ -1747,8 +1748,8 @@ struct    obj_index_data
     sh_int              reset_num;
     char *              material;
     sh_int              item_type;
-    int                 extra_flags;
-    int                 wear_flags;
+    unsigned long long  extra_flags;
+    unsigned long long  wear_flags;
     sh_int              level;
     sh_int              condition;
     sh_int              count;
@@ -1781,8 +1782,8 @@ struct    obj_data
     char *              short_descr;
     char *              description;
     sh_int              item_type;
-    int                 extra_flags;
-    int                 wear_flags;
+    unsigned long long  extra_flags;
+    unsigned long long  wear_flags;
     sh_int              wear_loc;
     sh_int              weight;
     int                 cost;
@@ -1805,13 +1806,13 @@ struct    exit_data
     ROOM_INDEX_DATA *  to_room;
     sh_int             vnum;
     } u1;
-    sh_int       exit_info;
-    sh_int       key;
-    char *       keyword;
-    char *       description;
-    EXIT_DATA *  next;        /* OLC */
-    int          rs_flags;    /* OLC */
-    int          orig_door;   /* OLC */
+    sh_int             exit_info;
+    sh_int             key;
+    char *             keyword;
+    char *             description;
+    EXIT_DATA *        next;        /* OLC */
+    unsigned long long rs_flags;    /* OLC */
+    int                orig_door;   /* OLC */
 };
 
 
@@ -1849,22 +1850,22 @@ struct    reset_data
  */
 struct    area_data
 {
-    AREA_DATA *        next;
-    HELP_AREA *        helps;
-    char *        file_name;
-    char *        name;
-    char *        credits;
-    sh_int        age;
-    sh_int        nplayer;
-    sh_int        low_range;
-    sh_int        high_range;
-    sh_int         min_vnum;
-    sh_int        max_vnum;
-    bool        empty;
-    char *        builders;    /* OLC */ /* Listing of */
-    int            vnum;        /* OLC */ /* Area vnum  */
-    int            area_flags;    /* OLC */
-    int            security;    /* OLC */ /* Value 1-9  */
+    AREA_DATA *         next;
+    HELP_AREA *         helps;
+    char *              file_name;
+    char *              name;
+    char *              credits;
+    sh_int              age;
+    sh_int              nplayer;
+    sh_int              low_range;
+    sh_int              high_range;
+    sh_int              min_vnum;
+    sh_int              max_vnum;
+    bool                empty;
+    char *              builders;    /* OLC */ /* Listing of */
+    int                 vnum;        /* OLC */ /* Area vnum  */
+    unsigned long long  area_flags;    /* OLC */
+    int                 security;    /* OLC */ /* Value 1-9  */
 };
 
 
@@ -1874,24 +1875,24 @@ struct    area_data
  */
 struct    room_index_data
 {
-    ROOM_INDEX_DATA *    next;
+    ROOM_INDEX_DATA *  next;
     CHAR_DATA *        people;
-    OBJ_DATA *        contents;
-    EXTRA_DESCR_DATA *    extra_descr;
+    OBJ_DATA *         contents;
+    EXTRA_DESCR_DATA * extra_descr;
     AREA_DATA *        area;
     EXIT_DATA *        exit    [6];
-    RESET_DATA *    reset_first;    /* OLC */
-    RESET_DATA *    reset_last;    /* OLC */
-    char *        name;
-    char *        description;
-    char *        owner;
-    sh_int        vnum;
-    int            room_flags;
-    sh_int        light;
-    sh_int        sector_type;
-    sh_int        heal_rate;
-    sh_int         mana_rate;
-    sh_int        clan;
+    RESET_DATA *       reset_first;    /* OLC */
+    RESET_DATA *       reset_last;    /* OLC */
+    char *             name;
+    char *             description;
+    char *             owner;
+    sh_int             vnum;
+    unsigned long long room_flags;
+    sh_int             light;
+    sh_int             sector_type;
+    sh_int             heal_rate;
+    sh_int             mana_rate;
+    sh_int             clan;
 };
 
 
@@ -2414,12 +2415,12 @@ RID *    get_room_index      args( ( int vnum ) );
 MPC *    get_mprog_index     args( ( int vnum ) );
 char     fread_letter        args( ( FILE *fp ) );
 int      fread_number        args( ( FILE *fp ) );
-long     fread_flag          args( ( FILE *fp ) );
+unsigned long long     fread_flag          args( ( FILE *fp ) );
 char *   fread_string        args( ( FILE *fp ) );
 char *   fread_string_eol    args( ( FILE *fp ) );
 void     fread_to_eol        args( ( FILE *fp ) );
 char *   fread_word          args( ( FILE *fp ) );
-long     flag_convert        args( ( char letter) );
+unsigned long long     flag_convert        args( ( char letter) );
 void *   alloc_mem           args( ( int sMem ) );
 void *   alloc_perm          args( ( int sMem ) );
 void     free_mem            args( ( void *pMem, int sMem ) );
@@ -2553,14 +2554,14 @@ bool    can_drop_obj    args( ( CHAR_DATA *ch, OBJ_DATA *obj ) );
 char *    affect_loc_name    args( ( int location ) );
 char *    affect_bit_name    args( ( int vector ) );
 char *    extra_bit_name    args( ( int extra_flags ) );
-char *     wear_bit_name    args( ( int wear_flags ) );
-char *    act_bit_name    args( ( int act_flags ) );
-char *    off_bit_name    args( ( int off_flags ) );
-char *  imm_bit_name    args( ( int imm_flags ) );
-char *     form_bit_name    args( ( int form_flags ) );
-char *    part_bit_name    args( ( int part_flags ) );
+char *     wear_bit_name    args( ( unsigned long long wear_flags ) );
+char *    act_bit_name    args( ( unsigned long long act_flags ) );
+char *    off_bit_name    args( ( unsigned long long off_flags ) );
+char *  imm_bit_name    args( ( unsigned long long imm_flags ) );
+char *     form_bit_name    args( ( unsigned long long form_flags ) );
+char *    part_bit_name    args( ( unsigned long long part_flags ) );
 char *    weapon_bit_name    args( ( int weapon_flags ) );
-char *  comm_bit_name    args( ( int comm_flags ) );
+char *  comm_bit_name    args( ( unsigned long long comm_flags ) );
 char *    cont_bit_name    args( ( int cont_flags) );
 /*
  * Colour Config

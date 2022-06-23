@@ -448,9 +448,9 @@ void fwrite_obj (CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
     if (obj->description != obj->pIndexData->description)
         fprintf (fp, "Desc %s~\n", obj->description);
     if (obj->extra_flags != obj->pIndexData->extra_flags)
-        fprintf (fp, "ExtF %d\n", obj->extra_flags);
+        fprintf (fp, "ExtF %lld\n", obj->extra_flags);
     if (obj->wear_flags != obj->pIndexData->wear_flags)
-        fprintf (fp, "WeaF %d\n", obj->wear_flags);
+        fprintf (fp, "WeaF %lld\n", obj->wear_flags);
     if (obj->item_type != obj->pIndexData->item_type)
         fprintf (fp, "Ityp %d\n", obj->item_type);
     if (obj->weight != obj->pIndexData->weight)

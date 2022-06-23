@@ -2742,9 +2742,9 @@ int fread_number (FILE * fp)
     return number;
 }
 
-long fread_flag (FILE * fp)
+unsigned long long fread_flag (FILE * fp)
 {
-    int number;
+    unsigned long long number;
     char c;
     bool negative = FALSE;
 
@@ -2789,9 +2789,9 @@ long fread_flag (FILE * fp)
     return number;
 }
 
-long flag_convert (char letter)
+unsigned long long flag_convert (char letter)
 {
-    long bitsum = 0;
+    unsigned long long bitsum = 0;
     char i;
 
     if ('A' <= letter && letter <= 'Z')

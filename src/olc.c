@@ -413,7 +413,7 @@ void aedit (CHAR_DATA * ch, char *argument)
     char command[MAX_INPUT_LENGTH];
     char arg[MAX_INPUT_LENGTH];
     int cmd;
-    int value;
+    unsigned long long value;
 
     EDIT_AREA (ch, pArea);
     smash_tilde (argument);

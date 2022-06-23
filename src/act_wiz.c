@@ -1155,7 +1155,7 @@ void do_rstat (CHAR_DATA * ch, char *argument)
     send_to_char (buf, ch);
 
     sprintf (buf,
-             "Room flags: %d.\n\rDescription:\n\r%s",
+             "Room flags: %lld.\n\rDescription:\n\r%s",
              location->room_flags, location->description);
     send_to_char (buf, ch);
 

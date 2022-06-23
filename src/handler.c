@@ -2893,7 +2893,7 @@ char *extra_bit_name (int extra_flags)
 }
 
 /* return ascii name of an act vector */
-char *act_bit_name (int act_flags)
+char *act_bit_name (unsigned long long act_flags)
 {
     static char buf[512];
 
@@ -2940,6 +2940,8 @@ char *act_bit_name (int act_flags)
             strcat (buf, " skill_train");
         if (act_flags & ACT_UPDATE_ALWAYS)
             strcat (buf, " update_always");
+        if (act_flags & ACT_IS_AWESOME)
+            strcat (buf, " awesome");
     }
     else
     {
@@ -2974,7 +2976,7 @@ char *act_bit_name (int act_flags)
     return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
-char *comm_bit_name (int comm_flags)
+char *comm_bit_name (unsigned long long comm_flags)
 {
     static char buf[512];
 
@@ -3017,7 +3019,7 @@ char *comm_bit_name (int comm_flags)
     return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
-char *imm_bit_name (int imm_flags)
+char *imm_bit_name (unsigned long long imm_flags)
 {
     static char buf[512];
 
@@ -3071,7 +3073,7 @@ char *imm_bit_name (int imm_flags)
     return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
-char *wear_bit_name (int wear_flags)
+char *wear_bit_name (unsigned long long wear_flags)
 {
     static char buf[512];
 
@@ -3114,7 +3116,7 @@ char *wear_bit_name (int wear_flags)
     return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
-char *form_bit_name (int form_flags)
+char *form_bit_name (unsigned long long form_flags)
 {
     static char buf[512];
 
@@ -3175,7 +3177,7 @@ char *form_bit_name (int form_flags)
     return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
-char *part_bit_name (int part_flags)
+char *part_bit_name (unsigned long long part_flags)
 {
     static char buf[512];
 
@@ -3270,7 +3272,7 @@ char *cont_bit_name (int cont_flags)
 }
 
 
-char *off_bit_name (int off_flags)
+char *off_bit_name (unsigned long long off_flags)
 {
     static char buf[512];
 

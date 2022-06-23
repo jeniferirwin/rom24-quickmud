@@ -3367,7 +3367,7 @@ OEDIT (oedit_ed)
 OEDIT (oedit_extra)
 {                                /* Moved out of oedit() due to naming conflicts -- Hugin */
     OBJ_INDEX_DATA *pObj;
-    int value;
+    unsigned long long value;
 
     if (argument[0] != '\0')
     {
@@ -3391,7 +3391,7 @@ OEDIT (oedit_extra)
 OEDIT (oedit_wear)
 {                                /* Moved out of oedit() due to naming conflicts -- Hugin */
     OBJ_INDEX_DATA *pObj;
-    int value;
+    unsigned long long value;
 
     if (argument[0] != '\0')
     {
@@ -4139,7 +4139,8 @@ MEDIT (medit_sex)
 MEDIT (medit_act)
 {                                /* Moved out of medit() due to naming conflicts -- Hugin */
     MOB_INDEX_DATA *pMob;
-    int value;
+    unsigned long long value;
+    char buf[4096];
 
     if (argument[0] != '\0')
     {
@@ -4147,6 +4148,8 @@ MEDIT (medit_act)
 
         if ((value = flag_value (act_flags, argument)) != NO_FLAG)
         {
+            sprintf(buf, "%lld %ld\n\r", value, sizeof(unsigned long long));
+            send_to_char(buf, ch);
             pMob->act ^= value;
             SET_BIT (pMob->act, ACT_IS_NPC);
 
@@ -4164,7 +4167,7 @@ MEDIT (medit_act)
 MEDIT (medit_affect)
 {                                /* Moved out of medit() due to naming conflicts -- Hugin */
     MOB_INDEX_DATA *pMob;
-    int value;
+    unsigned long long value;
 
     if (argument[0] != '\0')
     {
@@ -4253,7 +4256,7 @@ MEDIT (medit_ac)
 MEDIT (medit_form)
 {
     MOB_INDEX_DATA *pMob;
-    int value;
+    unsigned long long value;
 
     if (argument[0] != '\0')
     {
@@ -4275,7 +4278,7 @@ MEDIT (medit_form)
 MEDIT (medit_part)
 {
     MOB_INDEX_DATA *pMob;
-    int value;
+    unsigned long long value;
 
     if (argument[0] != '\0')
     {
@@ -4297,7 +4300,7 @@ MEDIT (medit_part)
 MEDIT (medit_imm)
 {
     MOB_INDEX_DATA *pMob;
-    int value;
+    unsigned long long value;
 
     if (argument[0] != '\0')
     {
@@ -4319,7 +4322,7 @@ MEDIT (medit_imm)
 MEDIT (medit_res)
 {
     MOB_INDEX_DATA *pMob;
-    int value;
+    unsigned long long value;
 
     if (argument[0] != '\0')
     {
@@ -4341,7 +4344,7 @@ MEDIT (medit_res)
 MEDIT (medit_vuln)
 {
     MOB_INDEX_DATA *pMob;
-    int value;
+    unsigned long long value;
 
     if (argument[0] != '\0')
     {
@@ -4382,7 +4385,7 @@ MEDIT (medit_material)
 MEDIT (medit_off)
 {
     MOB_INDEX_DATA *pMob;
-    int value;
+    unsigned long long value;
 
     if (argument[0] != '\0')
     {
@@ -4404,7 +4407,7 @@ MEDIT (medit_off)
 MEDIT (medit_size)
 {
     MOB_INDEX_DATA *pMob;
-    int value;
+    unsigned long long value;
 
     if (argument[0] != '\0')
     {
@@ -4593,7 +4596,7 @@ MEDIT (medit_damdice)
 MEDIT (medit_race)
 {
     MOB_INDEX_DATA *pMob;
-    int race;
+    unsigned long long race;
 
     if (argument[0] != '\0' && (race = race_lookup (argument)) != 0)
     {
@@ -4641,7 +4644,7 @@ MEDIT (medit_position)
 {
     MOB_INDEX_DATA *pMob;
     char arg[MAX_INPUT_LENGTH];
-    int value;
+    unsigned long long value;
 
     argument = one_argument (argument, arg);
 
@@ -4969,7 +4972,7 @@ MEDIT (medit_delmprog)
 REDIT (redit_room)
 {
     ROOM_INDEX_DATA *room;
-    int value;
+    unsigned long long value;
 
     EDIT_ROOM (ch, room);
 

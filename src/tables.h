@@ -28,7 +28,7 @@
 struct flag_type
 {
     char *name;
-    int bit;
+    unsigned long long bit;
     bool settable;
 };
 

@@ -102,6 +102,7 @@ const struct flag_type act_flags[] = {
     {"gain", bb, TRUE},
     {"update_always", cc, TRUE},
     {"changer", dd, TRUE},
+    {"awesome", gg, TRUE},
     {NULL, 0, FALSE}
 };
 

@@ -133,9 +133,10 @@ char *fwrite_flag (long flags, char buf[])
     }
 
     /* 32 -- number of bits in a long */
+    // TECHNITAUR TODO
 
-    for (offset = 0, cp = buf; offset < 32; offset++)
-        if (flags & ((long) 1 << offset))
+    for (offset = 0, cp = buf; offset < 64; offset++)
+        if (flags & ((unsigned long long) 1 << offset))
         {
             if (offset <= 'Z' - 'A')
                 *(cp++) = 'A' + offset;
@@ -492,7 +493,7 @@ void save_rooms (FILE * fp, AREA_DATA * pArea)
                 fprintf (fp, "%s~\n", pRoomIndex->name);
                 fprintf (fp, "%s~\n", fix_string (pRoomIndex->description));
                 fprintf (fp, "0 ");
-                fprintf (fp, "%d ", pRoomIndex->room_flags);
+                fprintf (fp, "%lld ", pRoomIndex->room_flags);
                 fprintf (fp, "%d\n", pRoomIndex->sector_type);
 
                 for (pEd = pRoomIndex->extra_descr; pEd; pEd = pEd->next)
