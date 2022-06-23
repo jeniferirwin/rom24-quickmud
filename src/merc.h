@@ -1660,41 +1660,6 @@ struct    pc_data
 	time_t			last_note[MAX_BOARD];   /* last note for the boards */
 	NOTE_DATA *		in_progress;
     int				security;               /* OLC */ /* Builder security */
-    int				text[3];                /* #w */
-    int				auction[3];             /* #w */
-    int				auction_text[3];        /* #v */
-    int				gossip[3];              /* #d */
-    int				gossip_text[3];         /* #c */
-    int				music[3];               /* #e */
-    int				music_text[3];          /* #U */
-    int				question[3];            /* #W */
-    int				question_text[3];       /* #w */
-    int				answer[3];              /* #W */
-    int				answer_text[3];         /* #w */
-    int				quote[3];               /* #w */
-    int				quote_text[3];          /* #w */
-    int				immtalk_text[3];        /* #i */
-    int				immtalk_type[3];        /* #w */
-    int				info[3];                /* #w */
-    int				say[3];                 /* #g */
-    int				say_text[3];            /* #g */
-    int				tell[3];                /* #g */
-    int				tell_text[3];           /* #g */
-    int				reply[3];               /* #p */
-    int				reply_text[3];          /* #L */
-    int				gtell_text[3];          /* #w */
-    int				gtell_type[3];          /* #N */
-    int				wiznet[3];              /* #B */
-    int				room_title[3];          /* #w */
-    int				room_text[3];           /* #w */   
-    int				room_exits[3];          /* #p */
-    int				room_things[3];         /* #L */
-    int				prompt[3];              /* #w */
-    int				fight_death[3];         /* #w */
-    int				fight_yhit[3];          /* #w */
-    int				fight_ohit[3];          /* #w */
-    int				fight_thit[3];          /* #w */
-    int				fight_skill[3];         /* #w */              
 };
 
 /* Data for generating characters -- only used during generation */
