@@ -650,7 +650,7 @@ struct    affect_data
     sh_int         duration;
     sh_int         location;
     sh_int         modifier;
-    int            bitvector;
+    unsigned long long bitvector;
 };
 
 /* where definitions */
@@ -746,18 +746,6 @@ struct    kill_data
 #define xx 1ULL << 49ULL
 #define yy 1ULL << 50ULL
 #define zz 1ULL << 51ULL
-#define aaa 1ULL << 52ULL
-#define bbb 1ULL << 53ULL
-#define ccc 1ULL << 54ULL
-#define ddd 1ULL << 55ULL
-#define eee 1ULL << 56ULL
-#define fff 1ULL << 57ULL
-#define ggg 1ULL << 58ULL
-#define hhh 1ULL << 59ULL
-#define iii 1ULL << 60ULL
-#define jjj 1ULL << 61ULL
-#define kkk 1ULL << 62ULL
-#define lll 1ULL << 63ULL
 
 /*
  * ACT bits for mobs.

@@ -323,7 +323,7 @@ void fwrite_char (CHAR_DATA * ch, FILE * fp)
         if (paf->type < 0 || paf->type >= MAX_SKILL)
             continue;
 
-        fprintf (fp, "Affc '%s' %3d %3d %3d %3d %3d %10d\n",
+        fprintf (fp, "Affc '%s' %3d %3d %3d %3d %3d %10lld\n",
                  skill_table[paf->type].name,
                  paf->where,
                  paf->level,
@@ -398,7 +398,7 @@ void fwrite_pet (CHAR_DATA * pet, FILE * fp)
         if (paf->type < 0 || paf->type >= MAX_SKILL)
             continue;
 
-        fprintf (fp, "Affc '%s' %3d %3d %3d %3d %3d %10d\n",
+        fprintf (fp, "Affc '%s' %3d %3d %3d %3d %3d %10lld\n",
                  skill_table[paf->type].name,
                  paf->where, paf->level, paf->duration, paf->modifier,
                  paf->location, paf->bitvector);
@@ -515,7 +515,7 @@ void fwrite_obj (CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
     {
         if (paf->type < 0 || paf->type >= MAX_SKILL)
             continue;
-        fprintf (fp, "Affc '%s' %3d %3d %3d %3d %3d %10d\n",
+        fprintf (fp, "Affc '%s' %3d %3d %3d %3d %3d %10lld\n",
                  skill_table[paf->type].name,
                  paf->where,
                  paf->level,

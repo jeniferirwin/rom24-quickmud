@@ -1487,7 +1487,7 @@ void do_ostat (CHAR_DATA * ch, char *argument)
                              imm_bit_name (paf->bitvector));
                     break;
                 default:
-                    sprintf (buf, "Unknown bit %d: %d\n\r",
+                    sprintf (buf, "Unknown bit %d: %lld\n\r",
                              paf->where, paf->bitvector);
                     break;
             }
@@ -1527,7 +1527,7 @@ void do_ostat (CHAR_DATA * ch, char *argument)
                                  imm_bit_name (paf->bitvector));
                         break;
                     default:
-                        sprintf (buf, "Unknown bit %d: %d\n\r",
+                        sprintf (buf, "Unknown bit %d: %lld\n\r",
                                  paf->where, paf->bitvector);
                         break;
                 }

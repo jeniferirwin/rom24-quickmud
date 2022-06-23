@@ -3516,7 +3516,7 @@ void spell_identify (int sn, int level, CHAR_DATA * ch, void *vo, int target)
                                      imm_bit_name (paf->bitvector));
                             break;
                         default:
-                            sprintf (buf, "Unknown bit %d: %d\n\r",
+                            sprintf (buf, "Unknown bit %d: %lld\n\r",
                                      paf->where, paf->bitvector);
                             break;
                     }
@@ -3566,7 +3566,7 @@ void spell_identify (int sn, int level, CHAR_DATA * ch, void *vo, int target)
                                  imm_bit_name (paf->bitvector));
                         break;
                     default:
-                        sprintf (buf, "Unknown bit %d: %d\n\r",
+                        sprintf (buf, "Unknown bit %d: %lld\n\r",
                                  paf->where, paf->bitvector);
                         break;
                 }
