@@ -2970,3 +2970,9 @@ void do_telnetga (CHAR_DATA * ch, char *argument)
 }
 
 
+void do_debug (CHAR_DATA * ch, char *argument)
+{
+    if (IS_NPC(ch))
+        return;
+    
+}

@@ -408,6 +408,20 @@ struct    weather_data
 
 
 /*
+ * Combat analysis. Used in do_debug in act_info.c.
+ */
+struct debug_data
+{
+    CHAR_DATA * character;
+    unsigned long long flags;
+};
+
+#define DEBUG_SKILLS  (A)
+#define DEBUG_HITROLL (B)
+#define DEBUG_DAMAGE  (C)
+#define DEBUG_THAC0   (D)
+
+/*
  * Descriptor (channel) structure.
  */
 struct    descriptor_data
@@ -1630,6 +1644,7 @@ struct    char_data
     sh_int             damroll;
     sh_int             armor[4];
     sh_int             wimpy;
+    unsigned long long debug;
     /* stats */
     sh_int             perm_stat[MAX_STATS];
     sh_int             mod_stat[MAX_STATS];
@@ -1644,7 +1659,6 @@ struct    char_data
     sh_int             dam_type;
     sh_int             start_pos;
     sh_int             default_pos;
-
     sh_int             mprog_delay;
 };
 

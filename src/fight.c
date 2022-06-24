@@ -394,6 +394,7 @@ void one_hit (CHAR_DATA * ch, CHAR_DATA * victim, int dt)
     int diceroll;
     int sn, skill;
     int dam_type;
+    char buf[512];
     bool result;
 
     sn = -1;
@@ -527,7 +528,10 @@ void one_hit (CHAR_DATA * ch, CHAR_DATA * victim, int dt)
                 dam += dam / 2;
         }
         else
+        {
             dam = dice (ch->damage[DICE_NUMBER], ch->damage[DICE_TYPE]);
+
+        }
 
     else
     {
