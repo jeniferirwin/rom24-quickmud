@@ -2841,7 +2841,21 @@ char *affect_bit_name (int vector)
     return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
-
+char *debug_bit_name(int debug_flags)
+{
+    static char buf[512];
+    if (debug_flags & DEBUG_DAMAGE)
+        strcat(buf, " damage");
+    if (debug_flags & DEBUG_DEFENSIVE)
+        strcat(buf, " defensive");
+    if (debug_flags & DEBUG_HITROLL)
+        strcat(buf, " hitroll");
+    if (debug_flags & DEBUG_SKILLS)
+        strcat(buf, " hitroll");
+    if (debug_flags & DEBUG_THAC0)
+        strcat(buf, " thac0");
+    return (buf[0] != '\0') ? buf + 1 : "none";
+}
 
 /*
  * Return ascii name of extra flags vector.
