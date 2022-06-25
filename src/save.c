@@ -244,6 +244,7 @@ void fwrite_char (CHAR_DATA * ch, FILE * fp)
         fprintf (fp, "Hit   %d\n", ch->hitroll);
     if (ch->damroll != 0)
         fprintf (fp, "Dam   %d\n", ch->damroll);
+    fprintf(fp, "Debug %s\n", print_flags(ch->debug));
     fprintf (fp, "ACs %d %d %d %d\n",
              ch->armor[0], ch->armor[1], ch->armor[2], ch->armor[3]);
     if (ch->wimpy != 0)
@@ -959,6 +960,7 @@ void fread_char (CHAR_DATA * ch, FILE * fp)
             case 'D':
                 KEY ("Damroll", ch->damroll, fread_number (fp));
                 KEY ("Dam", ch->damroll, fread_number (fp));
+                KEY ("Debug", ch->debug, fread_flag (fp));
                 KEY ("Description", ch->description, fread_string (fp));
                 KEY ("Desc", ch->description, fread_string (fp));
                 break;

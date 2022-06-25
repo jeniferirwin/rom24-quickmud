@@ -416,10 +416,11 @@ struct debug_data
     unsigned long long flags;
 };
 
-#define DEBUG_SKILLS  (A)
-#define DEBUG_HITROLL (B)
-#define DEBUG_DAMAGE  (C)
-#define DEBUG_THAC0   (D)
+#define DEBUG_SKILLS    (A)
+#define DEBUG_HITROLL   (B)
+#define DEBUG_DAMAGE    (C)
+#define DEBUG_THAC0     (D)
+#define DEBUG_DEFENSIVE (E)
 
 /*
  * Descriptor (channel) structure.

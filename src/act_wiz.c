@@ -1702,6 +1702,12 @@ void do_mstat (CHAR_DATA * ch, char *argument)
         send_to_char (buf, ch);
     }
 
+    if (!IS_NPC(victim) && victim->debug)
+    {
+        sprintf (buf, "Debug: %s\n\r", debug_bit_name (victim->debug));
+        send_to_char (buf, ch);
+    }
+
     sprintf (buf, "Master: %s  Leader: %s  Pet: %s\n\r",
              victim->master ? victim->master->name : "(none)",
              victim->leader ? victim->leader->name : "(none)",

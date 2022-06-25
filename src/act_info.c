@@ -2972,7 +2972,92 @@ void do_telnetga (CHAR_DATA * ch, char *argument)
 
 void do_debug (CHAR_DATA * ch, char *argument)
 {
+    char arg[MAX_INPUT_LENGTH];
+
     if (IS_NPC(ch))
         return;
     
+    one_argument(argument, arg);
+
+    if (!strcmp(arg, "skills"))
+    {
+        if (IS_SET (ch->debug, DEBUG_SKILLS))
+        {
+            REMOVE_BIT(ch->debug, DEBUG_SKILLS);
+            send_to_char("You will no longer see skill debug messages.",ch);
+            return;
+        }
+        else
+        {
+            SET_BIT(ch->debug, DEBUG_SKILLS);
+            send_to_char("You will now see skill debug messages.",ch);
+            return;
+        }
+    }
+
+    if (!strcmp(arg, "damage"))
+    {
+        if (IS_SET (ch->debug, DEBUG_DAMAGE))
+        {
+            REMOVE_BIT(ch->debug, DEBUG_DAMAGE);
+            send_to_char("You will no longer see damage debug messages.",ch);
+            return;
+        }
+        else
+        {
+            SET_BIT(ch->debug, DEBUG_DAMAGE);
+            send_to_char("You will now see damage debug messages.",ch);
+            return;
+        }
+    }
+
+    if (!strcmp(arg, "hitroll"))
+    {
+        if (IS_SET (ch->debug, DEBUG_HITROLL))
+        {
+            REMOVE_BIT(ch->debug, DEBUG_HITROLL);
+            send_to_char("You will no longer see hitroll debug messages.",ch);
+            return;
+        }
+        else
+        {
+            SET_BIT(ch->debug, DEBUG_HITROLL);
+            send_to_char("You will now see hitroll debug messages.",ch);
+            return;
+        }
+    }
+
+    if (!strcmp(arg, "defensive"))
+    {
+        if (IS_SET (ch->debug, DEBUG_DEFENSIVE))
+        {
+            REMOVE_BIT(ch->debug, DEBUG_DEFENSIVE);
+            send_to_char("You will no longer see defensive debug messages.",ch);
+            return;
+        }
+        else
+        {
+            SET_BIT(ch->debug, DEBUG_DEFENSIVE);
+            send_to_char("You will now see defensive debug messages.",ch);
+            return;
+        }
+    }
+
+    if (!strcmp(arg, "thac0"))
+    {
+        if (IS_SET (ch->debug, DEBUG_THAC0))
+        {
+            REMOVE_BIT(ch->debug, DEBUG_THAC0);
+            send_to_char("You will no longer see thac0 debug messages.",ch);
+            return;
+        }
+        else
+        {
+            SET_BIT(ch->debug, DEBUG_THAC0);
+            send_to_char("You will now see thac0 debug messages.",ch);
+            return;
+        }
+    }
+
+    send_to_char("Debug options: skills hitroll damage thac0",ch);
 }
