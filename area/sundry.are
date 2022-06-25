@@ -1,0 +1,86 @@
+#AREADATA
+Name All and Sundry~
+Builders Kenneth~
+VNUMs 31 99
+Credits (null)~
+Security 1
+End
+
+
+
+#MOBILES
+#31
+unprotected dummy~
+an unprotected dummy~
+An unprotected dummy stands here.
+~
+~
+human~
+A 0 -1000 0
+60 1000 1d1+29999 0d0+0 1d1+1 punch
+0 0 0 0
+0 0 0 0
+stand stand none 0
+AHMV ABCDEFGHIJK medium unknown
+#32
+protected dummy~
+a protected dummy~
+A protected dummy stands here.
+~
+~
+human~
+A f -1000 0
+60 0 1d1+29999 0d0+0 0d0+0 punch
+0 0 0 0
+0 0 0 0
+stand stand none 0
+AHMV ABCDEFGHIJK medium unknown
+#0
+
+
+
+#OBJECTS
+#31
+glock~
+a glock~
+A glock lies here.~
+steel~
+weapon Y AN
+exotic 100 1 blast F
+60 60 1000000 P
+#0
+
+
+
+#ROOMS
+#31
+Default Room~
+You are in an infinite expanse of white.
+~
+0 32772 0
+S
+#0
+
+
+
+#SPECIALS
+S
+
+
+
+#RESETS
+M 0 31 1 31 1 Load an unprotected dummy
+M 0 32 1 31 1 Load a protected dummy
+S
+
+
+
+#SHOPS
+0
+
+
+
+#MOBPROGS
+#0
+
+#$

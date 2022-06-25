@@ -1090,6 +1090,13 @@ void spell_cancellation (int sn, int level, CHAR_DATA * ch, void *vo,
     if (check_dispel (level, victim, skill_lookup ("curse")))
         found = TRUE;
 
+    if (check_dispel (level, victim, skill_lookup ("dark favor")))
+    {
+        act ("The #Ablack aura#w around $n's body vanishes.",
+             victim, NULL, NULL, TO_ROOM);
+        found = TRUE;
+    }
+
     if (check_dispel (level, victim, skill_lookup ("detect evil")))
         found = TRUE;
 
@@ -1160,9 +1167,12 @@ void spell_cancellation (int sn, int level, CHAR_DATA * ch, void *vo,
     if (check_dispel (level, victim, skill_lookup ("protection good")))
         found = TRUE;
 
+    if (check_dispel (level, victim, skill_lookup ("protection neutral")))
+        found = TRUE;
+
     if (check_dispel (level, victim, skill_lookup ("sanctuary")))
     {
-        act ("The white aura around $n's body vanishes.",
+        act ("The #Wwhite aura#w around $n's body vanishes.",
              victim, NULL, NULL, TO_ROOM);
         found = TRUE;
     }
@@ -1802,6 +1812,32 @@ void spell_curse (int sn, int level, CHAR_DATA * ch, void *vo, int target)
     return;
 }
 
+void spell_dark_favor (int sn, int level, CHAR_DATA * ch, void *vo, int target)
+{
+    CHAR_DATA *victim = (CHAR_DATA *) vo;
+    AFFECT_DATA af;
+
+    if (IS_AFFECTED (victim, AFF_DARK_FAVOR))
+    {
+        if (victim == ch)
+            send_to_char ("You are already in dark favor.\n\r", ch);
+        else
+            act ("$N is already in dark favor.", ch, NULL, victim, TO_CHAR);
+        return;
+    }
+
+    af.where = TO_AFFECTS;
+    af.type = sn;
+    af.level = level;
+    af.duration = level / 6;
+    af.location = APPLY_NONE;
+    af.modifier = 0;
+    af.bitvector = AFF_DARK_FAVOR;
+    affect_to_char (victim, &af);
+    act ("$n is surrounded by a #Ablack aura#w.", victim, NULL, NULL, TO_ROOM);
+    send_to_char ("You are surrounded by a #Ablack aura#w.\n\r", victim);
+    return;
+}
 /* RT replacement demonfire spell */
 
 void spell_demonfire (int sn, int level, CHAR_DATA * ch, void *vo, int target)
@@ -2128,6 +2164,23 @@ void spell_dispel_magic (int sn, int level, CHAR_DATA * ch, void *vo,
     if (check_dispel (level, victim, skill_lookup ("curse")))
         found = TRUE;
 
+    if (check_dispel (level, victim, skill_lookup ("dark favor")))
+    {
+        act ("The #Ablack aura#w around $n's body vanishes.",
+             victim, NULL, NULL, TO_ROOM);
+        found = TRUE;
+    }
+
+    if (IS_AFFECTED (victim, AFF_DARK_FAVOR)
+        && !saves_dispel (level, victim->level, -1)
+        && !is_affected (victim, skill_lookup ("dark favor")))
+    {
+        REMOVE_BIT (victim->affected_by, AFF_DARK_FAVOR);
+        act ("The #Ablack aura#w around $n's body vanishes.",
+             victim, NULL, NULL, TO_ROOM);
+        found = TRUE;
+    }
+
     if (check_dispel (level, victim, skill_lookup ("detect evil")))
         found = TRUE;
 
@@ -2199,9 +2252,12 @@ void spell_dispel_magic (int sn, int level, CHAR_DATA * ch, void *vo,
     if (check_dispel (level, victim, skill_lookup ("protection good")))
         found = TRUE;
 
+    if (check_dispel (level, victim, skill_lookup ("protection neutral")))
+        found = TRUE;
+
     if (check_dispel (level, victim, skill_lookup ("sanctuary")))
     {
-        act ("The white aura around $n's body vanishes.",
+        act ("The #Wwhite aura#w around $n's body vanishes.",
              victim, NULL, NULL, TO_ROOM);
         found = TRUE;
     }
@@ -2211,7 +2267,7 @@ void spell_dispel_magic (int sn, int level, CHAR_DATA * ch, void *vo,
         && !is_affected (victim, skill_lookup ("sanctuary")))
     {
         REMOVE_BIT (victim->affected_by, AFF_SANCTUARY);
-        act ("The white aura around $n's body vanishes.",
+        act ("The #Wwhite aura#w around $n's body vanishes.",
              victim, NULL, NULL, TO_ROOM);
         found = TRUE;
     }
@@ -3516,7 +3572,7 @@ void spell_identify (int sn, int level, CHAR_DATA * ch, void *vo, int target)
                                      imm_bit_name (paf->bitvector));
                             break;
                         default:
-                            sprintf (buf, "Unknown bit %d: %d\n\r",
+                            sprintf (buf, "Unknown bit %d: %lld\n\r",
                                      paf->where, paf->bitvector);
                             break;
                     }
@@ -3566,7 +3622,7 @@ void spell_identify (int sn, int level, CHAR_DATA * ch, void *vo, int target)
                                  imm_bit_name (paf->bitvector));
                         break;
                     default:
-                        sprintf (buf, "Unknown bit %d: %d\n\r",
+                        sprintf (buf, "Unknown bit %d: %lld\n\r",
                                  paf->where, paf->bitvector);
                         break;
                 }
@@ -4018,7 +4074,8 @@ void spell_protection_evil (int sn, int level, CHAR_DATA * ch, void *vo,
     AFFECT_DATA af;
 
     if (IS_AFFECTED (victim, AFF_PROTECT_EVIL)
-        || IS_AFFECTED (victim, AFF_PROTECT_GOOD))
+        || IS_AFFECTED (victim, AFF_PROTECT_GOOD)
+        || IS_AFFECTED (victim, AFF_PROTECT_NEUTRAL))
     {
         if (victim == ch)
             send_to_char ("You are already protected.\n\r", ch);
@@ -4048,7 +4105,8 @@ void spell_protection_good (int sn, int level, CHAR_DATA * ch, void *vo,
     AFFECT_DATA af;
 
     if (IS_AFFECTED (victim, AFF_PROTECT_GOOD)
-        || IS_AFFECTED (victim, AFF_PROTECT_EVIL))
+        || IS_AFFECTED (victim, AFF_PROTECT_EVIL)
+        || IS_AFFECTED (victim, AFF_PROTECT_NEUTRAL))
     {
         if (victim == ch)
             send_to_char ("You are already protected.\n\r", ch);
@@ -4071,6 +4129,36 @@ void spell_protection_good (int sn, int level, CHAR_DATA * ch, void *vo,
     return;
 }
 
+void spell_protection_neutral (int sn, int level, CHAR_DATA * ch, void *vo,
+                            int target)
+{
+    CHAR_DATA *victim = (CHAR_DATA *) vo;
+    AFFECT_DATA af;
+
+    if (IS_AFFECTED (victim, AFF_PROTECT_GOOD)
+        || IS_AFFECTED (victim, AFF_PROTECT_EVIL)
+        || IS_AFFECTED (victim, AFF_PROTECT_NEUTRAL))
+    {
+        if (victim == ch)
+            send_to_char ("You are already protected.\n\r", ch);
+        else
+            act ("$N is already protected.", ch, NULL, victim, TO_CHAR);
+        return;
+    }
+
+    af.where = TO_AFFECTS;
+    af.type = sn;
+    af.level = level;
+    af.duration = 24;
+    af.location = APPLY_SAVING_SPELL;
+    af.modifier = -1;
+    af.bitvector = AFF_PROTECT_NEUTRAL;
+    affect_to_char (victim, &af);
+    send_to_char ("A gray mist clouds your vision for a moment.\n\r", victim);
+    if (ch != victim)
+        act ("$N is protected from neutrality.", ch, NULL, victim, TO_CHAR);
+    return;
+}
 
 void spell_ray_of_truth (int sn, int level, CHAR_DATA * ch, void *vo,
                          int target)

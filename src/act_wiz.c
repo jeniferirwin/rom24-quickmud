@@ -1155,7 +1155,7 @@ void do_rstat (CHAR_DATA * ch, char *argument)
     send_to_char (buf, ch);
 
     sprintf (buf,
-             "Room flags: %d.\n\rDescription:\n\r%s",
+             "Room flags: %lld.\n\rDescription:\n\r%s",
              location->room_flags, location->description);
     send_to_char (buf, ch);
 
@@ -1487,7 +1487,7 @@ void do_ostat (CHAR_DATA * ch, char *argument)
                              imm_bit_name (paf->bitvector));
                     break;
                 default:
-                    sprintf (buf, "Unknown bit %d: %d\n\r",
+                    sprintf (buf, "Unknown bit %d: %lld\n\r",
                              paf->where, paf->bitvector);
                     break;
             }
@@ -1527,7 +1527,7 @@ void do_ostat (CHAR_DATA * ch, char *argument)
                                  imm_bit_name (paf->bitvector));
                         break;
                     default:
-                        sprintf (buf, "Unknown bit %d: %d\n\r",
+                        sprintf (buf, "Unknown bit %d: %lld\n\r",
                                  paf->where, paf->bitvector);
                         break;
                 }
@@ -1699,6 +1699,12 @@ void do_mstat (CHAR_DATA * ch, char *argument)
     {
         sprintf (buf, "Affected by %s\n\r",
                  affect_bit_name (victim->affected_by));
+        send_to_char (buf, ch);
+    }
+
+    if (!IS_NPC(victim) && victim->debug)
+    {
+        sprintf (buf, "Debug: %s\n\r", debug_bit_name (victim->debug));
         send_to_char (buf, ch);
     }
 

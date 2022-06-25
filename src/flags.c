@@ -47,7 +47,7 @@ void do_flag (CHAR_DATA * ch, char *argument)
         arg3[MAX_INPUT_LENGTH];
     char word[MAX_INPUT_LENGTH];
     CHAR_DATA *victim;
-    long *flag, old = 0, new = 0, marked = 0, pos;
+    unsigned long long *flag, old = 0, new = 0, marked = 0, pos;
     char type;
     const struct flag_type *flag_table;
 

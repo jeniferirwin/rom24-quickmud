@@ -36,9 +36,9 @@
 #include "merc.h"
 #include "tables.h"
 
-int flag_lookup (const char *name, const struct flag_type *flag_table)
+unsigned long long flag_lookup (const char *name, const struct flag_type *flag_table)
 {
-    int flag;
+    unsigned long long flag;
 
     for (flag = 0; flag_table[flag].name != NULL; flag++)
     {

@@ -45,7 +45,7 @@
 #include "tables.h"
 #include "lookup.h"
 
-extern int flag_lookup (const char *word, const struct flag_type *flag_table);
+extern unsigned long long flag_lookup (const char *word, const struct flag_type *flag_table);
 
 /*
  * These defines correspond to the entries in fn_keyword[] table.

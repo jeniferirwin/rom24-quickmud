@@ -42,7 +42,7 @@
 #include "tables.h"
 #include "lookup.h"
 
-extern int flag_lookup
+extern unsigned long long flag_lookup
 args ((const char *name, const struct flag_type * flag_table));
 
 /* values for db2.c */

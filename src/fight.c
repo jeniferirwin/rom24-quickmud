@@ -394,6 +394,7 @@ void one_hit (CHAR_DATA * ch, CHAR_DATA * victim, int dt)
     int diceroll;
     int sn, skill;
     int dam_type;
+    char buf[512];
     bool result;
 
     sn = -1;
@@ -527,7 +528,10 @@ void one_hit (CHAR_DATA * ch, CHAR_DATA * victim, int dt)
                 dam += dam / 2;
         }
         else
+        {
             dam = dice (ch->damage[DICE_NUMBER], ch->damage[DICE_TYPE]);
+
+        }
 
     else
     {
@@ -714,11 +718,13 @@ bool damage (CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt,
 
 
     /* damage reduction */
+    /* technitaur: removing these while I test other damage stuff
+
     if (dam > 35)
         dam = (dam - 35) / 2 + 35;
     if (dam > 80)
         dam = (dam - 80) / 2 + 80;
-
+    */
 
 
 
@@ -776,13 +782,33 @@ bool damage (CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt,
         && victim->pcdata->condition[COND_DRUNK] > 10)
         dam = 9 * dam / 10;
 
-    if (dam > 1 && IS_AFFECTED (victim, AFF_SANCTUARY))
+    if (dam > 1 && IS_NEUTRAL (victim))
+    {
+        if (IS_AFFECTED(victim, AFF_SANCTUARY) && IS_AFFECTED(victim, AFF_DARK_FAVOR))
+        {
+            dam /= 4;
+        }
+        else if (IS_AFFECTED(victim, AFF_SANCTUARY) || IS_AFFECTED(victim, AFF_DARK_FAVOR))
+        {
+            dam -= dam / 4;
+        }
+    }
+
+    if (dam > 1 && IS_AFFECTED (victim, AFF_SANCTUARY) && IS_GOOD(victim))
         dam /= 2;
 
-    if (dam > 1 && ((IS_AFFECTED (victim, AFF_PROTECT_EVIL) && IS_EVIL (ch))
-                    || (IS_AFFECTED (victim, AFF_PROTECT_GOOD)
-                        && IS_GOOD (ch))))
+    if (dam > 1 && IS_AFFECTED (victim, AFF_DARK_FAVOR) && IS_EVIL(victim))
+        dam /= 2;
+    
+    if (dam > 1 && (
+                        (IS_AFFECTED (victim, AFF_PROTECT_EVIL) && IS_EVIL (ch))
+                        || (IS_AFFECTED (victim, AFF_PROTECT_GOOD) && IS_GOOD (ch))
+                        || (IS_AFFECTED (victim, AFF_PROTECT_NEUTRAL) && IS_NEUTRAL (ch))
+                    )
+        )
+    {
         dam -= dam / 4;
+    }
 
     immune = FALSE;
 

@@ -2037,7 +2037,7 @@ void do_colour (CHAR_DATA * ch, char *argument)
 
     if (IS_NPC (ch))
     {
-        send_to_char_bw ("ColoUr is not ON, Way Moron!\n\r", ch);
+        send_to_char_bw ("Color is unavailable to mobs.\n\r", ch);
         return;
     }
 
@@ -2048,149 +2048,13 @@ void do_colour (CHAR_DATA * ch, char *argument)
         if (!IS_SET (ch->act, PLR_COLOUR))
         {
             SET_BIT (ch->act, PLR_COLOUR);
-            send_to_char ("ColoUr is now ON, Way Cool!\n\r"
-                          "Further syntax:\n\r   colour #c<#wfield#c> <#wcolour#c>#w\n\r"
-                          "   colour #c<#wfield#c>#w #cbeep#w|#cnobeep#w\n\r"
-                          "Type help #ccolour#w and #ccolour2#w for details.\n\r"
-                          "ColoUr is brought to you by Lope, ant@solace.mh.se.\n\r",
-                          ch);
+            send_to_char ("Color is now on.\n\r",ch);
         }
         else
         {
-            send_to_char_bw ("ColoUr is now OFF, <sigh>\n\r", ch);
+            send_to_char_bw ("Color is now off.\n\r", ch);
             REMOVE_BIT (ch->act, PLR_COLOUR);
         }
         return;
     }
-
-    if (!str_cmp (arg, "default"))
-    {
-        default_colour (ch);
-        send_to_char_bw ("ColoUr setting set to default values.\n\r", ch);
-        return;
-    }
-
-    if (!str_cmp (arg, "all"))
-    {
-        all_colour (ch, argument);
-        return;
-    }
-
-    /*
-     * Yes, I know this is ugly and unnessessary repetition, but its old
-     * and I can't justify the time to make it pretty. -Lope
-     */
-    if (!str_cmp (arg, "text"))
-    {
-    ALTER_COLOUR (text)}
-    else if (!str_cmp (arg, "auction"))
-    {
-    ALTER_COLOUR (auction)}
-    else if (!str_cmp (arg, "auction_text"))
-    {
-    ALTER_COLOUR (auction_text)}
-    else if (!str_cmp (arg, "gossip"))
-    {
-    ALTER_COLOUR (gossip)}
-    else if (!str_cmp (arg, "gossip_text"))
-    {
-    ALTER_COLOUR (gossip_text)}
-    else if (!str_cmp (arg, "music"))
-    {
-    ALTER_COLOUR (music)}
-    else if (!str_cmp (arg, "music_text"))
-    {
-    ALTER_COLOUR (music_text)}
-    else if (!str_cmp (arg, "question"))
-    {
-    ALTER_COLOUR (question)}
-    else if (!str_cmp (arg, "question_text"))
-    {
-    ALTER_COLOUR (question_text)}
-    else if (!str_cmp (arg, "answer"))
-    {
-    ALTER_COLOUR (answer)}
-    else if (!str_cmp (arg, "answer_text"))
-    {
-    ALTER_COLOUR (answer_text)}
-    else if (!str_cmp (arg, "quote"))
-    {
-    ALTER_COLOUR (quote)}
-    else if (!str_cmp (arg, "quote_text"))
-    {
-    ALTER_COLOUR (quote_text)}
-    else if (!str_cmp (arg, "immtalk_text"))
-    {
-    ALTER_COLOUR (immtalk_text)}
-    else if (!str_cmp (arg, "immtalk_type"))
-    {
-    ALTER_COLOUR (immtalk_type)}
-    else if (!str_cmp (arg, "info"))
-    {
-    ALTER_COLOUR (info)}
-    else if (!str_cmp (arg, "say"))
-    {
-    ALTER_COLOUR (say)}
-    else if (!str_cmp (arg, "say_text"))
-    {
-    ALTER_COLOUR (say_text)}
-    else if (!str_cmp (arg, "tell"))
-    {
-    ALTER_COLOUR (tell)}
-    else if (!str_cmp (arg, "tell_text"))
-    {
-    ALTER_COLOUR (tell_text)}
-    else if (!str_cmp (arg, "reply"))
-    {
-    ALTER_COLOUR (reply)}
-    else if (!str_cmp (arg, "reply_text"))
-    {
-    ALTER_COLOUR (reply_text)}
-    else if (!str_cmp (arg, "gtell_text"))
-    {
-    ALTER_COLOUR (gtell_text)}
-    else if (!str_cmp (arg, "gtell_type"))
-    {
-    ALTER_COLOUR (gtell_type)}
-    else if (!str_cmp (arg, "wiznet"))
-    {
-    ALTER_COLOUR (wiznet)}
-    else if (!str_cmp (arg, "room_title"))
-    {
-    ALTER_COLOUR (room_title)}
-    else if (!str_cmp (arg, "room_text"))
-    {
-    ALTER_COLOUR (room_text)}
-    else if (!str_cmp (arg, "room_exits"))
-    {
-    ALTER_COLOUR (room_exits)}
-    else if (!str_cmp (arg, "room_things"))
-    {
-    ALTER_COLOUR (room_things)}
-    else if (!str_cmp (arg, "prompt"))
-    {
-    ALTER_COLOUR (prompt)}
-    else if (!str_cmp (arg, "fight_death"))
-    {
-    ALTER_COLOUR (fight_death)}
-    else if (!str_cmp (arg, "fight_yhit"))
-    {
-    ALTER_COLOUR (fight_yhit)}
-    else if (!str_cmp (arg, "fight_ohit"))
-    {
-    ALTER_COLOUR (fight_ohit)}
-    else if (!str_cmp (arg, "fight_thit"))
-    {
-    ALTER_COLOUR (fight_thit)}
-    else if (!str_cmp (arg, "fight_skill"))
-    {
-    ALTER_COLOUR (fight_skill)}
-    else
-    {
-        send_to_char_bw ("Unrecognised Colour Parameter Not Set.\n\r", ch);
-        return;
-    }
-
-    send_to_char_bw ("New Colour Parameter Set.\n\r", ch);
-    return;
 }

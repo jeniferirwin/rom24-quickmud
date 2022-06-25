@@ -92,7 +92,7 @@ const struct flag_stat_type flag_stat_table[] = {
  ****************************************************************************/
 bool is_stat (const struct flag_type *flag_table)
 {
-    int flag;
+    unsigned long long flag;
 
     for (flag = 0; flag_stat_table[flag].structure; flag++)
     {
@@ -108,11 +108,11 @@ bool is_stat (const struct flag_type *flag_table)
  Purpose:    Returns the value of the flags entered.  Multi-flags accepted.
  Called by:    olc.c and olc_act.c.
  ****************************************************************************/
-int flag_value (const struct flag_type *flag_table, char *argument)
+unsigned long long flag_value (const struct flag_type *flag_table, char *argument)
 {
     char word[MAX_INPUT_LENGTH];
-    int bit;
-    int marked = 0;
+    unsigned long long bit;
+    unsigned long long marked = 0;
     bool found = FALSE;
 
     if (is_stat (flag_table))
@@ -148,11 +148,11 @@ int flag_value (const struct flag_type *flag_table, char *argument)
  Purpose:    Returns string with name(s) of the flags or stat entered.
  Called by:    act_olc.c, olc.c, and olc_save.c.
  ****************************************************************************/
-char *flag_string (const struct flag_type *flag_table, int bits)
+char *flag_string (const struct flag_type *flag_table, unsigned long long bits)
 {
     static char buf[2][512];
     static int cnt = 0;
-    int flag;
+    unsigned long long flag;
 
     if (++cnt > 1)
         cnt = 0;

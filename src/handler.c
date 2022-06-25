@@ -2782,10 +2782,20 @@ char *affect_bit_name (int vector)
     static char buf[512];
 
     buf[0] = '\0';
+    if (vector & AFF_BERSERK)
+        strcat (buf, " berserk");
     if (vector & AFF_BLIND)
         strcat (buf, " blind");
-    if (vector & AFF_INVISIBLE)
-        strcat (buf, " invisible");
+    if (vector & AFF_CALM)
+        strcat (buf, " calm");
+    if (vector & AFF_CHARM)
+        strcat (buf, " charm");
+    if (vector & AFF_CURSE)
+        strcat (buf, " curse");
+    if (vector & AFF_DARK_FAVOR)
+        strcat (buf, " dark_favor");
+    if (vector & AFF_DARK_VISION)
+        strcat (buf, " dark_vision");
     if (vector & AFF_DETECT_EVIL)
         strcat (buf, " detect_evil");
     if (vector & AFF_DETECT_GOOD)
@@ -2796,48 +2806,56 @@ char *affect_bit_name (int vector)
         strcat (buf, " detect_magic");
     if (vector & AFF_DETECT_HIDDEN)
         strcat (buf, " detect_hidden");
-    if (vector & AFF_SANCTUARY)
-        strcat (buf, " sanctuary");
     if (vector & AFF_FAERIE_FIRE)
         strcat (buf, " faerie_fire");
+    if (vector & AFF_FLYING)
+        strcat (buf, " flying");
+    if (vector & AFF_HASTE)
+        strcat (buf, " haste");
+    if (vector & AFF_HIDE)
+        strcat (buf, " hide");
+    if (vector & AFF_INVISIBLE)
+        strcat (buf, " invisible");
     if (vector & AFF_INFRARED)
         strcat (buf, " infrared");
-    if (vector & AFF_CURSE)
-        strcat (buf, " curse");
+    if (vector & AFF_PASS_DOOR)
+        strcat (buf, " pass_door");
+    if (vector & AFF_PLAGUE)
+        strcat (buf, " plague");
     if (vector & AFF_POISON)
         strcat (buf, " poison");
     if (vector & AFF_PROTECT_EVIL)
         strcat (buf, " prot_evil");
     if (vector & AFF_PROTECT_GOOD)
         strcat (buf, " prot_good");
+    if (vector & AFF_PROTECT_NEUTRAL)
+        strcat (buf, " prot_neutral");
+    if (vector & AFF_SANCTUARY)
+        strcat (buf, " sanctuary");
     if (vector & AFF_SLEEP)
         strcat (buf, " sleep");
     if (vector & AFF_SNEAK)
         strcat (buf, " sneak");
-    if (vector & AFF_HIDE)
-        strcat (buf, " hide");
-    if (vector & AFF_CHARM)
-        strcat (buf, " charm");
-    if (vector & AFF_FLYING)
-        strcat (buf, " flying");
-    if (vector & AFF_PASS_DOOR)
-        strcat (buf, " pass_door");
-    if (vector & AFF_BERSERK)
-        strcat (buf, " berserk");
-    if (vector & AFF_CALM)
-        strcat (buf, " calm");
-    if (vector & AFF_HASTE)
-        strcat (buf, " haste");
     if (vector & AFF_SLOW)
         strcat (buf, " slow");
-    if (vector & AFF_PLAGUE)
-        strcat (buf, " plague");
-    if (vector & AFF_DARK_VISION)
-        strcat (buf, " dark_vision");
     return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
-
+char *debug_bit_name(int debug_flags)
+{
+    static char buf[512];
+    if (debug_flags & DEBUG_DAMAGE)
+        strcat(buf, " damage");
+    if (debug_flags & DEBUG_DEFENSIVE)
+        strcat(buf, " defensive");
+    if (debug_flags & DEBUG_HITROLL)
+        strcat(buf, " hitroll");
+    if (debug_flags & DEBUG_SKILLS)
+        strcat(buf, " hitroll");
+    if (debug_flags & DEBUG_THAC0)
+        strcat(buf, " thac0");
+    return (buf[0] != '\0') ? buf + 1 : "none";
+}
 
 /*
  * Return ascii name of extra flags vector.
@@ -2893,7 +2911,7 @@ char *extra_bit_name (int extra_flags)
 }
 
 /* return ascii name of an act vector */
-char *act_bit_name (int act_flags)
+char *act_bit_name (unsigned long long act_flags)
 {
     static char buf[512];
 
@@ -2940,6 +2958,8 @@ char *act_bit_name (int act_flags)
             strcat (buf, " skill_train");
         if (act_flags & ACT_UPDATE_ALWAYS)
             strcat (buf, " update_always");
+        if (act_flags & ACT_IS_AWESOME)
+            strcat (buf, " awesome");
     }
     else
     {
@@ -2974,7 +2994,7 @@ char *act_bit_name (int act_flags)
     return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
-char *comm_bit_name (int comm_flags)
+char *comm_bit_name (unsigned long long comm_flags)
 {
     static char buf[512];
 
@@ -3017,7 +3037,7 @@ char *comm_bit_name (int comm_flags)
     return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
-char *imm_bit_name (int imm_flags)
+char *imm_bit_name (unsigned long long imm_flags)
 {
     static char buf[512];
 
@@ -3071,7 +3091,7 @@ char *imm_bit_name (int imm_flags)
     return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
-char *wear_bit_name (int wear_flags)
+char *wear_bit_name (unsigned long long wear_flags)
 {
     static char buf[512];
 
@@ -3114,7 +3134,7 @@ char *wear_bit_name (int wear_flags)
     return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
-char *form_bit_name (int form_flags)
+char *form_bit_name (unsigned long long form_flags)
 {
     static char buf[512];
 
@@ -3175,7 +3195,7 @@ char *form_bit_name (int form_flags)
     return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
-char *part_bit_name (int part_flags)
+char *part_bit_name (unsigned long long part_flags)
 {
     static char buf[512];
 
@@ -3270,7 +3290,7 @@ char *cont_bit_name (int cont_flags)
 }
 
 
-char *off_bit_name (int off_flags)
+char *off_bit_name (unsigned long long off_flags)
 {
     static char buf[512];
 
@@ -3321,303 +3341,6 @@ char *off_bit_name (int off_flags)
 
     return (buf[0] != '\0') ? buf + 1 : "none";
 }
-
-/*
- * Config Colour stuff
- */
-void default_colour (CHAR_DATA * ch)
-{
-    if (IS_NPC (ch))
-        return;
-
-    if (!ch->pcdata)
-        return;
-
-    ch->pcdata->text[1] = (WHITE);
-    ch->pcdata->auction[1] = (YELLOW);
-    ch->pcdata->auction_text[1] = (WHITE);
-    ch->pcdata->gossip[1] = (MAGENTA);
-    ch->pcdata->gossip_text[1] = (MAGENTA);
-    ch->pcdata->music[1] = (RED);
-    ch->pcdata->music_text[1] = (RED);
-    ch->pcdata->question[1] = (YELLOW);
-    ch->pcdata->question_text[1] = (WHITE);
-    ch->pcdata->answer[1] = (YELLOW);
-    ch->pcdata->answer_text[1] = (WHITE);
-    ch->pcdata->quote[1] = (GREEN);
-    ch->pcdata->quote_text[1] = (GREEN);
-    ch->pcdata->immtalk_text[1] = (CYAN);
-    ch->pcdata->immtalk_type[1] = (YELLOW);
-    ch->pcdata->info[1] = (YELLOW);
-    ch->pcdata->tell[1] = (GREEN);
-    ch->pcdata->tell_text[1] = (GREEN);
-    ch->pcdata->say[1] = (GREEN);
-    ch->pcdata->say_text[1] = (GREEN);
-    ch->pcdata->reply[1] = (GREEN);
-    ch->pcdata->reply_text[1] = (GREEN);
-    ch->pcdata->gtell_text[1] = (GREEN);
-    ch->pcdata->gtell_type[1] = (RED);
-    ch->pcdata->wiznet[1] = (GREEN);
-    ch->pcdata->room_title[1] = (CYAN);
-    ch->pcdata->room_text[1] = (WHITE);
-    ch->pcdata->room_exits[1] = (GREEN);
-    ch->pcdata->room_things[1] = (CYAN);
-    ch->pcdata->prompt[1] = (CYAN);
-    ch->pcdata->fight_death[1] = (RED);
-    ch->pcdata->fight_yhit[1] = (GREEN);
-    ch->pcdata->fight_ohit[1] = (YELLOW);
-    ch->pcdata->fight_thit[1] = (RED);
-    ch->pcdata->fight_skill[1] = (WHITE);
-    ch->pcdata->text[0] = (NORMAL);
-    ch->pcdata->auction[0] = (BRIGHT);
-    ch->pcdata->auction_text[0] = (BRIGHT);
-    ch->pcdata->gossip[0] = (NORMAL);
-    ch->pcdata->gossip_text[0] = (BRIGHT);
-    ch->pcdata->music[0] = (NORMAL);
-    ch->pcdata->music_text[0] = (BRIGHT);
-    ch->pcdata->question[0] = (BRIGHT);
-    ch->pcdata->question_text[0] = (BRIGHT);
-    ch->pcdata->answer[0] = (BRIGHT);
-    ch->pcdata->answer_text[0] = (BRIGHT);
-    ch->pcdata->quote[0] = (NORMAL);
-    ch->pcdata->quote_text[0] = (BRIGHT);
-    ch->pcdata->immtalk_text[0] = (NORMAL);
-    ch->pcdata->immtalk_type[0] = (NORMAL);
-    ch->pcdata->info[0] = (NORMAL);
-    ch->pcdata->say[0] = (NORMAL);
-    ch->pcdata->say_text[0] = (BRIGHT);
-    ch->pcdata->tell[0] = (NORMAL);
-    ch->pcdata->tell_text[0] = (BRIGHT);
-    ch->pcdata->reply[0] = (NORMAL);
-    ch->pcdata->reply_text[0] = (BRIGHT);
-    ch->pcdata->gtell_text[0] = (NORMAL);
-    ch->pcdata->gtell_type[0] = (NORMAL);
-    ch->pcdata->wiznet[0] = (NORMAL);
-    ch->pcdata->room_title[0] = (NORMAL);
-    ch->pcdata->room_text[0] = (NORMAL);
-    ch->pcdata->room_exits[0] = (NORMAL);
-    ch->pcdata->room_things[0] = (NORMAL);
-    ch->pcdata->prompt[0] = (NORMAL);
-    ch->pcdata->fight_death[0] = (NORMAL);
-    ch->pcdata->fight_yhit[0] = (NORMAL);
-    ch->pcdata->fight_ohit[0] = (NORMAL);
-    ch->pcdata->fight_thit[0] = (NORMAL);
-    ch->pcdata->fight_skill[0] = (NORMAL);
-    ch->pcdata->text[2] = 0;
-    ch->pcdata->auction[2] = 0;
-    ch->pcdata->auction_text[2] = 0;
-    ch->pcdata->gossip[2] = 0;
-    ch->pcdata->gossip_text[2] = 0;
-    ch->pcdata->music[2] = 0;
-    ch->pcdata->music_text[2] = 0;
-    ch->pcdata->question[2] = 0;
-    ch->pcdata->question_text[2] = 0;
-    ch->pcdata->answer[2] = 0;
-    ch->pcdata->answer_text[2] = 0;
-    ch->pcdata->quote[2] = 0;
-    ch->pcdata->quote_text[2] = 0;
-    ch->pcdata->immtalk_text[2] = 0;
-    ch->pcdata->immtalk_type[2] = 0;
-    ch->pcdata->info[2] = 1;
-    ch->pcdata->say[2] = 0;
-    ch->pcdata->say_text[2] = 0;
-    ch->pcdata->tell[2] = 0;
-    ch->pcdata->tell_text[2] = 0;
-    ch->pcdata->reply[2] = 0;
-    ch->pcdata->reply_text[2] = 0;
-    ch->pcdata->gtell_text[2] = 0;
-    ch->pcdata->gtell_type[2] = 0;
-    ch->pcdata->wiznet[2] = 0;
-    ch->pcdata->room_title[2] = 0;
-    ch->pcdata->room_text[2] = 0;
-    ch->pcdata->room_exits[2] = 0;
-    ch->pcdata->room_things[2] = 0;
-    ch->pcdata->prompt[2] = 0;
-    ch->pcdata->fight_death[2] = 0;
-    ch->pcdata->fight_yhit[2] = 0;
-    ch->pcdata->fight_ohit[2] = 0;
-    ch->pcdata->fight_thit[2] = 0;
-    ch->pcdata->fight_skill[2] = 0;
-
-    return;
-}
-
-void all_colour (CHAR_DATA * ch, char *argument)
-{
-    char buf[100];
-    char buf2[50];
-    int colour;
-    int bright;
-
-    if (IS_NPC (ch) || !ch->pcdata)
-        return;
-
-    if (!*argument)
-        return;
-
-    if (!str_prefix (argument, "red"))
-    {
-        colour = (RED);
-        bright = NORMAL;
-        sprintf (buf2, "Red");
-    }
-    if (!str_prefix (argument, "hi-red"))
-    {
-        colour = (RED);
-        bright = BRIGHT;
-        sprintf (buf2, "Red");
-    }
-    else if (!str_prefix (argument, "green"))
-    {
-        colour = (GREEN);
-        bright = NORMAL;
-        sprintf (buf2, "Green");
-    }
-    else if (!str_prefix (argument, "hi-green"))
-    {
-        colour = (GREEN);
-        bright = BRIGHT;
-        sprintf (buf2, "Green");
-    }
-    else if (!str_prefix (argument, "yellow"))
-    {
-        colour = (YELLOW);
-        bright = NORMAL;
-        sprintf (buf2, "Yellow");
-    }
-    else if (!str_prefix (argument, "hi-yellow"))
-    {
-        colour = (YELLOW);
-        bright = BRIGHT;
-        sprintf (buf2, "Yellow");
-    }
-    else if (!str_prefix (argument, "blue"))
-    {
-        colour = (BLUE);
-        bright = NORMAL;
-        sprintf (buf2, "Blue");
-    }
-    else if (!str_prefix (argument, "hi-blue"))
-    {
-        colour = (BLUE);
-        bright = BRIGHT;
-        sprintf (buf2, "Blue");
-    }
-    else if (!str_prefix (argument, "magenta"))
-    {
-        colour = (MAGENTA);
-        bright = NORMAL;
-        sprintf (buf2, "Magenta");
-    }
-    else if (!str_prefix (argument, "hi-magenta"))
-    {
-        colour = (MAGENTA);
-        bright = BRIGHT;
-        sprintf (buf2, "Magenta");
-    }
-    else if (!str_prefix (argument, "cyan"))
-    {
-        colour = (CYAN);
-        bright = NORMAL;
-        sprintf (buf2, "Cyan");
-    }
-    else if (!str_prefix (argument, "hi-cyan"))
-    {
-        colour = (CYAN);
-        bright = BRIGHT;
-        sprintf (buf2, "Cyan");
-    }
-    else if (!str_prefix (argument, "white"))
-    {
-        colour = (WHITE);
-        bright = NORMAL;
-        sprintf (buf2, "White");
-    }
-    else if (!str_prefix (argument, "hi-white"))
-    {
-        colour = (WHITE);
-        bright = BRIGHT;
-        sprintf (buf2, "White");
-    }
-    else if (!str_prefix (argument, "grey"))
-    {
-        colour = (BLACK);
-        bright = BRIGHT;
-        sprintf (buf2, "White");
-    }
-    else
-    {
-        send_to_char_bw ("Unrecognised colour, unchanged.\n\r", ch);
-        return;
-    }
-
-    ch->pcdata->text[1] = colour;
-    ch->pcdata->auction[1] = colour;
-    ch->pcdata->gossip[1] = colour;
-    ch->pcdata->music[1] = colour;
-    ch->pcdata->question[1] = colour;
-    ch->pcdata->answer[1] = colour;
-    ch->pcdata->quote[1] = colour;
-    ch->pcdata->quote_text[1] = colour;
-    ch->pcdata->immtalk_text[1] = colour;
-    ch->pcdata->immtalk_type[1] = colour;
-    ch->pcdata->info[1] = colour;
-    ch->pcdata->say[1] = colour;
-    ch->pcdata->say_text[1] = colour;
-    ch->pcdata->tell[1] = colour;
-    ch->pcdata->tell_text[1] = colour;
-    ch->pcdata->reply[1] = colour;
-    ch->pcdata->reply_text[1] = colour;
-    ch->pcdata->gtell_text[1] = colour;
-    ch->pcdata->gtell_type[1] = colour;
-    ch->pcdata->wiznet[1] = colour;
-    ch->pcdata->room_title[1] = colour;
-    ch->pcdata->room_text[1] = colour;
-    ch->pcdata->room_exits[1] = colour;
-    ch->pcdata->room_things[1] = colour;
-    ch->pcdata->prompt[1] = colour;
-    ch->pcdata->fight_death[1] = colour;
-    ch->pcdata->fight_yhit[1] = colour;
-    ch->pcdata->fight_ohit[1] = colour;
-    ch->pcdata->fight_thit[1] = colour;
-    ch->pcdata->fight_skill[1] = colour;
-    ch->pcdata->text[0] = bright;
-    ch->pcdata->auction[0] = bright;
-    ch->pcdata->gossip[0] = bright;
-    ch->pcdata->music[0] = bright;
-    ch->pcdata->question[0] = bright;
-    ch->pcdata->answer[0] = bright;
-    ch->pcdata->quote[0] = bright;
-    ch->pcdata->quote_text[0] = bright;
-    ch->pcdata->immtalk_text[0] = bright;
-    ch->pcdata->immtalk_type[0] = bright;
-    ch->pcdata->info[0] = bright;
-    ch->pcdata->say[0] = bright;
-    ch->pcdata->say_text[0] = bright;
-    ch->pcdata->tell[0] = bright;
-    ch->pcdata->tell_text[0] = bright;
-    ch->pcdata->reply[0] = bright;
-    ch->pcdata->reply_text[0] = bright;
-    ch->pcdata->gtell_text[0] = bright;
-    ch->pcdata->gtell_type[0] = bright;
-    ch->pcdata->wiznet[0] = bright;
-    ch->pcdata->room_title[0] = bright;
-    ch->pcdata->room_text[0] = bright;
-    ch->pcdata->room_exits[0] = bright;
-    ch->pcdata->room_things[0] = bright;
-    ch->pcdata->prompt[0] = bright;
-    ch->pcdata->fight_death[0] = bright;
-    ch->pcdata->fight_yhit[0] = bright;
-    ch->pcdata->fight_ohit[0] = bright;
-    ch->pcdata->fight_thit[0] = bright;
-    ch->pcdata->fight_skill[0] = bright;
-
-    sprintf (buf, "All Colour settings set to %s.\n\r", buf2);
-    send_to_char_bw (buf, ch);
-
-    return;
-}
-
 
 /*
  * See if a string is one of the names of an object.
