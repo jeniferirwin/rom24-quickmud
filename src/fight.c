@@ -471,6 +471,11 @@ void one_hit (CHAR_DATA * ch, CHAR_DATA * victim, int dt)
 
     thac0 -= GET_HITROLL (ch) * skill / 100;
     thac0 += 5 * (100 - skill) / 100;
+    if (IS_SET(ch->debug,DEBUG_THAC0))
+    {
+        sprintf(buf, "thac0 after calcs: %i\n\r", thac0);
+        send_to_char(buf,ch);
+    }
 
     if (dt == gsn_backstab)
         thac0 -= 10 * (100 - get_skill (ch, gsn_backstab));
