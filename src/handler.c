@@ -2841,7 +2841,7 @@ char *affect_bit_name (int vector)
     return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
-char *debug_bit_name(int debug_flags)
+char *debug_bit_name(unsigned long long debug_flags)
 {
     static char buf[512];
     if (debug_flags & DEBUG_DAMAGE)

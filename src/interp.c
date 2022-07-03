@@ -171,6 +171,7 @@ const struct cmd_type cmd_table[] = {
     {"title",		do_title,	POS_DEAD,	0, LOG_NORMAL, 1},
     {"unalias",		do_unalias,	POS_DEAD,	0, LOG_NORMAL, 1},
     {"wimpy",		do_wimpy,	POS_DEAD,	0, LOG_NORMAL, 1},
+    {"debug",		do_debug,	POS_DEAD,	0, LOG_NORMAL, 1},
 
     /*
      * Communication commands.

@@ -2569,6 +2569,7 @@ char *    part_bit_name    args( ( unsigned long long part_flags ) );
 char *    weapon_bit_name    args( ( int weapon_flags ) );
 char *  comm_bit_name    args( ( unsigned long long comm_flags ) );
 char *    cont_bit_name    args( ( int cont_flags) );
+char *    debug_bit_name    args( ( unsigned long long debug_flags ) );
 /*
  * Colour Config
  */

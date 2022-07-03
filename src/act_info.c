@@ -2984,13 +2984,13 @@ void do_debug (CHAR_DATA * ch, char *argument)
         if (IS_SET (ch->debug, DEBUG_SKILLS))
         {
             REMOVE_BIT(ch->debug, DEBUG_SKILLS);
-            send_to_char("You will no longer see skill debug messages.",ch);
+            send_to_char("You will no longer see skill debug messages.\n\r",ch);
             return;
         }
         else
         {
             SET_BIT(ch->debug, DEBUG_SKILLS);
-            send_to_char("You will now see skill debug messages.",ch);
+            send_to_char("You will now see skill debug messages.\n\r",ch);
             return;
         }
     }
@@ -3000,13 +3000,13 @@ void do_debug (CHAR_DATA * ch, char *argument)
         if (IS_SET (ch->debug, DEBUG_DAMAGE))
         {
             REMOVE_BIT(ch->debug, DEBUG_DAMAGE);
-            send_to_char("You will no longer see damage debug messages.",ch);
+            send_to_char("You will no longer see damage debug messages.\n\r",ch);
             return;
         }
         else
         {
             SET_BIT(ch->debug, DEBUG_DAMAGE);
-            send_to_char("You will now see damage debug messages.",ch);
+            send_to_char("You will now see damage debug messages.\n\r",ch);
             return;
         }
     }
@@ -3016,13 +3016,13 @@ void do_debug (CHAR_DATA * ch, char *argument)
         if (IS_SET (ch->debug, DEBUG_HITROLL))
         {
             REMOVE_BIT(ch->debug, DEBUG_HITROLL);
-            send_to_char("You will no longer see hitroll debug messages.",ch);
+            send_to_char("You will no longer see hitroll debug messages.\n\r",ch);
             return;
         }
         else
         {
             SET_BIT(ch->debug, DEBUG_HITROLL);
-            send_to_char("You will now see hitroll debug messages.",ch);
+            send_to_char("You will now see hitroll debug messages.\n\r",ch);
             return;
         }
     }
@@ -3032,13 +3032,13 @@ void do_debug (CHAR_DATA * ch, char *argument)
         if (IS_SET (ch->debug, DEBUG_DEFENSIVE))
         {
             REMOVE_BIT(ch->debug, DEBUG_DEFENSIVE);
-            send_to_char("You will no longer see defensive debug messages.",ch);
+            send_to_char("You will no longer see defensive debug messages.\n\r",ch);
             return;
         }
         else
         {
             SET_BIT(ch->debug, DEBUG_DEFENSIVE);
-            send_to_char("You will now see defensive debug messages.",ch);
+            send_to_char("You will now see defensive debug messages.\n\r",ch);
             return;
         }
     }
@@ -3048,16 +3048,16 @@ void do_debug (CHAR_DATA * ch, char *argument)
         if (IS_SET (ch->debug, DEBUG_THAC0))
         {
             REMOVE_BIT(ch->debug, DEBUG_THAC0);
-            send_to_char("You will no longer see thac0 debug messages.",ch);
+            send_to_char("You will no longer see thac0 debug messages.\n\r",ch);
             return;
         }
         else
         {
             SET_BIT(ch->debug, DEBUG_THAC0);
-            send_to_char("You will now see thac0 debug messages.",ch);
+            send_to_char("You will now see thac0 debug messages.\n\r",ch);
             return;
         }
     }
 
-    send_to_char("Debug options: skills hitroll damage thac0",ch);
+    send_to_char("Debug options: skills hitroll damage thac0\n\r",ch);
 }
