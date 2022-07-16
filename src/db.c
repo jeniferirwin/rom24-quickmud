@@ -1981,6 +1981,8 @@ void reset_room (ROOM_INDEX_DATA * pRoom)
                 }
 
                 {
+                    /*
+                    DOWN WITH RANDOMIZED EXITS!
                     EXIT_DATA *pExit;
                     int d0;
                     int d1;
@@ -1992,6 +1994,7 @@ void reset_room (ROOM_INDEX_DATA * pRoom)
                         pRoomIndex->exit[d0] = pRoomIndex->exit[d1];
                         pRoomIndex->exit[d1] = pExit;
                     }
+                    */
                 }
                 break;
         }
