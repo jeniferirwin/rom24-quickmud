@@ -563,6 +563,12 @@ void one_hit (CHAR_DATA * ch, CHAR_DATA * victim, int dt)
         else
         {
             dam = dice (ch->damage[DICE_NUMBER], ch->damage[DICE_TYPE]);
+            if (IS_SET(ch->debug,DEBUG_DAMAGE))
+            {
+                sprintf(buf, "Raw damage: %i\n\r",
+                    dam);
+                send_to_char(buf,ch);
+            }
 
         }
 
@@ -587,7 +593,29 @@ void one_hit (CHAR_DATA * ch, CHAR_DATA * victim, int dt)
                 int percent;
 
                 if ((percent = number_percent ()) <= (skill / 8))
+                {
+                    int dam_original = dam;
                     dam = 2 * dam + (dam * 2 * percent / 100);
+
+                    if (IS_SET(ch->debug,DEBUG_DAMAGE))
+                    {
+                        sprintf(buf, "if ((percent [%i] = number_percent()) <= (skill [%i] / 8) [%i])\n\r",
+                            percent, skill, skill / 8);
+                        send_to_char(buf,ch);
+                        sprintf(buf, "dam = 2 * dam + (dam * 2 * percent / 100)\n\r");
+                        send_to_char(buf,ch);
+                        sprintf(buf, "dam = 2 * %i + (%i * 2 * %i / 100)\n\r", dam_original, dam_original, percent);
+                        send_to_char(buf,ch);
+                        sprintf(buf, "dam = %i + (%i * %i / 100)\n\r", dam_original * 2, dam_original * 2, percent);
+                        send_to_char(buf,ch);
+                        sprintf(buf, "dam = %i + (%i / 100)\n\r", dam_original * 2, dam_original * 2 * percent);
+                        send_to_char(buf,ch);
+                        sprintf(buf, "dam = %i + %i\n\r", dam_original * 2, dam_original * 2 * percent / 100);
+                        send_to_char(buf,ch);
+                        sprintf(buf, "%i\n\r", (dam_original * 2) + (dam_original * 2 * percent / 100));
+                        send_to_char(buf,ch);
+                    }
+                }
             }
         }
         else
@@ -612,7 +640,22 @@ void one_hit (CHAR_DATA * ch, CHAR_DATA * victim, int dt)
     if (!IS_AWAKE (victim))
         dam *= 2;
     else if (victim->position < POS_FIGHTING)
+    {
+        int dam_original = dam;
         dam = dam * 3 / 2;
+        
+        if (IS_SET(ch->debug,DEBUG_DAMAGE))
+        {
+            sprintf(buf, "dam = dam * 3 / 2\n\r");
+            send_to_char(buf,ch);
+            sprintf(buf, "dam = %i * 3 / 2\n\r", dam_original);
+            send_to_char(buf,ch);
+            sprintf(buf, "dam = %i / 2\n\r", dam_original * 3);
+            send_to_char(buf,ch);
+            sprintf(buf, "dam = %i\n\r", dam_original * 3 / 2);
+            send_to_char(buf,ch);
+        }
+    }
 
     if (dt == gsn_backstab && wield != NULL)
     {
@@ -623,6 +666,19 @@ void one_hit (CHAR_DATA * ch, CHAR_DATA * victim, int dt)
     }
 
     dam += GET_DAMROLL (ch) * UMIN (100, skill) / 100;
+    if (IS_SET(ch->debug,DEBUG_DAMAGE))
+    {
+        sprintf(buf, "dam += GET_DAMROLL (ch) * UMIN (100, skill) / 100\n\r");
+        send_to_char(buf,ch);
+        sprintf(buf, "dam += %i * UMIN (100, skill) / 100\n\r", GET_DAMROLL(ch));
+        send_to_char(buf,ch);
+        sprintf(buf, "dam += %i * %i / 100\n\r", GET_DAMROLL(ch), UMIN (100, skill));
+        send_to_char(buf,ch);
+        sprintf(buf, "dam += %i * %i\n\r", GET_DAMROLL(ch), UMIN (100, skill) / 100);
+        send_to_char(buf,ch);
+        sprintf(buf, "dam += %i\n\r", GET_DAMROLL(ch) * UMIN (100, skill) / 100);
+        send_to_char(buf,ch);
+    }
 
     if (dam <= 0)
         dam = 1;
