@@ -471,6 +471,7 @@ void one_hit (CHAR_DATA * ch, CHAR_DATA * victim, int dt)
 
     thac0 -= GET_HITROLL (ch) * skill / 100;
     thac0 += 5 * (100 - skill) / 100;
+
     if (IS_SET(ch->debug,DEBUG_THAC0))
     {
         sprintf(buf, "thac0 after calcs: %i\n\r", thac0);
@@ -495,19 +496,33 @@ void one_hit (CHAR_DATA * ch, CHAR_DATA * victim, int dt)
             victim_ac = GET_AC (victim, AC_EXOTIC) / 10;
             break;
     };
+    
+    int debug_base_ac = victim_ac;
 
     if (victim_ac < -15)
         victim_ac = (victim_ac + 15) / 5 - 15;
+    
+    int debug_squashed_ac = victim_ac;
 
     if (!can_see (ch, victim))
         victim_ac -= 4;
+    
+    int debug_blind_ac = victim_ac;
 
     if (victim->position < POS_FIGHTING)
         victim_ac += 4;
 
     if (victim->position < POS_RESTING)
         victim_ac += 6;
+    
+    int debug_pos_ac = victim_ac;
 
+    if (IS_SET(ch->debug,DEBUG_THAC0))
+    {
+        sprintf(buf, "AC: Base [%i] Squashed [%i] Blind [%i] Position [%i]\n\r",
+            debug_base_ac,debug_squashed_ac,debug_blind_ac,debug_pos_ac);
+        send_to_char(buf,ch);
+    }
     /*
      * The moment of excitement!
      */
