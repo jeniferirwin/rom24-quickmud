@@ -528,8 +528,21 @@ void one_hit (CHAR_DATA * ch, CHAR_DATA * victim, int dt)
      */
     while ((diceroll = number_bits (5)) >= 20);
 
+    if (IS_SET(ch->debug,DEBUG_DAMAGE))
+    {
+        sprintf(buf, "diceroll: %i\n\r", diceroll);
+        send_to_char(buf,ch);
+    }
+
     if (diceroll == 0 || (diceroll != 19 && diceroll < thac0 - victim_ac))
     {
+        if (IS_SET(ch->debug,DEBUG_THAC0))
+        {
+            sprintf(buf, "Missed: Diceroll [%i] < %i (thac0 [%i] - victim_ac [%i])\n\r",
+                diceroll, thac0 - victim_ac, thac0, victim_ac);
+            send_to_char(buf,ch);
+        }
+
         /* Miss. */
         damage (ch, victim, 0, dt, dam_type, TRUE);
         tail_chain ();

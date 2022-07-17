@@ -3578,7 +3578,12 @@ int number_door (void)
 
 int number_bits (int width)
 {
-    return number_mm () & ((1 << width) - 1);
+    //char buf[128];
+    //return number_mm () & ((1 << width) - 1);
+    int roll = number_mm () & ((1 << width) - 1);
+    //sprintf(buf, "%i", roll);
+    //log_string(buf);
+    return roll;
 }
 
 
