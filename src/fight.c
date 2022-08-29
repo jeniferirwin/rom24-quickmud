@@ -394,7 +394,7 @@ void one_hit (CHAR_DATA * ch, CHAR_DATA * victim, int dt)
     int diceroll;
     int sn, skill;
     int dam_type;
-    char buf[512];
+    char buf[512] = {0};
     bool result;
 
     sn = -1;
@@ -1340,7 +1340,7 @@ bool is_safe_spell (CHAR_DATA * ch, CHAR_DATA * victim, bool area)
  */
 void check_killer (CHAR_DATA * ch, CHAR_DATA * victim)
 {
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     /*
      * Follow charm thread to responsible character.
      * Attacking someone's charmed char is hostile!
@@ -1364,7 +1364,7 @@ void check_killer (CHAR_DATA * ch, CHAR_DATA * victim)
     {
         if (ch->master == NULL)
         {
-            char buf[MAX_STRING_LENGTH];
+            char buf[MAX_STRING_LENGTH] = {0};
 
             sprintf (buf, "Check_killer: %s bad AFF_CHARM",
                      IS_NPC (ch) ? ch->short_descr : ch->name);
@@ -1574,7 +1574,7 @@ void stop_fighting (CHAR_DATA * ch, bool fBoth)
  */
 void make_corpse (CHAR_DATA * ch)
 {
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     OBJ_DATA *corpse;
     OBJ_DATA *obj;
     OBJ_DATA *obj_next;
@@ -1756,7 +1756,7 @@ void death_cry (CHAR_DATA * ch)
 
     if (vnum != 0)
     {
-        char buf[MAX_STRING_LENGTH];
+        char buf[MAX_STRING_LENGTH] = {0};
         OBJ_DATA *obj;
         char *name;
 
@@ -1841,7 +1841,7 @@ void raw_kill (CHAR_DATA * victim)
 
 void group_gain (CHAR_DATA * ch, CHAR_DATA * victim)
 {
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     CHAR_DATA *gch;
     //CHAR_DATA *lch;
     int xp;
@@ -1987,10 +1987,10 @@ int xp_compute (CHAR_DATA * gch, CHAR_DATA * victim, int total_levels)
             break;
     }
 
-    xp = base_exp;
     if (level_range > 4)
-        xp = 160 + 20 * (level_range - 4);
+        base_exp = 160 + 20 * (level_range - 4);
 
+    xp = (base_exp * 6) / 5;
     xp = number_range (xp * 3 / 4, xp * 5 / 4);
     return xp;
 }
@@ -1999,11 +1999,11 @@ int xp_compute (CHAR_DATA * gch, CHAR_DATA * victim, int total_levels)
 void dam_message (CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt,
                   bool immune)
 {
-    char buf1[256], buf2[256], buf3[256];
+    char buf1[256], buf2[256], buf3[256] = {0};
     const char *vs;
     const char *vp;
     const char *attack;
-    char punct;
+    char punct = {0};
 
     if (ch == NULL || victim == NULL)
         return;
@@ -2015,112 +2015,112 @@ void dam_message (CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt,
     }
     else if (dam <= 4)
     {
-        vs = "#rscratch#w";
-        vp = "#rscratches#w";
+        vs = "#rscratch#n";
+        vp = "#rscratches#n";
     }
     else if (dam <= 8)
     {
-        vs = "#rgraze#w";
-        vp = "#rgrazes#w";
+        vs = "#rgraze#n";
+        vp = "#rgrazes#n";
     }
     else if (dam <= 12)
     {
-        vs = "#rhit#w";
-        vp = "#rhits#w";
+        vs = "#rhit#n";
+        vp = "#rhits#n";
     }
     else if (dam <= 16)
     {
-        vs = "#rinjure#w";
-        vp = "#rinjures#w";
+        vs = "#rinjure#n";
+        vp = "#rinjures#n";
     }
     else if (dam <= 20)
     {
-        vs = "#rwound#w";
-        vp = "#rwounds#w";
+        vs = "#rwound#n";
+        vp = "#rwounds#n";
     }
     else if (dam <= 24)
     {
-        vs = "#rmaul#w";
-        vp = "#rmauls#w";
+        vs = "#rmaul#n";
+        vp = "#rmauls#n";
     }
     else if (dam <= 28)
     {
-        vs = "#rdecimate#w";
-        vp = "#rdecimates#w";
+        vs = "#rdecimate#n";
+        vp = "#rdecimates#n";
     }
     else if (dam <= 32)
     {
-        vs = "#rdevastate#w";
-        vp = "#rdevastates#w";
+        vs = "#rdevastate#n";
+        vp = "#rdevastates#n";
         
     }
     else if (dam <= 36)
     {
-        vs = "#rmaim#w";
-        vp = "#rmaims#w";
+        vs = "#rmaim#n";
+        vp = "#rmaims#n";
     }
     else if (dam <= 40)
     {
-        vs = "#rMUTILATE#w";
-        vp = "#rMUTILATES#w";
+        vs = "#rMUTILATE#n";
+        vp = "#rMUTILATES#n";
     }
     else if (dam <= 44)
     {
-        vs = "#rDISEMBOWEL#w";
-        vp = "#rDISEMBOWELS#w";
+        vs = "#rDISEMBOWEL#n";
+        vp = "#rDISEMBOWELS#n";
     }
     else if (dam <= 48)
     {
-        vs = "#rDISMEMBER#w";
-        vp = "#rDISMEMBERS#w";
+        vs = "#rDISMEMBER#n";
+        vp = "#rDISMEMBERS#n";
     }
     else if (dam <= 52)
     {
-        vs = "#rMASSACRE#w";
-        vp = "#rMASSACRES#w";
+        vs = "#rMASSACRE#n";
+        vp = "#rMASSACRES#n";
     }
     else if (dam <= 56)
     {
-        vs = "#rMANGLE#w";
-        vp = "#rMANGLES#w";
+        vs = "#rMANGLE#n";
+        vp = "#rMANGLES#n";
     }
     else if (dam <= 60)
     {
-        vs = "#W*** DEMOLISH ***#w";
-        vp = "#W*** DEMOLISHES ***#w";
+        vs = "#W*** DEMOLISH ***#n";
+        vp = "#W*** DEMOLISHES ***#n";
     }
     else if (dam <= 75)
     {
-        vs = "#W*** #rDEV#RAST#rATE #W***#w";
-        vp = "#W*** #rDEV#RAST#rATES #W***#w";
+        vs = "#W*** #rDEV#RAST#rATE #W***#n";
+        vp = "#W*** #rDEV#RAST#rATES #W***#n";
     }
     else if (dam <= 100)
     {
-        vs = "#w=== #mOBLITERATE #w===#w";
-        vp = "#w=== #mOBLITERATES #w===#w";
+        vs = "#w=== #pOBLITERATE #w===#n";
+        vp = "#w=== #pOBLITERATES #w===#n";
     }
     else if (dam <= 125)
     {
-        vs = "#w>>> #BANNIHILATE #w<<<#w";
-        vp = "#w>>> #BANNIHILATES #w<<<#w";
+        vs = "#w>>> #UANNIHILATE #w<<<#n";
+        vp = "#w>>> #UANNIHILATES #w<<<#n";
         
     }
     else if (dam <= 150)
     {
-        vs = "#w<<< #YERADICATE #w>>>#w";
-        vp = "#w<<< #YERADICATES #w>>>#w";
+        vs = "#w<<< #OERADICATE #w>>>#n";
+        vp = "#w<<< #OERADICATES #w>>>#n";
         
     }
     else if (dam <= 300)
     {
-        vs = "#wdo really #DUNKIND#w things to#w";
-        vp = "#wdoes really #DUNKIND#w things to#w";
+        vs = "#wdo really #AUNKIND#w things to#n";
+        vp = "#wdoes really #AUNKIND#w things to#n";
         
     }
     else
     {
-        vs = "#wdo ...#DUNSPEAKABLE#w... things to#w";
-        vp = "#wdoes ...#DUNSPEAKABLE#w... to#w";
+        vs = "#wdo ...#AUNSPEAKABLE#w... things to#n";
+        vp = "#wdoes ...#AUNSPEAKABLE#w... to#n";
     }
 
     punct = (dam <= 24) ? '.' : '!';
@@ -2329,7 +2329,7 @@ void do_berserk (CHAR_DATA * ch, char *argument)
 
 void do_bash (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     CHAR_DATA *victim;
     int chance;
 
@@ -2459,7 +2459,7 @@ void do_bash (CHAR_DATA * ch, char *argument)
 
 void do_dirt (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     CHAR_DATA *victim;
     int chance;
 
@@ -2611,7 +2611,7 @@ void do_dirt (CHAR_DATA * ch, char *argument)
 
 void do_trip (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     CHAR_DATA *victim;
     int chance;
 
@@ -2728,7 +2728,7 @@ void do_trip (CHAR_DATA * ch, char *argument)
 
 void do_kill (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     CHAR_DATA *victim;
 
     one_argument (argument, arg);
@@ -2801,8 +2801,8 @@ void do_murde (CHAR_DATA * ch, char *argument)
 
 void do_murder (CHAR_DATA * ch, char *argument)
 {
-    char buf[MAX_STRING_LENGTH];
-    char arg[MAX_INPUT_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
+    char arg[MAX_INPUT_LENGTH] = {0};
     CHAR_DATA *victim;
 
     one_argument (argument, arg);
@@ -2866,7 +2866,7 @@ void do_murder (CHAR_DATA * ch, char *argument)
 
 void do_backstab (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     CHAR_DATA *victim;
     OBJ_DATA *obj;
 
@@ -3002,7 +3002,7 @@ void do_flee (CHAR_DATA * ch, char *argument)
 
 void do_rescue (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     CHAR_DATA *victim;
     CHAR_DATA *fch;
 
@@ -3223,7 +3223,7 @@ void do_sla (CHAR_DATA * ch, char *argument)
 void do_slay (CHAR_DATA * ch, char *argument)
 {
     CHAR_DATA *victim;
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
 
     one_argument (argument, arg);
     if (arg[0] == '\0')

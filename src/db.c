@@ -167,7 +167,7 @@ AREA_DATA *current_area;
 
 char *string_space;
 char *top_string;
-char str_empty[1];
+char str_empty[1] = {0};
 
 int top_affect;
 int top_area;
@@ -214,7 +214,7 @@ int sAllocPerm;
  */
 bool fBootDb;
 FILE *fpArea;
-char strArea[MAX_INPUT_LENGTH];
+char strArea[MAX_INPUT_LENGTH] = {0};
 
 
 
@@ -674,7 +674,7 @@ void load_old_mob (FILE * fp)
     MOB_INDEX_DATA *pMobIndex;
     /* for race updating */
     int race;
-    char name[MAX_STRING_LENGTH];
+    char name[MAX_STRING_LENGTH] = {0};
 
     if (!area_last)
     {                            /* OLC */
@@ -685,7 +685,7 @@ void load_old_mob (FILE * fp)
     for (;;)
     {
         sh_int vnum;
-        char letter;
+        char letter = {0};
         int iHash;
 
         letter = fread_letter (fp);
@@ -829,7 +829,7 @@ void load_old_obj (FILE * fp)
     for (;;)
     {
         sh_int vnum;
-        char letter;
+        char letter = {0};
         int iHash;
 
         letter = fread_letter (fp);
@@ -890,7 +890,7 @@ void load_old_obj (FILE * fp)
 
         for (;;)
         {
-            char letter;
+            char letter = {0};
 
             letter = fread_letter (fp);
 
@@ -1016,7 +1016,7 @@ void load_resets (FILE * fp)
 
     for (;;)
     {
-        char letter;
+        char letter = {0};
 
         if ((letter = fread_letter (fp)) == 'S')
             break;
@@ -1118,7 +1118,7 @@ void load_rooms (FILE * fp)
     for (;;)
     {
         sh_int vnum;
-        char letter;
+        char letter = {0};
         int door;
         int iHash;
 
@@ -1341,7 +1341,7 @@ void load_specials (FILE * fp)
     for (;;)
     {
         MOB_INDEX_DATA *pMobIndex;
-        char letter;
+        char letter = {0};
 
         switch (letter = fread_letter (fp))
         {
@@ -1379,7 +1379,7 @@ void load_specials (FILE * fp)
 void fix_exits (void)
 {
     extern const sh_int rev_dir[];
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     ROOM_INDEX_DATA *pRoomIndex;
     ROOM_INDEX_DATA *to_room;
     EXIT_DATA *pexit;
@@ -1524,7 +1524,7 @@ void load_mobprogs (FILE * fp)
     for (;;)
     {
         sh_int vnum;
-        char letter;
+        char letter = {0};
 
         letter = fread_letter (fp);
         if (letter != '#')
@@ -1597,7 +1597,7 @@ void fix_mobprogs (void)
 void area_update (void)
 {
     AREA_DATA *pArea;
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
 
     for (pArea = area_first; pArea != NULL; pArea = pArea->next)
     {
@@ -1674,7 +1674,7 @@ void reset_room (ROOM_INDEX_DATA * pRoom)
         OBJ_INDEX_DATA *pObjIndex;
         OBJ_INDEX_DATA *pObjToIndex;
         ROOM_INDEX_DATA *pRoomIndex;
-        char buf[MAX_STRING_LENGTH];
+        char buf[MAX_STRING_LENGTH] = {0};
         int count, limit = 0;
 
         switch (pReset->command)
@@ -2705,7 +2705,7 @@ MPROG_CODE *get_mprog_index (int vnum)
  */
 char fread_letter (FILE * fp)
 {
-    char c;
+    char c = {0};
 
     do
     {
@@ -2725,7 +2725,7 @@ int fread_number (FILE * fp)
 {
     int number;
     bool sign;
-    char c;
+    char c = {0};
 
     do
     {
@@ -2772,7 +2772,7 @@ int fread_number (FILE * fp)
 unsigned long long fread_flag (FILE * fp)
 {
     unsigned long long number;
-    char c;
+    char c = {0};
     bool negative = FALSE;
 
     do
@@ -2819,7 +2819,7 @@ unsigned long long fread_flag (FILE * fp)
 unsigned long long flag_convert (char letter)
 {
     unsigned long long bitsum = 0;
-    char i;
+    char i = {0};
 
     if ('A' <= letter && letter <= 'Z')
     {
@@ -2851,7 +2851,7 @@ unsigned long long flag_convert (char letter)
 char *fread_string (FILE * fp)
 {
     char *plast;
-    char c;
+    char c = {0};
 
     plast = top_string + sizeof (char *);
     if (plast > &string_space[MAX_STRING - MAX_STRING_LENGTH])
@@ -2956,7 +2956,7 @@ char *fread_string_eol (FILE * fp)
 {
     static bool char_special[256 - EOF];
     char *plast;
-    char c;
+    char c = {0};
 
     if (char_special[EOF - EOF] != TRUE)
     {
@@ -3057,7 +3057,7 @@ char *fread_string_eol (FILE * fp)
  */
 void fread_to_eol (FILE * fp)
 {
-    char c;
+    char c = {0};
 
     do
     {
@@ -3084,7 +3084,7 @@ char *fread_word (FILE * fp)
 {
     static char word[MAX_INPUT_LENGTH];
     char *pword;
-    char cEnd;
+    char cEnd = {0};
 
     do
     {
@@ -3282,7 +3282,7 @@ void free_string (char *pstr)
 
 void do_areas (CHAR_DATA * ch, char *argument)
 {
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     AREA_DATA *pArea1;
     AREA_DATA *pArea2;
     int iArea;
@@ -3317,7 +3317,7 @@ void do_areas (CHAR_DATA * ch, char *argument)
 
 void do_memory (CHAR_DATA * ch, char *argument)
 {
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
 
     sprintf (buf, "Affects %5d\n\r", top_affect);
     send_to_char (buf, ch);
@@ -3791,7 +3791,7 @@ bool str_infix (const char *astr, const char *bstr)
     int sstr1;
     int sstr2;
     int ichar;
-    char c0;
+    char c0 = {0};
 
     if ((c0 = LOWER (astr[0])) == '\0')
         return FALSE;
@@ -3880,7 +3880,7 @@ void append_file (CHAR_DATA * ch, char *file, char *str)
  */
 void bug (const char *str, int param)
 {
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
 
     if (fpArea != NULL)
     {

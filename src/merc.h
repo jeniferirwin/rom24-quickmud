@@ -152,7 +152,7 @@ typedef void SPELL_FUN args( ( int sn, int level, CHAR_DATA *ch, void *vo,
 #define MAX_CMD_LEN			50
 
 #define PULSE_PER_SECOND    4
-#define PULSE_VIOLENCE      ( 3 * PULSE_PER_SECOND)
+#define PULSE_VIOLENCE      ( 1 * PULSE_PER_SECOND)
 #define PULSE_MOBILE        ( 4 * PULSE_PER_SECOND)
 #define PULSE_MUSIC         ( 6 * PULSE_PER_SECOND)
 #define PULSE_TICK          (60 * PULSE_PER_SECOND)
@@ -2559,7 +2559,7 @@ bool    can_see_room    args( ( CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex) );
 bool    can_drop_obj    args( ( CHAR_DATA *ch, OBJ_DATA *obj ) );
 char *    affect_loc_name    args( ( int location ) );
 char *    affect_bit_name    args( ( int vector ) );
-char *    debug_bit_name    args( ( int debug_flags) );
+char *    debug_bit_name    args( ( unsigned long long debug_flags) );
 char *    extra_bit_name    args( ( int extra_flags ) );
 char *     wear_bit_name    args( ( unsigned long long wear_flags ) );
 char *    act_bit_name    args( ( unsigned long long act_flags ) );

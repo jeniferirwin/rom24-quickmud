@@ -314,7 +314,7 @@ static void load_board (BOARD_DATA *board)
     for ( ; ; )
     {
         NOTE_DATA *pnote;
-        char letter;
+        char letter = {0};
 
         do
         {

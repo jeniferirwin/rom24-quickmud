@@ -125,8 +125,8 @@ const struct olc_help_type help_table[] = {
  ****************************************************************************/
 void show_flag_cmds (CHAR_DATA * ch, const struct flag_type *flag_table)
 {
-    char buf[MAX_STRING_LENGTH];
-    char buf1[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
+    char buf1[MAX_STRING_LENGTH] = {0};
     int flag;
     int col;
 
@@ -162,7 +162,7 @@ void show_flag_cmds (CHAR_DATA * ch, const struct flag_type *flag_table)
  ****************************************************************************/
 void show_skill_cmds (CHAR_DATA * ch, int tar)
 {
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     char buf1[MAX_STRING_LENGTH * 2];
     int sn;
     int col;
@@ -203,8 +203,8 @@ void show_skill_cmds (CHAR_DATA * ch, int tar)
  ****************************************************************************/
 void show_spec_cmds (CHAR_DATA * ch)
 {
-    char buf[MAX_STRING_LENGTH];
-    char buf1[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
+    char buf1[MAX_STRING_LENGTH] = {0};
     int spec;
     int col;
 
@@ -235,9 +235,9 @@ void show_spec_cmds (CHAR_DATA * ch)
  ****************************************************************************/
 bool show_help (CHAR_DATA * ch, char *argument)
 {
-    char buf[MAX_STRING_LENGTH];
-    char arg[MAX_INPUT_LENGTH];
-    char spell[MAX_INPUT_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
+    char arg[MAX_INPUT_LENGTH] = {0};
+    char spell[MAX_INPUT_LENGTH] = {0};
     int cnt;
 
     argument = one_argument (argument, arg);
@@ -330,9 +330,9 @@ REDIT (redit_rlist)
 {
     ROOM_INDEX_DATA *pRoomIndex;
     AREA_DATA *pArea;
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     BUFFER *buf1;
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     bool found;
     int vnum;
     int col = 0;
@@ -375,9 +375,9 @@ REDIT (redit_mlist)
 {
     MOB_INDEX_DATA *pMobIndex;
     AREA_DATA *pArea;
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     BUFFER *buf1;
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     bool fAll, found;
     int vnum;
     int col = 0;
@@ -432,9 +432,9 @@ REDIT (redit_olist)
 {
     OBJ_INDEX_DATA *pObjIndex;
     AREA_DATA *pArea;
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     BUFFER *buf1;
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     bool fAll, found;
     int vnum;
     int col = 0;
@@ -606,7 +606,7 @@ AREA_DATA *get_vnum_area (int vnum)
 AEDIT (aedit_show)
 {
     AREA_DATA *pArea;
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
 
     EDIT_AREA (ch, pArea);
 
@@ -722,7 +722,7 @@ AEDIT (aedit_credits)
 AEDIT (aedit_file)
 {
     AREA_DATA *pArea;
-    char file[MAX_STRING_LENGTH];
+    char file[MAX_STRING_LENGTH] = {0};
     int i, length;
 
     EDIT_AREA (ch, pArea);
@@ -770,7 +770,7 @@ AEDIT (aedit_file)
 AEDIT (aedit_age)
 {
     AREA_DATA *pArea;
-    char age[MAX_STRING_LENGTH];
+    char age[MAX_STRING_LENGTH] = {0};
 
     EDIT_AREA (ch, pArea);
 
@@ -793,7 +793,7 @@ AEDIT (aedit_age)
 AEDIT (aedit_recall)
 {
     AREA_DATA *pArea;
-    char room[MAX_STRING_LENGTH];
+    char room[MAX_STRING_LENGTH] = {0};
     int value;
 
     EDIT_AREA (ch, pArea);
@@ -825,8 +825,8 @@ AEDIT (aedit_recall)
 AEDIT (aedit_security)
 {
     AREA_DATA *pArea;
-    char sec[MAX_STRING_LENGTH];
-    char buf[MAX_STRING_LENGTH];
+    char sec[MAX_STRING_LENGTH] = {0};
+    char buf[MAX_STRING_LENGTH] = {0};
     int value;
 
     EDIT_AREA (ch, pArea);
@@ -864,8 +864,8 @@ AEDIT (aedit_security)
 AEDIT (aedit_builder)
 {
     AREA_DATA *pArea;
-    char name[MAX_STRING_LENGTH];
-    char buf[MAX_STRING_LENGTH];
+    char name[MAX_STRING_LENGTH] = {0};
+    char buf[MAX_STRING_LENGTH] = {0};
 
     EDIT_AREA (ch, pArea);
 
@@ -924,8 +924,8 @@ AEDIT (aedit_builder)
 AEDIT (aedit_vnum)
 {
     AREA_DATA *pArea;
-    char lower[MAX_STRING_LENGTH];
-    char upper[MAX_STRING_LENGTH];
+    char lower[MAX_STRING_LENGTH] = {0};
+    char upper[MAX_STRING_LENGTH] = {0};
     int ilower;
     int iupper;
 
@@ -979,7 +979,7 @@ AEDIT (aedit_vnum)
 AEDIT (aedit_lvnum)
 {
     AREA_DATA *pArea;
-    char lower[MAX_STRING_LENGTH];
+    char lower[MAX_STRING_LENGTH] = {0};
     int ilower;
     int iupper;
 
@@ -1022,7 +1022,7 @@ AEDIT (aedit_lvnum)
 AEDIT (aedit_uvnum)
 {
     AREA_DATA *pArea;
-    char upper[MAX_STRING_LENGTH];
+    char upper[MAX_STRING_LENGTH] = {0};
     int ilower;
     int iupper;
 
@@ -1068,7 +1068,7 @@ AEDIT (aedit_uvnum)
 REDIT (redit_show)
 {
     ROOM_INDEX_DATA *pRoom;
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     char buf1[2 * MAX_STRING_LENGTH];
     OBJ_DATA *obj;
     CHAR_DATA *rch;
@@ -1176,8 +1176,8 @@ REDIT (redit_show)
 
         if ((pexit = pRoom->exit[door]))
         {
-            char word[MAX_INPUT_LENGTH];
-            char reset_state[MAX_STRING_LENGTH];
+            char word[MAX_INPUT_LENGTH] = {0};
+            char reset_state[MAX_STRING_LENGTH] = {0};
             char *state;
             int i, length;
 
@@ -1242,8 +1242,8 @@ REDIT (redit_show)
 bool change_exit (CHAR_DATA * ch, char *argument, int door)
 {
     ROOM_INDEX_DATA *pRoom;
-    char command[MAX_INPUT_LENGTH];
-    char arg[MAX_INPUT_LENGTH];
+    char command[MAX_INPUT_LENGTH] = {0};
+    char arg[MAX_INPUT_LENGTH] = {0};
     int value;
 
     EDIT_ROOM (ch, pRoom);
@@ -1388,7 +1388,7 @@ bool change_exit (CHAR_DATA * ch, char *argument, int door)
 
     if (!str_cmp (command, "dig"))
     {
-        char buf[MAX_STRING_LENGTH];
+        char buf[MAX_STRING_LENGTH] = {0};
 
         if (arg[0] == '\0' || !is_number (arg))
         {
@@ -1580,8 +1580,8 @@ REDIT (redit_ed)
 {
     ROOM_INDEX_DATA *pRoom;
     EXTRA_DESCR_DATA *ed;
-    char command[MAX_INPUT_LENGTH];
-    char keyword[MAX_INPUT_LENGTH];
+    char command[MAX_INPUT_LENGTH] = {0};
+    char keyword[MAX_INPUT_LENGTH] = {0};
 
     EDIT_ROOM (ch, pRoom);
 
@@ -1869,11 +1869,11 @@ REDIT (redit_mreset)
     ROOM_INDEX_DATA *pRoom;
     MOB_INDEX_DATA *pMobIndex;
     CHAR_DATA *newmob;
-    char arg[MAX_INPUT_LENGTH];
-    char arg2[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
+    char arg2[MAX_INPUT_LENGTH] = {0};
 
     RESET_DATA *pReset;
-    char output[MAX_STRING_LENGTH];
+    char output[MAX_STRING_LENGTH] = {0};
 
     EDIT_ROOM (ch, pRoom);
 
@@ -2006,12 +2006,12 @@ REDIT (redit_oreset)
     OBJ_DATA *newobj;
     OBJ_DATA *to_obj;
     CHAR_DATA *to_mob;
-    char arg1[MAX_INPUT_LENGTH];
-    char arg2[MAX_INPUT_LENGTH];
+    char arg1[MAX_INPUT_LENGTH] = {0};
+    char arg2[MAX_INPUT_LENGTH] = {0};
     int olevel = 0;
 
     RESET_DATA *pReset;
-    char output[MAX_STRING_LENGTH];
+    char output[MAX_STRING_LENGTH] = {0};
 
     EDIT_ROOM (ch, pRoom);
 
@@ -2209,7 +2209,7 @@ REDIT (redit_oreset)
  */
 void show_obj_values (CHAR_DATA * ch, OBJ_INDEX_DATA * obj)
 {
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
 
     switch (obj->item_type)
     {
@@ -2733,7 +2733,7 @@ bool set_obj_values (CHAR_DATA * ch, OBJ_INDEX_DATA * pObj, int value_num,
 OEDIT (oedit_show)
 {
     OBJ_INDEX_DATA *pObj;
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     AFFECT_DATA *paf;
     int cnt;
 
@@ -2820,8 +2820,8 @@ OEDIT (oedit_addaffect)
     int value;
     OBJ_INDEX_DATA *pObj;
     AFFECT_DATA *pAf;
-    char loc[MAX_STRING_LENGTH];
-    char mod[MAX_STRING_LENGTH];
+    char loc[MAX_STRING_LENGTH] = {0};
+    char mod[MAX_STRING_LENGTH] = {0};
 
     EDIT_OBJ (ch, pObj);
 
@@ -2861,10 +2861,10 @@ OEDIT (oedit_addapply)
     int value, bv, typ;
     OBJ_INDEX_DATA *pObj;
     AFFECT_DATA *pAf;
-    char loc[MAX_STRING_LENGTH];
-    char mod[MAX_STRING_LENGTH];
-    char type[MAX_STRING_LENGTH];
-    char bvector[MAX_STRING_LENGTH];
+    char loc[MAX_STRING_LENGTH] = {0};
+    char mod[MAX_STRING_LENGTH] = {0};
+    char type[MAX_STRING_LENGTH] = {0};
+    char bvector[MAX_STRING_LENGTH] = {0};
 
     EDIT_OBJ (ch, pObj);
 
@@ -2928,7 +2928,7 @@ OEDIT (oedit_delaffect)
     OBJ_INDEX_DATA *pObj;
     AFFECT_DATA *pAf;
     AFFECT_DATA *pAf_next;
-    char affect[MAX_STRING_LENGTH];
+    char affect[MAX_STRING_LENGTH] = {0};
     int value;
     int cnt = 0;
 
@@ -3230,8 +3230,8 @@ OEDIT (oedit_ed)
 {
     OBJ_INDEX_DATA *pObj;
     EXTRA_DESCR_DATA *ed;
-    char command[MAX_INPUT_LENGTH];
-    char keyword[MAX_INPUT_LENGTH];
+    char command[MAX_INPUT_LENGTH] = {0};
+    char keyword[MAX_INPUT_LENGTH] = {0};
 
     EDIT_OBJ (ch, pObj);
 
@@ -3516,7 +3516,7 @@ OEDIT (oedit_condition)
 MEDIT (medit_show)
 {
     MOB_INDEX_DATA *pMob;
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     MPROG_LIST *list;
 
     EDIT_MOB (ch, pMob);
@@ -3929,8 +3929,8 @@ MEDIT (medit_name)
 MEDIT (medit_shop)
 {
     MOB_INDEX_DATA *pMob;
-    char command[MAX_INPUT_LENGTH];
-    char arg1[MAX_INPUT_LENGTH];
+    char command[MAX_INPUT_LENGTH] = {0};
+    char arg1[MAX_INPUT_LENGTH] = {0};
 
     argument = one_argument (argument, command);
     argument = one_argument (argument, arg1);
@@ -4003,7 +4003,7 @@ MEDIT (medit_shop)
 
     if (!str_cmp (command, "type"))
     {
-        char buf[MAX_INPUT_LENGTH];
+        char buf[MAX_INPUT_LENGTH] = {0};
         int value;
 
         if (arg1[0] == '\0' || !is_number (arg1) || argument[0] == '\0')
@@ -4140,7 +4140,7 @@ MEDIT (medit_act)
 {                                /* Moved out of medit() due to naming conflicts -- Hugin */
     MOB_INDEX_DATA *pMob;
     unsigned long long value;
-    char buf[4096];
+    char buf[4096] = {0};
 
     if (argument[0] != '\0')
     {
@@ -4192,7 +4192,7 @@ MEDIT (medit_affect)
 MEDIT (medit_ac)
 {
     MOB_INDEX_DATA *pMob;
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     int pierce, bash, slash, exotic;
 
     do
@@ -4618,7 +4618,7 @@ MEDIT (medit_race)
 
     if (argument[0] == '?')
     {
-        char buf[MAX_STRING_LENGTH];
+        char buf[MAX_STRING_LENGTH] = {0};
 
         send_to_char ("Available races are:", ch);
 
@@ -4643,7 +4643,7 @@ MEDIT (medit_race)
 MEDIT (medit_position)
 {
     MOB_INDEX_DATA *pMob;
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     unsigned long long value;
 
     argument = one_argument (argument, arg);
@@ -4728,7 +4728,7 @@ void show_liqlist (CHAR_DATA * ch)
 {
     int liq;
     BUFFER *buffer;
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
 
     buffer = new_buf ();
 
@@ -4756,7 +4756,7 @@ void show_damlist (CHAR_DATA * ch)
 {
     int att;
     BUFFER *buffer;
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
 
     buffer = new_buf ();
 
@@ -4780,8 +4780,8 @@ MEDIT (medit_group)
 {
     MOB_INDEX_DATA *pMob;
     MOB_INDEX_DATA *pMTemp;
-    char arg[MAX_STRING_LENGTH];
-    char buf[MAX_STRING_LENGTH];
+    char arg[MAX_STRING_LENGTH] = {0};
+    char buf[MAX_STRING_LENGTH] = {0};
     int temp;
     BUFFER *buffer;
     bool found = FALSE;
@@ -4867,9 +4867,9 @@ MEDIT (medit_addmprog)
     MOB_INDEX_DATA *pMob;
     MPROG_LIST *list;
     MPROG_CODE *code;
-    char trigger[MAX_STRING_LENGTH];
-    char phrase[MAX_STRING_LENGTH];
-    char num[MAX_STRING_LENGTH];
+    char trigger[MAX_STRING_LENGTH] = {0};
+    char phrase[MAX_STRING_LENGTH] = {0};
+    char num[MAX_STRING_LENGTH] = {0};
 
     EDIT_MOB (ch, pMob);
     argument = one_argument (argument, num);
@@ -4913,7 +4913,7 @@ MEDIT (medit_delmprog)
     MOB_INDEX_DATA *pMob;
     MPROG_LIST *list;
     MPROG_LIST *list_next;
-    char mprog[MAX_STRING_LENGTH];
+    char mprog[MAX_STRING_LENGTH] = {0};
     int value;
     int cnt = 0;
 

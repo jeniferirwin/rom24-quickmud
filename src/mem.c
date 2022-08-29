@@ -91,7 +91,7 @@ void free_reset_data (RESET_DATA * pReset)
 AREA_DATA *new_area (void)
 {
     AREA_DATA *pArea;
-    char buf[MAX_INPUT_LENGTH];
+    char buf[MAX_INPUT_LENGTH] = {0};
 
     if (!area_free)
     {

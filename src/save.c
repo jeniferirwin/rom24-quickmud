@@ -104,7 +104,7 @@ void fread_obj args ((CHAR_DATA * ch, FILE * fp));
  */
 void save_char_obj (CHAR_DATA * ch)
 {
-    char strsave[MAX_INPUT_LENGTH];
+    char strsave[MAX_INPUT_LENGTH] = {0};
     FILE *fp;
 
     if (IS_NPC (ch))
@@ -543,7 +543,7 @@ void fwrite_obj (CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
  */
 bool load_char_obj (DESCRIPTOR_DATA * d, char *name)
 {
-    char strsave[MAX_INPUT_LENGTH];
+    char strsave[MAX_INPUT_LENGTH] = {0};
     char buf[MAX_INPUT_LENGTH * 2];
     CHAR_DATA *ch;
     FILE *fp;
@@ -598,7 +598,7 @@ bool load_char_obj (DESCRIPTOR_DATA * d, char *name)
         found = TRUE;
         for (;;)
         {
-            char letter;
+            char letter = {0};
             char *word;
 
             letter = fread_letter (fp);
@@ -754,7 +754,7 @@ bool load_char_obj (DESCRIPTOR_DATA * d, char *name)
 
 void fread_char (CHAR_DATA * ch, FILE * fp)
 {
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     char *word;
     bool fMatch;
     int count = 0;

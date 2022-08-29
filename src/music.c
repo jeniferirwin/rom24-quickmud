@@ -48,7 +48,7 @@ void song_update (void)
     CHAR_DATA *victim;
     ROOM_INDEX_DATA *room;
     DESCRIPTOR_DATA *d;
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     char *line;
     int i;
 
@@ -161,7 +161,7 @@ void load_songs (void)
 {
     FILE *fp;
     int count = 0, lines, i;
-    char letter;
+    char letter = {0};
 
     /* reset global */
     for (i = 0; i <= MAX_GLOBAL; i++)
@@ -246,7 +246,7 @@ void do_play (CHAR_DATA * ch, char *argument)
     if (!str_cmp (arg, "list"))
     {
         BUFFER *buffer;
-        char buf[MAX_STRING_LENGTH];
+        char buf[MAX_STRING_LENGTH] = {0};
         int col = 0;
         bool artist = FALSE, match = FALSE;
 

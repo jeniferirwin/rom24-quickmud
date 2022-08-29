@@ -152,8 +152,8 @@ char *olc_ed_vnum (CHAR_DATA * ch)
  ****************************************************************************/
 void show_olc_cmds (CHAR_DATA * ch, const struct olc_cmd_type *olc_table)
 {
-    char buf[MAX_STRING_LENGTH];
-    char buf1[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
+    char buf1[MAX_STRING_LENGTH] = {0};
     int cmd;
     int col;
 
@@ -410,8 +410,8 @@ bool edit_done (CHAR_DATA * ch)
 void aedit (CHAR_DATA * ch, char *argument)
 {
     AREA_DATA *pArea;
-    char command[MAX_INPUT_LENGTH];
-    char arg[MAX_INPUT_LENGTH];
+    char command[MAX_INPUT_LENGTH] = {0};
+    char arg[MAX_INPUT_LENGTH] = {0};
     int cmd;
     unsigned long long value;
 
@@ -475,8 +475,8 @@ void redit (CHAR_DATA * ch, char *argument)
 {
     AREA_DATA *pArea;
     ROOM_INDEX_DATA *pRoom;
-    char arg[MAX_STRING_LENGTH];
-    char command[MAX_INPUT_LENGTH];
+    char arg[MAX_STRING_LENGTH] = {0};
+    char command[MAX_INPUT_LENGTH] = {0};
     int cmd;
 
     EDIT_ROOM (ch, pRoom);
@@ -533,8 +533,8 @@ void oedit (CHAR_DATA * ch, char *argument)
 {
     AREA_DATA *pArea;
     OBJ_INDEX_DATA *pObj;
-    char arg[MAX_STRING_LENGTH];
-    char command[MAX_INPUT_LENGTH];
+    char arg[MAX_STRING_LENGTH] = {0};
+    char command[MAX_INPUT_LENGTH] = {0};
     int cmd;
 
     smash_tilde (argument);
@@ -590,8 +590,8 @@ void medit (CHAR_DATA * ch, char *argument)
 {
     AREA_DATA *pArea;
     MOB_INDEX_DATA *pMob;
-    char command[MAX_INPUT_LENGTH];
-    char arg[MAX_STRING_LENGTH];
+    char command[MAX_INPUT_LENGTH] = {0};
+    char arg[MAX_STRING_LENGTH] = {0};
     int cmd;
 
     smash_tilde (argument);
@@ -660,7 +660,7 @@ const struct editor_cmd_type editor_table[] = {
 /* Entry point for all editors. */
 void do_olc (CHAR_DATA * ch, char *argument)
 {
-    char command[MAX_INPUT_LENGTH];
+    char command[MAX_INPUT_LENGTH] = {0};
     int cmd;
 
     if (IS_NPC (ch))
@@ -696,7 +696,7 @@ void do_aedit (CHAR_DATA * ch, char *argument)
 {
     AREA_DATA *pArea;
     int value;
-    char arg[MAX_STRING_LENGTH];
+    char arg[MAX_STRING_LENGTH] = {0};
 
     if (IS_NPC (ch))
         return;
@@ -745,7 +745,7 @@ void do_aedit (CHAR_DATA * ch, char *argument)
 void do_redit (CHAR_DATA * ch, char *argument)
 {
     ROOM_INDEX_DATA *pRoom;
-    char arg1[MAX_STRING_LENGTH];
+    char arg1[MAX_STRING_LENGTH] = {0};
 
     if (IS_NPC (ch))
         return;
@@ -827,7 +827,7 @@ void do_oedit (CHAR_DATA * ch, char *argument)
 {
     OBJ_INDEX_DATA *pObj;
     AREA_DATA *pArea;
-    char arg1[MAX_STRING_LENGTH];
+    char arg1[MAX_STRING_LENGTH] = {0};
     int value;
 
     if (IS_NPC (ch))
@@ -902,7 +902,7 @@ void do_medit (CHAR_DATA * ch, char *argument)
     MOB_INDEX_DATA *pMob;
     AREA_DATA *pArea;
     int value;
-    char arg1[MAX_STRING_LENGTH];
+    char arg1[MAX_STRING_LENGTH] = {0};
 
     argument = one_argument (argument, arg1);
 
@@ -975,8 +975,8 @@ void display_resets (CHAR_DATA * ch)
     ROOM_INDEX_DATA *pRoom;
     RESET_DATA *pReset;
     MOB_INDEX_DATA *pMob = NULL;
-    char buf[MAX_STRING_LENGTH];
-    char final[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
+    char final[MAX_STRING_LENGTH] = {0};
     int iReset = 0;
 
     EDIT_ROOM (ch, pRoom);
@@ -1231,13 +1231,13 @@ void add_reset (ROOM_INDEX_DATA * room, RESET_DATA * pReset, int index)
 
 void do_resets (CHAR_DATA * ch, char *argument)
 {
-    char arg1[MAX_INPUT_LENGTH];
-    char arg2[MAX_INPUT_LENGTH];
-    char arg3[MAX_INPUT_LENGTH];
-    char arg4[MAX_INPUT_LENGTH];
-    char arg5[MAX_INPUT_LENGTH];
-    char arg6[MAX_INPUT_LENGTH];
-    char arg7[MAX_INPUT_LENGTH];
+    char arg1[MAX_INPUT_LENGTH] = {0};
+    char arg2[MAX_INPUT_LENGTH] = {0};
+    char arg3[MAX_INPUT_LENGTH] = {0};
+    char arg4[MAX_INPUT_LENGTH] = {0};
+    char arg5[MAX_INPUT_LENGTH] = {0};
+    char arg6[MAX_INPUT_LENGTH] = {0};
+    char arg7[MAX_INPUT_LENGTH] = {0};
     RESET_DATA *pReset = NULL;
 
     argument = one_argument (argument, arg1);
@@ -1477,7 +1477,7 @@ void do_resets (CHAR_DATA * ch, char *argument)
  ****************************************************************************/
 void do_alist (CHAR_DATA * ch, char *argument)
 {
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     char result[MAX_STRING_LENGTH * 2];    /* May need tweaking. */
     AREA_DATA *pArea;
 

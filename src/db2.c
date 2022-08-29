@@ -200,7 +200,7 @@ void load_mobiles (FILE * fp)
     for (;;)
     {
         sh_int vnum;
-        char letter;
+        char letter = {0};
         int iHash;
 
         letter = fread_letter (fp);
@@ -389,7 +389,7 @@ void load_objects (FILE * fp)
     for (;;)
     {
         sh_int vnum;
-        char letter;
+        char letter = {0};
         int iHash;
 
         letter = fread_letter (fp);
@@ -512,7 +512,7 @@ void load_objects (FILE * fp)
 
         for (;;)
         {
-            char letter;
+            char letter = {0};
 
             letter = fread_letter (fp);
 

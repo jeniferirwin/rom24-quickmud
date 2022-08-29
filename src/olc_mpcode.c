@@ -35,8 +35,8 @@ const struct olc_cmd_type mpedit_table[] = {
 void mpedit (CHAR_DATA * ch, char *argument)
 {
     MPROG_CODE *pMcode;
-    char arg[MAX_INPUT_LENGTH];
-    char command[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
+    char command[MAX_INPUT_LENGTH] = {0};
     int cmd;
     AREA_DATA *ad;
 
@@ -96,7 +96,7 @@ void mpedit (CHAR_DATA * ch, char *argument)
 void do_mpedit (CHAR_DATA * ch, char *argument)
 {
     MPROG_CODE *pMcode;
-    char command[MAX_INPUT_LENGTH];
+    char command[MAX_INPUT_LENGTH] = {0};
 
     argument = one_argument (argument, command);
 
@@ -198,7 +198,7 @@ MPEDIT (mpedit_create)
 MPEDIT (mpedit_show)
 {
     MPROG_CODE *pMcode;
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
 
     EDIT_MPCODE (ch, pMcode);
 
@@ -229,10 +229,10 @@ MPEDIT (mpedit_list)
 {
     int count = 1;
     MPROG_CODE *mprg;
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     BUFFER *buffer;
     bool fAll = !str_cmp (argument, "all");
-    char blah;
+    char blah = {0};
     AREA_DATA *ad;
 
     buffer = new_buf ();

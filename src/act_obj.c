@@ -94,7 +94,7 @@ void get_obj (CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
     /* variables for AUTOSPLIT */
     CHAR_DATA *gch;
     int members;
-    char buffer[100];
+    char buffer[100] = {0};
 
     if (!CAN_WEAR (obj, ITEM_TAKE))
     {
@@ -194,8 +194,8 @@ void get_obj (CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 
 void do_get (CHAR_DATA * ch, char *argument)
 {
-    char arg1[MAX_INPUT_LENGTH];
-    char arg2[MAX_INPUT_LENGTH];
+    char arg1[MAX_INPUT_LENGTH] = {0};
+    char arg2[MAX_INPUT_LENGTH] = {0};
     OBJ_DATA *obj;
     OBJ_DATA *obj_next;
     OBJ_DATA *container;
@@ -345,8 +345,8 @@ void do_get (CHAR_DATA * ch, char *argument)
 
 void do_put (CHAR_DATA * ch, char *argument)
 {
-    char arg1[MAX_INPUT_LENGTH];
-    char arg2[MAX_INPUT_LENGTH];
+    char arg1[MAX_INPUT_LENGTH] = {0};
+    char arg2[MAX_INPUT_LENGTH] = {0};
     OBJ_DATA *container;
     OBJ_DATA *obj;
     OBJ_DATA *obj_next;
@@ -495,7 +495,7 @@ void do_put (CHAR_DATA * ch, char *argument)
 
 void do_drop (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     OBJ_DATA *obj;
     OBJ_DATA *obj_next;
     bool found;
@@ -658,9 +658,9 @@ void do_drop (CHAR_DATA * ch, char *argument)
 
 void do_give (CHAR_DATA * ch, char *argument)
 {
-    char arg1[MAX_INPUT_LENGTH];
-    char arg2[MAX_INPUT_LENGTH];
-    char buf[MAX_STRING_LENGTH];
+    char arg1[MAX_INPUT_LENGTH] = {0};
+    char arg2[MAX_INPUT_LENGTH] = {0};
+    char buf[MAX_STRING_LENGTH] = {0};
     CHAR_DATA *victim;
     OBJ_DATA *obj;
 
@@ -964,8 +964,8 @@ void do_envenom (CHAR_DATA * ch, char *argument)
 
 void do_fill (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
-    char buf[MAX_STRING_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
+    char buf[MAX_STRING_LENGTH] = {0};
     OBJ_DATA *obj;
     OBJ_DATA *fountain;
     bool found;
@@ -1032,7 +1032,7 @@ void do_fill (CHAR_DATA * ch, char *argument)
 
 void do_pour (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_STRING_LENGTH], buf[MAX_STRING_LENGTH];
+    char arg[MAX_STRING_LENGTH], buf[MAX_STRING_LENGTH] = {0};
     OBJ_DATA *out, *in;
     CHAR_DATA *vch = NULL;
     int amount;
@@ -1160,7 +1160,7 @@ void do_pour (CHAR_DATA * ch, char *argument)
 
 void do_drink (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     OBJ_DATA *obj;
     int amount;
     int liquid;
@@ -1283,7 +1283,7 @@ void do_drink (CHAR_DATA * ch, char *argument)
 
 void do_eat (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     OBJ_DATA *obj;
 
     one_argument (argument, arg);
@@ -1400,7 +1400,7 @@ bool remove_obj (CHAR_DATA * ch, int iWear, bool fReplace)
  */
 void wear_obj (CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 {
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
 
     if (ch->level < obj->level)
     {
@@ -1698,7 +1698,7 @@ void wear_obj (CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 
 void do_wear (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     OBJ_DATA *obj;
 
     one_argument (argument, arg);
@@ -1739,7 +1739,7 @@ void do_wear (CHAR_DATA * ch, char *argument)
 
 void do_remove (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     OBJ_DATA *obj;
 
     one_argument (argument, arg);
@@ -1764,15 +1764,15 @@ void do_remove (CHAR_DATA * ch, char *argument)
 
 void do_sacrifice (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
-    char buf[MAX_STRING_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
+    char buf[MAX_STRING_LENGTH] = {0};
     OBJ_DATA *obj;
     int silver;
 
     /* variables for AUTOSPLIT */
     CHAR_DATA *gch;
     int members;
-    char buffer[100];
+    char buffer[100] = {0};
 
 
     one_argument (argument, arg);
@@ -1864,7 +1864,7 @@ void do_sacrifice (CHAR_DATA * ch, char *argument)
 
 void do_quaff (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     OBJ_DATA *obj;
 
     one_argument (argument, arg);
@@ -1909,8 +1909,8 @@ void do_quaff (CHAR_DATA * ch, char *argument)
 
 void do_recite (CHAR_DATA * ch, char *argument)
 {
-    char arg1[MAX_INPUT_LENGTH];
-    char arg2[MAX_INPUT_LENGTH];
+    char arg1[MAX_INPUT_LENGTH] = {0};
+    char arg2[MAX_INPUT_LENGTH] = {0};
     CHAR_DATA *victim;
     OBJ_DATA *scroll;
     OBJ_DATA *obj;
@@ -2067,7 +2067,7 @@ void do_brandish (CHAR_DATA * ch, char *argument)
 
 void do_zap (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     CHAR_DATA *victim;
     OBJ_DATA *wand;
     OBJ_DATA *obj;
@@ -2160,9 +2160,9 @@ void do_zap (CHAR_DATA * ch, char *argument)
 
 void do_steal (CHAR_DATA * ch, char *argument)
 {
-    char buf[MAX_STRING_LENGTH];
-    char arg1[MAX_INPUT_LENGTH];
-    char arg2[MAX_INPUT_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
+    char arg1[MAX_INPUT_LENGTH] = {0};
+    char arg2[MAX_INPUT_LENGTH] = {0};
     CHAR_DATA *victim;
     OBJ_DATA *obj;
     int percent;
@@ -2447,7 +2447,7 @@ void obj_to_keeper (OBJ_DATA * obj, CHAR_DATA * ch)
 /* get an object from a shopkeeper's list */
 OBJ_DATA *get_obj_keeper (CHAR_DATA * ch, CHAR_DATA * keeper, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     OBJ_DATA *obj;
     int number;
     int count;
@@ -2530,7 +2530,7 @@ int get_cost (CHAR_DATA * keeper, OBJ_DATA * obj, bool fBuy)
 
 void do_buy (CHAR_DATA * ch, char *argument)
 {
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     int cost, roll;
 
     if (argument[0] == '\0')
@@ -2541,8 +2541,8 @@ void do_buy (CHAR_DATA * ch, char *argument)
 
     if (IS_SET (ch->in_room->room_flags, ROOM_PET_SHOP))
     {
-        char arg[MAX_INPUT_LENGTH];
-        char buf[MAX_STRING_LENGTH];
+        char arg[MAX_INPUT_LENGTH] = {0};
+        char buf[MAX_STRING_LENGTH] = {0};
         CHAR_DATA *pet;
         ROOM_INDEX_DATA *pRoomIndexNext;
         ROOM_INDEX_DATA *in_room;
@@ -2640,7 +2640,7 @@ void do_buy (CHAR_DATA * ch, char *argument)
     {
         CHAR_DATA *keeper;
         OBJ_DATA *obj, *t_obj;
-        char arg[MAX_INPUT_LENGTH];
+        char arg[MAX_INPUT_LENGTH] = {0};
         int number, count = 1;
 
         if ((keeper = find_keeper (ch)) == NULL)
@@ -2772,7 +2772,7 @@ void do_buy (CHAR_DATA * ch, char *argument)
 
 void do_list (CHAR_DATA * ch, char *argument)
 {
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
 
     if (IS_SET (ch->in_room->room_flags, ROOM_PET_SHOP))
     {
@@ -2819,7 +2819,7 @@ void do_list (CHAR_DATA * ch, char *argument)
         OBJ_DATA *obj;
         int cost, count;
         bool found;
-        char arg[MAX_INPUT_LENGTH];
+        char arg[MAX_INPUT_LENGTH] = {0};
 
         if ((keeper = find_keeper (ch)) == NULL)
             return;
@@ -2870,8 +2870,8 @@ void do_list (CHAR_DATA * ch, char *argument)
 
 void do_sell (CHAR_DATA * ch, char *argument)
 {
-    char buf[MAX_STRING_LENGTH];
-    char arg[MAX_INPUT_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
+    char arg[MAX_INPUT_LENGTH] = {0};
     CHAR_DATA *keeper;
     OBJ_DATA *obj;
     int cost, roll;
@@ -2964,8 +2964,8 @@ void do_sell (CHAR_DATA * ch, char *argument)
 
 void do_value (CHAR_DATA * ch, char *argument)
 {
-    char buf[MAX_STRING_LENGTH];
-    char arg[MAX_INPUT_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
+    char arg[MAX_INPUT_LENGTH] = {0};
     CHAR_DATA *keeper;
     OBJ_DATA *obj;
     int cost;

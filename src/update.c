@@ -60,7 +60,7 @@ int save_number = 0;
  */
 void advance_level (CHAR_DATA * ch, bool hide)
 {
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     int add_hp;
     int add_mana;
     int add_move;
@@ -119,7 +119,7 @@ void advance_level (CHAR_DATA * ch, bool hide)
 
 void gain_exp (CHAR_DATA * ch, int gain)
 {
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
 
     if (IS_NPC (ch) || ch->level >= LEVEL_HERO)
         return;
@@ -521,7 +521,7 @@ void mobile_update (void)
  */
 void weather_update (void)
 {
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     DESCRIPTOR_DATA *d;
     int diff;
 

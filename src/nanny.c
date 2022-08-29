@@ -115,8 +115,8 @@ extern time_t current_time;            /* time of this pulse */
 void nanny (DESCRIPTOR_DATA * d, char *argument)
 {
     DESCRIPTOR_DATA *d_old, *d_next;
-    char buf[MAX_STRING_LENGTH];
-    char arg[MAX_INPUT_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
+    char arg[MAX_INPUT_LENGTH] = {0};
     CHAR_DATA *ch;
     char *pwdnew;
     char *p;

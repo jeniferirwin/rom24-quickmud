@@ -720,7 +720,7 @@ void expand_arg (char *buf,
     const char *something = "something";
     const char *someones = "someone's";
 
-    char fname[MAX_INPUT_LENGTH];
+    char fname[MAX_INPUT_LENGTH] = {0};
     CHAR_DATA *vch = (CHAR_DATA *) arg2;
     OBJ_DATA *obj1 = (OBJ_DATA *) arg1;
     OBJ_DATA *obj2 = (OBJ_DATA *) arg2;
@@ -943,8 +943,8 @@ void program_flow (sh_int pvnum,    /* For diagnostic purposes */
 {
     CHAR_DATA *rch = NULL;
     char *code, *line;
-    char buf[MAX_STRING_LENGTH];
-    char control[MAX_INPUT_LENGTH], data[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
+    char control[MAX_INPUT_LENGTH], data[MAX_STRING_LENGTH] = {0};
 
     static int call_level;        /* Keep track of nested "mpcall"s */
 

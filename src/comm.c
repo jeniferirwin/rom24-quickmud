@@ -306,7 +306,7 @@ bool god;                        /* All new chars are gods!  */
 bool merc_down;                    /* Shutdown         */
 bool wizlock;                    /* Game is wizlocked        */
 bool newlock;                    /* Game is newlocked        */
-char str_boot_time[MAX_INPUT_LENGTH];
+char str_boot_time[MAX_INPUT_LENGTH] = {0};
 time_t current_time;            /* time of this pulse */
 bool MOBtrigger = TRUE;            /* act() switch                 */
 
@@ -920,7 +920,7 @@ void game_loop_unix (int control)
 
 void init_descriptor (int control)
 {
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     DESCRIPTOR_DATA *dnew;
     struct sockaddr_in sock;
     struct hostent *from;
@@ -1312,9 +1312,9 @@ bool process_output (DESCRIPTOR_DATA * d, bool fPrompt)
             if ((victim = ch->fighting) != NULL && can_see (ch, victim))
             {
                 int percent;
-                char wound[100];
+                char wound[100] = {0};
 				char *pbuff;
-                char buf[MSL];
+                char buf[MSL] = {0};
                 char buffer[MSL*2];
 
                 if (victim->max_hit > 0)
@@ -1401,14 +1401,14 @@ bool process_output (DESCRIPTOR_DATA * d, bool fPrompt)
  */
 void bust_a_prompt (CHAR_DATA * ch)
 {
-    char buf[MAX_STRING_LENGTH];
-    char buf2[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
+    char buf2[MAX_STRING_LENGTH] = {0};
     const char *str;
     const char *i;
     char *point;
     char *pbuff;
     char buffer[MAX_STRING_LENGTH * 2];
-    char doors[MAX_INPUT_LENGTH];
+    char doors[MAX_INPUT_LENGTH] = {0};
     EXIT_DATA *pexit;
     bool found;
     const char *dir_name[] = { "N", "E", "S", "W", "U", "D" };
@@ -2105,7 +2105,7 @@ void page_to_char (const char *txt, CHAR_DATA * ch)
 void show_string (struct descriptor_data *d, char *input)
 {
     char buffer[4 * MAX_STRING_LENGTH];
-    char buf[MAX_INPUT_LENGTH];
+    char buf[MAX_INPUT_LENGTH] = {0};
     register char *scan, *chk;
     int lines = 0, toggle = 1;
     int show_lines;
@@ -2168,8 +2168,8 @@ void act_new (const char *format, CHAR_DATA * ch, const void *arg1,
     static char *const him_her[] = { "it", "him", "her" };
     static char *const his_her[] = { "its", "his", "her" };
 
-    char buf[MAX_STRING_LENGTH];
-    char fname[MAX_INPUT_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
+    char fname[MAX_INPUT_LENGTH] = {0};
     CHAR_DATA *to;
     CHAR_DATA *vch = (CHAR_DATA *) arg2;
     OBJ_DATA *obj1 = (OBJ_DATA *) arg1;
@@ -2368,7 +2368,7 @@ void act_new (const char *format, CHAR_DATA * ch, const void *arg1,
 
 int colour (char type, CHAR_DATA * ch, char *string)
 {
-    char code[20];
+    char code[20] = {0};
     char *p = '\0';
 
     if (ch && IS_NPC (ch))
@@ -2522,7 +2522,7 @@ int gettimeofday (struct timeval *tp, void *tzp)
 
 void printf_to_desc (DESCRIPTOR_DATA * d, char *fmt, ...)
 {
-    char buf[MSL];
+    char buf[MSL] = {0};
     va_list args;
     va_start (args, fmt);
     vsprintf (buf, fmt, args);
@@ -2533,7 +2533,7 @@ void printf_to_desc (DESCRIPTOR_DATA * d, char *fmt, ...)
 
 void printf_to_char (CHAR_DATA * ch, char *fmt, ...)
 {
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     va_list args;
     va_start (args, fmt);
     vsprintf (buf, fmt, args);

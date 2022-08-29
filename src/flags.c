@@ -45,10 +45,10 @@ void do_flag (CHAR_DATA * ch, char *argument)
 {
     char arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH],
         arg3[MAX_INPUT_LENGTH];
-    char word[MAX_INPUT_LENGTH];
+    char word[MAX_INPUT_LENGTH] = {0};
     CHAR_DATA *victim;
     unsigned long long *flag, old = 0, new = 0, marked = 0, pos;
-    char type;
+    char type = {0};
     const struct flag_type *flag_table;
 
     argument = one_argument (argument, arg1);

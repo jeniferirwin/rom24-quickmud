@@ -344,7 +344,7 @@ int find_door (CHAR_DATA * ch, char *arg)
 
 void do_open (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     OBJ_DATA *obj;
     int door;
 
@@ -456,7 +456,7 @@ void do_open (CHAR_DATA * ch, char *argument)
 
 void do_close (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     OBJ_DATA *obj;
     int door;
 
@@ -570,7 +570,7 @@ bool has_key (CHAR_DATA * ch, int key)
 
 void do_lock (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     OBJ_DATA *obj;
     int door;
 
@@ -705,7 +705,7 @@ void do_lock (CHAR_DATA * ch, char *argument)
 
 void do_unlock (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     OBJ_DATA *obj;
     int door;
 
@@ -840,7 +840,7 @@ void do_unlock (CHAR_DATA * ch, char *argument)
 
 void do_pick (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     CHAR_DATA *gch;
     OBJ_DATA *obj;
     int door;
@@ -1452,7 +1452,7 @@ void do_sleep (CHAR_DATA * ch, char *argument)
 
 void do_wake (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     CHAR_DATA *victim;
 
     one_argument (argument, arg);
@@ -1562,7 +1562,7 @@ void do_visible (CHAR_DATA * ch, char *argument)
 
 void do_recall (CHAR_DATA * ch, char *argument)
 {
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     CHAR_DATA *victim;
     ROOM_INDEX_DATA *location;
 
@@ -1631,7 +1631,7 @@ void do_recall (CHAR_DATA * ch, char *argument)
 
 void do_train (CHAR_DATA * ch, char *argument)
 {
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     CHAR_DATA *mob;
     sh_int stat = -1;
     char *pOutput = NULL;

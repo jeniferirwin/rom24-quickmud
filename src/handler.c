@@ -931,7 +931,7 @@ int can_carry_w (CHAR_DATA * ch)
 
 bool is_name (char *str, char *namelist)
 {
-    char name[MAX_INPUT_LENGTH], part[MAX_INPUT_LENGTH];
+    char name[MAX_INPUT_LENGTH], part[MAX_INPUT_LENGTH] = {0};
     char *list, *string;
 
     /* fix crash on NULL namelist */
@@ -970,7 +970,7 @@ bool is_name (char *str, char *namelist)
 
 bool is_exact_name (char *str, char *namelist)
 {
-    char name[MAX_INPUT_LENGTH];
+    char name[MAX_INPUT_LENGTH] = {0};
 
     if (namelist == NULL)
         return FALSE;
@@ -2192,7 +2192,7 @@ void extract_char (CHAR_DATA * ch, bool fPull)
  */
 CHAR_DATA *get_char_room (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     CHAR_DATA *rch;
     int number;
     int count;
@@ -2220,7 +2220,7 @@ CHAR_DATA *get_char_room (CHAR_DATA * ch, char *argument)
  */
 CHAR_DATA *get_char_world (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     CHAR_DATA *wch;
     int number;
     int count;
@@ -2267,7 +2267,7 @@ OBJ_DATA *get_obj_type (OBJ_INDEX_DATA * pObjIndex)
  */
 OBJ_DATA *get_obj_list (CHAR_DATA * ch, char *argument, OBJ_DATA * list)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     OBJ_DATA *obj;
     int number;
     int count;
@@ -2293,7 +2293,7 @@ OBJ_DATA *get_obj_list (CHAR_DATA * ch, char *argument, OBJ_DATA * list)
  */
 OBJ_DATA *get_obj_carry (CHAR_DATA * ch, char *argument, CHAR_DATA * viewer)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     OBJ_DATA *obj;
     int number;
     int count;
@@ -2320,7 +2320,7 @@ OBJ_DATA *get_obj_carry (CHAR_DATA * ch, char *argument, CHAR_DATA * viewer)
  */
 OBJ_DATA *get_obj_wear (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     OBJ_DATA *obj;
     int number;
     int count;
@@ -2369,7 +2369,7 @@ OBJ_DATA *get_obj_here (CHAR_DATA * ch, char *argument)
  */
 OBJ_DATA *get_obj_world (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     OBJ_DATA *obj;
     int number;
     int count;
@@ -2425,7 +2425,7 @@ void deduct_cost (CHAR_DATA * ch, int cost)
  */
 OBJ_DATA *create_money (int gold, int silver)
 {
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     OBJ_DATA *obj;
 
     if (gold < 0 || silver < 0 || (gold == 0 && silver == 0))

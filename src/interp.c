@@ -390,8 +390,8 @@ const struct cmd_type cmd_table[] = {
  */
 void interpret (CHAR_DATA * ch, char *argument)
 {
-    char command[MAX_INPUT_LENGTH];
-    char logline[MAX_INPUT_LENGTH];
+    char command[MAX_INPUT_LENGTH] = {0};
+    char logline[MAX_INPUT_LENGTH] = {0};
     int cmd;
     int trust;
     bool found;
@@ -572,7 +572,7 @@ void do_function (CHAR_DATA * ch, DO_FUN * do_fun, char *argument)
 
 bool check_social (CHAR_DATA * ch, char *command, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     CHAR_DATA *victim;
     int cmd;
     bool found;
@@ -766,7 +766,7 @@ int mult_argument (char *argument, char *arg)
  */
 char *one_argument (char *argument, char *arg_first)
 {
-    char cEnd;
+    char cEnd = {0};
 
     while (isspace (*argument))
         argument++;
@@ -799,7 +799,7 @@ char *one_argument (char *argument, char *arg_first)
  */
 void do_commands (CHAR_DATA * ch, char *argument)
 {
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     int cmd;
     int col;
 
@@ -823,7 +823,7 @@ void do_commands (CHAR_DATA * ch, char *argument)
 
 void do_wizhelp (CHAR_DATA * ch, char *argument)
 {
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     int cmd;
     int col;
 

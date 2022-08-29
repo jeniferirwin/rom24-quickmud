@@ -110,7 +110,7 @@ bool is_stat (const struct flag_type *flag_table)
  ****************************************************************************/
 unsigned long long flag_value (const struct flag_type *flag_table, char *argument)
 {
-    char word[MAX_INPUT_LENGTH];
+    char word[MAX_INPUT_LENGTH] = {0};
     unsigned long long bit;
     unsigned long long marked = 0;
     bool found = FALSE;

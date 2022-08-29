@@ -152,7 +152,7 @@ int liq_lookup (const char *name)
 HELP_DATA *help_lookup (char *keyword)
 {
     HELP_DATA *pHelp;
-    char temp[MIL], argall[MIL];
+    char temp[MIL], argall[MIL] = {0};
 
     argall[0] = '\0';
 

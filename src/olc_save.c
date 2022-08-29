@@ -121,7 +121,7 @@ void save_area_list ()
  */
 char *fwrite_flag (long flags, char buf[])
 {
-    char offset;
+    char offset = {0};
     char *cp;
 
     buf[0] = '\0';
@@ -178,7 +178,7 @@ void save_mobile (FILE * fp, MOB_INDEX_DATA * pMobIndex)
 {
     sh_int race = pMobIndex->race;
     MPROG_LIST *pMprog;
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     long temp;
 
     fprintf (fp, "#%d\n", pMobIndex->vnum);
@@ -289,10 +289,10 @@ void save_mobiles (FILE * fp, AREA_DATA * pArea)
  ****************************************************************************/
 void save_object (FILE * fp, OBJ_INDEX_DATA * pObjIndex)
 {
-    char letter;
+    char letter = {0};
     AFFECT_DATA *pAf;
     EXTRA_DESCR_DATA *pEd;
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
 
     fprintf (fp, "#%d\n", pObjIndex->vnum);
     fprintf (fp, "%s~\n", pObjIndex->name);
@@ -672,7 +672,7 @@ void save_resets (FILE * fp, AREA_DATA * pArea)
     MOB_INDEX_DATA *pLastMob = NULL;
     OBJ_INDEX_DATA *pLastObj;
     ROOM_INDEX_DATA *pRoom;
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     int iHash;
 
     fprintf (fp, "#RESETS\n");
@@ -922,7 +922,7 @@ void save_area (AREA_DATA * pArea)
  ****************************************************************************/
 void do_asave (CHAR_DATA * ch, char *argument)
 {
-    char arg1[MAX_INPUT_LENGTH];
+    char arg1[MAX_INPUT_LENGTH] = {0};
     AREA_DATA *pArea;
     int value;
 
@@ -1012,7 +1012,7 @@ void do_asave (CHAR_DATA * ch, char *argument)
     /* ------------------------------------------ */
     if (!str_cmp ("changed", arg1))
     {
-        char buf[MAX_INPUT_LENGTH];
+        char buf[MAX_INPUT_LENGTH] = {0};
 
         save_area_list ();
 

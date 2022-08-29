@@ -111,7 +111,7 @@ void do_alia (CHAR_DATA * ch, char *argument)
 void do_alias (CHAR_DATA * ch, char *argument)
 {
     CHAR_DATA *rch;
-    char arg[MAX_INPUT_LENGTH], buf[MAX_STRING_LENGTH];
+    char arg[MAX_INPUT_LENGTH], buf[MAX_STRING_LENGTH] = {0};
     int pos;
 
     smash_tilde (argument);
@@ -224,7 +224,7 @@ void do_alias (CHAR_DATA * ch, char *argument)
 void do_unalias (CHAR_DATA * ch, char *argument)
 {
     CHAR_DATA *rch;
-    char arg[MAX_INPUT_LENGTH];
+    char arg[MAX_INPUT_LENGTH] = {0};
     int pos;
     bool found = FALSE;
 

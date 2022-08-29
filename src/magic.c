@@ -132,7 +132,7 @@ int slot_lookup (int slot)
 void say_spell (CHAR_DATA * ch, int sn)
 {
     char buf[MAX_STRING_LENGTH / 2]; // technitaur: fix for format overflow warning
-    char buf2[MAX_STRING_LENGTH];
+    char buf2[MAX_STRING_LENGTH] = {0};
     CHAR_DATA *rch;
     char *pName;
     int iSyl;
@@ -300,8 +300,8 @@ char *target_name;
 
 void do_cast (CHAR_DATA * ch, char *argument)
 {
-    char arg1[MAX_INPUT_LENGTH];
-    char arg2[MAX_INPUT_LENGTH];
+    char arg1[MAX_INPUT_LENGTH] = {0};
+    char arg2[MAX_INPUT_LENGTH] = {0};
     CHAR_DATA *victim;
     OBJ_DATA *obj;
     void *vo;
@@ -1591,7 +1591,7 @@ void spell_create_water (int sn, int level, CHAR_DATA * ch, void *vo,
         obj->value[1] += water;
         if (!is_name ("water", obj->name))
         {
-            char buf[MAX_STRING_LENGTH];
+            char buf[MAX_STRING_LENGTH] = {0};
 
             sprintf (buf, "%s water", obj->name);
             free_string (obj->name);
@@ -3393,7 +3393,7 @@ void spell_holy_word (int sn, int level, CHAR_DATA * ch, void *vo, int target)
 void spell_identify (int sn, int level, CHAR_DATA * ch, void *vo, int target)
 {
     OBJ_DATA *obj = (OBJ_DATA *) vo;
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
     AFFECT_DATA *paf;
 
     sprintf (buf,
@@ -3777,7 +3777,7 @@ void spell_lightning_bolt (int sn, int level, CHAR_DATA * ch, void *vo,
 void spell_locate_object (int sn, int level, CHAR_DATA * ch, void *vo,
                           int target)
 {
-    char buf[MAX_INPUT_LENGTH];
+    char buf[MAX_INPUT_LENGTH] = {0};
     BUFFER *buffer;
     OBJ_DATA *obj;
     OBJ_DATA *in_obj;
@@ -4626,9 +4626,9 @@ void spell_teleport (int sn, int level, CHAR_DATA * ch, void *vo, int target)
 void spell_ventriloquate (int sn, int level, CHAR_DATA * ch, void *vo,
                           int target)
 {
-    char buf1[MAX_STRING_LENGTH];
-    char buf2[MAX_STRING_LENGTH];
-    char speaker[MAX_INPUT_LENGTH];
+    char buf1[MAX_STRING_LENGTH] = {0};
+    char buf2[MAX_STRING_LENGTH] = {0};
+    char speaker[MAX_INPUT_LENGTH] = {0};
     CHAR_DATA *vch;
 
     target_name = one_argument (target_name, speaker);

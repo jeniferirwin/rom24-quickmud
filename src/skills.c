@@ -43,8 +43,8 @@
 /* used to get new skills */
 void do_gain (CHAR_DATA * ch, char *argument)
 {
-    char buf[MAX_STRING_LENGTH];
-    char arg[MAX_INPUT_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
+    char arg[MAX_INPUT_LENGTH] = {0};
     CHAR_DATA *trainer;
     int gn = 0, sn = 0;
 
@@ -256,12 +256,12 @@ void do_gain (CHAR_DATA * ch, char *argument)
 void do_spells (CHAR_DATA * ch, char *argument)
 {
     BUFFER *buffer;
-    char arg[MAX_INPUT_LENGTH];
-    char spell_list[LEVEL_HERO + 1][MAX_STRING_LENGTH];
-    char spell_columns[LEVEL_HERO + 1];
+    char arg[MAX_INPUT_LENGTH] = {0};
+    char spell_list[LEVEL_HERO + 1][MAX_STRING_LENGTH] = {0};
+    char spell_columns[LEVEL_HERO + 1] = {0};
     int sn, level, min_lev = 1, max_lev = LEVEL_HERO, mana;
     bool fAll = FALSE, found = FALSE;
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
 
     if (IS_NPC (ch))
         return;
@@ -381,12 +381,12 @@ void do_spells (CHAR_DATA * ch, char *argument)
 void do_skills (CHAR_DATA * ch, char *argument)
 {
     BUFFER *buffer;
-    char arg[MAX_INPUT_LENGTH];
-    char skill_list[LEVEL_HERO + 1][MAX_STRING_LENGTH];
-    char skill_columns[LEVEL_HERO + 1];
+    char arg[MAX_INPUT_LENGTH] = {0};
+    char skill_list[LEVEL_HERO + 1][MAX_STRING_LENGTH] = {0};
+    char skill_columns[LEVEL_HERO + 1] = {0};
     int sn, level, min_lev = 1, max_lev = LEVEL_HERO;
     bool fAll = FALSE, found = FALSE;
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH] = {0};
 
     if (IS_NPC (ch))
         return;
@@ -502,7 +502,7 @@ void do_skills (CHAR_DATA * ch, char *argument)
 /* shows skills, groups and costs (only if not bought) */
 void list_group_costs (CHAR_DATA * ch)
 {
-    char buf[100];
+    char buf[100] = {0};
     int gn, sn, col;
 
     if (IS_NPC (ch))
@@ -572,7 +572,7 @@ void list_group_costs (CHAR_DATA * ch)
 
 void list_group_chosen (CHAR_DATA * ch)
 {
-    char buf[100];
+    char buf[100] = {0};
     int gn, sn, col;
 
     if (IS_NPC (ch))
@@ -674,8 +674,8 @@ int exp_per_level (CHAR_DATA * ch, int points)
 /* this procedure handles the input parsing for the skill generator */
 bool parse_gen_groups (CHAR_DATA * ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
-    char buf[100];
+    char arg[MAX_INPUT_LENGTH] = {0};
+    char buf[100] = {0};
     int gn, sn, i;
 
     if (argument[0] == '\0')
@@ -849,7 +849,7 @@ bool parse_gen_groups (CHAR_DATA * ch, char *argument)
 /* shows all groups, or the sub-members of a group */
 void do_groups (CHAR_DATA * ch, char *argument)
 {
-    char buf[100];
+    char buf[100] = {0};
     int gn, sn, col;
 
     if (IS_NPC (ch))
@@ -923,7 +923,7 @@ void do_groups (CHAR_DATA * ch, char *argument)
 void check_improve (CHAR_DATA * ch, int sn, bool success, int multiplier)
 {
     int chance;
-    char buf[100];
+    char buf[100] = {0};
 
     if (IS_NPC (ch))
         return;
