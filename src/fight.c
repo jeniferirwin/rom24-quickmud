@@ -1933,10 +1933,7 @@ void group_gain (CHAR_DATA * ch, CHAR_DATA * victim)
  */
 int xp_compute (CHAR_DATA * gch, CHAR_DATA * victim, int total_levels)
 {
-    int xp, base_exp;
-    int align, level_range;
-    int change;
-    int time_per_level;
+    int xp, base_exp, level_range;
 
     level_range = victim->level - gch->level;
 
@@ -1990,159 +1987,11 @@ int xp_compute (CHAR_DATA * gch, CHAR_DATA * victim, int total_levels)
             break;
     }
 
+    xp = base_exp;
     if (level_range > 4)
-        base_exp = 160 + 20 * (level_range - 4);
+        xp = 160 + 20 * (level_range - 4);
 
-    /* do alignment computations */
-
-    align = victim->alignment - gch->alignment;
-
-    if (IS_SET (victim->act, ACT_NOALIGN))
-    {
-        /* no change */
-    }
-
-    else if (align > 500)
-    {                            /* monster is more good than slayer */
-        change = (align - 500) * base_exp / 500 * gch->level / total_levels;
-        change = UMAX (1, change);
-        gch->alignment = UMAX (-1000, gch->alignment - change);
-    }
-
-    else if (align < -500)
-    {                            /* monster is more evil than slayer */
-        change =
-            (-1 * align - 500) * base_exp / 500 * gch->level / total_levels;
-        change = UMAX (1, change);
-        gch->alignment = UMIN (1000, gch->alignment + change);
-    }
-
-    else
-    {                            /* improve this someday */
-
-        change = gch->alignment * base_exp / 500 * gch->level / total_levels;
-        gch->alignment -= change;
-    }
-
-    /* calculate exp multiplier */
-    if (IS_SET (victim->act, ACT_NOALIGN))
-        xp = base_exp;
-
-    else if (gch->alignment > 500)
-    {                            /* for goodie two shoes */
-        if (victim->alignment < -750)
-            xp = (base_exp * 4) / 3;
-
-        else if (victim->alignment < -500)
-            xp = (base_exp * 5) / 4;
-
-        else if (victim->alignment > 750)
-            xp = base_exp / 4;
-
-        else if (victim->alignment > 500)
-            xp = base_exp / 2;
-
-        else if (victim->alignment > 250)
-            xp = (base_exp * 3) / 4;
-
-        else
-            xp = base_exp;
-    }
-
-    else if (gch->alignment < -500)
-    {                            /* for baddies */
-        if (victim->alignment > 750)
-            xp = (base_exp * 5) / 4;
-
-        else if (victim->alignment > 500)
-            xp = (base_exp * 11) / 10;
-
-        else if (victim->alignment < -750)
-            xp = base_exp / 2;
-
-        else if (victim->alignment < -500)
-            xp = (base_exp * 3) / 4;
-
-        else if (victim->alignment < -250)
-            xp = (base_exp * 9) / 10;
-
-        else
-            xp = base_exp;
-    }
-
-    else if (gch->alignment > 200)
-    {                            /* a little good */
-
-        if (victim->alignment < -500)
-            xp = (base_exp * 6) / 5;
-
-        else if (victim->alignment > 750)
-            xp = base_exp / 2;
-
-        else if (victim->alignment > 0)
-            xp = (base_exp * 3) / 4;
-
-        else
-            xp = base_exp;
-    }
-
-    else if (gch->alignment < -200)
-    {                            /* a little bad */
-        if (victim->alignment > 500)
-            xp = (base_exp * 6) / 5;
-
-        else if (victim->alignment < -750)
-            xp = base_exp / 2;
-
-        else if (victim->alignment < 0)
-            xp = (base_exp * 3) / 4;
-
-        else
-            xp = base_exp;
-    }
-
-    else
-    {                            /* neutral */
-
-
-        if (victim->alignment > 500 || victim->alignment < -500)
-            xp = (base_exp * 4) / 3;
-
-        else if (victim->alignment < 200 && victim->alignment > -200)
-            xp = base_exp / 2;
-
-        else
-            xp = base_exp;
-    }
-
-    /* more exp at the low levels */
-    if (gch->level < 6)
-        xp = 10 * xp / (gch->level + 4);
-
-    /* less at high */
-    if (gch->level > 35)
-        xp = 15 * xp / (gch->level - 25);
-
-    /* reduce for playing time */
-
-    {
-        /* compute quarter-hours per level */
-        time_per_level = 4 *
-            (gch->played + (int) (current_time - gch->logon)) / 3600
-            / gch->level;
-
-        time_per_level = URANGE (2, time_per_level, 12);
-        if (gch->level < 15)    /* make it a curve */
-            time_per_level = UMAX (time_per_level, (15 - gch->level));
-        xp = xp * time_per_level / 12;
-    }
-
-    /* randomize the rewards */
     xp = number_range (xp * 3 / 4, xp * 5 / 4);
-
-    /* adjust for grouping */
-    xp = xp * gch->level / (UMAX (1, total_levels - 1));
-
     return xp;
 }
 
