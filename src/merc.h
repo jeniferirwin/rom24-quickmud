@@ -2559,7 +2559,6 @@ bool    can_see_room    args( ( CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex) );
 bool    can_drop_obj    args( ( CHAR_DATA *ch, OBJ_DATA *obj ) );
 char *    affect_loc_name    args( ( int location ) );
 char *    affect_bit_name    args( ( int vector ) );
-char *    debug_bit_name    args( ( int debug_flags) );
 char *    extra_bit_name    args( ( int extra_flags ) );
 char *     wear_bit_name    args( ( unsigned long long wear_flags ) );
 char *    act_bit_name    args( ( unsigned long long act_flags ) );
