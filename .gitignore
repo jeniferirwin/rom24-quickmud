@@ -3,3 +3,4 @@
 /area/rom
 /src/obj/**
 /src/make.log
+/area/shutdown.txt
