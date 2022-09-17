@@ -290,6 +290,7 @@ void nanny (DESCRIPTOR_DATA * d, char *argument)
             else
                 REMOVE_BIT (ch->act, PLR_COLOUR);
 
+            /*
             if (IS_IMMORTAL (ch))
             {
                 do_function (ch, &do_help, "imotd");
@@ -300,6 +301,8 @@ void nanny (DESCRIPTOR_DATA * d, char *argument)
                 do_function (ch, &do_help, "motd");
                 d->connected = CON_READ_MOTD;
             }
+            */
+            d->connected = CON_PLAYING;
             break;
 
 /* RT code for breaking link */
