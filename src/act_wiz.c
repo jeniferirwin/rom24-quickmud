@@ -1891,65 +1891,231 @@ void do_ofind (CHAR_DATA * ch, char *argument)
 
 void do_owhere (CHAR_DATA * ch, char *argument)
 {
-    char buf[MAX_INPUT_LENGTH];
-    BUFFER *buffer;
-    OBJ_DATA *obj;
-    OBJ_DATA *in_obj;
-    bool found;
-    int number = 0, max_found;
+    
+    BUFFER		*buffer;
+    OBJ_DATA		*obj;
+    OBJ_DATA		*in_obj;
+//    OBJ_DATA		*obj_previous; // for vnum search matching
+    char		arg1[MAX_INPUT_LENGTH];
+    char		arg2[MAX_INPUT_LENGTH];
+    char		buf[MAX_STRING_LENGTH];
+    char		tmp1[MAX_STRING_LENGTH];
+    char		tmp2[MAX_STRING_LENGTH];
+    char		tmp3[MAX_STRING_LENGTH];
+    int			vnum   = -1;
+    int			nCount = 0;
+    int			nPage  = 1;
+    int			nMatch = 0;
+    int			a, b;
+    char		countbuf[MAX_INPUT_LENGTH];
+    int			match_count = 1;
+    bool		by_vnum = FALSE;
 
-    found = FALSE;
-    number = 0;
-    max_found = 200;
+    argument = one_argument( argument, arg1 );
+    one_argument( argument, arg2 );
 
-    buffer = new_buf ();
-
-    if (argument[0] == '\0')
+    if ( arg1[0] == '\0' )
     {
-        send_to_char ("Find what?\n\r", ch);
-        return;
+	send_to_char( "Must specify an object name or vnum.\n\r", ch );
+	return;
     }
 
-    for (obj = object_list; obj != NULL; obj = obj->next)
+    if ( is_number( arg1 ) )
     {
-        if (!can_see_obj (ch, obj) || !is_name (argument, obj->name)
-            || ch->level < obj->level)
-            continue;
+	vnum = atoi( arg1 );
 
-        found = TRUE;
-        number++;
+	if ( vnum < 0 || vnum > MAX_VNUM )
+	{
+	    send_to_charf( ch, "Valid vnum range is 0 to %d.\n\r", MAX_VNUM );
+	    return;
+	}
 
-        for (in_obj = obj; in_obj->in_obj != NULL; in_obj = in_obj->in_obj);
-
-        if (in_obj->carried_by != NULL && can_see (ch, in_obj->carried_by)
-            && in_obj->carried_by->in_room != NULL)
-            sprintf (buf, "%3d) %s is carried by %s [Room %d]\n\r",
-                     number, obj->short_descr, PERS (in_obj->carried_by, ch),
-                     in_obj->carried_by->in_room->vnum);
-        else if (in_obj->in_room != NULL
-                 && can_see_room (ch, in_obj->in_room)) sprintf (buf,
-                                                                 "%3d) %s is in %s [Room %d]\n\r",
-                                                                 number,
-                                                                 obj->short_descr,
-                                                                 in_obj->in_room->name,
-                                                                 in_obj->in_room->vnum);
-        else
-            sprintf (buf, "%3d) %s is somewhere\n\r", number,
-                     obj->short_descr);
-
-        buf[0] = UPPER (buf[0]);
-        add_buf (buffer, buf);
-
-        if (number >= max_found)
-            break;
+	if ( get_obj_index( vnum ) == NULL )
+	{
+	    send_to_char( "No object has that vnum.\n\r", ch );
+	    return;
+	}
+	by_vnum = TRUE;
     }
 
-    if (!found)
-        send_to_char ("Nothing like that in heaven or earth.\n\r", ch);
+    if ( arg2[0] != '\0' )
+    {
+	if ( !is_spec_number( arg2, 'p' ) )
+	{
+	    send_to_char( "Invalid page argument.\n\r", ch );
+	    return;
+	}
+
+	if ( ( nPage = get_spec_number( arg2, 'p' ) ) < 1 )
+	{
+	    send_to_char( "Page number must be greater than zero.\n\r", ch );
+	    return;
+	}
+    }
+
+    nPage = ( nPage - 1 ) * 100 + ( nPage == 1 ? 0 : 1 );
+
+    buffer = new_buf();
+
+    for ( obj = object_list; obj != NULL; obj = obj->next )
+    {
+	if ( IS_DELETED( obj ) || !can_see_obj( ch, obj ) )
+	    continue;
+
+	if ( ( vnum == -1 && !is_name( arg1, obj->name ) )
+	||   ( vnum != -1 && obj->pIndexData->vnum != vnum ) )
+	    continue;
+
+	nCount++;
+
+// here's where vnum searched obj will match prev in all
+// respects, or not...
+// #define OBJ_MATCH(o,p) (((o)->in_room == (p)->in_room) && so on'
+// if it does, match_count++ and continue
+// if not: 
+//   ( note the last obj pointer will always be null, so display
+//   obj_previous )
+//   format_owhere_vnum( ch, obj_previous, match_count, buffer );
+//   match_count = 0;
+//   nMatch++ (think that's for paging)
+//
+// then:
+//   prev_obj = obj; prev_in_obj = obj->in; 
+//   prev_in_room = obj->in_room; prev_carried_by = obj->carried_by;
+//   continue;
+//
+//    
+
+	if ( nPage > 1 )
+	{
+	    if ( --nPage == 1 )
+		nPage = -1;
+	    continue;
+	}
+
+	/* Back out of container. */
+	for ( in_obj = obj; in_obj->in_obj; in_obj = in_obj->in_obj )
+	    ;
+
+	if ( in_obj->carried_by && can_see( ch, in_obj->carried_by )
+	&&   in_obj->carried_by->in_room )
+	{
+	
+	    a = strlen_color( obj->short_descr );
+	    b = strlen_color( PERS_SEE( in_obj->carried_by, TRUE ) );
+	    spacing_split( &a, &b, 20, 20 );
+
+	    strncpyft_color( tmp1,
+		FIX_STR( obj->short_descr, "(none)", "(null)" ),
+		a, '\0', TRUE );
+	    strncpyft_color( tmp2,
+		FIX_STR( PERS_SEE( in_obj->carried_by, TRUE ),
+		    "(none)", "(null)" ),
+		b, '\0', TRUE );
+		
+	    if ( by_vnum )
+	    {
+	    	if ( match_count > 1 )
+		    sprintf( countbuf, "%d*%d", match_count, obj->pIndexData->vnum );
+		else
+		    sprintf( countbuf, "%d", obj->pIndexData->vnum );
+		    
+	        snprintf( tmp3, MAX_STRING_LENGTH, "%3d) [%5s]%s%s #n(carried) %s",
+		    nCount, countbuf,
+		    AREA_IS_OPEN( obj->pIndexData->area ) ? " " : "*",
+		    tmp1, tmp2 );
+	    }
+	    else
+	        snprintf( tmp3, MAX_STRING_LENGTH, "%3d) [%5d]%s%s #n(carried) %s",
+		    nCount, obj->pIndexData->vnum,
+		    AREA_IS_OPEN( obj->pIndexData->area ) ? " " : "*",
+		    tmp1, tmp2 );
+
+	    strncpyft_color( buf, tmp3, 64, ' ', TRUE );
+
+	    bprintf( buffer, "%s #nR[%5d]%s[%3d]\n\r",
+		buf, in_obj->carried_by->in_room->vnum,
+		AREA_IS_OPEN( in_obj->carried_by->in_room->area ) ? " " : "*",
+		obj->level );
+	}
+	else if ( in_obj->in_room && can_see_room( ch, in_obj->in_room ) )
+	{
+	    a = strlen_color( obj->short_descr );
+	    b = strlen_color( in_obj->in_room->name );
+	    spacing_split( &a, &b, 23, 22 );
+
+	    strncpyft_color( tmp1,
+		FIX_STR( obj->short_descr, "(none)", "(null)" ),
+		a, '\0', TRUE );
+	    strncpyft_color( tmp2,
+		FIX_STR( in_obj->in_room->name, "(none)", "(null)" ),
+		b, '\0', TRUE );
+	    if ( by_vnum )
+	    {
+	    	if ( match_count > 1 )
+		    sprintf( countbuf, "%d*%d", match_count, obj->pIndexData->vnum );
+		else
+		    sprintf( countbuf, "%d", obj->pIndexData->vnum );
+	        
+	        snprintf( tmp3, MAX_STRING_LENGTH, "%3d) [%5s]%s%s #n(in) %s",
+		    nCount, countbuf,
+		    AREA_IS_OPEN( obj->pIndexData->area ) ? " " : "*",
+		    tmp1, tmp2 );
+	    }
+	    else
+	        snprintf( tmp3, MAX_STRING_LENGTH, "%3d) [%5d]%s%s #n(in) %s",
+		    nCount, obj->pIndexData->vnum,
+		    AREA_IS_OPEN( obj->pIndexData->area ) ? " " : "*",
+		    tmp1, tmp2 );
+
+	    strncpyft_color( buf, tmp3, 64, ' ', TRUE );
+
+	    bprintf( buffer, "%s #nR[%5d]%s[%3d]\n\r",
+		buf, in_obj->in_room->vnum,
+		AREA_IS_OPEN( in_obj->in_room->area ) ? " " : "*",
+		obj->level );
+	}
+	else
+	{
+
+	    strncpyft_color( tmp1, obj->short_descr, 42, '\0', TRUE );
+
+	    if ( by_vnum )
+	    {
+	    	if ( match_count > 1 )
+		    sprintf( countbuf, "%d*%d", match_count, obj->pIndexData->vnum );
+		else
+		    sprintf( countbuf, "%d", obj->pIndexData->vnum );
+
+	        snprintf( tmp2, MAX_STRING_LENGTH, "%3d) [%5s]%s%s #n (somewhere)",
+		    nCount, countbuf,
+		    AREA_IS_OPEN( obj->pIndexData->area ) ? " " : "*", tmp1 );
+	    }
+	    else
+	        snprintf( tmp2, MAX_STRING_LENGTH, "%3d) [%5d]%s%s #n (somewhere)",
+		    nCount, obj->pIndexData->vnum,
+		    AREA_IS_OPEN( obj->pIndexData->area ) ? " " : "*", tmp1 );
+
+	    strncpyft_color( buf, tmp2, 64, ' ', TRUE );
+
+	    bprintf( buffer, "%s          #n[%3d]\n\r",
+		buf, obj->level );
+	}
+
+	if ( ++nMatch >= 100 )
+	    break;
+    }
+
+    if ( nMatch )
+	page_to_char( buf_string( buffer ), ch );
+    else if ( nPage == -1 || nPage > 0 )
+	send_to_char(
+	    "No objects found, try lowering the page number.\n\r", ch );
     else
-        page_to_char (buf_string (buffer), ch);
+	send_to_charf( ch, "No objects of that %s.\n\r",
+	    vnum == -1 ? "name" : "vnum" );
 
-    free_buf (buffer);
+    free_buf( buffer );
 }
 
 

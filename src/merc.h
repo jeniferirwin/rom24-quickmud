@@ -122,6 +122,7 @@ typedef void SPELL_FUN args( ( int sn, int level, CHAR_DATA *ch, void *vo,
 #define MAX_STRING_LENGTH     4608
 #define MAX_INPUT_LENGTH       256
 #define PAGELEN                 22
+#define MAX_VNUM             32767
 
 /* I am lazy :) */
 #define MSL MAX_STRING_LENGTH
