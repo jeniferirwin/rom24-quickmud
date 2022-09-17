@@ -2561,6 +2561,7 @@ char *    affect_loc_name    args( ( int location ) );
 char *    affect_bit_name    args( ( int vector ) );
 char *    extra_bit_name    args( ( int extra_flags ) );
 char *     wear_bit_name    args( ( unsigned long long wear_flags ) );
+char *     debug_bit_name    args( ( unsigned long long debug_flags ) );
 char *    act_bit_name    args( ( unsigned long long act_flags ) );
 char *    off_bit_name    args( ( unsigned long long off_flags ) );
 char *  imm_bit_name    args( ( unsigned long long imm_flags ) );

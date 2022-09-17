@@ -417,7 +417,6 @@ void one_hit (CHAR_DATA * ch, CHAR_DATA * victim, int dt)
     int diceroll;
     int sn, skill;
     int dam_type;
-    char buf[512];
     bool result;
 
     sn = -1;
