@@ -69,18 +69,6 @@ void violence_update (void)
     CHAR_DATA *ch_next;
     CHAR_DATA *victim;
 
-
-    /* START: beginning tag for combat round - Tevilar 09/09/22 */
-    for (ch = char_list; ch != NULL; ch = ch_next)
-    {
-        ch_next = ch->next;
-        if (!IS_NPC(ch) && ch->fighting != NULL)
-        {
-            send_to_char("<ROUND>\n\r",ch);
-        }
-    }
-    /* END: beginning tag for combat round - Tevilar 09/09/22 */
-
     for (ch = char_list; ch != NULL; ch = ch_next)
     {
         ch_next = ch->next;
@@ -109,17 +97,6 @@ void violence_update (void)
                 mp_hprct_trigger (ch, victim);
         }
     }
-
-    /* START: ending tag for combat round - Tevilar 09/09/22 */
-    for (ch = char_list; ch != NULL; ch = ch_next)
-    {
-        ch_next = ch->next;
-        if (!IS_NPC(ch) && ch->fighting != NULL)
-        {
-            send_to_char("</ROUND>\n\r", ch);
-        }
-    }
-    /* END: ending tag for combat round - Tevilar 09/09/22 */
 
     return;
 }
@@ -1020,10 +997,6 @@ bool damage (CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt,
             }
         }
 
-        /* START: Ending tags for combat round and fight - Tevilar 09/09/22 */
-        send_to_char("</ROUND>\n\r",ch);
-        send_to_char("</FIGHT>\n\r",ch);
-        /* END: Ending tags for combat round and fight - Tevilar 09/09/22 */
         return TRUE;
     }
 
@@ -1478,10 +1451,6 @@ void set_fighting (CHAR_DATA * ch, CHAR_DATA * victim)
 
     ch->fighting = victim;
     ch->position = POS_FIGHTING;
-    
-    /* Beginning tags for fight and round - Tevilar 09/09/22 */
-    send_to_char("<FIGHT>\n\r",ch);
-    send_to_char("<ROUND>\n\r",ch);
 
     return;
 }
@@ -1502,9 +1471,6 @@ void stop_fighting (CHAR_DATA * ch, bool fBoth)
             fch->fighting = NULL;
             fch->position = IS_NPC (fch) ? fch->default_pos : POS_STANDING;
             update_pos (fch);
-
-            /* Ending tag for fight - Tevilar 09/09/22 */
-            send_to_char("</FIGHT>\n\r",ch);
         }
     }
 
