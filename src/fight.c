@@ -1805,10 +1805,18 @@ void group_gain (CHAR_DATA * ch, CHAR_DATA * victim)
     }
 */
 
-        xp = xp_compute (gch, victim, group_levels);
-        sprintf (buf, "You receive %d experience points.\n\r", xp);
-        send_to_char (buf, gch);
-        gain_exp (gch, xp);
+        if (!IS_SET(gch->act, PLR_NOEXP))
+        {
+            xp = xp_compute (gch, victim, group_levels);
+            sprintf (buf, "You receive %d experience points.\n\r", xp);
+            send_to_char (buf, gch);
+            gain_exp (gch, xp);
+        }
+        else
+        {
+            sprintf (buf, "You receive no experience points. (#Rnoexp#n toggle)\n\r");
+            send_to_char (buf, gch);
+        }
 
         for (obj = ch->carrying; obj != NULL; obj = obj_next)
         {

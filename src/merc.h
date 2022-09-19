@@ -1431,6 +1431,7 @@ struct    kill_data
 #define PLR_FREEZE        (Y)
 #define PLR_THIEF        (Z)
 #define PLR_KILLER        (aa)
+#define PLR_NOEXP         (bb)
 
 
 /* RT comm flags -- may be used on both mobs and chars */

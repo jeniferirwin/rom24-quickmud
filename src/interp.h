@@ -178,6 +178,7 @@ DECLARE_DO_FUN( do_music		);
 DECLARE_DO_FUN( do_newlock		);
 DECLARE_DO_FUN( do_nochannels		);
 DECLARE_DO_FUN(	do_noemote		);
+DECLARE_DO_FUN(	do_noexp		);
 DECLARE_DO_FUN( do_nofollow		);
 DECLARE_DO_FUN( do_noloot		);
 DECLARE_DO_FUN(	do_north		);

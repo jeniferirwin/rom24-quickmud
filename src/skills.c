@@ -923,6 +923,7 @@ void do_groups (CHAR_DATA * ch, char *argument)
 void check_improve (CHAR_DATA * ch, int sn, bool success, int multiplier)
 {
     int chance;
+    int gain;
     char buf[100];
 
     if (IS_NPC (ch))
@@ -952,7 +953,13 @@ void check_improve (CHAR_DATA * ch, int sn, bool success, int multiplier)
                      skill_table[sn].name);
             send_to_char (buf, ch);
             ch->pcdata->learned[sn]++;
-            gain_exp (ch, 2 * skill_table[sn].rating[ch->class]);
+            if (!IS_SET(ch->act, PLR_NOEXP))
+            {
+                gain = 2 * skill_table[sn].rating[ch->class];
+                sprintf(buf, "You receive %d experience points.\n\r", gain);
+                send_to_char(buf, ch);
+                gain_exp (ch, gain);
+            }
         }
     }
 
@@ -967,7 +974,13 @@ void check_improve (CHAR_DATA * ch, int sn, bool success, int multiplier)
             send_to_char (buf, ch);
             ch->pcdata->learned[sn] += number_range (1, 3);
             ch->pcdata->learned[sn] = UMIN (ch->pcdata->learned[sn], 100);
-            gain_exp (ch, 2 * skill_table[sn].rating[ch->class]);
+            if (!IS_SET(ch->act, PLR_NOEXP))
+            {
+                gain = 2 * skill_table[sn].rating[ch->class];
+                sprintf(buf, "You receive %d experience points.", gain);
+                send_to_char(buf, ch);
+                gain_exp (ch, gain);
+            }
         }
     }
 }
