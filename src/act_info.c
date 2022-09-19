@@ -767,6 +767,11 @@ void do_autolist (CHAR_DATA * ch, char *argument)
         send_to_char ("You do not welcome followers.\n\r", ch);
     else
         send_to_char ("You accept followers.\n\r", ch);
+
+    if (IS_SET (ch->act, PLR_NOEXP))
+        send_to_char ("You do not gain experience.\n\r", ch);
+    else
+        send_to_char ("You gain normal experience.\n\r", ch);
 }
 
 void do_autoassist (CHAR_DATA * ch, char *argument)
@@ -994,6 +999,24 @@ void do_combine (CHAR_DATA * ch, char *argument)
     {
         send_to_char ("Combined inventory selected.\n\r", ch);
         SET_BIT (ch->comm, COMM_COMBINE);
+    }
+}
+
+void do_noexp (CHAR_DATA * ch, char *argument)
+{
+    if (IS_NPC (ch))
+        return;
+
+    if (IS_SET (ch->act, PLR_NOEXP))
+    {
+        send_to_char ("You will now gain experience.\n\r", ch);
+        REMOVE_BIT (ch->act, PLR_NOEXP);
+    }
+    else
+    {
+        send_to_char ("You will no longer gain experience.\n\r", ch);
+        send_to_char ("Normal experience gain will resume when #cNOEXP#n is toggled again.\n\r", ch);
+        SET_BIT (ch->act, PLR_NOEXP);
     }
 }
 
