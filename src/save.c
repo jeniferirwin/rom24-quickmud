@@ -176,6 +176,7 @@ void fwrite_char (CHAR_DATA * ch, FILE * fp)
 {
     AFFECT_DATA *paf;
     int sn, gn, pos, i;
+    char buf[512];
 
     fprintf (fp, "#%s\n", IS_NPC (ch) ? "MOB" : "PLAYER");
 
@@ -259,6 +260,10 @@ void fwrite_char (CHAR_DATA * ch, FILE * fp)
              ch->mod_stat[STAT_INT],
              ch->mod_stat[STAT_WIS],
              ch->mod_stat[STAT_DEX], ch->mod_stat[STAT_CON]);
+    
+    fprintf(fp, "Timer %d\n", ch->timer);
+    printf(buf, "[LOG] Writing timer %d for char %s", ch->timer, ch->name);
+    log_string(buf);
 
     if (IS_NPC (ch))
     {
@@ -1118,6 +1123,9 @@ void fread_char (CHAR_DATA * ch, FILE * fp)
                 break;
 
             case 'T':
+                KEY ("Timer", ch->timer, fread_number (fp));
+                sprintf(buf, "[LOG] Reading timer %d to char %s", ch->timer, ch->name);
+                log_string(buf);
                 KEY ("TrueSex", ch->pcdata->true_sex, fread_number (fp));
                 KEY ("TSex", ch->pcdata->true_sex, fread_number (fp));
                 KEY ("Trai", ch->train, fread_number (fp));
