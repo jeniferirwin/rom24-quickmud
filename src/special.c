@@ -981,7 +981,7 @@ bool spec_guard (CHAR_DATA * ch)
         return TRUE;
     }
 
-    if (ech != NULL)
+    if (ech != NULL && can_see(ch, ech))
     {
         act ("$n screams 'PROTECT THE INNOCENT!!  BANZAI!!",
              ch, NULL, NULL, TO_ROOM);
