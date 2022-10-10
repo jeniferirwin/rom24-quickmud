@@ -2154,31 +2154,31 @@ void dam_message (CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt,
     }
     else if (dam <= 100)
     {
-        vs = "#w=== #mOBLITERATE #w===#w";
-        vp = "#w=== #mOBLITERATES #w===#w";
+        vs = "#w=== #pOBLITERATE #w===#w";
+        vp = "#w=== #pOBLITERATES #w===#w";
     }
     else if (dam <= 125)
     {
-        vs = "#w>>> #BANNIHILATE #w<<<#w";
-        vp = "#w>>> #BANNIHILATES #w<<<#w";
+        vs = "#w>>> #UANNIHILATE #w<<<#w";
+        vp = "#w>>> #UANNIHILATES #w<<<#w";
         
     }
     else if (dam <= 150)
     {
-        vs = "#w<<< #YERADICATE #w>>>#w";
-        vp = "#w<<< #YERADICATES #w>>>#w";
+        vs = "#w<<< #OERADICATE #w>>>#w";
+        vp = "#w<<< #OERADICATES #w>>>#w";
         
     }
     else if (dam <= 300)
     {
-        vs = "#wdo really #DUNKIND#w things to#w";
-        vp = "#wdoes really #DUNKIND#w things to#w";
+        vs = "#wdo really #AUNKIND#w things to#w";
+        vp = "#wdoes really #AUNKIND#w things to#w";
         
     }
     else
     {
-        vs = "#wdo ...#DUNSPEAKABLE#w... things to#w";
-        vp = "#wdoes ...#DUNSPEAKABLE#w... to#w";
+        vs = "#wdo ...#AUNSPEAKABLE#w... things to#w";
+        vp = "#wdoes ...#AUNSPEAKABLE#w... to#w";
     }
 
     punct = (dam <= 24) ? '.' : '!';

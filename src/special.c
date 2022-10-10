@@ -860,11 +860,13 @@ bool spec_executioner (CHAR_DATA * ch)
     CHAR_DATA *victim;
     CHAR_DATA *v_next;
     char *crime;
+    char *battlecry;
 
     if (!IS_AWAKE (ch) || ch->fighting != NULL)
         return FALSE;
 
     crime = "";
+    battlecry = "";
     for (victim = ch->in_room->people; victim != NULL; victim = v_next)
     {
         v_next = victim->next_in_room;
@@ -887,8 +889,16 @@ bool spec_executioner (CHAR_DATA * ch)
     if (victim == NULL)
         return FALSE;
 
-    sprintf (buf, "%s is a %s!  PROTECT THE INNOCENT!  MORE BLOOOOD!!!",
-             victim->name, crime);
+    if (IS_SET(ch->act, ACT_NOALIGN))
+        battlecry = "%s is a %s! ATTACKING!";
+    else if (IS_GOOD(ch))
+        battlecry = "%s is a %s! PROTECT THE INNOCENT! BANZAI!";
+    else if (IS_EVIL(ch))
+        battlecry = "%s is a %s! SLAUGHTER THE CUR! NO QUARTER!";
+    else if (IS_NEUTRAL(ch))
+        battlecry = "%s is a %s! PROTECT OUR PEOPLE! TO ARMS!";
+
+    sprintf (buf, battlecry, victim->name, crime);
     REMOVE_BIT (ch->comm, COMM_NOSHOUT);
     do_function (ch, &do_yell, buf);
     multi_hit (ch, victim, TYPE_UNDEFINED);
@@ -929,63 +939,129 @@ bool spec_fido (CHAR_DATA * ch)
 
 
 
+#define IS_GUARD(ch) (ch->spec_fun == spec_lookup("spec_guard"))
+#define IS_EXECUTIONER(ch) (ch->spec_fun == spec_lookup("spec_executioner"))
+
 bool spec_guard (CHAR_DATA * ch)
 {
     char buf[MAX_STRING_LENGTH];
-    CHAR_DATA *victim;
+    char *battlecry;
+    CHAR_DATA *vch;
     CHAR_DATA *v_next;
-    CHAR_DATA *ech;
+    CHAR_DATA *perp;
     char *crime;
-    int max_evil;
+    int aggro;
 
     if (!IS_AWAKE (ch) || ch->fighting != NULL)
         return FALSE;
 
-    max_evil = 300;
-    ech = NULL;
+    perp = NULL;
     crime = "";
+    battlecry = "";
+    if (IS_GOOD(ch) || IS_NEUTRAL(ch)) aggro = 250;
+    if (IS_EVIL(ch)) aggro = -250;
 
-    for (victim = ch->in_room->people; victim != NULL; victim = v_next)
+    for (vch = ch->in_room->people; vch != NULL; vch = v_next)
     {
-        v_next = victim->next_in_room;
+        v_next = vch->next_in_room;
 
-        if (!IS_NPC (victim) && IS_SET (victim->act, PLR_KILLER)
-            && can_see (ch, victim))
+        if (!IS_NPC (vch) && IS_SET (vch->act, PLR_KILLER) && can_see (ch, vch))
         {
             crime = "KILLER";
             break;
         }
 
-        if (!IS_NPC (victim) && IS_SET (victim->act, PLR_THIEF)
-            && can_see (ch, victim))
+        if (!IS_NPC (vch) && IS_SET (vch->act, PLR_THIEF) && can_see (ch, vch))
         {
             crime = "THIEF";
             break;
         }
 
-        if (victim->fighting != NULL
-            && victim->fighting != ch && victim->alignment < max_evil)
+        /*
+         * Better align-based decisions for guards - Tevilar 20221009
+         *
+         * Guards will now always stick with attacking the first perp they
+         * see, instead of allowing the loop to set their target to new
+         * values. When someone walks into the room, they go to the top of
+         * the list. *Usually*, the reason a guard has to jump into action is
+         * because someone walked into the room and attacked someone else.
+         * We'll default to always attacking the first person.
+         */
+
+        if (vch->fighting != NULL && vch->fighting != ch)
         {
-            max_evil = victim->alignment;
-            ech = victim;
+            /* good guards will attack neutral and evil combatants,
+               preferring to attack the most evil */
+            if (!IS_SET(ch->act, ACT_NOALIGN) && IS_GOOD(ch) && !IS_GOOD(vch) && vch->alignment < aggro)
+            {
+                aggro = vch->alignment;
+                perp = vch;
+            }
+            
+            /* evil guards will attack good and neutral combatants,
+               preferring to attack the most good */
+            if (!IS_SET(ch->act, ACT_NOALIGN) && IS_EVIL(ch) && !IS_EVIL(vch) && vch->alignment > aggro)
+            {
+                aggro = vch->alignment;
+                perp = vch;
+            }
+            
+            /* neutral guards will attack good and evil combatants,
+               preferring to attack whoever is the most extreme */
+            if (!IS_SET(ch->act, ACT_NOALIGN) && IS_NEUTRAL(ch) && !IS_NEUTRAL(vch) && abs(vch->alignment) > abs(aggro))
+            {
+                aggro = vch->alignment;
+                perp = vch;
+            }
+
+            /* NOALIGN guards will attack the FIRST active combatant in the room
+             * that is not another NOALIGN guard or executioner. I think of it
+             * this way: NOALIGN guards just want to end the violence quickly
+             * and they don't really care who they have to kill to do it. This
+             * would be used on something like an all-purpose 'peacekeeper
+             * golem'. With very few exceptions, this should not be used on
+             * sentient races. It is a very strictly lawful-neutral response.
+             */
+            if (IS_SET(ch->act, ACT_NOALIGN) && !perp)
+            {
+                if ((!IS_GUARD(vch) && !IS_EXECUTIONER(vch))
+                    || ((IS_GUARD(vch) || IS_EXECUTIONER(vch)) && !IS_SET(vch->act, ACT_NOALIGN)))
+                    perp = vch;
+            }
         }
     }
 
-    if (victim != NULL)
+    if (vch)
     {
-        sprintf (buf, "%s is a %s!  PROTECT THE INNOCENT!!  BANZAI!!",
-                 victim->name, crime);
+        if (IS_SET(ch->act, ACT_NOALIGN))
+            battlecry = "%s is a %s! ATTACKING!";
+        else if (IS_GOOD(ch))
+            battlecry = "%s is a %s! PROTECT THE INNOCENT! BANZAI!";
+        else if (IS_EVIL(ch))
+            battlecry = "%s is a %s! SLAUGHTER THE CUR! NO QUARTER!";
+        else if (IS_NEUTRAL(ch))
+            battlecry = "%s is a %s! PROTECT OUR PEOPLE! TO ARMS!";
+
+        sprintf (buf, battlecry, vch->name, crime);
         REMOVE_BIT (ch->comm, COMM_NOSHOUT);
         do_function (ch, &do_yell, buf);
-        multi_hit (ch, victim, TYPE_UNDEFINED);
+        multi_hit (ch, vch, TYPE_UNDEFINED);
         return TRUE;
     }
 
-    if (ech != NULL && can_see(ch, ech))
+    if (perp)
     {
-        act ("$n screams 'PROTECT THE INNOCENT!!  BANZAI!!",
-             ch, NULL, NULL, TO_ROOM);
-        multi_hit (ch, ech, TYPE_UNDEFINED);
+        if (IS_SET(ch->act, ACT_NOALIGN))
+            battlecry = "$n screams 'UPHOLD THE LAW!'";
+        else if (IS_GOOD(ch))
+            battlecry = "$n screams 'PROTECT THE INNOCENT! BANZAI!'";
+        else if (IS_EVIL(ch))
+            battlecry = "$n screams 'SLAY THE MISCREANT! TAKE THEIR HEAD!'";
+        else if (IS_NEUTRAL(ch))
+            battlecry = "$n screams 'PROTECT THE PEOPLE! ENGAGE!'";
+
+        act (battlecry, ch, NULL, NULL, TO_ROOM);
+        multi_hit (ch, perp, TYPE_UNDEFINED);
         return TRUE;
     }
 
