@@ -6,3 +6,4 @@
 /player/
 /src/make.log
 /area/shutdown.txt
+/src/*.o
