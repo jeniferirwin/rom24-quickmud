@@ -1139,6 +1139,7 @@ struct    kill_data
 #define ITEM_SELL_EXTRACT  (W)
 #define ITEM_BURN_PROOF    (Y)
 #define ITEM_NOUNCURSE     (Z)
+#define ITEM_NOPEEK        (aa)
 
 
 /*

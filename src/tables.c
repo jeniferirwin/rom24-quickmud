@@ -458,6 +458,7 @@ const struct flag_type extra_flags[] = {
     {"sellextract", ITEM_SELL_EXTRACT, TRUE},
     {"burnproof", ITEM_BURN_PROOF, TRUE},
     {"nouncurse", ITEM_NOUNCURSE, TRUE},
+    {"nopeek", ITEM_NOPEEK, TRUE},
     {NULL, 0, 0}
 };
 

@@ -161,6 +161,9 @@ void show_list_to_char (OBJ_DATA * list, CHAR_DATA * ch, bool fShort,
      */
     for (obj = list; obj != NULL; obj = obj->next_content)
     {
+        if (obj->carried_by != ch && IS_SET(obj->extra_flags, ITEM_NOPEEK))
+            continue;
+        
         if (obj->wear_loc == WEAR_NONE && can_see_obj (ch, obj))
         {
             pstrShow = format_obj_to_char (obj, ch, fShort);
