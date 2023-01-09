@@ -2,8 +2,5 @@
 /player/**
 /area/rom
 /src/obj/**
-/player/Shemp
-/player/
-/src/make.log
 /area/shutdown.txt
 /src/*.o
