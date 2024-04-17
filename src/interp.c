@@ -364,16 +364,20 @@ const struct cmd_type cmd_table[] = {
     /*
      * OLC
      */
-    {"edit", do_olc, POS_DEAD, 0, LOG_NORMAL, 1},
-    {"asave", do_asave, POS_DEAD, 0, LOG_NORMAL, 1},
-    {"alist", do_alist, POS_DEAD, 0, LOG_NORMAL, 1},
-    {"resets", do_resets, POS_DEAD, 0, LOG_NORMAL, 1},
-    {"redit", do_redit, POS_DEAD, 0, LOG_NORMAL, 1},
-    {"medit", do_medit, POS_DEAD, 0, LOG_NORMAL, 1},
-    {"aedit", do_aedit, POS_DEAD, 0, LOG_NORMAL, 1},
-    {"oedit", do_oedit, POS_DEAD, 0, LOG_NORMAL, 1},
-    {"mpedit", do_mpedit, POS_DEAD, 0, LOG_NORMAL, 1},
-    {"hedit", do_hedit, POS_DEAD, 0, LOG_NORMAL, 1},
+    {"edit", do_olc, POS_DEAD, L5, LOG_NORMAL, 1},
+    {"asave", do_asave, POS_DEAD, L5, LOG_NORMAL, 1},
+    {"alist", do_alist, POS_DEAD, L5, LOG_NORMAL, 1},
+    {"resets", do_resets, POS_DEAD, L5, LOG_NORMAL, 1},
+    {"redit", do_redit, POS_DEAD, L5, LOG_NORMAL, 1},
+    {"medit", do_medit, POS_DEAD, L5, LOG_NORMAL, 1},
+    {"aedit", do_aedit, POS_DEAD, L5, LOG_NORMAL, 1},
+    {"oedit", do_oedit, POS_DEAD, L5, LOG_NORMAL, 1},
+    {"mpedit", do_mpedit, POS_DEAD, L5, LOG_NORMAL, 1},
+    {"hedit", do_hedit, POS_DEAD, L5, LOG_NORMAL, 1},
+    
+    {"rlist", do_rlist, POS_DEAD, L5, LOG_NORMAL, 1},
+    {"olist", do_olist, POS_DEAD, L5, LOG_NORMAL, 1},
+    {"mlist", do_mlist, POS_DEAD, L5, LOG_NORMAL, 1},
 
     /*
      * End of list.

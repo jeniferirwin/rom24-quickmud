@@ -326,7 +326,7 @@ bool show_help (CHAR_DATA * ch, char *argument)
     return FALSE;
 }
 
-REDIT (redit_rlist)
+REDIT (do_rlist)
 {
     ROOM_INDEX_DATA *pRoomIndex;
     AREA_DATA *pArea;
@@ -366,7 +366,7 @@ REDIT (redit_rlist)
     return FALSE;
 }
 
-REDIT (redit_mlist)
+REDIT (do_mlist)
 {
     MOB_INDEX_DATA *pMobIndex;
     AREA_DATA *pArea;
@@ -418,7 +418,7 @@ REDIT (redit_mlist)
 
 
 
-REDIT (redit_olist)
+REDIT (do_olist)
 {
     OBJ_INDEX_DATA *pObjIndex;
     AREA_DATA *pArea;

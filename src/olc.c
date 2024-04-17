@@ -263,9 +263,6 @@ const struct olc_cmd_type redit_table[] = {
     /* New reset commands. */
     {"mreset", redit_mreset},
     {"oreset", redit_oreset},
-    {"mlist", redit_mlist},
-    {"rlist", redit_rlist},
-    {"olist", redit_olist},
     {"mshow", redit_mshow},
     {"oshow", redit_oshow},
     {"owner", redit_owner},

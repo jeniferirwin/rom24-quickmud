@@ -313,3 +313,7 @@ DECLARE_DO_FUN( do_oedit		);
 DECLARE_DO_FUN( do_mpedit		);
 DECLARE_DO_FUN( do_hedit		);
 DECLARE_DO_FUN( do_qmread		);
+
+DECLARE_DO_FUN ( do_rlist       );
+DECLARE_DO_FUN ( do_olist       );
+DECLARE_DO_FUN ( do_mlist       );
