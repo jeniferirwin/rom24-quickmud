@@ -335,7 +335,6 @@ REDIT (redit_rlist)
     char arg[MAX_INPUT_LENGTH];
     bool found;
     int vnum;
-    int col = 0;
 
     one_argument (argument, arg);
 
@@ -349,11 +348,10 @@ REDIT (redit_rlist)
         if ((pRoomIndex = get_room_index (vnum)))
         {
             found = TRUE;
-            sprintf (buf, "[%5d] %-17.16s",
+            sprintf (buf, "[%5d] %-65.64s",
                      vnum, capitalize (pRoomIndex->name));
             add_buf (buf1, buf);
-            if (++col % 3 == 0)
-                add_buf (buf1, "\n\r");
+            add_buf (buf1, "\n\r");
         }
     }
 
@@ -362,9 +360,6 @@ REDIT (redit_rlist)
         send_to_char ("Room(s) not found in this area.\n\r", ch);
         return FALSE;
     }
-
-    if (col % 3 != 0)
-        add_buf (buf1, "\n\r");
 
     page_to_char (buf_string (buf1), ch);
     free_buf (buf1);
@@ -380,7 +375,6 @@ REDIT (redit_mlist)
     char arg[MAX_INPUT_LENGTH];
     bool fAll, found;
     int vnum;
-    int col = 0;
 
     one_argument (argument, arg);
     if (arg[0] == '\0')
@@ -402,12 +396,11 @@ REDIT (redit_mlist)
             if (fAll || is_name (arg, pMobIndex->player_name))
             {
                 found = TRUE;
-                sprintf (buf, "[%5d] %-17.16s",
+                sprintf (buf, "[%5d] %-65.64s",
                          pMobIndex->vnum,
                          capitalize (pMobIndex->short_descr));
                 add_buf (buf1, buf);
-                if (++col % 3 == 0)
-                    add_buf (buf1, "\n\r");
+                add_buf (buf1, "\n\r");
             }
         }
     }
@@ -417,9 +410,6 @@ REDIT (redit_mlist)
         send_to_char ("Mobile(s) not found in this area.\n\r", ch);
         return FALSE;
     }
-
-    if (col % 3 != 0)
-        add_buf (buf1, "\n\r");
 
     page_to_char (buf_string (buf1), ch);
     free_buf (buf1);
@@ -437,7 +427,6 @@ REDIT (redit_olist)
     char arg[MAX_INPUT_LENGTH];
     bool fAll, found;
     int vnum;
-    int col = 0;
 
     one_argument (argument, arg);
     if (arg[0] == '\0')
@@ -460,12 +449,11 @@ REDIT (redit_olist)
                 || flag_value (type_flags, arg) == pObjIndex->item_type)
             {
                 found = TRUE;
-                sprintf (buf, "[%5d] %-17.16s",
+                sprintf (buf, "[%5d] %-65.64s",
                          pObjIndex->vnum,
                          capitalize (pObjIndex->short_descr));
                 add_buf (buf1, buf);
-                if (++col % 3 == 0)
-                    add_buf (buf1, "\n\r");
+                add_buf (buf1, "\n\r");
             }
         }
     }
@@ -475,9 +463,6 @@ REDIT (redit_olist)
         send_to_char ("Object(s) not found in this area.\n\r", ch);
         return FALSE;
     }
-
-    if (col % 3 != 0)
-        add_buf (buf1, "\n\r");
 
     page_to_char (buf_string (buf1), ch);
     free_buf (buf1);
