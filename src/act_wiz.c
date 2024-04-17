@@ -43,6 +43,7 @@
 #include "recycle.h"
 #include "tables.h"
 #include "lookup.h"
+#include "olc.h"
 
 /*
  * Stolen from save.c for reading in QuickMUD config stuff
@@ -1069,7 +1070,7 @@ void do_stat (CHAR_DATA * ch, char *argument)
     {
         send_to_char ("Syntax:\n\r", ch);
         send_to_char ("  stat <name>\n\r", ch);
-        send_to_char ("  stat obj <name>\n\r", ch);
+        send_to_char ("  stat obj <name/number>\n\r", ch);
         send_to_char ("  stat mob <name>\n\r", ch);
         send_to_char ("  stat room <number>\n\r", ch);
         return;
@@ -1222,6 +1223,8 @@ void do_ostat (CHAR_DATA * ch, char *argument)
     char arg[MAX_INPUT_LENGTH];
     AFFECT_DATA *paf;
     OBJ_DATA *obj;
+    OBJ_INDEX_DATA *pObj;
+    int vnum;
 
     one_argument (argument, arg);
 
@@ -1229,6 +1232,39 @@ void do_ostat (CHAR_DATA * ch, char *argument)
     {
         send_to_char ("Stat what?\n\r", ch);
         return;
+    }
+
+    if (is_number(arg)) {
+        vnum = atoi(arg);
+        if (vnum >= 0 && vnum <= 65535) {
+            if (!(pObj = get_obj_index(vnum))) {
+                sprintf(buf,"No such object: %d.\n\r",vnum);
+                send_to_char(buf,ch);
+                return;
+            }
+            sprintf(buf,"Keywords: %s\n\r",pObj->name);
+            send_to_char(buf,ch);
+            sprintf(buf,"Vnum: %6d  Id: 000000  Type: %s  Count: %d\n\r",pObj->vnum, item_name(pObj->item_type), pObj->count);
+            send_to_char(buf,ch);
+            sprintf(buf,"Short description: %s\n\r",pObj->short_descr);
+            send_to_char(buf,ch);
+            sprintf(buf,"Room description: %s\n\r",pObj->description);
+            send_to_char(buf,ch);
+            sprintf(buf,"Wear bits: %s\n\r",flag_string(wear_flags, pObj->wear_flags));
+            send_to_char(buf,ch);
+            sprintf(buf,"Extra flags: %s\n\r",flag_string(extra_flags, pObj->extra_flags));
+            send_to_char(buf,ch);
+            sprintf(buf,"Raw Values: %d %d %d %d %d\n\r",pObj->value[0], pObj->value[1], pObj->value[2], pObj->value[3], pObj->value[4]);
+            send_to_char(buf,ch);
+            if (pObj->item_type == ITEM_PORTAL) {
+                sprintf(buf,"Charges: %d  Destination: %d  Modifier: 0  Exit flags: %s\n\r",
+                    pObj->value[0], pObj->value[3], flag_string(exit_flags, pObj->value[1]));
+                send_to_char(buf,ch);
+                sprintf(buf,"Gate flags: %s\n\r",flag_string(portal_flags, pObj->value[2]));
+                send_to_char(buf,ch);
+            }
+            return;
+        }
     }
 
     if ((obj = get_obj_world (ch, argument)) == NULL)
