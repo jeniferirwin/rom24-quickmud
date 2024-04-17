@@ -379,6 +379,7 @@ const struct cmd_type cmd_table[] = {
     {"olist", do_olist, POS_DEAD, L5, LOG_NORMAL, 1},
     {"mlist", do_mlist, POS_DEAD, L5, LOG_NORMAL, 1},
 
+    {"findreset", do_findreset, POS_DEAD, L5, LOG_NORMAL, 1},
     /*
      * End of list.
      */

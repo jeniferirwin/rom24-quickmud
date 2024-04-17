@@ -1465,6 +1465,67 @@ void do_resets (CHAR_DATA * ch, char *argument)
     return;
 }
 
+void do_findreset(CHAR_DATA *ch, char *argument)
+{
+    char buf[MAX_STRING_LENGTH];
+    char result[MAX_STRING_LENGTH * 2]; 
+    ROOM_INDEX_DATA *pRoomIndex;
+    RESET_DATA *pReset = NULL;
+    bool found = FALSE;
+    int vnum;
+    OBJ_INDEX_DATA *pTargetObj;
+
+    char arg1[MAX_INPUT_LENGTH];
+    result[0] = '\0';
+
+    argument = one_argument (argument, arg1);
+
+    if (IS_NPC (ch))
+        return;
+
+    if (arg1[0] == '\0' || !is_number(arg1))
+    {
+        send_to_char("Syntax: findreset <obj vnum>\n\r",ch);
+        return;
+    }
+    
+    if (!(pTargetObj = get_obj_index(atoi(arg1)))) {
+        sprintf(buf, "Invalid object vnum: %d\n\r", atoi(arg1));
+        send_to_char(buf,ch);
+        return;
+    }
+
+    for (vnum = 0; vnum <= 65535; vnum++) {
+        if ((pRoomIndex = get_room_index (vnum))) {
+            found = TRUE;
+            for (pReset = pRoomIndex->reset_first; pReset; pReset = pReset->next) {
+                OBJ_INDEX_DATA *pObjIndex;
+                
+                if (pReset->command == 'O' || pReset->command == 'G' || pReset->command == 'E') {
+                    if (!(pObjIndex = get_obj_index (pReset->arg1))) {
+                        sprintf(buf, "Load Object - Bad Object %d\n\r", pReset->arg1);
+                        strcat(result, buf);
+                        continue;
+                    }
+                    if (pObjIndex->vnum == pTargetObj->vnum) {
+                        sprintf(buf, "[%6d] O - [%6d] 100%% %-2d %-2d %-2d -\n\r",
+                            pRoomIndex->vnum,
+                            pObjIndex->vnum,
+                            pReset->arg2,
+                            pReset->arg4,
+                            pReset->arg2);
+                        strcat(result, buf);
+                    }
+                }
+            }
+        }
+    }
+    if (!found) {
+        sprintf(buf, "Object %d does not reset anywhere.", pTargetObj->vnum);
+        strcat(result, buf);
+    }
+    send_to_char(result, ch);
+}
 
 
 /*****************************************************************************

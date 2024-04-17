@@ -317,3 +317,4 @@ DECLARE_DO_FUN( do_qmread		);
 DECLARE_DO_FUN ( do_rlist       );
 DECLARE_DO_FUN ( do_olist       );
 DECLARE_DO_FUN ( do_mlist       );
+DECLARE_DO_FUN ( do_findreset   );
