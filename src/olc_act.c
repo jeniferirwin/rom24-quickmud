@@ -85,7 +85,8 @@ const struct olc_help_type help_table[] = {
     {"type", type_flags, "Types of objects."},
     {"extra", extra_flags, "Object attributes."},
     {"wear", wear_flags, "Where to wear object."},
-    {"spec", spec_table, "Available special programs."},
+    {"spec", spec_table, "Available special mob programs."},
+    {"ospec", ospec_table, "Available special obj programs."},
     {"sex", sex_flags, "Sexes."},
     {"act", act_flags, "Mobile attributes."},
     {"affect", affect_flags, "Mobile affects."},
@@ -227,6 +228,36 @@ void show_spec_cmds (CHAR_DATA * ch)
 }
 
 
+/*****************************************************************************
+ Name:        show_ospec_cmds
+ Purpose:    Displays settable special object functions.
+ Called by:    show_help(olc_act.c).
+ ****************************************************************************/
+void show_ospec_cmds (CHAR_DATA * ch)
+{
+    char buf[MAX_STRING_LENGTH];
+    char buf1[MAX_STRING_LENGTH];
+    int ospec;
+    int col;
+
+    buf1[0] = '\0';
+    col = 0;
+    send_to_char ("Preceed special functions with 'ospec_'\n\r\n\r", ch);
+    for (ospec = 0; ospec_table[ospec].function != NULL; ospec++)
+    {
+        sprintf (buf, "%-19.18s", &ospec_table[ospec].name[6]);
+        strcat (buf1, buf);
+        if (++col % 4 == 0)
+            strcat (buf1, "\n\r");
+    }
+
+    if (col % 4 != 0)
+        strcat (buf1, "\n\r");
+
+    send_to_char (buf1, ch);
+    return;
+}
+
 
 /*****************************************************************************
  Name:        show_help
@@ -272,6 +303,11 @@ bool show_help (CHAR_DATA * ch, char *argument)
             if (help_table[cnt].structure == spec_table)
             {
                 show_spec_cmds (ch);
+                return FALSE;
+            }
+            if (help_table[cnt].structure == ospec_table)
+            {
+                show_ospec_cmds (ch);
                 return FALSE;
             }
             else if (help_table[cnt].structure == liq_table)
@@ -2792,6 +2828,10 @@ OEDIT (oedit_show)
     }
 
     show_obj_values (ch, pObj);
+    if (pObj->ospec_fun != 0) {
+        sprintf(buf,"Object has special procedure %s.\n\r",ospec_name(pObj->ospec_fun));
+        send_to_char(buf,ch);
+    }
 
     return FALSE;
 }
@@ -3052,6 +3092,37 @@ bool set_value (CHAR_DATA * ch, OBJ_INDEX_DATA * pObj, char *argument,
     return FALSE;
 }
 
+OEDIT (oedit_ospec)
+{
+    OBJ_INDEX_DATA *pObj;
+
+    EDIT_OBJ (ch, pObj);
+
+    if (argument[0] == '\0')
+    {
+        send_to_char ("Syntax:  ospec [special function]\n\r", ch);
+        return FALSE;
+    }
+
+
+    if (!str_cmp (argument, "none"))
+    {
+        pObj->ospec_fun = NULL;
+
+        send_to_char ("Spec removed.\n\r", ch);
+        return TRUE;
+    }
+
+    if (ospec_lookup (argument))
+    {
+        pObj->ospec_fun = ospec_lookup (argument);
+        send_to_char ("OSpec set.\n\r", ch);
+        return TRUE;
+    }
+
+    send_to_char ("OEdit: No such special function.\n\r", ch);
+    return FALSE;
+}
 
 
 /*****************************************************************************

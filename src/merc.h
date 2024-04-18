@@ -38,6 +38,7 @@
 #define args( list )            list
 #define DECLARE_DO_FUN( fun )        DO_FUN    fun
 #define DECLARE_SPEC_FUN( fun )        SPEC_FUN  fun
+#define DECLARE_OSPEC_FUN( fun )        OSPEC_FUN  fun
 #define DECLARE_SPELL_FUN( fun )    SPELL_FUN fun
 #endif
 
@@ -110,6 +111,7 @@ typedef struct    colour_data      COLOUR_DATA;
  */
 typedef void DO_FUN    args( ( CHAR_DATA *ch, char *argument ) );
 typedef bool SPEC_FUN  args( ( CHAR_DATA *ch ) );
+typedef bool OSPEC_FUN  args( ( CHAR_DATA *ch, OBJ_DATA *obj ) );
 typedef void SPELL_FUN args( ( int sn, int level, CHAR_DATA *ch, void *vo,
                 int target ) );
 
@@ -615,6 +617,11 @@ struct spec_type
     SPEC_FUN *  function;  /* the function          */
 };
 
+struct ospec_type
+{
+    char *      name;      /* special function name */
+    OSPEC_FUN *  function;  /* the function          */
+};
 
 
 /*
@@ -1749,6 +1756,7 @@ struct    obj_index_data
     sh_int              weight;
     int                 cost;
     int                 value[5];
+    OSPEC_FUN *         ospec_fun;
 };
 
 
@@ -1785,6 +1793,7 @@ struct    obj_data
     char *              material;
     sh_int              timer;
     int                 value [5];
+    OSPEC_FUN *         ospec_fun;
 };
 
 
@@ -2163,6 +2172,7 @@ extern    const    struct    attack_type     attack_table   [];
 extern    const    struct    race_type       race_table     [];
 extern    const    struct    pc_race_type    pc_race_table  [];
 extern    const    struct    spec_type       spec_table     [];
+extern    const    struct    ospec_type      ospec_table     [];
 extern    const    struct    liq_type        liq_table      [];
 extern    const    struct    skill_type      skill_table    [MAX_SKILL];
 extern    const    struct    group_type      group_table    [MAX_GROUP];
@@ -2333,6 +2343,7 @@ char *    crypt        args( ( const char *key, const char *salt ) );
 #define OID  OBJ_INDEX_DATA
 #define RID  ROOM_INDEX_DATA
 #define SF   SPEC_FUN
+#define OSF  OSPEC_FUN
 #define AD   AFFECT_DATA
 #define MPC  MPROG_CODE
 
@@ -2615,7 +2626,9 @@ void    group_remove    args( ( CHAR_DATA *ch, const char *name) );
 
 /* special.c */
 SF *    spec_lookup    args( ( const char *name ) );
+OSF *    ospec_lookup    args( ( const char *name ) );
 char *    spec_name    args( ( SPEC_FUN *function ) );
+char *    ospec_name    args( ( OSPEC_FUN *function ) );
 
 /* teleport.c */
 RID *    room_by_name    args( ( char *target, int level, bool error) );
@@ -2681,6 +2694,7 @@ int    liq_lookup    args( ( const char *name) );
 extern    char *    const    dir_name        [];
 extern    const    sh_int    rev_dir         [];          /* sh_int - ROM OLC */
 extern    const    struct    spec_type    spec_table    [];
+extern    const    struct    ospec_type   ospec_table    [];
 
 /*
  * Global variables

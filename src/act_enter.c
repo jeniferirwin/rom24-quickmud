@@ -86,6 +86,11 @@ void do_enter (CHAR_DATA * ch, char *argument)
             send_to_char ("You don't see that here.\n\r", ch);
             return;
         }
+        
+        if (IS_SET(portal->value[2], GATE_PASSWORD)) {
+            send_to_char("No, that's not quite right... try being more specific.",ch);
+            return;
+        }
 
         if (portal->item_type != ITEM_PORTAL
             || (IS_SET (portal->value[1], EX_CLOSED)

@@ -32,6 +32,7 @@
 #include "merc.h"
 #include "tables.h"
 #include "olc.h"
+#include "db.h"
 
 #define DIF(a,b) (~((~a)|(b)))
 
@@ -606,6 +607,40 @@ void save_specials (FILE * fp, AREA_DATA * pArea)
     return;
 }
 
+/*****************************************************************************
+ Name:        save_ospecials
+ Purpose:    Save #OSPECIALS section of area file.
+ Called by:    save_area(olc_save.c).
+ ****************************************************************************/
+void save_ospecials (FILE * fp, AREA_DATA * pArea)
+{
+    int iHash;
+    OBJ_INDEX_DATA *pObjIndex;
+
+    fprintf (fp, "#OSPECIALS\n");
+
+    for (iHash = 0; iHash < MAX_KEY_HASH; iHash++)
+    {
+        for (pObjIndex = obj_index_hash[iHash]; pObjIndex;
+             pObjIndex = pObjIndex->next)
+        {
+            if (pObjIndex && pObjIndex->area == pArea && pObjIndex->ospec_fun != NULL)
+            {
+#if defined( VERBOSE )
+                fprintf (fp, "O %d %s Load to: %s\n", pObjIndex->vnum,
+                         ospec_name (pObjIndex->ospec_fun),
+                         pObjIndex->short_descr);
+#else
+                fprintf (fp, "O %d %s\n", pObjIndex->vnum,
+                         ospec_name (pObjIndex->ospec_fun));
+#endif
+            }
+        }
+    }
+
+    fprintf (fp, "S\n\n\n\n");
+    return;
+}
 
 
 /*
@@ -900,6 +935,7 @@ void save_area (AREA_DATA * pArea)
     save_objects (fp, pArea);
     save_rooms (fp, pArea);
     save_specials (fp, pArea);
+    save_ospecials (fp, pArea);
     save_resets (fp, pArea);
     save_shops (fp, pArea);
     save_mobprogs (fp, pArea);

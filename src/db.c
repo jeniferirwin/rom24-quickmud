@@ -234,6 +234,7 @@ void load_rooms args ((FILE * fp));
 void load_shops args ((FILE * fp));
 void load_socials args ((FILE * fp));
 void load_specials args ((FILE * fp));
+void load_ospecials args ((FILE * fp));
 void load_bans args ((void));
 void load_mobprogs args ((FILE * fp));
 
@@ -399,6 +400,8 @@ void boot_db ()
                     load_socials (fpArea);
                 else if (!str_cmp (word, "SPECIALS"))
                     load_specials (fpArea);
+                else if (!str_cmp (word, "OSPECIALS"))
+                    load_ospecials (fpArea);
                 else
                 {
                     bug ("Boot_db: bad section name.", 0);
@@ -1361,6 +1364,40 @@ void load_specials (FILE * fp)
                 if (pMobIndex->spec_fun == 0)
                 {
                     bug ("Load_specials: 'M': vnum %d.", pMobIndex->vnum);
+                    exit (1);
+                }
+                break;
+        }
+
+        fread_to_eol (fp);
+    }
+}
+
+void load_ospecials (FILE * fp)
+{
+    for (;;)
+    {
+        OBJ_INDEX_DATA *pObjIndex;
+        char letter;
+
+        switch (letter = fread_letter (fp))
+        {
+            default:
+                bug ("Load_ospecials: letter '%c' not *OS.", letter);
+                exit (1);
+
+            case 'S':
+                return;
+
+            case '*':
+                break;
+
+            case 'O':
+                pObjIndex = get_obj_index (fread_number (fp));
+                pObjIndex->ospec_fun = ospec_lookup (fread_word (fp));
+                if (pObjIndex->ospec_fun == 0)
+                {
+                    bug ("Load_ospecials: 'O': vnum %d.", pObjIndex->vnum);
                     exit (1);
                 }
                 break;
