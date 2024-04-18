@@ -48,6 +48,14 @@ steel~
 weapon Y AN
 exotic 100 1 blast F
 60 60 1000000 P
+#32
+touch portal~
+a touchy portal~
+A touchy portal hovers here.~
+ether~
+portal AB 0
+0 0 FG BCGHIJL 0
+0 0 0 P
 #0
 
 
@@ -68,8 +76,15 @@ S
 
 
 
+#OSPECIALS
+O 32 ospec_password
+S
+
+
+
 #RESETS
 M 0 31 1 31 1 Load an unprotected dummy
+O 0 32 0 31 A touchy portal loaded to Default Room
 M 0 32 1 31 1 Load a protected dummy
 S
 
