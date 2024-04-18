@@ -1191,6 +1191,8 @@ struct    kill_data
 #define GATE_GOWITH       (C)
 #define GATE_BUGGY        (D)
 #define GATE_RANDOM       (E)
+#define GATE_PASSWORD     (F)
+#define GATE_SPECIAL_EXIT (G)
 
 /* furniture flags */
 #define STAND_AT    (A)
