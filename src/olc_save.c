@@ -321,6 +321,7 @@ void save_object (FILE * fp, OBJ_INDEX_DATA * pObjIndex)
 
         case ITEM_FOOD:
         case ITEM_LIGHT:
+        case ITEM_MONEY:
             fprintf (fp, "%d %d %d %d %d\n",
                     pObjIndex->value[0],
                     pObjIndex->value[1],
