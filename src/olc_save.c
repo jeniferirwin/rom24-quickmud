@@ -320,6 +320,15 @@ void save_object (FILE * fp, OBJ_INDEX_DATA * pObjIndex)
             fprintf (fp, "%s\n", fwrite_flag (pObjIndex->value[4], buf));
             break;
 
+        case ITEM_FOOD:
+        case ITEM_LIGHT:
+            fprintf (fp, "%d %d %d %d %d\n",
+                    pObjIndex->value[0],
+                    pObjIndex->value[1],
+                    pObjIndex->value[2],
+                    pObjIndex->value[3],
+                    pObjIndex->value[4]);
+                    break;
         case ITEM_DRINK_CON:
         case ITEM_FOUNTAIN:
             fprintf (fp, "%d %d '%s' %d %d\n",
