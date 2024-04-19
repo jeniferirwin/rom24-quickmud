@@ -82,6 +82,14 @@ char *ospec_name (OSPEC_FUN * function)
     return NULL;
 }
 
+char *get_gate_password(OBJ_DATA *obj) {
+    char *password = strdup(obj->name);
+    if (password == NULL)
+        return NULL;
+    one_argument(obj->name, password);
+    return password;
+}
+
 bool ospec_verb (CHAR_DATA * ch, OBJ_DATA * obj)
 {
     char *message;

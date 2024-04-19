@@ -2440,6 +2440,7 @@ OBJ_DATA *create_object (OBJ_INDEX_DATA * pObjIndex, int level)
     obj->value[3] = pObjIndex->value[3];
     obj->value[4] = pObjIndex->value[4];
     obj->weight = pObjIndex->weight;
+    obj->ospec_fun = pObjIndex->ospec_fun;
 
     if (level == -1 || pObjIndex->new_format)
         obj->cost = pObjIndex->cost;
