@@ -4,3 +4,4 @@
 /src/obj/**
 /area/shutdown.txt
 /src/*.o
+/.vscode/*
