@@ -1193,6 +1193,58 @@ struct    kill_data
 #define WEAPON_POISON     (H)
 
 /* gate flags */
+/*
+    GATE_PASSWORD is a mechanic I re-created after observing it on the
+    Lensmoor MUD. This flag makes it so that the player needs to enter a
+    special command to enter the portal, instead of just 'enter'. The
+    command is always going to be the first word of the portal's
+    keywords. So to make a rope that you 'swing' on to get to the next
+    room, for example, you could name the object 'swing rope', or even
+    just 'swing'.
+    
+    This feature is intended to make some movement a bit more immersive,
+    or require a bit of light puzzle solving. Don't just put a random
+    password on an object and expect the player to figure it out by
+    guessing. That feels very bad for the player.
+
+    Instead, reward the player's observational skills by putting the
+    password somewhere in the room description, object description, or
+    maybe a mob tells them what the password is, etc.
+    
+    And don't just make an oblique reference to what the word is. Not
+    everyone speaks English as their native language, and even some that
+    do can have trouble figuring out coy references. You can make them
+    work for it as part of a 'zone quest' or whatnot, but please, give
+    them the actual word somewhere.
+    
+    This text probably comes off as a bit aggressive. You might be
+    wondering why I've implemented the feature at all. I did so because
+    I do think it's a neat, immersive feature, when used reasonably.
+    
+    But I have been in a situation where I was literally stuck in a
+    no-recall room for *several real-life days* because a password
+    mechanic was involved and the word was nowhere to be found in any
+    available descs. Please don't do this to your players.
+    
+    Also don't overuse PASSWORD gates in general. In particular, if your
+    MUD has a 'track' skill implemented, characters will not be able to
+    track targets through PASSWORD gates, unless your version of 'track'
+    is able to account for portals. This can make questing more
+    difficult. There is no one perfect way to solve this problem, but it
+    is an issue to be aware of.
+    
+    GATE_SILENT makes it so that the player does not automatically
+    'look' after going through the gate. USE THIS VERY SPARINGLY, and
+    give the player some meaningful indication that *something* has
+    happened.
+    
+    This effect is *incredibly* disorienting for the player and will
+    feel bad to them if used poorly. But the flag has been included to
+    allow for elaborate trickery in situations where it does make sense,
+    like zones that have psych thriller types of elements in them.
+    
+    - technitaur
+*/
 #define GATE_NORMAL_EXIT  (A)
 #define GATE_NOCURSE      (B)
 #define GATE_GOWITH       (C)
@@ -1200,6 +1252,7 @@ struct    kill_data
 #define GATE_RANDOM       (E)
 #define GATE_PASSWORD     (F)
 #define GATE_SPECIAL_EXIT (G)
+#define GATE_SILENT       (H)
 
 /* furniture flags */
 #define STAND_AT    (A)

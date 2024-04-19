@@ -713,6 +713,7 @@ const struct flag_type portal_flags[] = {
     {"password", GATE_PASSWORD, TRUE},
     {"special_exit", GATE_SPECIAL_EXIT, TRUE},
     {"random", GATE_RANDOM, TRUE},
+    {"silent", GATE_SILENT, TRUE},
     {NULL, 0, 0}
 };
 

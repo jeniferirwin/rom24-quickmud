@@ -578,11 +578,9 @@ void do_function (CHAR_DATA * ch, DO_FUN * do_fun, char *argument)
 }
 
 bool check_special(CHAR_DATA *ch, char *command) {
-    char buf[MAX_INPUT_LENGTH];
     char phrase[MAX_INPUT_LENGTH];
     OBJ_DATA *obj, *obj_next;
     ROOM_INDEX_DATA *room;
-    bool found = FALSE;
     
     if (!(room = ch->in_room)) {
         send_to_char("check_special: Char not in a room!",ch);
@@ -591,22 +589,18 @@ bool check_special(CHAR_DATA *ch, char *command) {
 
     for (obj = room->contents; obj != NULL; obj = obj_next) {
         obj_next = obj->next_content;
-        if (!(obj->item_type == ITEM_PORTAL)) { continue; }
-        send_to_char("Found a portal...\n\r",ch);
-        if (ospec_name(obj->ospec_fun) == NULL) {
-            send_to_char("But found no spec.\n\r",ch);
-            continue;
-        }
-        sprintf(buf,"OSpec found: %s\n\r",ospec_name(obj->ospec_fun));
-        send_to_char(buf,ch);
+        if (!(obj->item_type == ITEM_PORTAL)) continue;
+        if (ospec_name(obj->ospec_fun) == NULL) continue;
         if (!strcmp(ospec_name(obj->ospec_fun),"ospec_password")) {
-            
-            sprintf(buf,"Password found: %s\n\r",get_gate_password(obj));
-            send_to_char(buf,ch);
-            found = TRUE;
+            if (!strcmp(command,get_gate_password(obj))) {
+                obj->ospec_fun(ch,obj);
+                return TRUE;
+            } else {
+                return FALSE;
+            }
         }
     }
-    return found;
+    return FALSE;
 }
 
 bool check_social (CHAR_DATA * ch, char *command, char *argument)

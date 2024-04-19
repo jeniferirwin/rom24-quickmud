@@ -158,7 +158,8 @@ void do_enter (CHAR_DATA * ch, char *argument)
         else
             act ("$n has arrived through $p.", ch, portal, NULL, TO_ROOM);
 
-        do_function (ch, &do_look, "auto");
+        if (!IS_SET(portal->value[2], GATE_SILENT))
+            do_function (ch, &do_look, "auto");
 
         /* charges */
         if (portal->value[0] > 0)
