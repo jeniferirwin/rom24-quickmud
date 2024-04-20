@@ -293,6 +293,7 @@ void save_object (FILE * fp, OBJ_INDEX_DATA * pObjIndex)
     char letter;
     AFFECT_DATA *pAf;
     EXTRA_DESCR_DATA *pEd;
+    MPROG_LIST *pMprog;
     char buf[MAX_STRING_LENGTH];
 
     fprintf (fp, "#%d\n", pObjIndex->vnum);
@@ -444,6 +445,13 @@ void save_object (FILE * fp, OBJ_INDEX_DATA * pObjIndex)
     {
         fprintf (fp, "E\n%s~\n%s~\n", pEd->keyword,
                  fix_string (pEd->description));
+    }
+
+    for (pMprog = pObjIndex->mprogs; pMprog; pMprog = pMprog->next)
+    {
+        fprintf (fp, "M %s %d %s~\n",
+                 mprog_type_to_name (pMprog->trig_type), pMprog->vnum,
+                 pMprog->trig_phrase);
     }
 
     return;

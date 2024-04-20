@@ -579,6 +579,26 @@ void load_objects (FILE * fp)
                 pObjIndex->extra_descr = ed;
                 top_ed++;
             }
+            else if (letter == 'M')
+            {
+                MPROG_LIST *pMprog;
+                char *word;
+                int trigger = 0;
+
+                pMprog = alloc_perm (sizeof (*pMprog));
+                word = fread_word (fp);
+                if ((trigger = flag_lookup (word, mprog_flags)) == NO_FLAG)
+                {
+                    bug ("MOBprogs: invalid trigger.", 0);
+                    exit (1);
+                }
+                SET_BIT (pObjIndex->mprog_flags, trigger);
+                pMprog->trig_type = trigger;
+                pMprog->vnum = fread_number (fp);
+                pMprog->trig_phrase = fread_string (fp);
+                pMprog->next = pObjIndex->mprogs;
+                pObjIndex->mprogs = pMprog;
+            }
 
             else
             {

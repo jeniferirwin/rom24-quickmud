@@ -225,6 +225,8 @@ DECLARE_OLC_FUN( oedit_affect           );  /* ROM */
 DECLARE_OLC_FUN( oedit_material		);  /* ROM */
 DECLARE_OLC_FUN( oedit_level            );  /* ROM */
 DECLARE_OLC_FUN( oedit_condition        );  /* ROM */
+DECLARE_OLC_FUN( oedit_addmprog        );  /* ROM */
+DECLARE_OLC_FUN( oedit_delmprog        );  /* ROM */
 
 /*
  * Mobile Editor Prototypes

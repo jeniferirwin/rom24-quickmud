@@ -56,6 +56,19 @@ ether~
 portal AB 0
 0 0 FG BCGHIJL 0
 0 0 0 P
+#33
+skyline chili~
+#na plate of #ASk#oyl#Oi#An#oe#O C#ohi#Oli#n~
+#nA plate of #ASk#oyl#Oi#An#oe#O C#ohi#Oli#n sits here.~
+pasta~
+food GI AO
+6 2 0 0 0
+0 3 499 P
+E
+@verb~
+inhale
+~
+M VERB 33 inhale~
 #0
 
 
@@ -78,6 +91,7 @@ S
 
 #OSPECIALS
 O 32 ospec_password
+O 33 ospec_verb
 S
 
 
@@ -96,6 +110,9 @@ S
 
 
 #MOBPROGS
+#33
+mob echo It's Skyline Time!
+~
 #0
 
 #$

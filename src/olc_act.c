@@ -2756,6 +2756,7 @@ OEDIT (oedit_show)
     OBJ_INDEX_DATA *pObj;
     char buf[MAX_STRING_LENGTH];
     AFFECT_DATA *paf;
+    MPROG_LIST *list;
     int cnt;
 
     EDIT_OBJ (ch, pObj);
@@ -2831,6 +2832,29 @@ OEDIT (oedit_show)
     if (pObj->ospec_fun != 0) {
         sprintf(buf,"Object has special procedure %s.\n\r",ospec_name(pObj->ospec_fun));
         send_to_char(buf,ch);
+    }
+
+    if (pObj->mprogs)
+    {
+        int cnt;
+
+        sprintf (buf, "\n\rMOBPrograms for [%5d]:\n\r", pObj->vnum);
+        send_to_char (buf, ch);
+
+        for (cnt = 0, list = pObj->mprogs; list; list = list->next)
+        {
+            if (cnt == 0)
+            {
+                send_to_char (" Number Vnum Trigger Phrase\n\r", ch);
+                send_to_char (" ------ ---- ------- ------\n\r", ch);
+            }
+
+            sprintf (buf, "[%5d] %4d %7s %s\n\r", cnt,
+                     list->vnum, mprog_type_to_name (list->trig_type),
+                     list->trig_phrase);
+            send_to_char (buf, ch);
+            cnt++;
+        }
     }
 
     return FALSE;
@@ -3562,6 +3586,114 @@ OEDIT (oedit_condition)
     return FALSE;
 }
 
+
+OEDIT (oedit_addmprog)
+{
+    int value;
+    OBJ_INDEX_DATA *pObj;
+    MPROG_LIST *list;
+    MPROG_CODE *code;
+    char trigger[MAX_STRING_LENGTH];
+    char phrase[MAX_STRING_LENGTH];
+    char num[MAX_STRING_LENGTH];
+
+    EDIT_OBJ (ch, pObj);
+    argument = one_argument (argument, num);
+    argument = one_argument (argument, trigger);
+    argument = one_argument (argument, phrase);
+
+    if (!is_number (num) || trigger[0] == '\0' || phrase[0] == '\0')
+    {
+        send_to_char ("Syntax:   addmprog [vnum] [trigger] [phrase]\n\r", ch);
+        return FALSE;
+    }
+
+    if ((value = flag_value (mprog_flags, trigger)) == NO_FLAG)
+    {
+        send_to_char ("Valid flags are:\n\r", ch);
+        show_help (ch, "mprog");
+        return FALSE;
+    }
+
+    if ((code = get_mprog_index (atoi (num))) == NULL)
+    {
+        send_to_char ("No such MOBProgram.\n\r", ch);
+        return FALSE;
+    }
+
+    list = new_mprog ();
+    list->vnum = atoi (num);
+    list->trig_type = value;
+    list->trig_phrase = str_dup (phrase);
+    list->code = code->code;
+    SET_BIT (pObj->mprog_flags, value);
+    list->next = pObj->mprogs;
+    pObj->mprogs = list;
+
+    send_to_char ("Mprog Added.\n\r", ch);
+    return TRUE;
+}
+
+OEDIT (oedit_delmprog)
+{
+    OBJ_INDEX_DATA *pObj;
+    MPROG_LIST *list;
+    MPROG_LIST *list_next;
+    char mprog[MAX_STRING_LENGTH];
+    int value;
+    int cnt = 0;
+
+    EDIT_OBJ (ch, pObj);
+
+    one_argument (argument, mprog);
+    if (!is_number (mprog) || mprog[0] == '\0')
+    {
+        send_to_char ("Syntax:  delmprog [#mprog]\n\r", ch);
+        return FALSE;
+    }
+
+    value = atoi (mprog);
+
+    if (value < 0)
+    {
+        send_to_char ("Only non-negative mprog-numbers allowed.\n\r", ch);
+        return FALSE;
+    }
+
+    if (!(list = pObj->mprogs))
+    {
+        send_to_char ("MEdit:  Non existant mprog.\n\r", ch);
+        return FALSE;
+    }
+
+    if (value == 0)
+    {
+        REMOVE_BIT (pObj->mprog_flags, pObj->mprogs->trig_type);
+        list = pObj->mprogs;
+        pObj->mprogs = list->next;
+        free_mprog (list);
+    }
+    else
+    {
+        while ((list_next = list->next) && (++cnt < value))
+            list = list_next;
+
+        if (list_next)
+        {
+            REMOVE_BIT (pObj->mprog_flags, list_next->trig_type);
+            list->next = list_next->next;
+            free_mprog (list_next);
+        }
+        else
+        {
+            send_to_char ("No such mprog.\n\r", ch);
+            return FALSE;
+        }
+    }
+
+    send_to_char ("Mprog removed.\n\r", ch);
+    return TRUE;
+}
 
 
 

@@ -1360,3 +1360,23 @@ void mp_hprct_trigger (CHAR_DATA * mob, CHAR_DATA * ch)
             break;
         }
 }
+
+void mp_verb_trigger( char * phrase, OBJ_DATA * obj, CHAR_DATA * ch, const void * obj1, const void * obj2, unsigned long long type) {
+    MPROG_LIST *prg, *prg_next;
+    EXTRA_DESCR_DATA *ex, *ex_next;
+    char buf[MAX_INPUT_LENGTH];
+
+    for (prg = obj->pIndexData->mprogs; prg != NULL; prg = prg_next) {
+        prg_next = prg->next;
+        if (prg->trig_type == TRIG_VERB) {
+            for (ex = obj->extra_descr; ex != NULL; ex = ex_next) {
+                ex_next = ex->next;
+                if (!strcmp(ex->keyword,"@verb") && !strcmp(ex->description,phrase)) {
+                    sprintf(buf,"Phrase found on %s: %s\n\r",obj->short_descr,ex->description);
+                    send_to_char(buf,ch);
+                    return;
+                }
+            }
+        }
+    }
+}

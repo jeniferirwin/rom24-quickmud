@@ -2661,6 +2661,7 @@ bool    mp_exit_trigger   args( ( CHAR_DATA *ch, int dir ) );
 void    mp_give_trigger   args( ( CHAR_DATA *mob, CHAR_DATA *ch, OBJ_DATA *obj ) );
 void     mp_greet_trigger  args( ( CHAR_DATA *ch ) );
 void    mp_hprct_trigger  args( ( CHAR_DATA *mob, CHAR_DATA *ch ) );
+void mp_verb_trigger( char * phrase, OBJ_DATA * obj, CHAR_DATA * ch, const void * obj1, const void * obj2, unsigned long long type);
 
 /* mob_cmds.c */
 void    mob_interpret    args( ( CHAR_DATA *ch, char *argument ) );

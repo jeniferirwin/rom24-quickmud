@@ -591,7 +591,7 @@ bool check_special(CHAR_DATA *ch, char *command) {
         obj_next = obj->next_content;
         if (ospec_name(obj->ospec_fun) == NULL) continue;
         if (!strcmp(ospec_name(obj->ospec_fun),"ospec_verb") && OBJ_HAS_TRIGGER(obj, TRIG_VERB)) {
-            // mp_verb_trigger(argument, obj, ch, NULL, NULL, TRIG_VERB);
+            mp_verb_trigger(command, obj, ch, NULL, NULL, TRIG_VERB);
             return TRUE;
         }
 
