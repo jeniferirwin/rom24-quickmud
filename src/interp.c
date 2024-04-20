@@ -589,14 +589,16 @@ bool check_special(CHAR_DATA *ch, char *command) {
 
     for (obj = room->contents; obj != NULL; obj = obj_next) {
         obj_next = obj->next_content;
-        if (!(obj->item_type == ITEM_PORTAL)) continue;
         if (ospec_name(obj->ospec_fun) == NULL) continue;
-        if (!strcmp(ospec_name(obj->ospec_fun),"ospec_password")) {
+        if (!strcmp(ospec_name(obj->ospec_fun),"ospec_verb") && OBJ_HAS_TRIGGER(obj, TRIG_VERB)) {
+            // mp_verb_trigger(argument, obj, ch, NULL, NULL, TRIG_VERB);
+            return TRUE;
+        }
+
+        if (!strcmp(ospec_name(obj->ospec_fun),"ospec_password") && obj->item_type == ITEM_PORTAL) {
             if (!strcmp(command,get_gate_password(obj))) {
                 obj->ospec_fun(ch,obj);
                 return TRUE;
-            } else {
-                return FALSE;
             }
         }
     }

@@ -150,6 +150,8 @@ char *mprog_type_to_name (int type)
             return "DELAY";
         case TRIG_SURR:
             return "SURRENDER";
+        case TRIG_VERB:
+            return "VERB";
         case TRIG_EXIT:
             return "EXIT";
         case TRIG_EXALL:

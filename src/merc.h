@@ -1810,6 +1810,8 @@ struct    obj_index_data
     int                 cost;
     int                 value[5];
     OSPEC_FUN *         ospec_fun;
+    MPROG_LIST *        mprogs;
+    unsigned long long  mprog_flags;
 };
 
 
@@ -1847,6 +1849,7 @@ struct    obj_data
     sh_int              timer;
     int                 value [5];
     OSPEC_FUN *         ospec_fun;
+    sh_int              mprog_delay;
 };
 
 
@@ -2026,6 +2029,7 @@ struct  group_type
 #define TRIG_EXALL    (N)
 #define TRIG_DELAY    (O)
 #define TRIG_SURR    (P)
+#define TRIG_VERB  (Q)
 
 struct mprog_list
 {
@@ -2166,6 +2170,7 @@ extern  sh_int  gsn_dark_favor;
     act_new((format),(ch),(arg1),(arg2),(type),POS_RESTING)
 
 #define HAS_TRIGGER(ch,trig)    (IS_SET((ch)->pIndexData->mprog_flags,(trig)))
+#define OBJ_HAS_TRIGGER(obj,trig)    (IS_SET((obj)->pIndexData->mprog_flags,(trig)))
 #define IS_SWITCHED( ch )       ( ch->desc && ch->desc->original )
 #define IS_BUILDER(ch, Area)    ( !IS_NPC(ch) && !IS_SWITCHED( ch ) &&      \
                 ( ch->pcdata->security >= Area->security  \

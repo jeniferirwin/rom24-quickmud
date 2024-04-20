@@ -315,6 +315,7 @@ const struct flag_type mprog_flags[] = {
     {"exall", TRIG_EXALL, TRUE},
     {"delay", TRIG_DELAY, TRUE},
     {"surr", TRIG_SURR, TRUE},
+    {"verb", TRIG_VERB, TRUE},
     {NULL, 0, TRUE}
 };
 
