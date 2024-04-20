@@ -1,11 +1,32 @@
-#AREA
-limbo.are~
-Limbo~
-{None } Diku    Limbo~
-0 99
+#AREADATA
+Name Limbo~
+Builders None~
+VNUMs 1 30
+Credits {None } Diku    Limbo~
+Security 9
+End
+
+
 
 #MOBILES
+#1
+eggy egg-timer egg timer~
+Eggy~
+A little egg-timer waddles around.
+~
+~
+human~
+AB CDEGJT 0 0
+100 100 1d1+29999 1d1+29999 15d15+50 divine
+-50 -50 -50 -50
+0 ABCD 0 0
+stand stand none 0
+HJ ACHK tiny unknown
+F for AMV
+F par BDEFGIJ
 #0
+
+
 
 #OBJECTS
 #1
@@ -54,7 +75,7 @@ the corpse of %s~
 The corpse of %s is lying here.~
 meat~
 npc_corpse 0 A
-0 0 0 1 0
+0 0 0 A 0
 0 1000 0 D
 #11
 corpse~
@@ -62,7 +83,7 @@ the corpse of %s~
 The corpse of %s is lying here.~
 meat~
 pc_corpse O A
-0 0 0 1 0
+0 0 0 A 0
 0 1000 0 D
 #12
 head~
@@ -159,15 +180,17 @@ Dummy object is used for loading non-existent objects~
 ~
 trash 0 0
 0 0 0 0 0
-0 0 0 P        
+0 0 0 P
 #0
+
+
 
 #ROOMS
 #1
 The Void~
 You are floating in nothing.
 ~
-0 CD 1
+0 12 1
 S
 #2
 Limbo~
@@ -176,7 +199,7 @@ matter, surrounded by swirling glowing light, which fades into the relative
 darkness around you without any trace of edges or shadow.
    There is a "No Tipping" notice pinned to the darkness.
 ~
-0 D 1
+0 8 1
 D4
 ~
 ~
@@ -184,13 +207,32 @@ D4
 S
 #0
 
+
+
+#SPECIALS
+S
+
+
+
+#OSPECIALS
+S
+
+
+
 #RESETS
 S
+
+
 
 #SHOPS
 0
 
-#SPECIALS
-S
+
+
+#MOBPROGS
+#30
+say Greetings, sir.
+~
+#0
 
 #$
