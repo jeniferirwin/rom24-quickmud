@@ -15,6 +15,7 @@
 #include "tables.h"
 #include "olc.h"
 #include "recycle.h"
+#include "db.h"
 
 #define MPEDIT( fun )           bool fun(CHAR_DATA *ch, char*argument)
 
@@ -74,6 +75,7 @@ void mpedit (CHAR_DATA * ch, char *argument)
     if (!str_cmp (command, "done"))
     {
         edit_done (ch);
+        fix_mobprogs();
         return;
     }
 
@@ -82,8 +84,9 @@ void mpedit (CHAR_DATA * ch, char *argument)
         if (!str_prefix (command, mpedit_table[cmd].name))
         {
             if ((*mpedit_table[cmd].olc_fun) (ch, argument) && pMcode)
-                if ((ad = get_vnum_area (pMcode->vnum)) != NULL)
+                if ((ad = get_vnum_area (pMcode->vnum)) != NULL) {
                     SET_BIT (ad->area_flags, AREA_CHANGED);
+                }
             return;
         }
     }

@@ -53,6 +53,7 @@ void	convert_obj(OBJ_INDEX_DATA *obj);
 
 /* func from db.c */
 extern void assign_area_vnum( int vnum );                    /* OLC */
+void fix_mobprogs (void);
 
 /* from db2.c */
  

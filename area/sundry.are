@@ -22,6 +22,7 @@ A 0 -1000 0
 0 0 0 0
 stand stand none 0
 AHMV ABCDEFGHIJK medium unknown
+M SPEECH 31 hello~
 #32
 protected dummy~
 a protected dummy~
@@ -35,6 +36,19 @@ A f -1000 0
 0 0 0 0
 stand stand none 0
 AHMV ABCDEFGHIJK medium unknown
+#33
+jarvis~
+Jarvis~
+Jarvis waits for the bullshit.
+~
+~
+school monster~
+ABU 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 AB 0 C
+stand stand none 0
+AMV ABCDEFHJKQU medium unknown
 #0
 
 
@@ -79,6 +93,19 @@ Default Room~
 You are in an infinite expanse of white.
 ~
 0 32772 0
+D0
+~
+~
+0 0 32
+S
+#32
+Default Cube~
+~
+0 0 0
+D2
+~
+~
+0 0 31
 S
 #0
 
@@ -100,6 +127,7 @@ S
 M 0 31 1 31 1 Load an unprotected dummy
 O 0 32 0 31 A touchy portal loaded to Default Room
 M 0 32 1 31 1 Load a protected dummy
+O 0 33 0 31 #na plate of #ask#oyl#oi#an#oe#o c#ohi#oli#n loaded to Default Room
 S
 
 
@@ -110,8 +138,12 @@ S
 
 
 #MOBPROGS
+#31
+say Greetings, sir.
+~
 #33
-mob echo It's Skyline Time!
+mob echoat $n It's Skyline Time!
+mob trans $n 3014
 ~
 #0
 

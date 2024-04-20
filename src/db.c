@@ -1604,6 +1604,7 @@ void load_mobprogs (FILE * fp)
 void fix_mobprogs (void)
 {
     MOB_INDEX_DATA *pMobIndex;
+    OBJ_INDEX_DATA *pObjIndex;
     MPROG_LIST *list;
     MPROG_CODE *prog;
     int iHash;
@@ -1614,6 +1615,20 @@ void fix_mobprogs (void)
              pMobIndex != NULL; pMobIndex = pMobIndex->next)
         {
             for (list = pMobIndex->mprogs; list != NULL; list = list->next)
+            {
+                if ((prog = get_mprog_index (list->vnum)) != NULL)
+                    list->code = prog->code;
+                else
+                {
+                    bug ("Fix_mobprogs: code vnum %d not found.", list->vnum);
+                    exit (1);
+                }
+            }
+        }
+        for (pObjIndex = obj_index_hash[iHash];
+             pObjIndex != NULL; pObjIndex = pObjIndex->next)
+        {
+            for (list = pObjIndex->mprogs; list != NULL; list = list->next)
             {
                 if ((prog = get_mprog_index (list->vnum)) != NULL)
                     list->code = prog->code;
