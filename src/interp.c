@@ -366,7 +366,7 @@ const struct cmd_type cmd_table[] = {
     /*
      * OLC
      */
-    {"edit", do_olc, POS_DEAD, L5, LOG_NORMAL, 1},
+    {"edit", do_olc_editor, POS_DEAD, L5, LOG_NORMAL, 1},
     {"asave", do_asave, POS_DEAD, L5, LOG_NORMAL, 1},
     {"alist", do_alist, POS_DEAD, L5, LOG_NORMAL, 1},
     {"resets", do_resets, POS_DEAD, L5, LOG_NORMAL, 1},
@@ -382,6 +382,7 @@ const struct cmd_type cmd_table[] = {
     {"mlist", do_mlist, POS_DEAD, L5, LOG_NORMAL, 1},
 
     {"findreset", do_findreset, POS_DEAD, L5, LOG_NORMAL, 1},
+    {"olc", do_olc, POS_DEAD, L5, LOG_NORMAL, 1},
     /*
      * End of list.
      */
@@ -590,12 +591,12 @@ bool check_special(CHAR_DATA *ch, char *command) {
     for (obj = room->contents; obj != NULL; obj = obj_next) {
         obj_next = obj->next_content;
         if (ospec_name(obj->ospec_fun) == NULL) continue;
-        if (!strcmp(ospec_name(obj->ospec_fun),"ospec_verb") && OBJ_HAS_TRIGGER(obj, TRIG_VERB)) {
+        if (!strcmp(ospec_name(obj->ospec_fun),"spec_verb") && OBJ_HAS_TRIGGER(obj, TRIG_VERB)) {
             mp_verb_trigger(command, obj, ch, NULL, NULL, TRIG_VERB);
             return TRUE;
         }
 
-        if (!strcmp(ospec_name(obj->ospec_fun),"ospec_password") && obj->item_type == ITEM_PORTAL) {
+        if (!strcmp(ospec_name(obj->ospec_fun),"spec_password") && obj->item_type == ITEM_PORTAL) {
             if (!strcmp(command,get_gate_password(obj))) {
                 obj->ospec_fun(ch,obj);
                 return TRUE;

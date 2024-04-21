@@ -26,6 +26,7 @@
 #include "merc.h"
 #include "tables.h"
 #include "olc.h"
+#include "interp.h"
 
 /*
  * Local functions.
@@ -658,7 +659,7 @@ const struct editor_cmd_type editor_table[] = {
 
 
 /* Entry point for all editors. */
-void do_olc (CHAR_DATA * ch, char *argument)
+void do_olc_editor (CHAR_DATA * ch, char *argument)
 {
     char command[MAX_INPUT_LENGTH];
     int cmd;
@@ -1560,4 +1561,98 @@ void do_alist (CHAR_DATA * ch, char *argument)
 
     send_to_char (result, ch);
     return;
+}
+
+/****************************************************************************
+ * Name:      do_olc_editor
+ * Purpose:   Wrapper command to drive other commands like rlist, etc.
+ * Called by: interpreter(interp.c)
+ ***************************************************************************/
+
+void do_olc_view(CHAR_DATA *ch, char *argument);
+void do_view_rooms(CHAR_DATA *ch, char *argument);
+void do_view_objects(CHAR_DATA *ch, char *argument);
+void do_view_mobs(CHAR_DATA *ch, char *argument);
+void do_view_oactions(CHAR_DATA *ch, char *argument);
+void do_view_links(CHAR_DATA *ch, char *argument);
+void do_view_programs(CHAR_DATA *ch, char *argument);
+
+const struct wrapper_cmd_type wrapper_table[] = {
+    {"view", do_olc_view},
+    {NULL, NULL}
+};
+
+const struct wrapper_cmd_type view_table[] = {
+    {"rooms", do_view_rooms},
+    {"objects", do_view_objects},
+    {"mobs", do_view_mobs},
+    {"programs", do_view_programs},
+    {"oactions", do_view_oactions},
+    {"links", do_view_links},
+    {NULL, NULL}
+};
+
+void do_olc(CHAR_DATA *ch, char *argument) {
+    char arg[MAX_INPUT_LENGTH];
+    char buf[MAX_INPUT_LENGTH];
+
+    argument = one_argument(argument,arg);
+
+    for (int i = 0; wrapper_table[i].name != NULL; i++) {
+        if (!strncmp(wrapper_table[i].name,arg,strlen(wrapper_table[i].name))) {
+            do_function(ch, wrapper_table[i].do_fun, argument);
+            return;
+        }
+    } 
+
+    send_to_char("OLC commands:\n\r", ch);
+    for (int i = 0; wrapper_table[i].name != NULL; i++) {
+        sprintf(buf,"  %s\n\r",wrapper_table[i].name);
+        send_to_char(buf,ch);
+    }
+}
+
+void do_olc_view(CHAR_DATA *ch, char *argument) {
+    char arg[MAX_INPUT_LENGTH];
+    char buf[MAX_INPUT_LENGTH];
+
+    argument = one_argument(argument, arg);
+
+    for (int i = 0; view_table[i].name != NULL; i++)
+    {
+        if (!strncmp(view_table[i].name,argument,strlen(view_table[i].name))) {
+            do_function(ch, view_table[i].do_fun, argument);
+            return;
+        }
+    }
+
+    send_to_char("View options:\n\r", ch);
+    for (int i = 0; view_table[i].name != NULL; i++) {
+        sprintf(buf,"  %s\n\r",view_table[i].name);
+        send_to_char(buf,ch);
+    }
+}
+
+void do_view_rooms(CHAR_DATA *ch, char *argument) {
+    // TODO    
+}
+
+void do_view_objects(CHAR_DATA *ch, char *argument) {
+    // TODO
+}
+
+void do_view_mobs(CHAR_DATA *ch, char *argument) {
+    // TODO 
+}
+
+void do_view_programs(CHAR_DATA *ch, char *argument) {
+    // TODO
+}
+
+void do_view_oactions(CHAR_DATA *ch, char *argument) {
+    // TODO
+}
+
+void do_view_links(CHAR_DATA *ch, char *argument) {
+    // TODO
 }

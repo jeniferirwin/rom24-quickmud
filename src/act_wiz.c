@@ -45,6 +45,9 @@
 #include "lookup.h"
 #include "olc.h"
 
+bool ospec_verb (CHAR_DATA * ch, OBJ_DATA * obj);
+bool ospec_password (CHAR_DATA * ch, OBJ_DATA * obj);
+
 /*
  * Stolen from save.c for reading in QuickMUD config stuff
  */
@@ -1263,6 +1266,14 @@ void do_ostat (CHAR_DATA * ch, char *argument)
                 sprintf(buf,"Gate flags: %s\n\r",flag_string(portal_flags, pObj->value[2]));
                 send_to_char(buf,ch);
             }
+            if (pObj->ospec_fun != NULL) {
+                sprintf(buf,"Object has special procedure %s.\n\r",ospec_name(pObj->ospec_fun));
+                send_to_char(buf,ch);
+            }
+            
+            if (pObj->mprogs != NULL) {
+                send_to_char("Object has actions.\n\r",ch);
+            }
             return;
         }
     }
@@ -1570,6 +1581,7 @@ void do_ostat (CHAR_DATA * ch, char *argument)
                 send_to_char (buf, ch);
             }
         }
+    
 
     return;
 }

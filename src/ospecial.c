@@ -42,13 +42,13 @@
 /*
  * The following special functions are available for objects.
  */
-DECLARE_OSPEC_FUN (ospec_verb);
-DECLARE_OSPEC_FUN (ospec_password);
+DECLARE_OSPEC_FUN (spec_verb);
+DECLARE_OSPEC_FUN (spec_password);
 
 /* the function table */
 const struct ospec_type ospec_table[] = {
-    {"ospec_verb", ospec_verb},
-    {"ospec_password", ospec_password},
+    {"spec_verb", spec_verb},
+    {"spec_password", spec_password},
     {NULL, NULL}
 };
 
@@ -90,7 +90,7 @@ char *get_gate_password(OBJ_DATA *obj) {
     return password;
 }
 
-bool ospec_verb (CHAR_DATA * ch, OBJ_DATA * obj)
+bool spec_verb (CHAR_DATA * ch, OBJ_DATA * obj)
 {
     char *message;
 
@@ -131,7 +131,7 @@ bool ospec_verb (CHAR_DATA * ch, OBJ_DATA * obj)
  * - technitaur
 */
 
-bool ospec_password (CHAR_DATA * ch, OBJ_DATA * obj)
+bool spec_password (CHAR_DATA * ch, OBJ_DATA * obj)
 {
     ROOM_INDEX_DATA * source = NULL;
     ROOM_INDEX_DATA * destination = NULL;
