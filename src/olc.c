@@ -1563,11 +1563,22 @@ void do_alist (CHAR_DATA * ch, char *argument)
     return;
 }
 
-/****************************************************************************
- * Name:      do_olc_editor
- * Purpose:   Wrapper command to drive other commands like rlist, etc.
- * Called by: interpreter(interp.c)
- ***************************************************************************/
+int strstrci(char * haystack, char * needle) {
+    char * anchor = needle;
+    for (; *haystack != '\0'; haystack++)
+    {
+        if (*needle == '\0') return 0;
+        if (tolower(*haystack) == tolower(*needle)) {
+            needle++;
+        } else {
+            needle = anchor;
+        }
+    }
+    if (*needle == '\0')
+        return 0;
+    else
+        return 1;
+}
 
 void do_olc_view(CHAR_DATA *ch, char *argument);
 void do_view_rooms(CHAR_DATA *ch, char *argument);
@@ -1591,6 +1602,13 @@ const struct wrapper_cmd_type view_table[] = {
     {"links", do_view_links},
     {NULL, NULL}
 };
+
+
+/****************************************************************************
+ * Name:      do_olc
+ * Purpose:   Wrapper command to drive other commands like rlist, etc.
+ * Called by: interpreter(interp.c)
+ ***************************************************************************/
 
 void do_olc(CHAR_DATA *ch, char *argument) {
     char arg[MAX_INPUT_LENGTH];
@@ -1620,7 +1638,7 @@ void do_olc_view(CHAR_DATA *ch, char *argument) {
 
     for (int i = 0; view_table[i].name != NULL; i++)
     {
-        if (!strncmp(view_table[i].name,argument,strlen(view_table[i].name))) {
+        if (!strncmp(view_table[i].name,arg,strlen(view_table[i].name))) {
             do_function(ch, view_table[i].do_fun, argument);
             return;
         }
@@ -1634,7 +1652,19 @@ void do_olc_view(CHAR_DATA *ch, char *argument) {
 }
 
 void do_view_rooms(CHAR_DATA *ch, char *argument) {
-    // TODO    
+    AREA_DATA *pArea;
+    ROOM_INDEX_DATA *pRoom;
+    int vnum;
+    char buf[MAX_INPUT_LENGTH];
+
+    pArea = ch->in_room->area;
+
+    for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
+        if (!(pRoom = get_room_index(vnum))) continue;
+        if (*argument != '\0' && strstrci(pRoom->name,argument)) continue;
+        sprintf(buf,"[%6d] %-50s\n\r",vnum,pRoom->name);
+        send_to_char(buf,ch);
+    }
 }
 
 void do_view_objects(CHAR_DATA *ch, char *argument) {
