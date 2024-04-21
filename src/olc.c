@@ -1617,69 +1617,24 @@ void do_alist(CHAR_DATA *ch, char *argument)
     return;
 }
 
-/**********************************************************************
- * Name: strstrc
- * Purpose: find a substring, case insensitive
- *********************************************************************/
+/****************************************************************************
+ * Name:      do_olc_editor
+ * Purpose:   Wrapper command to drive other commands like rlist, etc.
+ * Called by: interpreter(interp.c)
+ ***************************************************************************/
 
-int strstri(char *haystack, char *needle)
-{
-    char *anchor = needle;
-    for (; *haystack != '\0'; haystack++)
-    {
-        if (*needle == '\0')
-            return 0;
-        if (tolower(*haystack) == tolower(*needle))
-        {
-            needle++;
-        }
-        else
-        {
-            needle = anchor;
-        }
-    }
-    if (*needle == '\0')
-        return 0;
-    else
-        return 1;
-}
-
-/**********************************************************************
- * Name: strnstri
- * Purpose: find a substring, case insensitive, with a max number of
- *          iterations before it decides that it's good enough
- *          This is for situations where you're comparing to something
- *          like 'rooms', and 'room' would be an acceptable match
- *********************************************************************/
-
-int strnstri(char *haystack, char *needle, int num)
-{
-    char *anchor = needle;
-    for (; *haystack != '\0'; haystack++)
-    {
-        if (*needle == '\0')
-            return 0;
-        if (tolower(*haystack) == tolower(*needle))
-        {
-            needle++;
-            if (needle - anchor >= num)
-                return 0;
-        }
-        else
-        {
-            needle = anchor;
-        }
-    }
-    if (*needle == '\0')
-        return 0;
-    else
-        return 1;
-}
+void do_olc_view(CHAR_DATA *ch, char *argument);
+void do_view_rooms(CHAR_DATA *ch, char *argument);
+void do_view_objects(CHAR_DATA *ch, char *argument);
+void do_view_mobs(CHAR_DATA *ch, char *argument);
+void do_view_oactions(CHAR_DATA *ch, char *argument);
+void do_view_links(CHAR_DATA *ch, char *argument);
+void do_view_programs(CHAR_DATA *ch, char *argument);
 
 const struct wrapper_cmd_type wrapper_table[] = {
     {"view", do_olc_view},
-    {"stat", do_olc_stat},
-    {NULL, NULL}};
+    {NULL, NULL}
+};
 
 const struct wrapper_cmd_type view_table[] = {
     {"rooms", do_view_rooms},
@@ -1688,48 +1643,30 @@ const struct wrapper_cmd_type view_table[] = {
     {"programs", do_view_programs},
     {"oactions", do_view_oactions},
     {"links", do_view_links},
-    {NULL, NULL}};
+    {NULL, NULL}
+};
 
-const struct wrapper_cmd_type stat_table[] = {
-    {"room", do_stat_room},
-    {"object", do_stat_object},
-    {"mobs", do_stat_mob},
-    {"program", do_stat_program},
-    {"oaction", do_stat_oaction},
-    {NULL, NULL}};
-
-/****************************************************************************
- * Name:      do_olc
- * Purpose:   Wrapper command to drive other commands like rlist, etc.
- * Called by: interpreter(interp.c)
- ***************************************************************************/
-
-void do_olc(CHAR_DATA *ch, char *argument)
-{
+void do_olc(CHAR_DATA *ch, char *argument) {
     char arg[MAX_INPUT_LENGTH];
     char buf[MAX_INPUT_LENGTH];
 
-    argument = one_argument(argument, arg);
+    argument = one_argument(argument,arg);
 
-    for (int i = 0; wrapper_table[i].name != NULL; i++)
-    {
-        if (!strncmp(wrapper_table[i].name, arg, 1))
-        {
+    for (int i = 0; wrapper_table[i].name != NULL; i++) {
+        if (!strncmp(wrapper_table[i].name,arg,strlen(wrapper_table[i].name))) {
             do_function(ch, wrapper_table[i].do_fun, argument);
             return;
         }
-    }
+    } 
 
     send_to_char("OLC commands:\n\r", ch);
-    for (int i = 0; wrapper_table[i].name != NULL; i++)
-    {
-        sprintf(buf, "  %s\n\r", wrapper_table[i].name);
-        send_to_char(buf, ch);
+    for (int i = 0; wrapper_table[i].name != NULL; i++) {
+        sprintf(buf,"  %s\n\r",wrapper_table[i].name);
+        send_to_char(buf,ch);
     }
 }
 
-void do_olc_view(CHAR_DATA *ch, char *argument)
-{
+void do_olc_view(CHAR_DATA *ch, char *argument) {
     char arg[MAX_INPUT_LENGTH];
     char buf[MAX_INPUT_LENGTH];
 
@@ -1737,242 +1674,39 @@ void do_olc_view(CHAR_DATA *ch, char *argument)
 
     for (int i = 0; view_table[i].name != NULL; i++)
     {
-        if (!strncmp(view_table[i].name, arg, 2))
-        {
+        if (!strncmp(view_table[i].name,argument,strlen(view_table[i].name))) {
             do_function(ch, view_table[i].do_fun, argument);
             return;
         }
     }
 
     send_to_char("View options:\n\r", ch);
-    for (int i = 0; view_table[i].name != NULL; i++)
-    {
-        sprintf(buf, "  %s\n\r", view_table[i].name);
-        send_to_char(buf, ch);
+    for (int i = 0; view_table[i].name != NULL; i++) {
+        sprintf(buf,"  %s\n\r",view_table[i].name);
+        send_to_char(buf,ch);
     }
 }
 
-void do_view_rooms(CHAR_DATA *ch, char *argument)
-{
-    AREA_DATA *pArea;
-    ROOM_INDEX_DATA *pRoom;
-    int vnum;
-    char buf[MAX_INPUT_LENGTH];
-
-    pArea = ch->in_room->area;
-
-    for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++)
-    {
-        if (!(pRoom = get_room_index(vnum)))
-            continue;
-        if (*argument != '\0' && strstri(pRoom->name, argument))
-            continue;
-        sprintf(buf, "%s[%s%6d%s]%s %-50s\n\r", C_B_CYAN, C_CYAN, vnum, C_B_CYAN, CLEAR, pRoom->name);
-        send_to_char(buf, ch);
-    }
+void do_view_rooms(CHAR_DATA *ch, char *argument) {
+    // TODO    
 }
 
-void do_view_objects(CHAR_DATA *ch, char *argument)
-{
-    AREA_DATA *pArea;
-    OBJ_INDEX_DATA *pObj;
-    int vnum;
-    char buf[MAX_INPUT_LENGTH];
-
-    pArea = ch->in_room->area;
-
-    for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++)
-    {
-        if (!(pObj = get_obj_index(vnum)))
-            continue;
-        if (*argument != '\0' && strstri(pObj->name, argument))
-            continue;
-        sprintf(buf, "%s[%s%6d%s]%s %-50s\n\r", C_B_CYAN, C_CYAN, vnum, C_B_CYAN, CLEAR, pObj->name);
-        send_to_char(buf, ch);
-    }
+void do_view_objects(CHAR_DATA *ch, char *argument) {
+    // TODO
 }
 
-void do_view_mobs(CHAR_DATA *ch, char *argument)
-{
-    AREA_DATA *pArea;
-    MOB_INDEX_DATA *pMob;
-    int vnum;
-    char buf[MAX_INPUT_LENGTH];
-
-    pArea = ch->in_room->area;
-
-    for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++)
-    {
-        if (!(pMob = get_mob_index(vnum)))
-            continue;
-        if (*argument != '\0' && strstri(pMob->short_descr, argument))
-            continue;
-        sprintf(buf, "[%6d] %-50s\n\r", vnum, pMob->short_descr);
-        send_to_char(buf, ch);
-    }
+void do_view_mobs(CHAR_DATA *ch, char *argument) {
+    // TODO 
 }
 
-void do_view_programs(CHAR_DATA *ch, char *argument)
-{
-    AREA_DATA *pArea;
-    MPROG_CODE *pMprog;
-    int vnum;
-    char buf[MAX_INPUT_LENGTH];
-
-    pArea = ch->in_room->area;
-
-    for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++)
-    {
-        if (!(pMprog = get_mprog_index(vnum)))
-            continue;
-        // if (*argument != '\0' && strstri(pMprog->vnum,argument)) continue;
-        sprintf(buf, "[%6d] %-50d\n\r", vnum, pMprog->vnum);
-        send_to_char(buf, ch);
-    }
+void do_view_programs(CHAR_DATA *ch, char *argument) {
+    // TODO
 }
 
-void do_view_oactions(CHAR_DATA *ch, char *argument)
-{
-    AREA_DATA *pArea;
-    OBJ_INDEX_DATA *pObj;
-    MPROG_LIST *prg;
-    int vnum;
-    int counter = 1;
-    char buf[MAX_INPUT_LENGTH];
-    char *flag = '\0';
-
-    pArea = ch->in_room->area;
-
-    for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++)
-    {
-        if (!(pObj = get_obj_index(vnum)) || pObj->mprogs == NULL)
-            continue;
-        prg = pObj->mprogs;
-        flag = flag_string(mprog_flags, prg->trig_type);
-        *flag = toupper(*flag);
-        sprintf(buf, "%s[%s%d%s]%s Object - %s%6d%s (%s%s%s)\n\r", C_B_CYAN, C_CYAN, counter, C_B_CYAN, CLEAR, C_GREEN, pObj->vnum, CLEAR, C_B_WHITE, flag, CLEAR);
-        counter++;
-        send_to_char(buf, ch);
-    }
+void do_view_oactions(CHAR_DATA *ch, char *argument) {
+    // TODO
 }
 
-void do_view_links(CHAR_DATA *ch, char *argument)
-{
-    AREA_DATA *pArea;
-    ROOM_INDEX_DATA *pRoom;
-    EXIT_DATA *pExit;
-    char buf[MAX_INPUT_LENGTH];
-    int vnum;
-
-    pArea = ch->in_room->area;
-
-    for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++)
-    {
-        if (!(pRoom = get_room_index(vnum)))
-            continue;
-        for (int j = 0; j <= 5; j++)
-        {
-            pExit = pRoom->exit[j];
-            if (pExit == NULL || pExit->u1.to_room == NULL || pExit->u1.to_room->vnum < 0 || pExit->u1.to_room->vnum > 65535)
-                continue;
-            if (pExit->u1.to_room->area != pArea)
-            {
-                sprintf(buf, "%s[%s%6d%s]%s %s %s%s%s to %s[%s%6d%s]%s %s%s.\n\r",
-                        C_B_CYAN, C_CYAN, pRoom->vnum, C_B_CYAN, CLEAR,
-                        pRoom->name,
-                        C_B_GREEN, dir_name[j], CLEAR,
-                        C_B_CYAN, C_CYAN, pExit->u1.to_room->vnum, C_B_CYAN, CLEAR,
-                        pExit->u1.to_room->name, CLEAR);
-                send_to_char(buf, ch);
-            }
-        }
-    }
-}
-
-void do_olc_stat(CHAR_DATA *ch, char *argument)
-{
-    char arg[MAX_INPUT_LENGTH];
-    char buf[MAX_INPUT_LENGTH];
-
-    argument = one_argument(argument, arg);
-
-    for (int i = 0; stat_table[i].name != NULL; i++)
-    {
-        if (!strncmp(stat_table[i].name, arg, 2))
-        {
-            do_function(ch, stat_table[i].do_fun, argument);
-            return;
-        }
-    }
-
-    send_to_char("Stat options:\n\r", ch);
-    for (int i = 0; stat_table[i].name != NULL; i++)
-    {
-        sprintf(buf, "  %s\n\r", stat_table[i].name);
-        send_to_char(buf, ch);
-    }
-}
-
-void do_stat_room(CHAR_DATA *ch, char *argument)
-{
-    do_rstat(ch, argument);
-}
-
-void do_stat_object(CHAR_DATA *ch, char *argument)
-{
-    do_ostat(ch, argument);
-}
-
-void do_stat_mob(CHAR_DATA *ch, char *argument)
-{
-    do_mstat(ch, argument);
-}
-
-void do_stat_oaction(CHAR_DATA *ch, char *argument)
-{
-    MPROG_LIST *pProgList, *pProgNext;
-    OBJ_INDEX_DATA *pObj;
-    char arg[MAX_INPUT_LENGTH];
-    char buf[MAX_INPUT_LENGTH];
-    int vnum;
-    char *flag = '\0';
-
-    argument = one_argument(argument, arg);
-    vnum = atoi(arg);
-
-    if (!(pObj = get_obj_index(vnum)))
-    {
-        sprintf(buf, "No such object: %d\n\r", vnum);
-        send_to_char(buf, ch);
-        return;
-    }
-
-    if (!(pProgList = pObj->mprogs))
-    {
-        sprintf(buf, "Obj '%s' (%d) does not have oactions.\n\r", pObj->short_descr, pObj->vnum);
-        send_to_char(buf, ch);
-        return;
-    }
-
-    for (; pProgList != NULL; pProgList = pProgNext)
-    {
-        pProgNext = pProgList->next;
-        flag = flag_string(mprog_flags, pProgList->trig_type);
-        *flag = toupper(*flag);
-        sprintf(buf, "Events: %s\n\r", flag);
-        send_to_char(buf, ch);
-        sprintf(buf, "Conditions: (placeholder)\n\r");
-        send_to_char(buf, ch);
-        sprintf(buf, "Phrase: %s\n\r", pProgList->trig_phrase);
-        send_to_char(buf, ch);
-        sprintf(buf, "Chance: 100\n\r");
-        send_to_char(buf, ch);
-        sprintf(buf, "%s\n\r", pProgList->code);
-        send_to_char(buf, ch);
-    }
-}
-
-void do_stat_program(CHAR_DATA *ch, char *argument)
-{
-    do_mpstat(ch, argument);
+void do_view_links(CHAR_DATA *ch, char *argument) {
+    // TODO
 }

@@ -87,6 +87,7 @@ struct editor_cmd_type
     DO_FUN *do_fun;
 };
 
+
 /*
  * Structure for the new 'olc <command> <arg>' commands.
  * It's identical to editor_cmd_type, but I figured I'd
@@ -94,9 +95,10 @@ struct editor_cmd_type
  */
 struct wrapper_cmd_type
 {
-    char *const name;
-    DO_FUN *do_fun;
+    char * const    name;
+    DO_FUN *        do_fun;
 };
+
 
 /*
  * Utils.
