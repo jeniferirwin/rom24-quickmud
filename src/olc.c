@@ -1612,15 +1612,22 @@ int strnstri(char * haystack, char * needle, int num) {
 }
 
 void do_olc_view(CHAR_DATA *ch, char *argument);
+void do_olc_stat(CHAR_DATA *ch, char *argument);
 void do_view_rooms(CHAR_DATA *ch, char *argument);
 void do_view_objects(CHAR_DATA *ch, char *argument);
 void do_view_mobs(CHAR_DATA *ch, char *argument);
 void do_view_oactions(CHAR_DATA *ch, char *argument);
 void do_view_links(CHAR_DATA *ch, char *argument);
 void do_view_programs(CHAR_DATA *ch, char *argument);
+void do_stat_room(CHAR_DATA *ch, char *argument);
+void do_stat_object(CHAR_DATA *ch, char *argument);
+void do_stat_mob(CHAR_DATA *ch, char *argument);
+void do_stat_oaction(CHAR_DATA *ch, char *argument);
+void do_stat_program(CHAR_DATA *ch, char *argument);
 
 const struct wrapper_cmd_type wrapper_table[] = {
     {"view", do_olc_view},
+    {"stat", do_olc_stat},
     {NULL, NULL}
 };
 
@@ -1631,6 +1638,15 @@ const struct wrapper_cmd_type view_table[] = {
     {"programs", do_view_programs},
     {"oactions", do_view_oactions},
     {"links", do_view_links},
+    {NULL, NULL}
+};
+
+const struct wrapper_cmd_type stat_table[] = {
+    {"room", do_stat_room},
+    {"object", do_stat_object},
+    {"mobs", do_stat_mob},
+    {"program", do_stat_program},
+    {"oaction", do_stat_oaction},
     {NULL, NULL}
 };
 
@@ -1793,4 +1809,81 @@ void do_view_links(CHAR_DATA *ch, char *argument) {
             }
         }
     }
+}
+
+void do_olc_stat(CHAR_DATA *ch, char *argument) {
+    char arg[MAX_INPUT_LENGTH];
+    char buf[MAX_INPUT_LENGTH];
+
+    argument = one_argument(argument, arg);
+
+    for (int i = 0; stat_table[i].name != NULL; i++)
+    {
+        if (!strncmp(stat_table[i].name,arg,2)) {
+            do_function(ch, stat_table[i].do_fun, argument);
+            return;
+        }
+    }
+
+    send_to_char("Stat options:\n\r", ch);
+    for (int i = 0; stat_table[i].name != NULL; i++) {
+        sprintf(buf,"  %s\n\r",stat_table[i].name);
+        send_to_char(buf,ch);
+    }
+}
+
+void do_stat_room(CHAR_DATA *ch, char *argument) {
+    do_rstat(ch, argument);
+}
+
+void do_stat_object(CHAR_DATA *ch, char *argument) {
+    do_ostat(ch, argument);
+}
+
+void do_stat_mob(CHAR_DATA *ch, char *argument) {
+    do_mstat(ch, argument);
+}
+
+void do_stat_oaction(CHAR_DATA *ch, char *argument) {
+    MPROG_LIST *pProgList, *pProgNext;
+    OBJ_INDEX_DATA *pObj;
+    char arg[MAX_INPUT_LENGTH];
+    char buf[MAX_INPUT_LENGTH];
+    int vnum;
+    char * flag = '\0';
+    
+    argument = one_argument(argument, arg);
+    vnum = atoi(arg);
+    
+    if (!(pObj = get_obj_index(vnum))) {
+        sprintf(buf, "No such object: %d\n\r",vnum);
+        send_to_char(buf,ch);
+        return;
+    }
+    
+    if (!(pProgList = pObj->mprogs)) {
+        sprintf(buf, "Obj '%s' (%d) does not have oactions.\n\r",pObj->short_descr,pObj->vnum);
+        send_to_char(buf,ch);
+        return;
+    }
+    
+    for (; pProgList != NULL; pProgList = pProgNext) {
+        pProgNext = pProgList->next;
+        flag = flag_string(mprog_flags,pProgList->trig_type);
+        *flag = toupper(*flag);
+        sprintf(buf,"Events: %s\n\r",flag);
+        send_to_char(buf,ch);
+        sprintf(buf,"Conditions: (placeholder)\n\r");
+        send_to_char(buf,ch);
+        sprintf(buf,"Phrase: %s\n\r",pProgList->trig_phrase);
+        send_to_char(buf,ch);
+        sprintf(buf,"Chance: 100\n\r");
+        send_to_char(buf,ch);
+        sprintf(buf,"%s\n\r",pProgList->code);
+        send_to_char(buf,ch);
+    }
+}
+
+void do_stat_program(CHAR_DATA *ch, char *argument) {
+    do_mpstat(ch,argument);
 }
