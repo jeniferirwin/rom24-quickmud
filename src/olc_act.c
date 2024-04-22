@@ -384,8 +384,8 @@ REDIT (do_rlist)
         if ((pRoomIndex = get_room_index (vnum)))
         {
             found = TRUE;
-            sprintf (buf, "[%5d] %-65.64s",
-                     vnum, capitalize (pRoomIndex->name));
+            sprintf (buf, "%s[%s%5d%s]%s %-65.64s", C_B_CYAN, C_CYAN,
+                     vnum, C_B_CYAN, CLEAR, capitalize (pRoomIndex->name));
             add_buf (buf1, buf);
             add_buf (buf1, "\n\r");
         }

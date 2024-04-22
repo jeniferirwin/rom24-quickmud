@@ -1542,6 +1542,8 @@ void do_alist (CHAR_DATA * ch, char *argument)
     char buf[MAX_STRING_LENGTH];
     char result[MAX_STRING_LENGTH * 2];    /* May need tweaking. */
     AREA_DATA *pArea;
+    char color[256];
+    int star;
 
     if (IS_NPC (ch))
         return;
@@ -1552,10 +1554,41 @@ void do_alist (CHAR_DATA * ch, char *argument)
 
     for (pArea = area_first; pArea; pArea = pArea->next)
     {
+        sprintf(color,"%s",C_B_GREEN);
+        star = ' ';
+
+        /*
+         * This is not necessary to this function, but is some
+         * deterministic colorization that I put in so that I could test
+         * some scripts I'm working on.
+        */
+        if (pArea->name[0] == 'A' || pArea->name[0] == 'B' || pArea->name[0] == 'C') {
+            sprintf(color,"%s",C_B_YELLOW);
+        }
+        if (pArea->name[0] == 'D' || pArea->name[0] == 'E' || pArea->name[0] == 'F') {
+            sprintf(color,"%s",C_B_RED);
+        }
+        if (pArea->name[0] == 'G' || pArea->name[0] == 'H' || pArea->name[0] == 'I') {
+            sprintf(color,"%s",C_CYAN);
+        }
+        if (pArea->name[0] == 'J' || pArea->name[0] == 'K' || pArea->name[0] == 'L') {
+            sprintf(color,"%s",C_B_GREEN);
+        }
+        if (pArea->name[0] == 'M' || pArea->name[0] == 'N' || pArea->name[0] == 'O') {
+            sprintf(color,"%s",C_RED);
+        }
+        if (pArea->min_vnum % 3 == 0)
+            star = '*';
+        // end weird script testing stuff
+        
         sprintf (buf,
-                 "%-36s K:     0 %-32s [%6d][%3d]\n\r",
-                 pArea->name, pArea->builders, pArea->min_vnum,
-                 pArea->high_range + pArea->low_range / 2);
+                 "%s%-36s%s %sK:     0%s %s%-32s%s %s[%s%6d%s]%s%s[%s%3d%s]%s%s%c%s \n",
+                 color, pArea->name, CLEAR,
+                 C_RED, CLEAR,
+                 C_GREEN, pArea->builders, CLEAR,
+                 C_B_CYAN, C_CYAN, pArea->min_vnum, C_B_CYAN, CLEAR,
+                 C_B_GREEN, C_GREEN, pArea->high_range + pArea->low_range / 2, C_B_GREEN, CLEAR,
+                 C_B_YELLOW, star, CLEAR);
         strcat (result, buf);
     }
 
