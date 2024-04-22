@@ -1563,13 +1563,44 @@ void do_alist (CHAR_DATA * ch, char *argument)
     return;
 }
 
-int strstrci(char * haystack, char * needle) {
+/**********************************************************************
+ * Name: strstrc
+ * Purpose: find a substring, case insensitive
+ *********************************************************************/
+
+int strstri(char * haystack, char * needle) {
     char * anchor = needle;
     for (; *haystack != '\0'; haystack++)
     {
         if (*needle == '\0') return 0;
         if (tolower(*haystack) == tolower(*needle)) {
             needle++;
+        } else {
+            needle = anchor;
+        }
+    }
+    if (*needle == '\0')
+        return 0;
+    else
+        return 1;
+}
+
+/**********************************************************************
+ * Name: strnstri
+ * Purpose: find a substring, case insensitive, with a max number of
+ *          iterations before it decides that it's good enough
+ *          This is for situations where you're comparing to something
+ *          like 'rooms', and 'room' would be an acceptable match
+ *********************************************************************/
+
+int strnstri(char * haystack, char * needle, int num) {
+    char * anchor = needle;
+    for (; *haystack != '\0'; haystack++)
+    {
+        if (*needle == '\0') return 0;
+        if (tolower(*haystack) == tolower(*needle)) {
+            needle++;
+            if (needle - anchor >= num) return 0;
         } else {
             needle = anchor;
         }
@@ -1617,7 +1648,7 @@ void do_olc(CHAR_DATA *ch, char *argument) {
     argument = one_argument(argument,arg);
 
     for (int i = 0; wrapper_table[i].name != NULL; i++) {
-        if (!strncmp(wrapper_table[i].name,arg,strlen(wrapper_table[i].name))) {
+        if (!strncmp(wrapper_table[i].name,arg,1)) {
             do_function(ch, wrapper_table[i].do_fun, argument);
             return;
         }
@@ -1638,7 +1669,7 @@ void do_olc_view(CHAR_DATA *ch, char *argument) {
 
     for (int i = 0; view_table[i].name != NULL; i++)
     {
-        if (!strncmp(view_table[i].name,arg,strlen(view_table[i].name))) {
+        if (!strncmp(view_table[i].name,arg,2)) {
             do_function(ch, view_table[i].do_fun, argument);
             return;
         }
@@ -1661,28 +1692,105 @@ void do_view_rooms(CHAR_DATA *ch, char *argument) {
 
     for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
         if (!(pRoom = get_room_index(vnum))) continue;
-        if (*argument != '\0' && strstrci(pRoom->name,argument)) continue;
+        if (*argument != '\0' && strstri(pRoom->name,argument)) continue;
         sprintf(buf,"[%6d] %-50s\n\r",vnum,pRoom->name);
         send_to_char(buf,ch);
     }
 }
 
 void do_view_objects(CHAR_DATA *ch, char *argument) {
-    // TODO
+    AREA_DATA *pArea;
+    OBJ_INDEX_DATA *pObj;
+    int vnum;
+    char buf[MAX_INPUT_LENGTH];
+
+    pArea = ch->in_room->area;
+
+    for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
+        if (!(pObj = get_obj_index(vnum))) continue;
+        if (*argument != '\0' && strstri(pObj->name,argument)) continue;
+        sprintf(buf,"[%6d] %-50s\n\r",vnum,pObj->name);
+        send_to_char(buf,ch);
+    }
 }
 
 void do_view_mobs(CHAR_DATA *ch, char *argument) {
-    // TODO 
+    AREA_DATA *pArea;
+    MOB_INDEX_DATA *pMob;
+    int vnum;
+    char buf[MAX_INPUT_LENGTH];
+
+    pArea = ch->in_room->area;
+
+    for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
+        if (!(pMob = get_mob_index(vnum))) continue;
+        if (*argument != '\0' && strstri(pMob->short_descr,argument)) continue;
+        sprintf(buf,"[%6d] %-50s\n\r",vnum,pMob->short_descr);
+        send_to_char(buf,ch);
+    }
 }
 
 void do_view_programs(CHAR_DATA *ch, char *argument) {
-    // TODO
+    AREA_DATA *pArea;
+    MPROG_CODE * pMprog;
+    int vnum;
+    char buf[MAX_INPUT_LENGTH];
+
+    pArea = ch->in_room->area;
+    
+    for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
+        if (!(pMprog = get_mprog_index(vnum))) continue;
+        //if (*argument != '\0' && strstri(pMprog->vnum,argument)) continue;
+        sprintf(buf,"[%6d] %-50d\n\r",vnum,pMprog->vnum);
+        send_to_char(buf,ch);
+    }
 }
 
 void do_view_oactions(CHAR_DATA *ch, char *argument) {
-    // TODO
+    AREA_DATA *pArea;
+    OBJ_INDEX_DATA *pObj;
+    MPROG_LIST *prg;
+    int vnum;
+    int counter = 1;
+    char buf[MAX_INPUT_LENGTH];
+    char *flag = '\0';
+
+    pArea = ch->in_room->area;
+
+    for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
+        if (!(pObj = get_obj_index(vnum)) || pObj->mprogs == NULL) continue;
+        prg = pObj->mprogs;
+        flag = flag_string(mprog_flags, prg->trig_type);
+        *flag = toupper(*flag);
+        sprintf(buf,"[%d] Object - %6d (%s)\n\r",counter,pObj->vnum,flag);
+        counter++;
+        send_to_char(buf,ch);
+    }
 }
 
 void do_view_links(CHAR_DATA *ch, char *argument) {
-    // TODO
+    AREA_DATA *pArea;
+    ROOM_INDEX_DATA *pRoom;
+    EXIT_DATA *pExit;
+    char buf[MAX_INPUT_LENGTH];
+    int vnum;
+
+    pArea = ch->in_room->area;
+    
+    for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
+        if (!(pRoom = get_room_index(vnum))) continue;
+        for (int j = 0; j <= 5; j++) {
+            pExit = pRoom->exit[j];
+            if (pExit == NULL) continue;
+            if (pExit->u1.to_room->area != pArea){
+                sprintf(buf,"[%6d] %s %s to [%6d] %s.\n\r",
+                    pRoom->vnum,
+                    pRoom->name,
+                    dir_name[j],
+                    pExit->u1.to_room->vnum,
+                    pExit->u1.to_room->name);
+                send_to_char(buf,ch);
+            }
+        }
+    }
 }
