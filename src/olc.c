@@ -1553,9 +1553,9 @@ void do_alist (CHAR_DATA * ch, char *argument)
     for (pArea = area_first; pArea; pArea = pArea->next)
     {
         sprintf (buf,
-                 "[%3d] %-29.29s (%-5d-%5d) %-12.12s [%d] [%-10.10s]\n\r",
-                 pArea->vnum, pArea->name, pArea->min_vnum, pArea->max_vnum,
-                 pArea->file_name, pArea->security, pArea->builders);
+                 "%-36s K:     0 %-32s [%6d][%3d]\n\r",
+                 pArea->name, pArea->builders, pArea->min_vnum,
+                 pArea->high_range + pArea->low_range / 2);
         strcat (result, buf);
     }
 
