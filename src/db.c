@@ -45,6 +45,7 @@
 #include "tables.h"
 #include "lookup.h"
 #include "olc.h"
+#include "interp.h"
 
 #if !defined(macintosh)
 extern int _filbuf args ((FILE *));
@@ -3337,12 +3338,14 @@ void do_areas (CHAR_DATA * ch, char *argument)
     AREA_DATA *pArea2;
     int iArea;
     int iAreaHalf;
+    char arg[MAX_STRING_LENGTH];
 
-    if (argument[0] != '\0')
-    {
-        send_to_char ("No argument is used with this command.\n\r", ch);
+    argument = one_argument(argument, arg);
+
+    if (!strcmp(arg,"vnum") && ch->level >= L5) {
+        do_alist(ch, argument);
         return;
-    }
+    };
 
     iAreaHalf = (top_area + 1) / 2;
     pArea1 = area_first;
