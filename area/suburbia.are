@@ -1,8 +1,8 @@
 #AREADATA
-Name All and Sundry~
+Name Suburbia~
 Builders Kenneth~
 VNUMs 31 99
-Credits {0-0} Kenneth All and Sundry~
+Credits { 0  0} Kenneth Suburbia~
 Security 1
 End
 
@@ -63,11 +63,11 @@ weapon Y AN
 exotic 100 1 blast F
 60 60 1000000 P
 #32
-touch portal~
-a touchy portal~
-A touchy portal hovers here.~
-ether~
-portal AB 0
+step closet door~
+a closet door~
+A closet door beckons you to #cstep#n through it.~
+wood~
+portal G 0
 0 0 FG BCGHIJL 0
 0 0 0 P
 #33
@@ -78,11 +78,32 @@ pasta~
 food GI AO
 6 2 0 0 0
 0 3 499 P
+#34
+drive corvette black~
+a black Corvette~
+A black Corvette waits here for you to #cdrive#n it.~
+unknown~
+treasure BGI 0
+0 0 0 0 0
+0 20000 50000 P
 E
 @verb~
-inhale
+drive
 ~
-M VERB 33 inhale~
+M VERB 31 drive~
+#35
+drive black corvette~
+a black Corvette~
+A black Corvette waits here for you to #cdrive#n it back home.~
+unknown~
+treasure BGI 0
+0 0 0 0 0
+0 20000 50000 P
+E
+@verb~
+drive
+~
+M VERB 32 drive~
 #0
 
 
@@ -91,7 +112,9 @@ M VERB 33 inhale~
 #31
 Living Room~
 This is a living room straight out of the 80's.  Brown walls, glorious
-shag carpet, and an old-ass TV with an elaborate, expensive stereo system.  
+shag carpet, and an old-ass TV with an elaborate, expensive stereo system. 
+A large collection of old VHS tapes, still in their original sleeves, is
+proudly displayed on the shelves of a huge oak entertainment center.  
 ~
 0 8 0
 D0
@@ -151,6 +174,32 @@ D0
 ~
 0 0 31
 S
+#35
+Skyline Chili Parking Lot~
+You stand in a parking lot.  The building in front of you is brightly lit
+on the inside, its many windows allowing the light to shine like a beacon in
+this realm's eternal twilight.  Inside, you see happy patrons eating and
+workers busily taking orders.  
+~
+0 0 1
+D0
+~
+~
+0 0 36
+S
+#36
+Skyline Chili~
+A heavenly aroma wafts out the door the moment you open it, inviting you
+in for a meal.  The walls are lined with booths where families laugh and
+eat.  The atmosphere is warm and welcoming - and to some, this place even
+feels nostalgic.  Like home.  
+~
+0 8 0
+D2
+~
+~
+0 0 35
+S
 #0
 
 
@@ -162,12 +211,16 @@ S
 
 #OSPECIALS
 O 32 spec_password
-O 33 spec_verb
+O 34 spec_verb
+O 35 spec_verb
 S
 
 
 
 #RESETS
+O 0 32 0 33 A closet door loaded to Upstairs Hallway
+O 0 34 0 34 A black corvette loaded to Driveway
+O 0 35 0 35 A black corvette loaded to Skyline Chili Parking Lot
 S
 
 
@@ -179,11 +232,14 @@ S
 
 #MOBPROGS
 #31
-say Greetings, sir.
+mob echoat $n It's Skyline Time!
+mob trans $n 35
+~
+#32
+mob echoat $n You hop into the 'Vette and head back home.
+mob trans $n 34
 ~
 #33
-mob echoat $n It's Skyline Time!
-mob trans $n 3014
 ~
 #0
 
