@@ -1125,7 +1125,7 @@ void do_stat (CHAR_DATA * ch, char *argument)
 
 void do_rstat (CHAR_DATA * ch, char *argument)
 {
-    char buf[MAX_STRING_LENGTH];
+    char buf[MAX_STRING_LENGTH], buf2[MAX_STRING_LENGTH];
     char arg[MAX_INPUT_LENGTH];
     ROOM_INDEX_DATA *location;
     OBJ_DATA *obj;
@@ -1147,37 +1147,64 @@ void do_rstat (CHAR_DATA * ch, char *argument)
         return;
     }
 
-    sprintf (buf, "Name: '%s'\n\rArea: '%s'\n\r",
-             location->name, location->area->name);
+    sprintf (buf, "Name: %s%s%s\n\r", C_B_RED, location->name, CLEAR);
+    send_to_char (buf, ch);
+    sprintf(buf, "Area: %s%s%s\n\r", C_B_RED, location->area->name, CLEAR);
     send_to_char (buf, ch);
 
     sprintf (buf,
-             "Vnum: %d  Sector: %d  Light: %d  Healing: %d  Mana: %d\n\r",
-             location->vnum,
-             location->sector_type,
-             location->light, location->heal_rate, location->mana_rate);
+             "Vnum: %s%d%s  Sector: %s%d%s  Continent:  %sLensmoor%s\n\r",
+             C_B_RED, location->vnum, CLEAR,
+             C_B_RED, location->sector_type, CLEAR,
+             C_B_RED, CLEAR);
+    send_to_char (buf, ch);
+    
+    sprintf(buf,
+        "Healing: %s%d%s  Mana: %s%d%s Size: %sany%s\n\r",
+        C_B_RED, location->heal_rate, CLEAR,
+        C_B_RED, location->mana_rate, CLEAR,
+        C_B_RED, CLEAR);
     send_to_char (buf, ch);
 
-    sprintf (buf,
-             "Room flags: %lld.\n\rDescription:\n\r%s",
-             location->room_flags, location->description);
+    sprintf(buf, "Lights: %s%d%s  Players: Room %s1%s  Area %s1%s LCount: %s0%s\n\r",
+            C_B_RED, location->light, CLEAR,
+            C_B_RED, CLEAR,
+            C_B_RED, CLEAR,
+            C_B_RED, CLEAR
+    );
+    send_to_char (buf, ch);
+    sprintf (buf, "Room flags: %s\n\r",
+             flag_string(room_flags, location->room_flags));
     send_to_char (buf, ch);
 
+    sprintf (buf, "Internal Room flags: %sAggression%s.\n\r",
+             C_RED, CLEAR);
+    send_to_char (buf, ch);
+    send_to_char("Description:\n\r",ch);
+    send_to_char(location->description,ch);
+    
     if (location->extra_descr != NULL)
     {
         EXTRA_DESCR_DATA *ed;
 
-        send_to_char ("Extra description keywords: '", ch);
+        sprintf(buf, "Org Extra description keywords: %s'", C_YELLOW);
         for (ed = location->extra_descr; ed; ed = ed->next)
         {
-            send_to_char (ed->keyword, ch);
-            if (ed->next != NULL)
-                send_to_char (" ", ch);
+            sprintf(buf2, "%s%s", C_B_CYAN, ed->keyword);
+            if (strlen(buf) + strlen(buf2) < MAX_STRING_LENGTH - 10) {
+                strcat(buf, buf2);
+                if (ed->next != NULL) {
+                    sprintf(buf2, "%s' '", C_YELLOW);
+                    strcat(buf, buf2);
+                }
+            }
         }
-        send_to_char ("'.\n\r", ch);
+        sprintf(buf2, "%s' %s.\n\r", C_YELLOW, CLEAR);
+        strcat(buf, buf2);
+        send_to_char(buf,ch);
     }
 
-    send_to_char ("Characters:", ch);
+    send_to_char ("Characters:\e[1;32m", ch);
     for (rch = location->people; rch; rch = rch->next_in_room)
     {
         if (can_see (ch, rch))
@@ -1187,15 +1214,16 @@ void do_rstat (CHAR_DATA * ch, char *argument)
             send_to_char (buf, ch);
         }
     }
+    send_to_char ("\e[0m\n\r", ch);
 
-    send_to_char (".\n\rObjects:   ", ch);
+    send_to_char ("Objects:\e[1;35m   ", ch);
     for (obj = location->contents; obj; obj = obj->next_content)
     {
         send_to_char (" ", ch);
         one_argument (obj->name, buf);
         send_to_char (buf, ch);
     }
-    send_to_char (".\n\r", ch);
+    send_to_char ("\e[0m\n\r", ch);
 
     for (door = 0; door <= 5; door++)
     {
@@ -1203,18 +1231,20 @@ void do_rstat (CHAR_DATA * ch, char *argument)
 
         if ((pexit = location->exit[door]) != NULL)
         {
-            sprintf (buf,
-                     "Door: %d.  To: %d.  Key: %d.  Exit flags: %d.\n\rKeyword: '%s'.  Description: %s",
-                     door,
-                     (pexit->u1.to_room ==
-                      NULL ? -1 : pexit->u1.to_room->vnum), pexit->key,
-                     pexit->exit_info, pexit->keyword,
-                     pexit->description[0] !=
-                     '\0' ? pexit->description : "(none).\n\r");
+            sprintf(buf, "Exit: \e[1;31m%s\e[0m  To: \e[1;31m[%d] %s\e[0m Key: \e[1;31m%d\e[0m\n\r",
+                dir_name[door],
+                (pexit->u1.to_room == NULL ? 0 : pexit->u1.to_room->vnum),
+                (pexit->u1.to_room == NULL ? " " : pexit->u1.to_room->name),
+                (pexit->key >= 0 ? pexit->key : 0));
+            send_to_char (buf, ch);
+            sprintf(buf, "Size: \e[1;31many\e[0m  Flags: \e[1;31m%s\n\r", flag_string(exit_flags, pexit->rs_flags));
+            send_to_char (buf, ch);
+            sprintf(buf, "Keyword: %s.  Description: \e[1;33m%s\e[0m",
+                     (pexit->keyword[0] == '\0' ? "\e[1;31mdoor\e[0m" : pexit->keyword),
+                     pexit->description[0] != '\0' ? pexit->description : "(none)\e[0m.\n\r");
             send_to_char (buf, ch);
         }
     }
-
     return;
 }
 

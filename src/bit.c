@@ -159,12 +159,18 @@ char *flag_string (const struct flag_type *flag_table, unsigned long long bits)
 
     buf[cnt][0] = '\0';
 
+    bool first = TRUE;
     for (flag = 0; flag_table[flag].name != NULL; flag++)
     {
         if (!is_stat (flag_table) && IS_SET (bits, flag_table[flag].bit))
         {
-            strcat (buf[cnt], " ");
-            strcat (buf[cnt], flag_table[flag].name);
+            if (first) {
+                strcat (buf[cnt], " \e[1;31m");
+                first = FALSE;
+            } else {
+                strcat (buf[cnt], "\e[0m, \e[1;31m");
+            }
+            strcat (buf[cnt], capitalize(flag_table[flag].name));
         }
         else if (flag_table[flag].bit == bits)
         {
@@ -173,5 +179,8 @@ char *flag_string (const struct flag_type *flag_table, unsigned long long bits)
             break;
         }
     }
-    return (buf[cnt][0] != '\0') ? buf[cnt] + 1 : "none";
+    if (buf[cnt][0] != '\0') {
+        strcat(buf[cnt], "\e[0m");
+    }
+    return (buf[cnt][0] != '\0') ? buf[cnt] + 1 : "\e[0mnone";
 }

@@ -1742,7 +1742,7 @@ void do_view_rooms(CHAR_DATA *ch, char *argument) {
     for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
         if (!(pRoom = get_room_index(vnum))) continue;
         if (*argument != '\0' && strstri(pRoom->name,argument)) continue;
-        sprintf(buf,"[%6d] %-50s\n\r",vnum,pRoom->name);
+        sprintf(buf,"%s[%s%6d%s]%s %-50s\n\r",C_B_CYAN, C_CYAN, vnum, C_B_CYAN, CLEAR, pRoom->name);
         send_to_char(buf,ch);
     }
 }
@@ -1811,7 +1811,7 @@ void do_view_oactions(CHAR_DATA *ch, char *argument) {
         prg = pObj->mprogs;
         flag = flag_string(mprog_flags, prg->trig_type);
         *flag = toupper(*flag);
-        sprintf(buf,"[%d] Object - %6d (%s)\n\r",counter,pObj->vnum,flag);
+        sprintf(buf,"%s[%s%d%s]%s Object - %s%6d%s (%s%s%s)\n\r",C_B_CYAN, C_CYAN, counter, C_B_CYAN, CLEAR, C_GREEN, pObj->vnum, CLEAR, C_B_WHITE, flag, CLEAR);
         counter++;
         send_to_char(buf,ch);
     }
@@ -1830,14 +1830,14 @@ void do_view_links(CHAR_DATA *ch, char *argument) {
         if (!(pRoom = get_room_index(vnum))) continue;
         for (int j = 0; j <= 5; j++) {
             pExit = pRoom->exit[j];
-            if (pExit == NULL) continue;
+            if (pExit == NULL || pExit->u1.to_room == NULL || pExit->u1.to_room->vnum < 0 || pExit->u1.to_room->vnum > 65535) continue;
             if (pExit->u1.to_room->area != pArea){
-                sprintf(buf,"[%6d] %s %s to [%6d] %s.\n\r",
-                    pRoom->vnum,
+                sprintf(buf,"%s[%s%6d%s]%s %s %s%s%s to %s[%s%6d%s]%s %s%s.\n\r",
+                    C_B_CYAN, C_CYAN, pRoom->vnum, C_B_CYAN, CLEAR,
                     pRoom->name,
-                    dir_name[j],
-                    pExit->u1.to_room->vnum,
-                    pExit->u1.to_room->name);
+                    C_B_GREEN, dir_name[j], CLEAR,
+                    C_B_CYAN, C_CYAN, pExit->u1.to_room->vnum, C_B_CYAN, CLEAR,
+                    pExit->u1.to_room->name, CLEAR);
                 send_to_char(buf,ch);
             }
         }
