@@ -28,6 +28,22 @@
 #include "olc.h"
 #include "interp.h"
 
+void do_olc_view(CHAR_DATA *ch, char *argument);
+void do_olc_stat(CHAR_DATA *ch, char *argument);
+void do_view_rooms(CHAR_DATA *ch, char *argument);
+void do_view_objects(CHAR_DATA *ch, char *argument);
+void do_view_mobs(CHAR_DATA *ch, char *argument);
+void do_view_oactions(CHAR_DATA *ch, char *argument);
+void do_view_links(CHAR_DATA *ch, char *argument);
+void do_view_programs(CHAR_DATA *ch, char *argument);
+void do_stat_room(CHAR_DATA *ch, char *argument);
+void do_stat_object(CHAR_DATA *ch, char *argument);
+void do_stat_mob(CHAR_DATA *ch, char *argument);
+void do_stat_oaction(CHAR_DATA *ch, char *argument);
+void do_stat_program(CHAR_DATA *ch, char *argument);
+int strnstri(char * haystack, char * needle, int num);
+int strstri(char * haystack, char * needle);
+
 /*
  * Local functions.
  */
@@ -1544,6 +1560,12 @@ void do_alist (CHAR_DATA * ch, char *argument)
     AREA_DATA *pArea;
     char color[256];
     int star;
+    char arg[MAX_INPUT_LENGTH];
+    
+    argument = one_argument(argument, arg);
+    
+    sprintf(buf,"%s\n\r",arg);
+    send_to_char(buf,ch);
 
     if (IS_NPC (ch))
         return;
@@ -1554,6 +1576,7 @@ void do_alist (CHAR_DATA * ch, char *argument)
 
     for (pArea = area_first; pArea; pArea = pArea->next)
     {
+        if (strstri(pArea->name,arg)) continue;
         sprintf(color,"%s",C_B_GREEN);
         star = ' ';
 
@@ -1644,19 +1667,6 @@ int strnstri(char * haystack, char * needle, int num) {
         return 1;
 }
 
-void do_olc_view(CHAR_DATA *ch, char *argument);
-void do_olc_stat(CHAR_DATA *ch, char *argument);
-void do_view_rooms(CHAR_DATA *ch, char *argument);
-void do_view_objects(CHAR_DATA *ch, char *argument);
-void do_view_mobs(CHAR_DATA *ch, char *argument);
-void do_view_oactions(CHAR_DATA *ch, char *argument);
-void do_view_links(CHAR_DATA *ch, char *argument);
-void do_view_programs(CHAR_DATA *ch, char *argument);
-void do_stat_room(CHAR_DATA *ch, char *argument);
-void do_stat_object(CHAR_DATA *ch, char *argument);
-void do_stat_mob(CHAR_DATA *ch, char *argument);
-void do_stat_oaction(CHAR_DATA *ch, char *argument);
-void do_stat_program(CHAR_DATA *ch, char *argument);
 
 const struct wrapper_cmd_type wrapper_table[] = {
     {"view", do_olc_view},
