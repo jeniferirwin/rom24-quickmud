@@ -1183,6 +1183,9 @@ void do_rstat (CHAR_DATA * ch, char *argument)
     send_to_char("Description:\n\r",ch);
     send_to_char(location->description,ch);
     
+    sprintf(buf, "Owner: \e[1;31m%s\e[0m Clan: \e[1;31mnone\e[0m\n\r",
+        (location->owner == NULL ? "" : location->owner));
+    send_to_char(buf,ch);
     if (location->extra_descr != NULL)
     {
         EXTRA_DESCR_DATA *ed;
@@ -1239,8 +1242,8 @@ void do_rstat (CHAR_DATA * ch, char *argument)
             send_to_char (buf, ch);
             sprintf(buf, "Size: \e[1;31many\e[0m  Flags: \e[1;31m%s\n\r", flag_string(exit_flags, pexit->rs_flags));
             send_to_char (buf, ch);
-            sprintf(buf, "Keyword: %s.  Description: \e[1;33m%s\e[0m",
-                     (pexit->keyword[0] == '\0' ? "\e[1;31mdoor\e[0m" : pexit->keyword),
+            sprintf(buf, "Keyword: \e[1;31m%s\e[0m.  Description: \e[1;33m%s\e[0m",
+                     (pexit->keyword[0] == '\0' ? "door" : pexit->keyword),
                      pexit->description[0] != '\0' ? pexit->description : "(none)\e[0m.\n\r");
             send_to_char (buf, ch);
         }
