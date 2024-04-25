@@ -153,7 +153,7 @@ typedef void SPELL_FUN args( ( int sn, int level, CHAR_DATA *ch, void *vo,
 /* Added this for "orphaned help" code. Check do_help() -- JR */
 #define MAX_CMD_LEN			50
 
-#define PULSE_PER_SECOND    4
+#define PULSE_PER_SECOND    240
 #define PULSE_VIOLENCE      ( 3 * PULSE_PER_SECOND)
 #define PULSE_MOBILE        ( 4 * PULSE_PER_SECOND)
 #define PULSE_MUSIC         ( 6 * PULSE_PER_SECOND)
