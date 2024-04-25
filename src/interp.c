@@ -275,6 +275,7 @@ const struct cmd_type cmd_table[] = {
     {"/", do_recall, POS_FIGHTING, 0, LOG_NORMAL, 0},
     {"rent", do_rent, POS_DEAD, 0, LOG_NORMAL, 0},
     {"save", do_save, POS_DEAD, 0, LOG_NORMAL, 1},
+    {"selfecho", do_selfecho, POS_DEAD, 0, LOG_NORMAL, 1},
     {"sleep", do_sleep, POS_SLEEPING, 0, LOG_NORMAL, 1},
     {"sneak", do_sneak, POS_STANDING, 0, LOG_NORMAL, 1},
     {"split", do_split, POS_RESTING, 0, LOG_NORMAL, 1},
@@ -579,7 +580,6 @@ void do_function (CHAR_DATA * ch, DO_FUN * do_fun, char *argument)
 }
 
 bool check_special(CHAR_DATA *ch, char *command) {
-    char phrase[MAX_INPUT_LENGTH];
     OBJ_DATA *obj, *obj_next;
     ROOM_INDEX_DATA *room;
     

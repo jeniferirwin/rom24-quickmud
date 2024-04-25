@@ -242,6 +242,7 @@ DECLARE_DO_FUN(	do_say			);
 DECLARE_DO_FUN(	do_scan			);
 DECLARE_DO_FUN(	do_score		);
 DECLARE_DO_FUN( do_scroll		);
+DECLARE_DO_FUN(	do_selfecho		);
 DECLARE_DO_FUN(	do_sell			);
 DECLARE_DO_FUN( do_set			);
 DECLARE_DO_FUN(	do_shout		);

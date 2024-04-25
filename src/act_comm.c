@@ -1532,6 +1532,11 @@ void do_save (CHAR_DATA * ch, char *argument)
 }
 
 
+void do_selfecho(CHAR_DATA * ch, char *argument) {
+    char buf[MAX_INPUT_LENGTH - 2];
+    sprintf(buf,"%s\n\r",argument);
+    send_to_char(buf,ch);
+}
 
 void do_follow (CHAR_DATA * ch, char *argument)
 {
