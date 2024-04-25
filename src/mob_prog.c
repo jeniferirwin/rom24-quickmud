@@ -1366,7 +1366,6 @@ void mp_verb_trigger( char * phrase, OBJ_DATA * obj, CHAR_DATA * ch, const void 
     EXTRA_DESCR_DATA *ex, *ex_next;
     MOB_INDEX_DATA *prxIndex;
     CHAR_DATA *proxy;
-    char buf[MAX_INPUT_LENGTH];
 
     for (prg = obj->pIndexData->mprogs; prg != NULL; prg = prg_next) {
         prg_next = prg->next;
