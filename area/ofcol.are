@@ -1,14 +1,22 @@
-#AREA
-ofcol.are~
-Ofcol~
-{ All } Alfa    Ofcol~
-5500 5599
+#AREADATA
+Name Ofcol~
+Builders None~
+VNUMs 5500 5599
+Credits { All } Alfa    Ofcol~
+Security 9
+End
+
+
 
 #MOBILES
 #0
 
+
+
 #OBJECTS
 #0
+
+
 
 #ROOMS
 #5550
@@ -104,7 +112,7 @@ The future training room~
 This is the future site of a training room.  The only exit is north
 leading to the small alley.
 ~
-0 D 1
+0 8 1
 D0
 You are able to see the small alley, really not very interesting.
 ~
@@ -117,7 +125,7 @@ You are standing in a small shop, filled with all kinds of goods.
 Here you might be able to find just the thing you're looking for.
 The only exit is east to village square.
 ~
-0 D 1
+0 8 1
 D1
 The village square is as usual not overcrowded.
 ~
@@ -132,7 +140,7 @@ You can't help thinking that Ofcol is a dry city, when you see the
 many people here.
 The only exit is south to the village square.
 ~
-0 D 1
+0 8 1
 D2
 The village square is as usual not overcrowded.
 ~
@@ -146,11 +154,12 @@ the time. The room has little decoration except for some pictures
 on the wall.
 You notice that there are no exits from this room.
 ~
-0 C 0
+0 4 0
 E
-friend friends~
-The list include such prominent names as : God, Lottie, Kurgan,
-Ezzard, Mike, Sprocket and Stormbringer.
+pictures picture decoration~
+These pictures show the friend's and foe's of Ravan.
+They are easy to separate, as most of the foe's have the letters
+R.I.P. inscripted underneath them.
 ~
 E
 foe foes enemies~
@@ -159,33 +168,48 @@ It pictures him hanging from a gallow, north of the town.
 It has the letters R.I.P. inscripted underneath.
 ~
 E
-pictures picture decoration~
-These pictures show the friend's and foe's of Ravan.
-They are easy to separate, as most of the foe's have the letters
-R.I.P. inscripted underneath them.
+friend friends~
+The list include such prominent names as : God, Lottie, Kurgan,
+Ezzard, Mike, Sprocket and Stormbringer.
 ~
 S
 #0
 
-#RESETS
-M 0  303   5 5556  3	* the citizen
-M 0  303   5 5550  3	* the citizen
-M 0  304   5 5553  3	* the citizen
-M 0  304   5 5552  3	* the citizen
-E 1 3020  99   16	*   a dagger
-M 0  306   1 5555  1	* Luxan
-G 1  304 100     	*   wild flowers
-G 1 3030 100     	*   a torch
-M 0  308   1 5556  1	* the Innkeeper
-G 1 3000 100     	*   a barrel of beer
-G 1 3001 100     	*   a bottle of beer
-M 0  350   1 5577  1	* the pet dragon
+
+
+#SPECIALS
 S
+
+
+
+#OSPECIALS
+S
+
+
+
+#RESETS
+M 0 303 5 5550 3 Load the citizen
+M 0 304 5 5552 3 Load the citizen
+E 0 3020 0 16 A dagger is loaded wielded[0m of the citizen
+M 0 304 5 5553 3 Load the citizen
+M 0 306 1 5555 1 Load Luxan
+G 0 304 0 Wild flowers is given to Luxan
+G 0 3030 0 A torch is given to Luxan
+M 0 303 5 5556 3 Load the citizen
+M 0 308 1 5556 1 Load the Innkeeper
+G 0 3000 0 A barrel of beer is given to the Innkeeper
+G 0 3001 0 A bottle of beer is given to the Innkeeper
+M 0 350 1 5577 1 Load the pet dragon
+S
+
+
 
 #SHOPS
 0
 
-#SPECIALS
-S
+
+
+#MOBPROGS
+#0
 
 #$

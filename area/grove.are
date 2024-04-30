@@ -1,8 +1,12 @@
-#AREA
-grove.are~
-Holy Grove~
-{ 5 20} Alfa    Holy Grove~
-8900 8999
+#AREADATA
+Name Holy Grove~
+Builders None~
+VNUMs 8900 8999
+Credits { 5 20} Alfa    Holy Grove~
+Security 9
+End
+
+
 
 #MOBILES
 #8900
@@ -20,7 +24,7 @@ AGHQ DHN 1000 0
 -4 -4 -4 6
 EIKU 0 0 0
 stand stand male 2
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #8901
 oldstyle hierophant~
 The Hierophant~
@@ -36,7 +40,7 @@ AGHQ DHN 1000 0
 -4 -4 -4 6
 EIKU 0 0 0
 stand stand female 2
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #8902
 oldstyle elder druid~
 an elder druid~
@@ -51,7 +55,7 @@ AGHQ N 1000 0
 -1 -1 -1 7
 EIKU 0 0 0
 stand stand male 2
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #8903
 oldstyle elder druidess~
 an elder druidess~
@@ -65,7 +69,7 @@ AGHQ N 1000 0
 -1 -1 -1 7
 EIKU 0 0 0
 stand stand female 2
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #8904
 oldstyle doe~
 a doe~
@@ -80,7 +84,7 @@ AGH 0 0 0
 5 5 5 9
 EFNU 0 0 0
 stand stand female 0
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #8905
 oldstyle deer~
 a deer~
@@ -95,7 +99,7 @@ AGH 0 0 0
 4 4 4 9
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #8906
 oldstyle stag deer large~
 a stag~
@@ -109,7 +113,7 @@ AFGH 0 0 0
 3 3 3 9
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #8907
 oldstyle bunny rabbit~
 a small bunny~
@@ -123,7 +127,7 @@ AGH 0 0 0
 8 8 8 10
 EFNU 0 0 0
 stand stand none 0
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #8908
 oldstyle snake~
 a harmless snake~
@@ -135,9 +139,9 @@ snake~
 AFGH P 0 0
 4 0 2d7+46 2d9+100 1d5+1 none
 6 6 6 9
-EFNR 0 0 0
+EFNR 0 L I
 stand stand none 0
-0 0 medium 0
+AGXYc ADEFKLQVX medium unknown
 #8909
 oldstyle druid~
 a druid~
@@ -151,7 +155,7 @@ AGHQ DN 1000 0
 1 1 1 7
 EIKU 0 0 0
 stand stand male 2
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #8910
 oldstyle druidess~
 a druidess~
@@ -165,8 +169,10 @@ AGHQ DN 1000 0
 1 1 1 7
 EIKU 0 0 0
 stand stand female 2
-0 0 medium 0
+AHMV ABCDEFGHIJK medium unknown
 #0
+
+
 
 #OBJECTS
 #8901
@@ -277,7 +283,7 @@ a brown robe~
 Some brown cloth is on the floor.~
 oldstyle~
 armor K AD
-6 6 6 0 0
+BC BC BC 0 0
 16 50 2300 P
 A
 12 10
@@ -343,6 +349,8 @@ pill 0 A
 6 10 430 P
 #0
 
+
+
 #ROOMS
 #8901
 The holy grove~
@@ -394,7 +402,11 @@ seems powerfully DIFFERENT from the rest of the forest, as if something is
 severely strained in the fabric of reality here.  There is a small tablet 
 on one of the trees.
 ~
-0 C 3
+0 4 3
+E
+tablet~
+This zone has been populated by Merc.  1993
+~
 D0
 A small, narrow path winds north, and is quickly lost in the bushes. It
 looks quite a wilderness there!
@@ -412,10 +424,6 @@ There is a friendly-looking path leading west through the tall trees.
 ~
 ~
 0 -1 8902
-E
-tablet~
-This zone has been populated by Merc.  1993
-~
 S
 #8904
 The holy grove~
@@ -425,7 +433,7 @@ shoulders. From here, pleasant-looking paths lead east, north and south. To
 the west, through the trees, You can see a faint trail leading towards the
 eastern road.
 ~
-0 C 3
+0 4 3
 D0
 The path wind its way through the tall trees, disappearing out of sight.
 ~
@@ -495,6 +503,13 @@ burdens have been lifted from Your shoulders. To the south, You glimpse an open
 area through the trees, while paths lead away north and west.
 ~
 0 0 3
+E
+mansion~
+The mansion is a sprawling, two-story affair with three wings, where the top
+of one wing serves as balcony. The walls look as marble would do, if marble
+changed color slowly, continuously, through the entire spectrum. There are
+large windows all over the house.
+~
 D0
 The path wind its way through the tall trees, disappearing out of sight.
 ~
@@ -511,13 +526,6 @@ The path wind its way through the tall trees, disappearing out of sight.
 ~
 ~
 0 -1 8905
-E
-mansion~
-The mansion is a sprawling, two-story affair with three wings, where the top
-of one wing serves as balcony. The walls look as marble would do, if marble
-changed color slowly, continuously, through the entire spectrum. There are
-large windows all over the house.
-~
 S
 #8907
 The holy grove~
@@ -528,6 +536,13 @@ you feel an inexplicable happiness, as if the world's troubles no longer
 really matter to you.
 ~
 0 0 3
+E
+mansion~
+The mansion is a sprawling, two-story affair with three wings, where the top
+of one wing serves as balcony. The walls look as marble would do, if marble
+changed color slowly, continuously, through the entire spectrum. There are
+large windows all over the house.
+~
 D0
 The path leading north is soon lost out of sight amongst the ancient oaks and
 poplars.
@@ -541,13 +556,6 @@ shimmering gently in all the rainbow's colours.
 ~
 ~
 0 -1 8908
-E
-mansion~
-The mansion is a sprawling, two-story affair with three wings, where the top
-of one wing serves as balcony. The walls look as marble would do, if marble
-changed color slowly, continuously, through the entire spectrum. There are
-large windows all over the house.
-~
 S
 #8908
 The sunny field~
@@ -559,7 +567,15 @@ sion, shimmering softly through the colors of the rainbow. You feel as if You
 could spend the rest of your life here, lying on your back and looking at the
 patterns of the clouds as they gently drift across the sky.
 ~
-0 D 2
+0 8 2
+E
+mansion~
+The mansion is a sprawling, two-story affair with three wings, where the top
+of one wing serves as balcony. The walls look as marble would do, if marble
+changed color slowly, continuously, through the entire spectrum. There are
+large windows all over the house. There is a terrace in front of the house,
+next to the low wing, which is almost completely windows.
+~
 D0
 There is a path leading north towards the sacred glade.
 ~
@@ -576,14 +592,6 @@ There is a small path leading into the woods to the west.
 ~
 ~
 0 -1 8907
-E
-mansion~
-The mansion is a sprawling, two-story affair with three wings, where the top
-of one wing serves as balcony. The walls look as marble would do, if marble
-changed color slowly, continuously, through the entire spectrum. There are
-large windows all over the house. There is a terrace in front of the house,
-next to the low wing, which is almost completely windows.
-~
 S
 #8909
 The croquet lawn~
@@ -593,7 +601,14 @@ from the wood's edge to the north, to the softly shimmering, rainbow-colored
 mansion to the south. This place enjoys a perpetual cool, sunny summers after-
 noon.
 ~
-0 C 2
+0 4 2
+E
+mansion~
+The mansion is a sprawling, two-story affair with three wings, where the top
+of one wing serves as balcony. The walls look as marble would do, if marble
+changed color slowly, continuously, through the entire spectrum. There are
+large windows all over the house.
+~
 D0
 To the north, the winding stone path leads into the holy grove.
 ~
@@ -604,13 +619,6 @@ To the south, the path leads straight up to the front door of the mansion.
 ~
 door~
 1 -1 8910
-E
-mansion~
-The mansion is a sprawling, two-story affair with three wings, where the top
-of one wing serves as balcony. The walls look as marble would do, if marble
-changed color slowly, continuously, through the entire spectrum. There are
-large windows all over the house.
-~
 S
 #8910
 The foyer~
@@ -619,7 +627,15 @@ the croquet lawn is to the north, flanked by large windows. The walls are
 panelled in oak and hung with strange paintings.  There is door in the south
 wall.
 ~
-0 CD 0
+0 12 0
+E
+painting paintings~
+They are strange indeed, works of breathtaking precision depicting obviously
+impossible motifs, like a sky filled with headless men, all dressed in some
+black costume (including hats), or a lady standing, blue from the waist up, or
+some pieces of plankwood that seems to be melting away like snow, or a night
+sky with a dove-shaped hole of bright day sky in the middle.
+~
 D0
 Through the windows next to the door you can see the croquet lawn, bathed in
 afternoon sunlight.
@@ -630,14 +646,6 @@ D2
 ~
 door~
 1 -1 8911
-E
-painting paintings~
-They are strange indeed, works of breathtaking precision depicting obviously
-impossible motifs, like a sky filled with headless men, all dressed in some
-black costume (including hats), or a lady standing, blue from the waist up, or
-some pieces of plankwood that seems to be melting away like snow, or a night
-sky with a dove-shaped hole of bright day sky in the middle.
-~
 S
 #8911
 The hallway~
@@ -645,7 +653,7 @@ You are in the north end of a connecting hallway, tastefully decorated with
 oak paneling and the coat-of-arms of various famous nobles hung on the walls.
 The hallway leads south, and there is a door in the eastern wall.
 ~
-0 D 0
+0 8 0
 D0
 ~
 door~
@@ -667,7 +675,7 @@ shades, producing a very nice, cool effect. There is a large bed and a
 matching set of sofas, easy-chairs and a coffee table. Through the venetian
 blinds in front of the large east window you can see the edge of the grove.
 ~
-0 DJ 0
+0 520 0
 D3
 ~
 door~
@@ -679,7 +687,7 @@ You are standing in the south end of the hallway. There are doors in the
 elegant oak-panelled walls to the south, east and west. Many different
 coat-of-arms adorn the walls here.
 ~
-0 D 0
+0 8 0
 D0
 ~
 ~
@@ -705,7 +713,7 @@ plements them. There is a large, warm waterbed and a sofa group in dark wood
 with leather upholstery, including a coffee table. Heavy brown curtains are
 pulled away from the wide windows, to reveal a nice view towards the grove.
 ~
-0 DJ 0
+0 520 0
 D3
 ~
 door~
@@ -721,7 +729,7 @@ along several shelves and a large combo refrigerator/freezer. A big oven and
 stove is lurking in a corner. There is some proof here that Dragon is a less
 than meticulous housekeeper... There are doors to the north and west.
 ~
-0 D 0
+0 8 0
 D0
 ~
 door~
@@ -739,7 +747,7 @@ standing forlornly in a corner suggests that this does not happen often.
 There are doors in the south and east walls, while to the west there is a
 short corridor to the greenhouse.
 ~
-0 D 0
+0 8 0
 D1
 ~
 door~
@@ -763,7 +771,7 @@ see out for all the greenery here. There is a set of easy-chairs and a glass
 coffee table. To the south, there is a wide double door out to a sunlit 
 terrace.
 ~
-0 DJ 0
+0 520 0
 D1
 ~
 ~
@@ -780,19 +788,7 @@ seating at least 24, with heavy, wooden chairs to match. The oak panel walls
 are filled with paintings. There are doors to the north and east, and to the
 west there is a wide double door opening out onto the sunlit terrace.
 ~
-0 D 0
-D0
-~
-door~
-1 -1 8916
-D1
-~
-door~
-1 -1 8915
-D3
-~
-wide door~
-1 -1 8919
+0 8 0
 E
 painting paintings~
 There are many, many beautiful paintings of famous dragons of history and
@@ -807,6 +803,18 @@ fills another. There even are a few rare medieval renditions of the great
 beast of the Revelation. Over the head of the table hangs a rather modest 
 portrait of a silver Dragon, sparkling with blue lightening, looking amused.
 ~
+D0
+~
+door~
+1 -1 8916
+D1
+~
+door~
+1 -1 8915
+D3
+~
+wide door~
+1 -1 8919
 S
 #8919
 The terrace~
@@ -817,7 +825,7 @@ colors, while a double door leads into the house proper to the east. It is
 warm and calm here. There is a white-painted table with a parasol here,
 together with a matched set of chairs.
 ~
-0 CD 0
+0 12 0
 D0
 ~
 door~
@@ -878,83 +886,99 @@ and falling ...
 ...
 .
 ~
-0 C 0
+0 4 0
 S
 #0
 
-#RESETS
-M 0 8900   1 8905  1	* The Hierophant
-E 1 8910  -1   16	*   a wooden staff
-E 1 8911  -1    5	*   a brown robe
-G 1 8919  -1     	*   some pinkish herbs
-G 1 8918  -1     	*   some orangish herbs
-M 0 8901   1 8901  1	* The Hierophant
-E 1 8910  -1   16	*   a wooden staff
-E 1 8911  -1    5	*   a brown robe
-G 1 8913  -1     	*   some bluish herbs
-G 1 8915  -1     	*   some blackish herbs
-M 0 8902   1 8902  1	* an elder druid
-E 1 8910  -1   16	*   a wooden staff
-G 1 8914  -1     	*   some purplish herbs
-G 1 8916  -1     	*   some grayish herbs
-M 0 8903   1 8904  1	* an elder druidess
-E 1 8910  -1   16	*   a wooden staff
-G 1 8919  -1     	*   some pinkish herbs
-G 1 8917  -1     	*   some reddish herbs
-M 0 8904   2 8905  2	* a doe
-M 0 8905   2 8906  2	* a deer
-M 0 8906   1 8905  1	* a stag
-M 0 8907   4 8903  4	* a small bunny
-M 0 8907   4 8903  4	* a small bunny
-M 0 8908   9 8906  9	* a harmless snake
-M 0 8909   2 8911  1	* a druid
-G 1 8913  -1     	*   some bluish herbs
-M 0 8909   2 8918  1	* a druid
-G 1 8916  -1     	*   some grayish herbs
-M 0 8910   2 8914  1	* a druidess
-G 1 8914  -1     	*   some purplish herbs
-M 0 8910   2 8917  1	* a druidess
-G 1 8918  -1     	*   some orangish herbs
-O 0 8901   2 8912	* a closet
-O 0 8901   2 8914	* a closet
-O 0 8902   2 8915	* a spice jar
-P 1 8903   1 8902  1	*   some black powder
-O 0 8902   2 8915	* a spice jar
-P 1 8904   1 8902  1	*   some small yellow kernels
-O 0 8905   1 8915	* a crumpled wad of paper
-D 0 8914   3    1	* The red room west
-D 0 8913   1    1	* The hallway east
-D 0 8912   3    1	* The blue room west
-D 0 8911   1    1	* The hallway east
-D 0 8911   0    1	* The hallway north
-D 0 8910   2    1	* The foyer south
-D 0 8910   0    1	* The foyer north
-D 0 8909   2    1	* The croquet lawn south
-D 0 8913   2    1	* The hallway south
-D 0 8915   0    1	* The kitchen north
-D 0 8913   3    1	* The hallway west
-D 0 8916   1    1	* The ballroom east
-D 0 8918   0    1	* The dining hall north
-D 0 8916   2    1	* The ballroom south
-D 0 8918   1    1	* The dining hall east
-D 0 8915   3    1	* The kitchen west
-D 0 8918   3    1	* The dining hall west
-D 0 8919   1    1	* The terrace east
-D 0 8917   2    1	* The greenhouse south
-D 0 8919   0    1	* The terrace north
+
+
+#SPECIALS
+M 8900 spec_cast_cleric
+M 8901 spec_cast_cleric
+M 8902 spec_cast_cleric
+M 8903 spec_cast_cleric
+M 8908 spec_poison
+M 8909 spec_cast_cleric
+M 8910 spec_cast_cleric
 S
+
+
+
+#OSPECIALS
+S
+
+
+
+#RESETS
+D 0 8909 2 1
+D 0 8910 0 1
+D 0 8910 2 1
+D 0 8911 0 1
+D 0 8911 1 1
+D 0 8912 3 1
+D 0 8913 1 1
+D 0 8913 2 1
+D 0 8913 3 1
+D 0 8914 3 1
+D 0 8915 0 1
+D 0 8915 3 1
+D 0 8916 1 1
+D 0 8916 2 1
+D 0 8917 2 1
+D 0 8918 0 1
+D 0 8918 1 1
+D 0 8918 3 1
+D 0 8919 0 1
+D 0 8919 1 1
+M 0 8901 1 8901 1 Load The Hierophant
+E 0 8910 0 16 A wooden staff is loaded wielded[0m of The Hierophant
+E 0 8911 0 5 A brown robe is loaded on the body[0m of The Hierophant
+G 0 8913 0 Some bluish herbs is given to The Hierophant
+G 0 8915 0 Some blackish herbs is given to The Hierophant
+M 0 8902 1 8902 1 Load an elder druid
+E 0 8910 0 16 A wooden staff is loaded wielded[0m of an elder druid
+G 0 8914 0 Some purplish herbs is given to an elder druid
+G 0 8916 0 Some grayish herbs is given to an elder druid
+M 0 8907 4 8903 4 Load a small bunny
+M 0 8907 4 8903 4 Load a small bunny
+M 0 8903 1 8904 1 Load an elder druidess
+E 0 8910 0 16 A wooden staff is loaded wielded[0m of an elder druidess
+G 0 8919 0 Some pinkish herbs is given to an elder druidess
+G 0 8917 0 Some reddish herbs is given to an elder druidess
+M 0 8900 1 8905 1 Load The Hierophant
+E 0 8910 0 16 A wooden staff is loaded wielded[0m of The Hierophant
+E 0 8911 0 5 A brown robe is loaded on the body[0m of The Hierophant
+G 0 8919 0 Some pinkish herbs is given to The Hierophant
+G 0 8918 0 Some orangish herbs is given to The Hierophant
+M 0 8904 2 8905 2 Load a doe
+M 0 8906 1 8905 1 Load a stag
+M 0 8905 2 8906 2 Load a deer
+M 0 8908 9 8906 9 Load a harmless snake
+M 0 8909 2 8911 1 Load a druid
+G 0 8913 0 Some bluish herbs is given to a druid
+O 0 8901 0 8912 A closet loaded to The blue room
+M 0 8910 2 8914 1 Load a druidess
+G 0 8914 0 Some purplish herbs is given to a druidess
+O 0 8901 0 8914 A closet loaded to The red room
+O 0 8902 0 8915 A spice jar loaded to The kitchen
+P 0 8903 1 8902 1 Some black powder put inside some black powder
+O 0 8902 0 8915 A spice jar loaded to The kitchen
+P 0 8904 1 8902 1 Some small yellow kernels put inside some small yellow kernels
+O 0 8905 0 8915 A crumpled wad of paper loaded to The kitchen
+M 0 8910 2 8917 1 Load a druidess
+G 0 8918 0 Some orangish herbs is given to a druidess
+M 0 8909 2 8918 1 Load a druid
+G 0 8916 0 Some grayish herbs is given to a druid
+S
+
+
 
 #SHOPS
 0
 
-#SPECIALS
-M 8900 spec_cast_cleric    	* The Hierophant
-M 8901 spec_cast_cleric    	* The Hierophant
-M 8902 spec_cast_cleric    	* an elder druid
-M 8903 spec_cast_cleric    	* an elder druidess
-M 8908 spec_poison         	* a harmless snake
-M 8909 spec_cast_cleric    	* a druid
-M 8910 spec_cast_cleric    	* a druidess
-S
+
+
+#MOBPROGS
+#0
 
 #$
