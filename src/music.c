@@ -42,7 +42,7 @@
 int channel_songs[MAX_GLOBAL + 1];
 struct song_data song_table[MAX_SONGS];
 
-void song_update (void)
+void song_update(void)
 {
     OBJ_DATA *obj;
     CHAR_DATA *victim;
@@ -58,8 +58,7 @@ void song_update (void)
 
     if (channel_songs[1] > -1)
     {
-        if (channel_songs[0] >= MAX_LINES
-            || channel_songs[0] >= song_table[channel_songs[1]].lines)
+        if (channel_songs[0] >= MAX_LINES || channel_songs[0] >= song_table[channel_songs[1]].lines)
         {
             channel_songs[0] = -1;
 
@@ -72,16 +71,16 @@ void song_update (void)
         {
             if (channel_songs[0] < 0)
             {
-                sprintf (buf, "Music: %s, %s",
-                         song_table[channel_songs[1]].group,
-                         song_table[channel_songs[1]].name);
+                sprintf(buf, "Music: %s, %s",
+                        song_table[channel_songs[1]].group,
+                        song_table[channel_songs[1]].name);
                 channel_songs[0] = 0;
             }
             else
             {
-                sprintf (buf, "Music: '%s'",
-                         song_table[channel_songs[1]].lyrics[channel_songs
-                                                             [0]]);
+                sprintf(buf, "Music: '%s'",
+                        song_table[channel_songs[1]].lyrics[channel_songs
+                                                                [0]]);
                 channel_songs[0]++;
             }
 
@@ -90,10 +89,10 @@ void song_update (void)
                 victim = d->original ? d->original : d->character;
 
                 if (d->connected == CON_PLAYING &&
-                    !IS_SET (victim->comm, COMM_NOMUSIC) &&
-                    !IS_SET (victim->comm, COMM_QUIET))
-                    act_new ("$t", d->character, buf, NULL, TO_CHAR,
-                             POS_SLEEPING);
+                    !IS_SET(victim->comm, COMM_NOMUSIC) &&
+                    !IS_SET(victim->comm, COMM_QUIET))
+                    act_new("$t", d->character, buf, NULL, TO_CHAR,
+                            POS_SLEEPING);
             }
         }
     }
@@ -121,18 +120,17 @@ void song_update (void)
 
         if (obj->value[0] < 0)
         {
-            sprintf (buf, "$p starts playing %s, %s.",
-                     song_table[obj->value[1]].group,
-                     song_table[obj->value[1]].name);
+            sprintf(buf, "$p starts playing %s, %s.",
+                    song_table[obj->value[1]].group,
+                    song_table[obj->value[1]].name);
             if (room->people != NULL)
-                act (buf, room->people, obj, NULL, TO_ALL);
+                act(buf, room->people, obj, NULL, TO_ALL);
             obj->value[0] = 0;
             continue;
         }
         else
         {
-            if (obj->value[0] >= MAX_LINES
-                || obj->value[0] >= song_table[obj->value[1]].lines)
+            if (obj->value[0] >= MAX_LINES || obj->value[0] >= song_table[obj->value[1]].lines)
             {
 
                 obj->value[0] = -1;
@@ -149,15 +147,13 @@ void song_update (void)
             obj->value[0]++;
         }
 
-        sprintf (buf, "$p bops: '%s'", line);
+        sprintf(buf, "$p bops: '%s'", line);
         if (room->people != NULL)
-            act (buf, room->people, obj, NULL, TO_ALL);
+            act(buf, room->people, obj, NULL, TO_ALL);
     }
 }
 
-
-
-void load_songs (void)
+void load_songs(void)
 {
     FILE *fp;
     int count = 0, lines, i;
@@ -167,35 +163,35 @@ void load_songs (void)
     for (i = 0; i <= MAX_GLOBAL; i++)
         channel_songs[i] = -1;
 
-    if ((fp = fopen (MUSIC_FILE, "r")) == NULL)
+    if ((fp = fopen(MUSIC_FILE, "r")) == NULL)
     {
-        bug ("Couldn't open music file, no songs available.", 0);
-        fclose (fp);
+        bug("Couldn't open music file, no songs available.", 0);
+        fclose(fp);
         return;
     }
 
     for (count = 0; count < MAX_SONGS; count++)
     {
-        letter = fread_letter (fp);
+        letter = fread_letter(fp);
         if (letter == '#')
         {
             if (count < MAX_SONGS)
                 song_table[count].name = NULL;
-            fclose (fp);
+            fclose(fp);
             return;
         }
         else
-            ungetc (letter, fp);
+            ungetc(letter, fp);
 
-        song_table[count].group = fread_string (fp);
-        song_table[count].name = fread_string (fp);
+        song_table[count].group = fread_string(fp);
+        song_table[count].name = fread_string(fp);
 
         /* read lyrics */
         lines = 0;
 
         for (;;)
         {
-            letter = fread_letter (fp);
+            letter = fread_letter(fp);
 
             if (letter == '~')
             {
@@ -203,95 +199,93 @@ void load_songs (void)
                 break;
             }
             else
-                ungetc (letter, fp);
+                ungetc(letter, fp);
 
             if (lines >= MAX_LINES)
             {
-                bug ("Too many lines in a song -- limit is  %d.", MAX_LINES);
+                bug("Too many lines in a song -- limit is  %d.", MAX_LINES);
                 break;
             }
 
-            song_table[count].lyrics[lines] = fread_string_eol (fp);
+            song_table[count].lyrics[lines] = fread_string_eol(fp);
             lines++;
         }
     }
 }
 
-void do_play (CHAR_DATA * ch, char *argument)
+void do_play(CHAR_DATA *ch, char *argument)
 {
     OBJ_DATA *juke;
     char *str, arg[MAX_INPUT_LENGTH];
     int song, i;
     bool global = FALSE;
 
-    str = one_argument (argument, arg);
+    str = one_argument(argument, arg);
 
     for (juke = ch->in_room->contents; juke != NULL;
-         juke = juke->next_content) if (juke->item_type == ITEM_JUKEBOX
-                                        && can_see_obj (ch, juke))
+         juke = juke->next_content)
+        if (juke->item_type == ITEM_JUKEBOX && can_see_obj(ch, juke))
             break;
 
     if (argument[0] == '\0')
     {
-        send_to_char ("Play what?\n\r", ch);
+        send_to_char("Play what?\n\r", ch);
         return;
     }
 
     if (juke == NULL)
     {
-        send_to_char ("You see nothing to play.\n\r", ch);
+        send_to_char("You see nothing to play.\n\r", ch);
         return;
     }
 
-    if (!str_cmp (arg, "list"))
+    if (!str_cmp(arg, "list"))
     {
         BUFFER *buffer;
         char buf[MAX_STRING_LENGTH];
         int col = 0;
         bool artist = FALSE, match = FALSE;
 
-        buffer = new_buf ();
+        buffer = new_buf();
         argument = str;
-        argument = one_argument (argument, arg);
+        argument = one_argument(argument, arg);
 
-        if (!str_cmp (arg, "artist"))
+        if (!str_cmp(arg, "artist"))
             artist = TRUE;
 
         if (argument[0] != '\0')
             match = TRUE;
 
-        sprintf (buf, "%s has the following songs available:\n\r",
-                 juke->short_descr);
-        add_buf (buffer, capitalize (buf));
+        sprintf(buf, "%s has the following songs available:\n\r",
+                juke->short_descr);
+        add_buf(buffer, capitalize(buf));
 
         for (i = 0; i < MAX_SONGS; i++)
         {
             if (song_table[i].name == NULL)
                 break;
 
-            if (artist && (!match
-                           || !str_prefix (argument, song_table[i].group)))
-                sprintf (buf, "%-39s %-39s\n\r",
-                         song_table[i].group, song_table[i].name);
-            else if (!artist && (!match
-                                 || !str_prefix (argument,
-                                                 song_table[i].name)))
-                sprintf (buf, "%-35s ", song_table[i].name);
+            if (artist && (!match || !str_prefix(argument, song_table[i].group)))
+                sprintf(buf, "%-39s %-39s\n\r",
+                        song_table[i].group, song_table[i].name);
+            else if (!artist && (!match || !str_prefix(argument,
+                                                       song_table[i].name)))
+                sprintf(buf, "%-35s ", song_table[i].name);
             else
                 continue;
-            add_buf (buffer, buf);
+            add_buf(buffer, buf);
             if (!artist && ++col % 2 == 0)
-                add_buf (buffer, "\n\r");
+                add_buf(buffer, "\n\r");
         }
         if (!artist && col % 2 != 0)
-            add_buf (buffer, "\n\r");
+            add_buf(buffer, "\n\r");
 
-        page_to_char (buf_string (buffer), ch);
-        free_buf (buffer);
+        page_to_char(buf_string(buffer), ch);
+        free_buf(buffer);
         return;
     }
 
-    if (!str_cmp (arg, "loud"))
+    if (!str_cmp(arg, "loud"))
     {
         argument = str;
         global = TRUE;
@@ -299,14 +293,13 @@ void do_play (CHAR_DATA * ch, char *argument)
 
     if (argument[0] == '\0')
     {
-        send_to_char ("Play what?\n\r", ch);
+        send_to_char("Play what?\n\r", ch);
         return;
     }
 
-    if ((global &&channel_songs[MAX_GLOBAL] > -1)
-        ||(!global &&juke->value[4] > -1))
+    if ((global && channel_songs[MAX_GLOBAL] > -1) || (!global && juke->value[4] > -1))
     {
-        send_to_char ("The jukebox is full up right now.\n\r", ch);
+        send_to_char("The jukebox is full up right now.\n\r", ch);
         return;
     }
 
@@ -314,20 +307,20 @@ void do_play (CHAR_DATA * ch, char *argument)
     {
         if (song_table[song].name == NULL)
         {
-            send_to_char ("That song isn't available.\n\r", ch);
+            send_to_char("That song isn't available.\n\r", ch);
             return;
         }
-        if (!str_prefix (argument, song_table[song].name))
+        if (!str_prefix(argument, song_table[song].name))
             break;
     }
 
     if (song >= MAX_SONGS)
     {
-        send_to_char ("That song isn't available.\n\r", ch);
+        send_to_char("That song isn't available.\n\r", ch);
         return;
     }
 
-    send_to_char ("Coming right up.\n\r", ch);
+    send_to_char("Coming right up.\n\r", ch);
 
     if (global)
     {

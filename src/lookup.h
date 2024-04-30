@@ -25,10 +25,10 @@
  *   ROM license, in the file Rom24/doc/rom.license                        *
  **************************************************************************/
 
-int	        clan_lookup	    args( (const char *name) );
-int	        position_lookup	args( (const char *name) );
-int         sex_lookup	    args( (const char *name) );
-int         size_lookup	    args( (const char *name) );
-unsigned long long	        flag_lookup	    args( (const char *, const struct flag_type *) );
-HELP_DATA * help_lookup	    args( (char *) );
-HELP_AREA * had_lookup	    args( (char *) );
+int clan_lookup args((const char *name));
+int position_lookup args((const char *name));
+int sex_lookup args((const char *name));
+int size_lookup args((const char *name));
+unsigned long long flag_lookup args((const char *, const struct flag_type *));
+HELP_DATA *help_lookup args((char *));
+HELP_AREA *had_lookup args((char *));

@@ -41,8 +41,7 @@ const struct clan_type clan_table[MAX_CLAN] = {
     /* independent should be FALSE if is a real clan */
     {"", "", ROOM_VNUM_ALTAR, TRUE},
     {"loner", "[ Loner ] ", ROOM_VNUM_ALTAR, TRUE},
-    {"rom", "[  ROM  ] ", ROOM_VNUM_ALTAR, FALSE}
-};
+    {"rom", "[  ROM  ] ", ROOM_VNUM_ALTAR, FALSE}};
 
 /* for position */
 const struct position_type position_table[] = {
@@ -55,8 +54,7 @@ const struct position_type position_table[] = {
     {"sitting", "sit"},
     {"fighting", "fight"},
     {"standing", "stand"},
-    {NULL, NULL}
-};
+    {NULL, NULL}};
 
 /* for sex */
 const struct sex_type sex_table[] = {
@@ -64,8 +62,7 @@ const struct sex_type sex_table[] = {
     {"male"},
     {"female"},
     {"either"},
-    {NULL}
-};
+    {NULL}};
 
 /* for sizes */
 const struct size_type size_table[] = {
@@ -73,10 +70,11 @@ const struct size_type size_table[] = {
     {"small"},
     {"medium"},
     {"large"},
-    {"huge",},
+    {
+        "huge",
+    },
     {"giant"},
-    {NULL}
-};
+    {NULL}};
 
 /* various flag tables */
 const struct flag_type act_flags[] = {
@@ -103,8 +101,7 @@ const struct flag_type act_flags[] = {
     {"update_always", cc, TRUE},
     {"changer", dd, TRUE},
     {"awesome", gg, TRUE},
-    {NULL, 0, FALSE}
-};
+    {NULL, 0, FALSE}};
 
 const struct flag_type plr_flags[] = {
     {"npc", A, FALSE},
@@ -125,8 +122,7 @@ const struct flag_type plr_flags[] = {
     {"freeze", Y, FALSE},
     {"thief", Z, FALSE},
     {"killer", aa, FALSE},
-    {NULL, 0, 0}
-};
+    {NULL, 0, 0}};
 
 const struct flag_type affect_flags[] = {
     {"blind", A, TRUE},
@@ -160,8 +156,7 @@ const struct flag_type affect_flags[] = {
     {"slow", dd, TRUE},
     {"dark_favor", ee, TRUE},
     {"protect_neutral", ff, TRUE},
-    {NULL, 0, 0}
-};
+    {NULL, 0, 0}};
 
 const struct flag_type off_flags[] = {
     {"area_attack", A, TRUE},
@@ -185,8 +180,7 @@ const struct flag_type off_flags[] = {
     {"assist_players", S, TRUE},
     {"assist_guard", T, TRUE},
     {"assist_vnum", U, TRUE},
-    {NULL, 0, 0}
-};
+    {NULL, 0, 0}};
 
 const struct flag_type imm_flags[] = {
     {"summon", A, TRUE},
@@ -212,8 +206,7 @@ const struct flag_type imm_flags[] = {
     {"wood", X, TRUE},
     {"silver", Y, TRUE},
     {"iron", Z, TRUE},
-    {NULL, 0, 0}
-};
+    {NULL, 0, 0}};
 
 const struct flag_type form_flags[] = {
     {"edible", FORM_EDIBLE, TRUE},
@@ -242,8 +235,7 @@ const struct flag_type form_flags[] = {
     {"amphibian", FORM_AMPHIBIAN, TRUE},
     {"fish", FORM_FISH, TRUE},
     {"cold_blood", FORM_COLD_BLOOD, TRUE},
-    {NULL, 0, 0}
-};
+    {NULL, 0, 0}};
 
 const struct flag_type part_flags[] = {
     {"head", PART_HEAD, TRUE},
@@ -268,8 +260,7 @@ const struct flag_type part_flags[] = {
     {"horns", PART_HORNS, TRUE},
     {"scales", PART_SCALES, TRUE},
     {"tusks", PART_TUSKS, TRUE},
-    {NULL, 0, 0}
-};
+    {NULL, 0, 0}};
 
 const struct flag_type comm_flags[] = {
     {"quiet", COMM_QUIET, TRUE},
@@ -295,8 +286,7 @@ const struct flag_type comm_flags[] = {
     {"nochannels", COMM_NOCHANNELS, FALSE},
     {"snoop_proof", COMM_SNOOP_PROOF, FALSE},
     {"afk", COMM_AFK, TRUE},
-    {NULL, 0, 0}
-};
+    {NULL, 0, 0}};
 
 const struct flag_type mprog_flags[] = {
     {"act", TRIG_ACT, TRUE},
@@ -316,29 +306,22 @@ const struct flag_type mprog_flags[] = {
     {"delay", TRIG_DELAY, TRUE},
     {"surr", TRIG_SURR, TRUE},
     {"verb", TRIG_VERB, TRUE},
-    {NULL, 0, TRUE}
-};
+    {NULL, 0, TRUE}};
 
 const struct flag_type area_flags[] = {
     {"none", AREA_NONE, FALSE},
     {"changed", AREA_CHANGED, TRUE},
     {"added", AREA_ADDED, TRUE},
     {"loading", AREA_LOADING, FALSE},
-    {NULL, 0, 0}
-};
-
-
+    {NULL, 0, 0}};
 
 const struct flag_type sex_flags[] = {
     {"male", SEX_MALE, TRUE},
     {"female", SEX_FEMALE, TRUE},
     {"neutral", SEX_NEUTRAL, TRUE},
-    {"random", 3, TRUE},        /* ROM */
+    {"random", 3, TRUE}, /* ROM */
     {"none", SEX_NEUTRAL, TRUE},
-    {NULL, 0, 0}
-};
-
-
+    {NULL, 0, 0}};
 
 const struct flag_type exit_flags[] = {
     {"door", EX_ISDOOR, TRUE},
@@ -351,19 +334,13 @@ const struct flag_type exit_flags[] = {
     {"infuriating", EX_INFURIATING, TRUE},
     {"noclose", EX_NOCLOSE, TRUE},
     {"nolock", EX_NOLOCK, TRUE},
-    {NULL, 0, 0}
-};
-
-
+    {NULL, 0, 0}};
 
 const struct flag_type door_resets[] = {
     {"open and unlocked", 0, TRUE},
     {"closed and unlocked", 1, TRUE},
     {"closed and locked", 2, TRUE},
-    {NULL, 0, 0}
-};
-
-
+    {NULL, 0, 0}};
 
 const struct flag_type room_flags[] = {
     {"dark", ROOM_DARK, TRUE},
@@ -380,10 +357,7 @@ const struct flag_type room_flags[] = {
     {"newbies_only", ROOM_NEWBIES_ONLY, TRUE},
     {"law", ROOM_LAW, TRUE},
     {"nowhere", ROOM_NOWHERE, TRUE},
-    {NULL, 0, 0}
-};
-
-
+    {NULL, 0, 0}};
 
 const struct flag_type sector_flags[] = {
     {"inside", SECT_INSIDE, TRUE},
@@ -397,10 +371,7 @@ const struct flag_type sector_flags[] = {
     {"unused", SECT_UNUSED, TRUE},
     {"air", SECT_AIR, TRUE},
     {"desert", SECT_DESERT, TRUE},
-    {NULL, 0, 0}
-};
-
-
+    {NULL, 0, 0}};
 
 const struct flag_type type_flags[] = {
     {"light", ITEM_LIGHT, TRUE},
@@ -431,9 +402,7 @@ const struct flag_type type_flags[] = {
     {"gem", ITEM_GEM, TRUE},
     {"jewelry", ITEM_JEWELRY, TRUE},
     {"jukebox", ITEM_JUKEBOX, TRUE},
-    {NULL, 0, 0}
-};
-
+    {NULL, 0, 0}};
 
 const struct flag_type extra_flags[] = {
     {"glow", ITEM_GLOW, TRUE},
@@ -460,10 +429,7 @@ const struct flag_type extra_flags[] = {
     {"burnproof", ITEM_BURN_PROOF, TRUE},
     {"nouncurse", ITEM_NOUNCURSE, TRUE},
     {"nopeek", ITEM_NOPEEK, TRUE},
-    {NULL, 0, 0}
-};
-
-
+    {NULL, 0, 0}};
 
 const struct flag_type wear_flags[] = {
     {"take", ITEM_TAKE, TRUE},
@@ -483,9 +449,8 @@ const struct flag_type wear_flags[] = {
     {"hold", ITEM_HOLD, TRUE},
     {"nosac", ITEM_NO_SAC, TRUE},
     {"wearfloat", ITEM_WEAR_FLOAT, TRUE},
-/*    {   "twohands",            ITEM_TWO_HANDS,         TRUE    }, */
-    {NULL, 0, 0}
-};
+    /*    {   "twohands",            ITEM_TWO_HANDS,         TRUE    }, */
+    {NULL, 0, 0}};
 
 /*
  * Used when adding an affect to tell where it goes.
@@ -519,10 +484,7 @@ const struct flag_type apply_flags[] = {
     {"savingbreath", APPLY_SAVING_BREATH, TRUE},
     {"savingspell", APPLY_SAVING_SPELL, TRUE},
     {"spellaffect", APPLY_SPELL_AFFECT, FALSE},
-    {NULL, 0, 0}
-};
-
-
+    {NULL, 0, 0}};
 
 /*
  * What is seen.
@@ -548,9 +510,7 @@ const struct flag_type wear_loc_strings[] = {
     {"wielded", WEAR_WIELD, TRUE},
     {"held in the hands", WEAR_HOLD, TRUE},
     {"floating nearby", WEAR_FLOAT, TRUE},
-    {NULL, 0, 0}
-};
-
+    {NULL, 0, 0}};
 
 const struct flag_type wear_loc_flags[] = {
     {"none", WEAR_NONE, TRUE},
@@ -573,8 +533,7 @@ const struct flag_type wear_loc_flags[] = {
     {"wielded", WEAR_WIELD, TRUE},
     {"hold", WEAR_HOLD, TRUE},
     {"floating", WEAR_FLOAT, TRUE},
-    {NULL, 0, 0}
-};
+    {NULL, 0, 0}};
 
 const struct flag_type container_flags[] = {
     {"closeable", 1, TRUE},
@@ -582,24 +541,18 @@ const struct flag_type container_flags[] = {
     {"closed", 4, TRUE},
     {"locked", 8, TRUE},
     {"puton", 16, TRUE},
-    {NULL, 0, 0}
-};
+    {NULL, 0, 0}};
 
 /*****************************************************************************
                       ROM - specific tables:
  ****************************************************************************/
-
-
-
 
 const struct flag_type ac_type[] = {
     {"pierce", AC_PIERCE, TRUE},
     {"bash", AC_BASH, TRUE},
     {"slash", AC_SLASH, TRUE},
     {"exotic", AC_EXOTIC, TRUE},
-    {NULL, 0, 0}
-};
-
+    {NULL, 0, 0}};
 
 const struct flag_type size_flags[] = {
     {"tiny", SIZE_TINY, TRUE},
@@ -611,7 +564,6 @@ const struct flag_type size_flags[] = {
     {NULL, 0, 0},
 };
 
-
 const struct flag_type weapon_class[] = {
     {"exotic", WEAPON_EXOTIC, TRUE},
     {"sword", WEAPON_SWORD, TRUE},
@@ -622,9 +574,7 @@ const struct flag_type weapon_class[] = {
     {"flail", WEAPON_FLAIL, TRUE},
     {"whip", WEAPON_WHIP, TRUE},
     {"polearm", WEAPON_POLEARM, TRUE},
-    {NULL, 0, 0}
-};
-
+    {NULL, 0, 0}};
 
 const struct flag_type weapon_type2[] = {
     {"flaming", WEAPON_FLAMING, TRUE},
@@ -635,8 +585,7 @@ const struct flag_type weapon_type2[] = {
     {"twohands", WEAPON_TWO_HANDS, TRUE},
     {"shocking", WEAPON_SHOCKING, TRUE},
     {"poison", WEAPON_POISON, TRUE},
-    {NULL, 0, 0}
-};
+    {NULL, 0, 0}};
 
 const struct flag_type res_flags[] = {
     {"summon", RES_SUMMON, TRUE},
@@ -662,9 +611,7 @@ const struct flag_type res_flags[] = {
     {"wood", RES_WOOD, TRUE},
     {"silver", RES_SILVER, TRUE},
     {"iron", RES_IRON, TRUE},
-    {NULL, 0, 0}
-};
-
+    {NULL, 0, 0}};
 
 const struct flag_type vuln_flags[] = {
     {"summon", VULN_SUMMON, TRUE},
@@ -690,8 +637,7 @@ const struct flag_type vuln_flags[] = {
     {"wood", VULN_WOOD, TRUE},
     {"silver", VULN_SILVER, TRUE},
     {"iron", VULN_IRON, TRUE},
-    {NULL, 0, 0}
-};
+    {NULL, 0, 0}};
 
 const struct flag_type position_flags[] = {
     {"dead", POS_DEAD, FALSE},
@@ -703,8 +649,7 @@ const struct flag_type position_flags[] = {
     {"sitting", POS_SITTING, TRUE},
     {"fighting", POS_FIGHTING, FALSE},
     {"standing", POS_STANDING, TRUE},
-    {NULL, 0, 0}
-};
+    {NULL, 0, 0}};
 
 const struct flag_type portal_flags[] = {
     {"normal_exit", GATE_NORMAL_EXIT, TRUE},
@@ -715,8 +660,7 @@ const struct flag_type portal_flags[] = {
     {"special_exit", GATE_SPECIAL_EXIT, TRUE},
     {"random", GATE_RANDOM, TRUE},
     {"silent", GATE_SILENT, TRUE},
-    {NULL, 0, 0}
-};
+    {NULL, 0, 0}};
 
 const struct flag_type furniture_flags[] = {
     {"stand_at", STAND_AT, TRUE},
@@ -735,8 +679,7 @@ const struct flag_type furniture_flags[] = {
     {"put_on", PUT_ON, TRUE},
     {"put_in", PUT_IN, TRUE},
     {"put_inside", PUT_INSIDE, TRUE},
-    {NULL, 0, 0}
-};
+    {NULL, 0, 0}};
 
 const struct flag_type apply_types[] = {
     {"affects", TO_AFFECTS, TRUE},
@@ -745,8 +688,7 @@ const struct flag_type apply_types[] = {
     {"resist", TO_RESIST, TRUE},
     {"vuln", TO_VULN, TRUE},
     {"weapon", TO_WEAPON, TRUE},
-    {NULL, 0, TRUE}
-};
+    {NULL, 0, TRUE}};
 
 const struct bit_type bitvector_type[] = {
     {affect_flags, "affect"},
@@ -754,5 +696,4 @@ const struct bit_type bitvector_type[] = {
     {imm_flags, "imm"},
     {res_flags, "res"},
     {vuln_flags, "vuln"},
-    {weapon_type2, "weapon"}
-};
+    {weapon_type2, "weapon"}};

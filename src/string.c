@@ -11,7 +11,6 @@
  *                                                                         *
  ***************************************************************************/
 
-
 #if defined(macintosh)
 #include <types.h>
 #else
@@ -26,25 +25,25 @@
 #include "tables.h"
 #include "olc.h"
 
-char *string_linedel (char *, int);
-char *string_lineadd (char *, char *, int);
-char *numlines (char *);
+char *string_linedel(char *, int);
+char *string_lineadd(char *, char *, int);
+char *numlines(char *);
 
 /*****************************************************************************
  Name:        string_edit
  Purpose:    Clears string and puts player into editing mode.
  Called by:    none
  ****************************************************************************/
-void string_edit (CHAR_DATA * ch, char **pString)
+void string_edit(CHAR_DATA *ch, char **pString)
 {
-    send_to_char ("-========- Entering EDIT Mode -=========-\n\r", ch);
-    send_to_char ("    Type .h on a new line for help\n\r", ch);
-    send_to_char (" Terminate with a ~ or @ on a blank line.\n\r", ch);
-    send_to_char ("-=======================================-\n\r", ch);
+    send_to_char("-========- Entering EDIT Mode -=========-\n\r", ch);
+    send_to_char("    Type .h on a new line for help\n\r", ch);
+    send_to_char(" Terminate with a ~ or @ on a blank line.\n\r", ch);
+    send_to_char("-=======================================-\n\r", ch);
 
     if (*pString == NULL)
     {
-        *pString = str_dup ("");
+        *pString = str_dup("");
     }
     else
     {
@@ -56,76 +55,70 @@ void string_edit (CHAR_DATA * ch, char **pString)
     return;
 }
 
-
-
 /*****************************************************************************
  Name:        string_append
  Purpose:    Puts player into append mode for given string.
  Called by:    (many)olc_act.c
  ****************************************************************************/
-void string_append (CHAR_DATA * ch, char **pString)
+void string_append(CHAR_DATA *ch, char **pString)
 {
-    send_to_char ("-=======- Entering APPEND Mode -========-\n\r", ch);
-    send_to_char ("    Type .h on a new line for help\n\r", ch);
-    send_to_char (" Terminate with a ~ or @ on a blank line.\n\r", ch);
-    send_to_char ("-=======================================-\n\r", ch);
+    send_to_char("-=======- Entering APPEND Mode -========-\n\r", ch);
+    send_to_char("    Type .h on a new line for help\n\r", ch);
+    send_to_char(" Terminate with a ~ or @ on a blank line.\n\r", ch);
+    send_to_char("-=======================================-\n\r", ch);
 
     if (*pString == NULL)
     {
-        *pString = str_dup ("");
+        *pString = str_dup("");
     }
-    send_to_char (numlines (*pString), ch);
+    send_to_char(numlines(*pString), ch);
 
-/* numlines sends the string with \n\r */
-/*  if ( *(*pString + strlen( *pString ) - 1) != '\r' )
-    send_to_char( "\n\r", ch ); */
+    /* numlines sends the string with \n\r */
+    /*  if ( *(*pString + strlen( *pString ) - 1) != '\r' )
+        send_to_char( "\n\r", ch ); */
 
     ch->desc->pString = pString;
 
     return;
 }
 
-
-
 /*****************************************************************************
  Name:        string_replace
  Purpose:    Substitutes one string for another.
  Called by:    string_add(string.c) (aedit_builder)olc_act.c.
  ****************************************************************************/
-char *string_replace (char *orig, char *old, char *new)
+char *string_replace(char *orig, char *old, char *new)
 {
     char xbuf[MAX_STRING_LENGTH];
     int i;
 
     xbuf[0] = '\0';
-    strcpy (xbuf, orig);
-    if (strstr (orig, old) != NULL)
+    strcpy(xbuf, orig);
+    if (strstr(orig, old) != NULL)
     {
-        i = strlen (orig) - strlen (strstr (orig, old));
+        i = strlen(orig) - strlen(strstr(orig, old));
         xbuf[i] = '\0';
-        strcat (xbuf, new);
-        strcat (xbuf, &orig[i + strlen (old)]);
-        free_string (orig);
+        strcat(xbuf, new);
+        strcat(xbuf, &orig[i + strlen(old)]);
+        free_string(orig);
     }
 
-    return str_dup (xbuf);
+    return str_dup(xbuf);
 }
-
-
 
 /*****************************************************************************
  Name:        string_add
  Purpose:    Interpreter for string editing.
  Called by:    game_loop_xxxx(comm.c).
  ****************************************************************************/
-void string_add (CHAR_DATA * ch, char *argument)
+void string_add(CHAR_DATA *ch, char *argument)
 {
     char buf[MAX_STRING_LENGTH];
 
     /*
      * Thanks to James Seng
      */
-    smash_tilde (argument);
+    smash_tilde(argument);
 
     if (*argument == '.')
     {
@@ -134,109 +127,108 @@ void string_add (CHAR_DATA * ch, char *argument)
         char arg3[MAX_INPUT_LENGTH];
         char tmparg3[MAX_INPUT_LENGTH];
 
-        argument = one_argument (argument, arg1);
-        argument = first_arg (argument, arg2, FALSE);
-        strcpy (tmparg3, argument);
-        argument = first_arg (argument, arg3, FALSE);
+        argument = one_argument(argument, arg1);
+        argument = first_arg(argument, arg2, FALSE);
+        strcpy(tmparg3, argument);
+        argument = first_arg(argument, arg3, FALSE);
 
-        if (!str_cmp (arg1, ".c"))
+        if (!str_cmp(arg1, ".c"))
         {
-            send_to_char ("String cleared.\n\r", ch);
-            free_string (*ch->desc->pString);
-            *ch->desc->pString = str_dup ("");
+            send_to_char("String cleared.\n\r", ch);
+            free_string(*ch->desc->pString);
+            *ch->desc->pString = str_dup("");
             return;
         }
 
-        if (!str_cmp (arg1, ".s"))
+        if (!str_cmp(arg1, ".s"))
         {
-            send_to_char ("String so far:\n\r", ch);
-            send_to_char (numlines (*ch->desc->pString), ch);
+            send_to_char("String so far:\n\r", ch);
+            send_to_char(numlines(*ch->desc->pString), ch);
             return;
         }
 
-        if (!str_cmp (arg1, ".r"))
+        if (!str_cmp(arg1, ".r"))
         {
             if (arg2[0] == '\0')
             {
-                send_to_char ("usage:  .r \"old string\" \"new string\"\n\r",
-                              ch);
+                send_to_char("usage:  .r \"old string\" \"new string\"\n\r",
+                             ch);
                 return;
             }
 
             *ch->desc->pString =
-                string_replace (*ch->desc->pString, arg2, arg3);
-            sprintf (buf, "'%s' replaced with '%s'.\n\r", arg2, arg3);
-            send_to_char (buf, ch);
+                string_replace(*ch->desc->pString, arg2, arg3);
+            sprintf(buf, "'%s' replaced with '%s'.\n\r", arg2, arg3);
+            send_to_char(buf, ch);
             return;
         }
 
-        if (!str_cmp (arg1, ".f"))
+        if (!str_cmp(arg1, ".f"))
         {
-            *ch->desc->pString = format_string (*ch->desc->pString);
-            send_to_char ("String formatted.\n\r", ch);
+            *ch->desc->pString = format_string(*ch->desc->pString);
+            send_to_char("String formatted.\n\r", ch);
             return;
         }
 
-        if (!str_cmp (arg1, ".ld"))
-        {
-            *ch->desc->pString =
-                string_linedel (*ch->desc->pString, atoi (arg2));
-            send_to_char ("Line deleted.\n\r", ch);
-            return;
-        }
-
-        if (!str_cmp (arg1, ".li"))
+        if (!str_cmp(arg1, ".ld"))
         {
             *ch->desc->pString =
-                string_lineadd (*ch->desc->pString, tmparg3, atoi (arg2));
-            send_to_char ("Line inserted.\n\r", ch);
+                string_linedel(*ch->desc->pString, atoi(arg2));
+            send_to_char("Line deleted.\n\r", ch);
             return;
         }
 
-        if (!str_cmp (arg1, ".lr"))
+        if (!str_cmp(arg1, ".li"))
         {
             *ch->desc->pString =
-                string_linedel (*ch->desc->pString, atoi (arg2));
-            *ch->desc->pString =
-                string_lineadd (*ch->desc->pString, tmparg3, atoi (arg2));
-            send_to_char ("Line replaced.\n\r", ch);
+                string_lineadd(*ch->desc->pString, tmparg3, atoi(arg2));
+            send_to_char("Line inserted.\n\r", ch);
             return;
         }
 
-        if (!str_cmp (arg1, ".h"))
+        if (!str_cmp(arg1, ".lr"))
         {
-            send_to_char ("Sedit help (commands on blank line):   \n\r", ch);
-            send_to_char (".r 'old' 'new'   - replace a substring \n\r", ch);
-            send_to_char ("                   (requires '', \"\") \n\r", ch);
-            send_to_char (".h               - get help (this info)\n\r", ch);
-            send_to_char (".s               - show string so far  \n\r", ch);
-            send_to_char (".f               - (word wrap) string  \n\r", ch);
-            send_to_char (".c               - clear string so far \n\r", ch);
-            send_to_char (".ld <num>        - delete line number <num>\n\r",
-                          ch);
-            send_to_char (".li <num> <str>  - insert <str> at line <num>\n\r",
-                          ch);
-            send_to_char
-                (".lr <num> <str>  - replace line <num> with <str>\n\r",
-                 ch);
-            send_to_char ("@                - end string          \n\r", ch);
+            *ch->desc->pString =
+                string_linedel(*ch->desc->pString, atoi(arg2));
+            *ch->desc->pString =
+                string_lineadd(*ch->desc->pString, tmparg3, atoi(arg2));
+            send_to_char("Line replaced.\n\r", ch);
             return;
         }
 
-        send_to_char ("SEdit:  Invalid dot command.\n\r", ch);
+        if (!str_cmp(arg1, ".h"))
+        {
+            send_to_char("Sedit help (commands on blank line):   \n\r", ch);
+            send_to_char(".r 'old' 'new'   - replace a substring \n\r", ch);
+            send_to_char("                   (requires '', \"\") \n\r", ch);
+            send_to_char(".h               - get help (this info)\n\r", ch);
+            send_to_char(".s               - show string so far  \n\r", ch);
+            send_to_char(".f               - (word wrap) string  \n\r", ch);
+            send_to_char(".c               - clear string so far \n\r", ch);
+            send_to_char(".ld <num>        - delete line number <num>\n\r",
+                         ch);
+            send_to_char(".li <num> <str>  - insert <str> at line <num>\n\r",
+                         ch);
+            send_to_char(".lr <num> <str>  - replace line <num> with <str>\n\r",
+                         ch);
+            send_to_char("@                - end string          \n\r", ch);
+            return;
+        }
+
+        send_to_char("SEdit:  Invalid dot command.\n\r", ch);
         return;
     }
 
     if (*argument == '~' || *argument == '@')
     {
         if (ch->desc->editor == ED_MPCODE)
-        {                        /* for the mobprogs */
+        { /* for the mobprogs */
             MOB_INDEX_DATA *mob;
             int hash;
             MPROG_LIST *mpl;
             MPROG_CODE *mpc;
 
-            EDIT_MPCODE (ch, mpc);
+            EDIT_MPCODE(ch, mpc);
 
             if (mpc != NULL)
                 for (hash = 0; hash < MAX_KEY_HASH; hash++)
@@ -244,9 +236,9 @@ void string_add (CHAR_DATA * ch, char *argument)
                         for (mpl = mob->mprogs; mpl; mpl = mpl->next)
                             if (mpl->vnum == mpc->vnum)
                             {
-                                sprintf (buf, "Editting mob %d.\n\r",
-                                         mob->vnum);
-                                send_to_char (buf, ch);
+                                sprintf(buf, "Editting mob %d.\n\r",
+                                        mob->vnum);
+                                send_to_char(buf, ch);
                                 mpl->code = mpc->code;
                             }
         }
@@ -255,7 +247,7 @@ void string_add (CHAR_DATA * ch, char *argument)
         return;
     }
 
-    strcpy (buf, *ch->desc->pString);
+    strcpy(buf, *ch->desc->pString);
 
     /*
      * Truncate strings to MAX_STRING_LENGTH.
@@ -263,9 +255,9 @@ void string_add (CHAR_DATA * ch, char *argument)
      * Edwin strikes again! Fixed avoid adding to a too-long
      * note. JR -- 10/15/00
      */
-    if (strlen ( *ch->desc->pString ) + strlen (argument) >= (MAX_STRING_LENGTH - 4))
+    if (strlen(*ch->desc->pString) + strlen(argument) >= (MAX_STRING_LENGTH - 4))
     {
-        send_to_char ("String too long, last line skipped.\n\r", ch);
+        send_to_char("String too long, last line skipped.\n\r", ch);
 
         /* Force character out of editing mode. */
         ch->desc->pString = NULL;
@@ -276,16 +268,14 @@ void string_add (CHAR_DATA * ch, char *argument)
      * Ensure no tilde's inside string.
      * --------------------------------
      */
-    smash_tilde (argument);
+    smash_tilde(argument);
 
-    strcat (buf, argument);
-    strcat (buf, "\n\r");
-    free_string (*ch->desc->pString);
-    *ch->desc->pString = str_dup (buf);
+    strcat(buf, argument);
+    strcat(buf, "\n\r");
+    free_string(*ch->desc->pString);
+    *ch->desc->pString = str_dup(buf);
     return;
 }
-
-
 
 /*
  * Thanks to Kalgen for the new procedure (no more bug!)
@@ -296,7 +286,7 @@ void string_add (CHAR_DATA * ch, char *argument)
  Purpose:    Special string formating and word-wrapping.
  Called by:    string_add(string.c) (many)olc_act.c
  ****************************************************************************/
-char *format_string (char *oldstring /*, bool fSpace */ )
+char *format_string(char *oldstring /*, bool fSpace */)
 {
     char xbuf[MAX_STRING_LENGTH];
     char xbuf2[MAX_STRING_LENGTH];
@@ -318,7 +308,8 @@ char *format_string (char *oldstring /*, bool fSpace */ )
                 i++;
             }
         }
-        else if (*rdesc == '\r');
+        else if (*rdesc == '\r')
+            ;
         else if (*rdesc == ' ')
         {
             if (xbuf[i - 1] != ' ')
@@ -330,8 +321,7 @@ char *format_string (char *oldstring /*, bool fSpace */ )
         else if (*rdesc == ')')
         {
             if (xbuf[i - 1] == ' ' && xbuf[i - 2] == ' ' &&
-                (xbuf[i - 3] == '.' || xbuf[i - 3] == '?'
-                 || xbuf[i - 3] == '!'))
+                (xbuf[i - 3] == '.' || xbuf[i - 3] == '?' || xbuf[i - 3] == '!'))
             {
                 xbuf[i - 2] = *rdesc;
                 xbuf[i - 1] = ' ';
@@ -347,8 +337,7 @@ char *format_string (char *oldstring /*, bool fSpace */ )
         else if (*rdesc == '.' || *rdesc == '?' || *rdesc == '!')
         {
             if (xbuf[i - 1] == ' ' && xbuf[i - 2] == ' ' &&
-                (xbuf[i - 3] == '.' || xbuf[i - 3] == '?'
-                 || xbuf[i - 3] == '!'))
+                (xbuf[i - 3] == '.' || xbuf[i - 3] == '?' || xbuf[i - 3] == '!'))
             {
                 xbuf[i - 2] = *rdesc;
                 if (*(rdesc + 1) != '\"')
@@ -392,13 +381,13 @@ char *format_string (char *oldstring /*, bool fSpace */ )
             if (cap)
             {
                 cap = FALSE;
-                xbuf[i] = UPPER (xbuf[i]);
+                xbuf[i] = UPPER(xbuf[i]);
             }
             i++;
         }
     }
     xbuf[i] = 0;
-    strcpy (xbuf2, xbuf);
+    strcpy(xbuf2, xbuf);
 
     rdesc = xbuf2;
 
@@ -423,18 +412,18 @@ char *format_string (char *oldstring /*, bool fSpace */ )
         if (i)
         {
             *(rdesc + i) = 0;
-            strcat (xbuf, rdesc);
-            strcat (xbuf, "\n\r");
+            strcat(xbuf, rdesc);
+            strcat(xbuf, "\n\r");
             rdesc += i + 1;
             while (*rdesc == ' ')
                 rdesc++;
         }
         else
         {
-            bug ("No spaces", 0);
+            bug("No spaces", 0);
             *(rdesc + 75) = 0;
-            strcat (xbuf, rdesc);
-            strcat (xbuf, "-\n\r");
+            strcat(xbuf, rdesc);
+            strcat(xbuf, "-\n\r");
             rdesc += 76;
         }
     }
@@ -442,15 +431,13 @@ char *format_string (char *oldstring /*, bool fSpace */ )
                             *(rdesc + i) == '\n' || *(rdesc + i) == '\r'))
         i--;
     *(rdesc + i + 1) = 0;
-    strcat (xbuf, rdesc);
-    if (xbuf[strlen (xbuf) - 2] != '\n')
-        strcat (xbuf, "\n\r");
+    strcat(xbuf, rdesc);
+    if (xbuf[strlen(xbuf) - 2] != '\n')
+        strcat(xbuf, "\n\r");
 
-    free_string (oldstring);
-    return (str_dup (xbuf));
+    free_string(oldstring);
+    return (str_dup(xbuf));
 }
-
-
 
 /*
  * Used above in string_add.  Because this function does not
@@ -465,7 +452,7 @@ char *format_string (char *oldstring /*, bool fSpace */ )
          percentages.
  Called by:    string_add(string.c)
  ****************************************************************************/
-char *first_arg (char *argument, char *arg_first, bool fCase)
+char *first_arg(char *argument, char *arg_first, bool fCase)
 {
     char cEnd;
 
@@ -473,8 +460,7 @@ char *first_arg (char *argument, char *arg_first, bool fCase)
         argument++;
 
     cEnd = ' ';
-    if (*argument == '\'' || *argument == '"'
-        || *argument == '%' || *argument == '(')
+    if (*argument == '\'' || *argument == '"' || *argument == '%' || *argument == '(')
     {
         if (*argument == '(')
         {
@@ -493,7 +479,7 @@ char *first_arg (char *argument, char *arg_first, bool fCase)
             break;
         }
         if (fCase)
-            *arg_first = LOWER (*argument);
+            *arg_first = LOWER(*argument);
         else
             *arg_first = *argument;
         arg_first++;
@@ -507,13 +493,10 @@ char *first_arg (char *argument, char *arg_first, bool fCase)
     return argument;
 }
 
-
-
-
 /*
  * Used in olc_act.c for aedit_builders.
  */
-char *string_unpad (char *argument)
+char *string_unpad(char *argument)
 {
     char buf[MAX_STRING_LENGTH];
     char *s;
@@ -523,7 +506,7 @@ char *string_unpad (char *argument)
     while (*s == ' ')
         s++;
 
-    strcpy (buf, s);
+    strcpy(buf, s);
     s = buf;
 
     if (*s != '\0')
@@ -538,17 +521,15 @@ char *string_unpad (char *argument)
         *s = '\0';
     }
 
-    free_string (argument);
-    return str_dup (buf);
+    free_string(argument);
+    return str_dup(buf);
 }
-
-
 
 /*
  * Same as capitalize but changes the pointer's data.
  * Used in olc_act.c in aedit_builder.
  */
-char *string_proper (char *argument)
+char *string_proper(char *argument)
 {
     char *s;
 
@@ -558,7 +539,7 @@ char *string_proper (char *argument)
     {
         if (*s != ' ')
         {
-            *s = UPPER (*s);
+            *s = UPPER(*s);
             while (*s != ' ' && *s != '\0')
                 s++;
         }
@@ -571,7 +552,7 @@ char *string_proper (char *argument)
     return argument;
 }
 
-char *string_linedel (char *string, int line)
+char *string_linedel(char *string, int line)
 {
     char *strtmp = string;
     char buf[MAX_STRING_LENGTH];
@@ -600,11 +581,11 @@ char *string_linedel (char *string, int line)
 
     buf[tmp] = '\0';
 
-    free_string (string);
-    return str_dup (buf);
+    free_string(string);
+    return str_dup(buf);
 }
 
-char *string_lineadd (char *string, char *newstr, int line)
+char *string_lineadd(char *string, char *newstr, int line)
 {
     char *strtmp = string;
     int cnt = 1, tmp = 0;
@@ -617,9 +598,9 @@ char *string_lineadd (char *string, char *newstr, int line)
     {
         if (cnt == line && !done)
         {
-            strcat (buf, newstr);
-            strcat (buf, "\n\r");
-            tmp += strlen (newstr) + 2;
+            strcat(buf, newstr);
+            strcat(buf, "\n\r");
+            tmp += strlen(newstr) + 2;
             cnt++;
             done = TRUE;
         }
@@ -640,11 +621,11 @@ char *string_lineadd (char *string, char *newstr, int line)
         buf[tmp] = '\0';
     }
 
-    free_string (string);
-    return str_dup (buf);
+    free_string(string);
+    return str_dup(buf);
 }
 
-char *merc_getline (char *str, char *buf)
+char *merc_getline(char *str, char *buf)
 {
     int tmp = 0;
     bool found = FALSE;
@@ -673,7 +654,7 @@ char *merc_getline (char *str, char *buf)
     return str;
 }
 
-char *numlines (char *string)
+char *numlines(char *string)
 {
     int cnt = 1;
     static char buf[MAX_STRING_LENGTH * 4];
@@ -683,9 +664,9 @@ char *numlines (char *string)
 
     while (*string)
     {
-        string = merc_getline (string, tmpb);
-        sprintf (buf2, "%2d. %s\n\r", cnt++, tmpb);
-        strcat (buf, buf2);
+        string = merc_getline(string, tmpb);
+        sprintf(buf2, "%2d. %s\n\r", cnt++, tmpb);
+        strcat(buf, buf2);
     }
 
     return buf;

@@ -17,8 +17,6 @@
  implementing a system like below with such functions. -Jason Dinkel
  */
 
-
-
 #if defined(macintosh)
 #include <types.h>
 #else
@@ -32,13 +30,11 @@
 #include "tables.h"
 #include "lookup.h"
 
-
-struct flag_stat_type {
+struct flag_stat_type
+{
     const struct flag_type *structure;
     bool stat;
 };
-
-
 
 /*****************************************************************************
  Name:        flag_stat_table
@@ -48,7 +44,7 @@ struct flag_stat_type {
          new set of flags is installed.
  ****************************************************************************/
 const struct flag_stat_type flag_stat_table[] = {
-/*  {    structure        stat    }, */
+    /*  {    structure        stat    }, */
     {area_flags, FALSE},
     {sex_flags, TRUE},
     {exit_flags, FALSE},
@@ -65,7 +61,7 @@ const struct flag_stat_type flag_stat_table[] = {
     {wear_loc_strings, TRUE},
     {container_flags, FALSE},
 
-/* ROM specific flags: */
+    /* ROM specific flags: */
 
     {form_flags, FALSE},
     {part_flags, FALSE},
@@ -79,10 +75,7 @@ const struct flag_stat_type flag_stat_table[] = {
     {weapon_class, TRUE},
     {weapon_type2, FALSE},
     {apply_types, TRUE},
-    {0, 0}
-};
-
-
+    {0, 0}};
 
 /*****************************************************************************
  Name:        is_stat( table )
@@ -90,14 +83,13 @@ const struct flag_stat_type flag_stat_table[] = {
  Called by:    flag_value and flag_string.
  Note:        This function is local and used only in bit.c.
  ****************************************************************************/
-bool is_stat (const struct flag_type *flag_table)
+bool is_stat(const struct flag_type *flag_table)
 {
     unsigned long long flag;
 
     for (flag = 0; flag_stat_table[flag].structure; flag++)
     {
-        if (flag_stat_table[flag].structure == flag_table
-            && flag_stat_table[flag].stat)
+        if (flag_stat_table[flag].structure == flag_table && flag_stat_table[flag].stat)
             return TRUE;
     }
     return FALSE;
@@ -108,29 +100,29 @@ bool is_stat (const struct flag_type *flag_table)
  Purpose:    Returns the value of the flags entered.  Multi-flags accepted.
  Called by:    olc.c and olc_act.c.
  ****************************************************************************/
-unsigned long long flag_value (const struct flag_type *flag_table, char *argument)
+unsigned long long flag_value(const struct flag_type *flag_table, char *argument)
 {
     char word[MAX_INPUT_LENGTH];
     unsigned long long bit;
     unsigned long long marked = 0;
     bool found = FALSE;
 
-    if (is_stat (flag_table))
-        return flag_lookup (argument, flag_table);
+    if (is_stat(flag_table))
+        return flag_lookup(argument, flag_table);
 
     /*
      * Accept multiple flags.
      */
     for (;;)
     {
-        argument = one_argument (argument, word);
+        argument = one_argument(argument, word);
 
         if (word[0] == '\0')
             break;
 
-        if ((bit = flag_lookup (word, flag_table)) != NO_FLAG)
+        if ((bit = flag_lookup(word, flag_table)) != NO_FLAG)
         {
-            SET_BIT (marked, bit);
+            SET_BIT(marked, bit);
             found = TRUE;
         }
     }
@@ -141,14 +133,12 @@ unsigned long long flag_value (const struct flag_type *flag_table, char *argumen
         return NO_FLAG;
 }
 
-
-
 /*****************************************************************************
  Name:        flag_string( table, flags/stat )
  Purpose:    Returns string with name(s) of the flags or stat entered.
  Called by:    act_olc.c, olc.c, and olc_save.c.
  ****************************************************************************/
-char *flag_string (const struct flag_type *flag_table, unsigned long long bits)
+char *flag_string(const struct flag_type *flag_table, unsigned long long bits)
 {
     static char buf[2][512];
     static int cnt = 0;
@@ -162,24 +152,28 @@ char *flag_string (const struct flag_type *flag_table, unsigned long long bits)
     bool first = TRUE;
     for (flag = 0; flag_table[flag].name != NULL; flag++)
     {
-        if (!is_stat (flag_table) && IS_SET (bits, flag_table[flag].bit))
+        if (!is_stat(flag_table) && IS_SET(bits, flag_table[flag].bit))
         {
-            if (first) {
-                strcat (buf[cnt], " \e[1;31m");
+            if (first)
+            {
+                strcat(buf[cnt], " \e[1;31m");
                 first = FALSE;
-            } else {
-                strcat (buf[cnt], "\e[0m, \e[1;31m");
             }
-            strcat (buf[cnt], capitalize(flag_table[flag].name));
+            else
+            {
+                strcat(buf[cnt], "\e[0m, \e[1;31m");
+            }
+            strcat(buf[cnt], capitalize(flag_table[flag].name));
         }
         else if (flag_table[flag].bit == bits)
         {
-            strcat (buf[cnt], " ");
-            strcat (buf[cnt], flag_table[flag].name);
+            strcat(buf[cnt], " ");
+            strcat(buf[cnt], flag_table[flag].name);
             break;
         }
     }
-    if (buf[cnt][0] != '\0') {
+    if (buf[cnt][0] != '\0')
+    {
         strcat(buf[cnt], "\e[0m");
     }
     return (buf[cnt][0] != '\0') ? buf[cnt] + 1 : "\e[0mnone";

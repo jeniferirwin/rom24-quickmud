@@ -36,70 +36,65 @@
 #include "merc.h"
 #include "tables.h"
 
-unsigned long long flag_lookup (const char *name, const struct flag_type *flag_table)
+unsigned long long flag_lookup(const char *name, const struct flag_type *flag_table)
 {
     unsigned long long flag;
 
     for (flag = 0; flag_table[flag].name != NULL; flag++)
     {
-        if (LOWER (name[0]) == LOWER (flag_table[flag].name[0])
-            && !str_prefix (name, flag_table[flag].name))
+        if (LOWER(name[0]) == LOWER(flag_table[flag].name[0]) && !str_prefix(name, flag_table[flag].name))
             return flag_table[flag].bit;
     }
 
     return NO_FLAG;
 }
 
-int clan_lookup (const char *name)
+int clan_lookup(const char *name)
 {
     int clan;
 
     for (clan = 0; clan < MAX_CLAN; clan++)
     {
-        if (LOWER (name[0]) == LOWER (clan_table[clan].name[0])
-            && !str_prefix (name, clan_table[clan].name))
+        if (LOWER(name[0]) == LOWER(clan_table[clan].name[0]) && !str_prefix(name, clan_table[clan].name))
             return clan;
     }
 
     return 0;
 }
 
-int position_lookup (const char *name)
+int position_lookup(const char *name)
 {
     int pos;
 
     for (pos = 0; position_table[pos].name != NULL; pos++)
     {
-        if (LOWER (name[0]) == LOWER (position_table[pos].name[0])
-            && !str_prefix (name, position_table[pos].name))
+        if (LOWER(name[0]) == LOWER(position_table[pos].name[0]) && !str_prefix(name, position_table[pos].name))
             return pos;
     }
 
     return -1;
 }
 
-int sex_lookup (const char *name)
+int sex_lookup(const char *name)
 {
     int sex;
 
     for (sex = 0; sex_table[sex].name != NULL; sex++)
     {
-        if (LOWER (name[0]) == LOWER (sex_table[sex].name[0])
-            && !str_prefix (name, sex_table[sex].name))
+        if (LOWER(name[0]) == LOWER(sex_table[sex].name[0]) && !str_prefix(name, sex_table[sex].name))
             return sex;
     }
 
     return -1;
 }
 
-int size_lookup (const char *name)
+int size_lookup(const char *name)
 {
     int size;
 
     for (size = 0; size_table[size].name != NULL; size++)
     {
-        if (LOWER (name[0]) == LOWER (size_table[size].name[0])
-            && !str_prefix (name, size_table[size].name))
+        if (LOWER(name[0]) == LOWER(size_table[size].name[0]) && !str_prefix(name, size_table[size].name))
             return size;
     }
 
@@ -107,49 +102,46 @@ int size_lookup (const char *name)
 }
 
 /* returns race number */
-int race_lookup (const char *name)
+int race_lookup(const char *name)
 {
     int race;
 
     for (race = 0; race_table[race].name != NULL; race++)
     {
-        if (LOWER (name[0]) == LOWER (race_table[race].name[0])
-            && !str_prefix (name, race_table[race].name))
+        if (LOWER(name[0]) == LOWER(race_table[race].name[0]) && !str_prefix(name, race_table[race].name))
             return race;
     }
 
     return 0;
 }
 
-int item_lookup (const char *name)
+int item_lookup(const char *name)
 {
     int type;
 
     for (type = 0; item_table[type].name != NULL; type++)
     {
-        if (LOWER (name[0]) == LOWER (item_table[type].name[0])
-            && !str_prefix (name, item_table[type].name))
+        if (LOWER(name[0]) == LOWER(item_table[type].name[0]) && !str_prefix(name, item_table[type].name))
             return item_table[type].type;
     }
 
     return -1;
 }
 
-int liq_lookup (const char *name)
+int liq_lookup(const char *name)
 {
     int liq;
 
     for (liq = 0; liq_table[liq].liq_name != NULL; liq++)
     {
-        if (LOWER (name[0]) == LOWER (liq_table[liq].liq_name[0])
-            && !str_prefix (name, liq_table[liq].liq_name))
+        if (LOWER(name[0]) == LOWER(liq_table[liq].liq_name[0]) && !str_prefix(name, liq_table[liq].liq_name))
             return liq;
     }
 
     return -1;
 }
 
-HELP_DATA *help_lookup (char *keyword)
+HELP_DATA *help_lookup(char *keyword)
 {
     HELP_DATA *pHelp;
     char temp[MIL], argall[MIL];
@@ -158,26 +150,26 @@ HELP_DATA *help_lookup (char *keyword)
 
     while (keyword[0] != '\0')
     {
-        keyword = one_argument (keyword, temp);
+        keyword = one_argument(keyword, temp);
         if (argall[0] != '\0')
-            strcat (argall, " ");
-        strcat (argall, temp);
+            strcat(argall, " ");
+        strcat(argall, temp);
     }
 
     for (pHelp = help_first; pHelp != NULL; pHelp = pHelp->next)
-        if (is_name (argall, pHelp->keyword))
+        if (is_name(argall, pHelp->keyword))
             return pHelp;
 
     return NULL;
 }
 
-HELP_AREA *had_lookup (char *arg)
+HELP_AREA *had_lookup(char *arg)
 {
     HELP_AREA *temp;
     extern HELP_AREA *had_list;
 
     for (temp = had_list; temp; temp = temp->next)
-        if (!str_cmp (arg, temp->filename))
+        if (!str_cmp(arg, temp->filename))
             return temp;
 
     return NULL;

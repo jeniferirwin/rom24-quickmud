@@ -39,9 +39,9 @@
 #include "tables.h"
 
 int flag_lookup
-args ((const char *name, const struct flag_type * flag_table));
+    args((const char *name, const struct flag_type *flag_table));
 
-void do_flag (CHAR_DATA * ch, char *argument)
+void do_flag(CHAR_DATA *ch, char *argument)
 {
     char arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH],
         arg3[MAX_INPUT_LENGTH];
@@ -51,62 +51,62 @@ void do_flag (CHAR_DATA * ch, char *argument)
     char type;
     const struct flag_type *flag_table;
 
-    argument = one_argument (argument, arg1);
-    argument = one_argument (argument, arg2);
-    argument = one_argument (argument, arg3);
+    argument = one_argument(argument, arg1);
+    argument = one_argument(argument, arg2);
+    argument = one_argument(argument, arg3);
 
     type = argument[0];
 
     if (type == '=' || type == '-' || type == '+')
-        argument = one_argument (argument, word);
+        argument = one_argument(argument, word);
 
     if (arg1[0] == '\0')
     {
-        send_to_char ("Syntax:\n\r", ch);
-        send_to_char ("  flag mob  <name> <field> <flags>\n\r", ch);
-        send_to_char ("  flag char <name> <field> <flags>\n\r", ch);
-        send_to_char ("  mob  flags: act,aff,off,imm,res,vuln,form,part\n\r",
-                      ch);
-        send_to_char ("  char flags: plr,comm,aff,imm,res,vuln,\n\r", ch);
-        send_to_char ("  +: add flag, -: remove flag, = set equal to\n\r",
-                      ch);
-        send_to_char ("  otherwise flag toggles the flags listed.\n\r", ch);
+        send_to_char("Syntax:\n\r", ch);
+        send_to_char("  flag mob  <name> <field> <flags>\n\r", ch);
+        send_to_char("  flag char <name> <field> <flags>\n\r", ch);
+        send_to_char("  mob  flags: act,aff,off,imm,res,vuln,form,part\n\r",
+                     ch);
+        send_to_char("  char flags: plr,comm,aff,imm,res,vuln,\n\r", ch);
+        send_to_char("  +: add flag, -: remove flag, = set equal to\n\r",
+                     ch);
+        send_to_char("  otherwise flag toggles the flags listed.\n\r", ch);
         return;
     }
 
     if (arg2[0] == '\0')
     {
-        send_to_char ("What do you wish to set flags on?\n\r", ch);
+        send_to_char("What do you wish to set flags on?\n\r", ch);
         return;
     }
 
     if (arg3[0] == '\0')
     {
-        send_to_char ("You need to specify a flag to set.\n\r", ch);
+        send_to_char("You need to specify a flag to set.\n\r", ch);
         return;
     }
 
     if (argument[0] == '\0')
     {
-        send_to_char ("Which flags do you wish to change?\n\r", ch);
+        send_to_char("Which flags do you wish to change?\n\r", ch);
         return;
     }
 
-    if (!str_prefix (arg1, "mob") || !str_prefix (arg1, "char"))
+    if (!str_prefix(arg1, "mob") || !str_prefix(arg1, "char"))
     {
-        victim = get_char_world (ch, arg2);
+        victim = get_char_world(ch, arg2);
         if (victim == NULL)
         {
-            send_to_char ("You can't find them.\n\r", ch);
+            send_to_char("You can't find them.\n\r", ch);
             return;
         }
 
         /* select a flag to set */
-        if (!str_prefix (arg3, "act"))
+        if (!str_prefix(arg3, "act"))
         {
-            if (!IS_NPC (victim))
+            if (!IS_NPC(victim))
             {
-                send_to_char ("Use plr for PCs.\n\r", ch);
+                send_to_char("Use plr for PCs.\n\r", ch);
                 return;
             }
 
@@ -114,11 +114,11 @@ void do_flag (CHAR_DATA * ch, char *argument)
             flag_table = act_flags;
         }
 
-        else if (!str_prefix (arg3, "plr"))
+        else if (!str_prefix(arg3, "plr"))
         {
-            if (IS_NPC (victim))
+            if (IS_NPC(victim))
             {
-                send_to_char ("Use act for NPCs.\n\r", ch);
+                send_to_char("Use act for NPCs.\n\r", ch);
                 return;
             }
 
@@ -126,35 +126,35 @@ void do_flag (CHAR_DATA * ch, char *argument)
             flag_table = plr_flags;
         }
 
-        else if (!str_prefix (arg3, "aff"))
+        else if (!str_prefix(arg3, "aff"))
         {
             flag = &victim->affected_by;
             flag_table = affect_flags;
         }
 
-        else if (!str_prefix (arg3, "immunity"))
+        else if (!str_prefix(arg3, "immunity"))
         {
             flag = &victim->imm_flags;
             flag_table = imm_flags;
         }
 
-        else if (!str_prefix (arg3, "resist"))
+        else if (!str_prefix(arg3, "resist"))
         {
             flag = &victim->res_flags;
             flag_table = imm_flags;
         }
 
-        else if (!str_prefix (arg3, "vuln"))
+        else if (!str_prefix(arg3, "vuln"))
         {
             flag = &victim->vuln_flags;
             flag_table = imm_flags;
         }
 
-        else if (!str_prefix (arg3, "form"))
+        else if (!str_prefix(arg3, "form"))
         {
-            if (!IS_NPC (victim))
+            if (!IS_NPC(victim))
             {
-                send_to_char ("Form can't be set on PCs.\n\r", ch);
+                send_to_char("Form can't be set on PCs.\n\r", ch);
                 return;
             }
 
@@ -162,11 +162,11 @@ void do_flag (CHAR_DATA * ch, char *argument)
             flag_table = form_flags;
         }
 
-        else if (!str_prefix (arg3, "parts"))
+        else if (!str_prefix(arg3, "parts"))
         {
-            if (!IS_NPC (victim))
+            if (!IS_NPC(victim))
             {
-                send_to_char ("Parts can't be set on PCs.\n\r", ch);
+                send_to_char("Parts can't be set on PCs.\n\r", ch);
                 return;
             }
 
@@ -174,11 +174,11 @@ void do_flag (CHAR_DATA * ch, char *argument)
             flag_table = part_flags;
         }
 
-        else if (!str_prefix (arg3, "comm"))
+        else if (!str_prefix(arg3, "comm"))
         {
-            if (IS_NPC (victim))
+            if (IS_NPC(victim))
             {
-                send_to_char ("Comm can't be set on NPCs.\n\r", ch);
+                send_to_char("Comm can't be set on NPCs.\n\r", ch);
                 return;
             }
 
@@ -188,7 +188,7 @@ void do_flag (CHAR_DATA * ch, char *argument)
 
         else
         {
-            send_to_char ("That's not an acceptable flag.\n\r", ch);
+            send_to_char("That's not an acceptable flag.\n\r", ch);
             return;
         }
 
@@ -201,47 +201,46 @@ void do_flag (CHAR_DATA * ch, char *argument)
         /* mark the words */
         for (;;)
         {
-            argument = one_argument (argument, word);
+            argument = one_argument(argument, word);
 
             if (word[0] == '\0')
                 break;
 
-            pos = flag_lookup (word, flag_table);
+            pos = flag_lookup(word, flag_table);
 
             if (pos == NO_FLAG)
             {
-                send_to_char ("That flag doesn't exist!\n\r", ch);
+                send_to_char("That flag doesn't exist!\n\r", ch);
                 return;
             }
             else
-                SET_BIT (marked, pos);
+                SET_BIT(marked, pos);
         }
 
         for (pos = 0; flag_table[pos].name != NULL; pos++)
         {
-            if (!flag_table[pos].settable
-                && IS_SET (old, flag_table[pos].bit))
+            if (!flag_table[pos].settable && IS_SET(old, flag_table[pos].bit))
             {
-                SET_BIT (new, flag_table[pos].bit);
+                SET_BIT(new, flag_table[pos].bit);
                 continue;
             }
 
-            if (IS_SET (marked, flag_table[pos].bit))
+            if (IS_SET(marked, flag_table[pos].bit))
             {
                 switch (type)
                 {
-                    case '=':
-                    case '+':
-                        SET_BIT (new, flag_table[pos].bit);
-                        break;
-                    case '-':
-                        REMOVE_BIT (new, flag_table[pos].bit);
-                        break;
-                    default:
-                        if (IS_SET (new, flag_table[pos].bit))
-                            REMOVE_BIT (new, flag_table[pos].bit);
-                        else
-                            SET_BIT (new, flag_table[pos].bit);
+                case '=':
+                case '+':
+                    SET_BIT(new, flag_table[pos].bit);
+                    break;
+                case '-':
+                    REMOVE_BIT(new, flag_table[pos].bit);
+                    break;
+                default:
+                    if (IS_SET(new, flag_table[pos].bit))
+                        REMOVE_BIT(new, flag_table[pos].bit);
+                    else
+                        SET_BIT(new, flag_table[pos].bit);
                 }
             }
         }
