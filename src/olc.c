@@ -811,9 +811,12 @@ void do_redit(CHAR_DATA *ch, char *argument)
 void do_oedit(CHAR_DATA *ch, char *argument)
 {
     OBJ_INDEX_DATA *pObj;
+    OBJ_INDEX_DATA *exists;
     AREA_DATA *pArea;
     char arg1[MAX_STRING_LENGTH];
     int value;
+    int vnum;
+    char buf[MAX_STRING_LENGTH];
 
     if (IS_NPC(ch))
         return;
@@ -846,8 +849,19 @@ void do_oedit(CHAR_DATA *ch, char *argument)
             value = atoi(argument);
             if (argument[0] == '\0' || value == 0)
             {
-                send_to_char("Syntax:  edit object create [vnum]\n\r", ch);
-                return;
+                pArea = ch->in_room->area;
+                for (vnum = pArea->min_vnum; vnum < pArea->max_vnum; vnum++)
+                {
+                    if (!(exists = get_obj_index(vnum)))
+                        break;
+                }
+                if (vnum > pArea->max_vnum)
+                {
+                    sprintf(buf, "OEdit: No free vnums in area %s.\n\r", pArea->name);
+                    send_to_char(buf, ch);
+                    return;
+                }
+                value = vnum;
             }
 
             pArea = get_vnum_area(value);

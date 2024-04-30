@@ -3131,33 +3131,50 @@ OEDIT(oedit_cost)
 OEDIT(oedit_create)
 {
     OBJ_INDEX_DATA *pObj;
+    OBJ_INDEX_DATA *exists;
     AREA_DATA *pArea;
     int value;
     int iHash;
+    int vnum;
+    char buf[MAX_STRING_LENGTH];
 
     value = atoi(argument);
     if (argument[0] == '\0' || value == 0)
     {
-        send_to_char("Syntax:  oedit create [vnum]\n\r", ch);
-        return FALSE;
+        pArea = ch->in_room->area;
+        for (vnum = pArea->min_vnum; vnum < pArea->max_vnum; vnum++)
+        {
+            if (!(exists = get_obj_index(vnum)))
+                break;
+        }
+        if (vnum > pArea->max_vnum)
+        {
+            sprintf(buf, "OEdit: No free vnums in area %s.\n\r", pArea->name);
+            send_to_char(buf, ch);
+            return FALSE;
+        }
+        value = vnum;
     }
 
     pArea = get_vnum_area(value);
     if (!pArea)
     {
-        send_to_char("OEdit:  That vnum is not assigned an area.\n\r", ch);
+        sprintf(buf, "OEdit: Vnum %d is not assigned an area.\n\r", value);
+        send_to_char(buf, ch);
         return FALSE;
     }
 
     if (!IS_BUILDER(ch, pArea))
     {
-        send_to_char("OEdit:  Vnum in an area you cannot build in.\n\r", ch);
+        sprintf(buf, "OEdit:  Vnum %d is in an area you cannot build in.\n\r", value);
+        send_to_char(buf, ch);
         return FALSE;
     }
 
     if (get_obj_index(value))
     {
-        send_to_char("OEdit:  Object vnum already exists.\n\r", ch);
+        sprintf(buf, "OEdit:  Object vnum %d already exists.\n\r", value);
+        send_to_char(buf, ch);
         return FALSE;
     }
 
@@ -3173,7 +3190,8 @@ OEDIT(oedit_create)
     obj_index_hash[iHash] = pObj;
     ch->desc->pEdit = (void *)pObj;
 
-    send_to_char("Object Created.\n\r", ch);
+    sprintf(buf, "OEdit:  Object vnum %d created.\n\r", value);
+    send_to_char(buf, ch);
     return TRUE;
 }
 
