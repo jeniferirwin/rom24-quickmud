@@ -281,17 +281,29 @@ OBJ_INDEX_DATA *generate_portal_base(int vnum)
 ROOM_INDEX_DATA *get_random_room_area(AREA_DATA *pArea)
 {
     ROOM_INDEX_DATA *pRoomIndex;
-    int vnum;
-    int tries = 5;
+    int range = pArea->max_vnum - pArea->min_vnum;
+    int count = 0;
+    ROOM_INDEX_DATA **pRandomRoomIndex = malloc(sizeof(ROOM_INDEX_DATA *) * range);
+    ROOM_INDEX_DATA *target;
 
-    while (tries > 0)
+    for (int vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++)
     {
-        tries--;
-        vnum = rand() % ((pArea->max_vnum - pArea->min_vnum) + pArea->min_vnum);
         if ((pRoomIndex = get_room_index(vnum)))
-            return pRoomIndex;
+        {
+            count++;
+            pRandomRoomIndex[count] = pRoomIndex;
+        }
     }
-    return NULL;
+    if (count > 0)
+    {
+        target = pRandomRoomIndex[rand() % count];
+        free(pRandomRoomIndex);
+        return target;
+    }
+    else
+    {
+        return NULL;
+    }
 }
 
 ROOM_INDEX_DATA *next_free_room(AREA_DATA *pArea)
