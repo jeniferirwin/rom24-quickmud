@@ -4,7 +4,6 @@
  * Create test portals all over the MUD. This is for my scraper
  * program that may become public once it's finished.
  *
- * This is not quite functional yet.
  */
 
 #include <sys/types.h>
