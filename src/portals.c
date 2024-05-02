@@ -21,194 +21,318 @@
 void create_password_portal(CHAR_DATA *ch, int vnum, bool can_leave);
 void create_verb_portal(CHAR_DATA *ch, int vnum, bool can_leave);
 void create_normal_portal(CHAR_DATA *ch, int vnum, bool can_leave);
-sh_int get_random_room_area(int area_vnum);
+ROOM_INDEX_DATA *get_random_room_area(AREA_DATA *pArea);
+int find_testable_vnum(AREA_DATA *pArea);
+OBJ_INDEX_DATA *generate_portal_base(int vnum);
+void create_testportal_reset(OBJ_INDEX_DATA *pObjIndex, ROOM_INDEX_DATA *pRoomIndex);
+void create_testportal_code(OBJ_INDEX_DATA *pObjIndex, ROOM_INDEX_DATA *pTargetRoomIndex);
+ROOM_INDEX_DATA *get_portal_dest(CHAR_DATA *ch, OBJ_INDEX_DATA *pObjIndex, ROOM_INDEX_DATA *pRoomIndex, int can_leave);
 
-void do_test_portals(CHAR_DATA *ch, char *argument)
+void create_normal_portal(CHAR_DATA *ch, int vnum, bool can_leave)
 {
-    AREA_DATA *pArea;
     char buf[MAX_STRING_LENGTH];
-    ROOM_INDEX_DATA *pRoomIndex;
     OBJ_INDEX_DATA *pObjIndex;
-    MPROG_CODE *code;
-    int vnum;
-    int area;
-    int count;
+    ROOM_INDEX_DATA *pRoomIndex, *pTargetRoomIndex;
 
-    for (area = 0; area < top_area; area++)
+    if (!(pRoomIndex = get_room_index(vnum)))
     {
-        pArea = get_area_data(area);
-        count = 0;
-        while (count < 3)
-        {
-            vnum = rand() % top_room;
-            if (!(pRoomIndex = get_room_index(vnum)))
-                continue;
-            if ((pObjIndex = get_obj_index(vnum)))
-                continue;
-            if ((code = get_mprog_index(vnum)))
-                continue;
-            count++;
-            if (count > 3)
-                break;
-            srand(time(0) + area + vnum);
-            int type = rand() % 6 + 1;
-            type = 1;
-            switch (type)
-            {
-            case 1:
-                create_password_portal(ch, vnum, TRUE);
-                break;
-            case 2:
-                create_password_portal(ch, vnum, FALSE);
-                break;
-            case 3:
-                create_normal_portal(ch, vnum, TRUE);
-                break;
-            case 4:
-                create_normal_portal(ch, vnum, FALSE);
-                break;
-            case 5:
-                create_verb_portal(ch, vnum, TRUE);
-                break;
-            case 6:
-                create_verb_portal(ch, vnum, FALSE);
-                break;
-            }
-        }
+        bug("Create_normal_portal: bad room %d.", vnum);
+        return;
     }
+
+    if (!(pObjIndex = generate_portal_base(vnum)))
+        return;
+
+    if (!(pTargetRoomIndex = get_portal_dest(ch, pObjIndex, pRoomIndex, can_leave)))
+        return;
+
+    pObjIndex->name = str_dup("normal portal");
+    pObjIndex->short_descr = str_dup("a normal portal");
+    pObjIndex->description = str_dup("You could \e[0;36menter\e[0m this normal portal.");
+    pObjIndex->item_type = ITEM_PORTAL;
+    pObjIndex->value[3] = pTargetRoomIndex->vnum;
+    pObjIndex->material = str_dup("ether");
+
+    create_testportal_reset(pObjIndex, pRoomIndex);
+
+    sprintf(buf, "Normal portal %d created at room %d in area %s (%d). Goes to room %d.\n\r",
+            pObjIndex->vnum,
+            pRoomIndex->vnum,
+            pRoomIndex->area->name,
+            pRoomIndex->area->vnum,
+            pObjIndex->value[3]);
+    send_to_char(buf, ch);
 }
 
 void create_password_portal(CHAR_DATA *ch, int vnum, bool can_leave)
 {
     char buf[MAX_STRING_LENGTH];
     OBJ_INDEX_DATA *pObjIndex;
-    ROOM_INDEX_DATA *pRoomIndex;
-    RESET_DATA *pReset;
+    ROOM_INDEX_DATA *pRoomIndex, *pTargetRoomIndex;
 
     if (!(pRoomIndex = get_room_index(vnum)))
     {
-        send_to_char("Portal tester: Can't find room.\n\r", ch);
+        bug("Create_password_portal: bad room %d.", vnum);
         return;
     }
-    pObjIndex = new_obj_index();
+
+    if (!(pObjIndex = generate_portal_base(vnum)))
+        return;
+
+    if (!(pTargetRoomIndex = get_portal_dest(ch, pObjIndex, pRoomIndex, can_leave)))
+        return;
+
     pObjIndex->area = pRoomIndex->area;
-    pObjIndex->vnum = vnum;
     pObjIndex->material = str_dup("ether");
-    pObjIndex->name = "xyzzy portal";
-    pObjIndex->short_descr = "a password portal";
-    pObjIndex->description = "You hear a whisper from a password portal... '\e[1;32mxyzzy\e[0m'.\n\r";
-    pObjIndex->condition = 100;
-    pObjIndex->weight = 0;
-    pObjIndex->cost = 0;
-    pObjIndex->level = 0;
-    send_to_char("Portal tester: Password portal created. About to try to set destination....\n\r", ch);
-    if (can_leave)
-        pObjIndex->value[3] = get_random_room_area(0);
-    else
-        pObjIndex->value[3] = get_random_room_area(pRoomIndex->area->vnum);
+    pObjIndex->name = str_dup("xyzzy portal");
+    pObjIndex->short_descr = str_dup("a password portal");
+    pObjIndex->description = str_dup("You hear a whisper from a password portal... '\e[1;32mxyzzy\e[0m'.");
+    pObjIndex->item_type = ITEM_PORTAL;
     pObjIndex->value[2] = GATE_PASSWORD;
+    pObjIndex->value[3] = pTargetRoomIndex->vnum;
     pObjIndex->ospec_fun = ospec_lookup("spec_password");
-    pReset = new_reset_data();
-    pReset->command = 'O';
-    pReset->arg1 = pObjIndex->vnum;
-    pReset->arg2 = 1;
-    pReset->arg3 = pRoomIndex->vnum;
-    pReset->arg4 = 1;
-    add_reset(pRoomIndex, pReset, 0);
-    reset_room(pRoomIndex);
-    sprintf(buf, "Portal %d created at room %d.\n\r", pObjIndex->vnum, pRoomIndex->vnum);
+
+    create_testportal_reset(pObjIndex, pRoomIndex);
+
+    sprintf(buf, "Password portal %d created at room %d in area %s (%d). Goes to room %d.\n\r",
+            pObjIndex->vnum,
+            pRoomIndex->vnum,
+            pRoomIndex->area->name,
+            pRoomIndex->area->vnum,
+            pObjIndex->value[3]);
     send_to_char(buf, ch);
-}
+};
 
-void create_verb_portal(CHAR_DATA *ch, int vnum, bool can_leave)
+void create_testportal_code(OBJ_INDEX_DATA *pObjIndex, ROOM_INDEX_DATA *pTargetRoomIndex)
 {
-    char buf[MAX_STRING_LENGTH];
-    OBJ_INDEX_DATA *pObjIndex;
-    ROOM_INDEX_DATA *pRoomIndex;
     MPROG_CODE *code;
-    RESET_DATA *pReset;
     MPROG_LIST *list;
-    int target;
+    char buf[MAX_STRING_LENGTH];
 
-    if (!(pRoomIndex = get_room_index(vnum)))
+    if (pTargetRoomIndex == NULL)
     {
-        send_to_char("Portal tester: Can't find room.\n\r", ch);
+        bug("Create_testportal_code: bad room %d.", pTargetRoomIndex->vnum);
         return;
     }
-    pObjIndex = new_obj_index();
-    pObjIndex->vnum = vnum;
-    pObjIndex->material = str_dup("ether");
-    pObjIndex->name = "leap portal";
-    pObjIndex->short_descr = "a verb portal";
-    pObjIndex->description = "You could \e[1;32mleap\e[0m through this portal.\n\r";
-    pObjIndex->condition = 100;
-    pObjIndex->weight = 0;
-    pObjIndex->cost = 0;
-    pObjIndex->level = 0;
-    if (can_leave)
-        target = get_random_room_area(0);
-    else
-        target = get_random_room_area(pRoomIndex->area->vnum);
-    pObjIndex->ospec_fun = ospec_lookup("spec_verb");
 
-    pReset = new_reset_data();
-    pReset->command = 'O';
-    // pReset->arg1 = pRoomIndex->reset_last + 1;
-    pReset->arg2 = 1;
-    pReset->arg4 = 1;
-    add_reset(pRoomIndex, pReset, -1);
+    if (pObjIndex == NULL)
+    {
+        bug("Create_testportal_code: bad object %d.", pObjIndex->vnum);
+        return;
+    }
+
+    pObjIndex->extra_descr = new_extra_descr();
+    pObjIndex->extra_descr->keyword = str_dup("@verb");
+    pObjIndex->extra_descr->description = str_dup("leap");
+    pObjIndex->extra_descr->next = NULL;
 
     code = new_mpcode();
-    code->vnum = vnum;
-    sprintf(code->code, "mob echoat $n You leap through!\n\rmob trans $n %d\n\r", target);
+    code->vnum = pObjIndex->vnum;
+    sprintf(buf, "mob echoat $n You leap through!\n\rmob trans $n %d\n\r", pTargetRoomIndex->vnum);
+    code->code = str_dup(buf);
     code->next = mprog_list;
     mprog_list = code;
 
     list = new_mprog();
-    list->vnum = vnum;
+    list->vnum = pObjIndex->vnum;
     list->trig_type = TRIG_VERB;
     list->trig_phrase = str_dup("leap");
     list->code = code->code;
     SET_BIT(pObjIndex->mprog_flags, list->trig_type);
     list->next = pObjIndex->mprogs;
     pObjIndex->mprogs = list;
+}
 
+void create_testportal_reset(OBJ_INDEX_DATA *pObjIndex, ROOM_INDEX_DATA *pRoomIndex)
+{
+    RESET_DATA *pReset;
+    pReset = new_reset_data();
+    pReset->command = 'O';
+    pReset->arg1 = pObjIndex->vnum;
+    pReset->arg3 = pRoomIndex->vnum;
+    add_reset(pRoomIndex, pReset, 0);
     reset_room(pRoomIndex);
-    sprintf(buf, "Portal %d created at room %d.\n\r", pObjIndex->vnum, pRoomIndex->vnum);
+}
+
+void create_verb_portal(CHAR_DATA *ch, int vnum, bool can_leave)
+{
+    char buf[MAX_STRING_LENGTH];
+    OBJ_INDEX_DATA *pObjIndex;
+    ROOM_INDEX_DATA *pRoomIndex, *pTargetRoomIndex;
+
+    if (!(pRoomIndex = get_room_index(vnum)))
+    {
+        sprintf(buf, "Create_verb_portal: Can't find room %d.\n\r", vnum);
+        send_to_char(buf, ch);
+        return;
+    }
+
+    if (!(pObjIndex = generate_portal_base(pRoomIndex->vnum)))
+    {
+        bug("Create_verb_portal: bad object %d.", pRoomIndex->vnum);
+        return;
+    }
+
+    if (!(pTargetRoomIndex = get_portal_dest(ch, pObjIndex, pRoomIndex, can_leave)))
+        return;
+
+    pObjIndex->area = pRoomIndex->area;
+    pObjIndex->material = str_dup("ether");
+    pObjIndex->name = str_dup("leap portal");
+    pObjIndex->short_descr = str_dup("a verb portal");
+    pObjIndex->description = str_dup("You could \e[0;36mleap\e[0m through this portal.");
+    pObjIndex->item_type = ITEM_FURNITURE;
+    pObjIndex->ospec_fun = ospec_lookup("spec_verb");
+
+    create_testportal_code(pObjIndex, pTargetRoomIndex);
+    create_testportal_reset(pObjIndex, pRoomIndex);
+
+    sprintf(buf, "Verb portal %d created at room %d in area %s (%d). Goes to room %d.\n\r",
+            pObjIndex->vnum,
+            pRoomIndex->vnum,
+            pRoomIndex->area->name,
+            pRoomIndex->area->vnum,
+            pTargetRoomIndex->vnum);
     send_to_char(buf, ch);
 }
 
-void create_normal_portal(CHAR_DATA *ch, int vnum, bool can_leave)
+void do_test_portals(CHAR_DATA *ch, char *argument)
 {
+    AREA_DATA *pArea;
+    int vnum, area;
+    int type;
+
+    for (area = 0; area < top_area; area++)
+    {
+        if (!(pArea = get_area_data(area)))
+        {
+            bug("do_test_portals: bad area %d.", area);
+            return;
+        }
+        if ((vnum = find_testable_vnum(pArea)))
+        {
+            srand(time(0) + vnum + area);
+            type = rand() % 6;
+            switch (type)
+            {
+            case 0:
+                create_verb_portal(ch, vnum, TRUE);
+                break;
+            case 1:
+                create_verb_portal(ch, vnum, FALSE);
+                break;
+            case 2:
+                create_password_portal(ch, vnum, FALSE);
+                break;
+            case 3:
+                create_password_portal(ch, vnum, TRUE);
+                break;
+            case 4:
+                create_normal_portal(ch, vnum, FALSE);
+                break;
+            case 5:
+                create_normal_portal(ch, vnum, TRUE);
+                break;
+            default:
+                break;
+            }
+        }
+    }
 }
 
-sh_int get_random_room_area(int area_vnum)
+int find_testable_vnum(AREA_DATA *pArea)
+{
+    int vnum;
+    for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++)
+    {
+        if (!get_room_index(vnum))
+            continue;
+        if (get_obj_index(vnum))
+            continue;
+        if (get_mprog_index(vnum))
+            continue;
+        return vnum;
+    }
+    return 0;
+}
+
+OBJ_INDEX_DATA *generate_portal_base(int vnum)
+{
+    OBJ_INDEX_DATA *pObjIndex;
+
+    if ((pObjIndex = get_obj_index(vnum)))
+    {
+        bug("generate_portal_base: vnum %d already exists.", vnum);
+        return NULL;
+    }
+    pObjIndex = alloc_perm(sizeof(*pObjIndex));
+    pObjIndex->vnum = vnum;
+    pObjIndex->new_format = TRUE;
+    pObjIndex->reset_num = 0;
+    newobjs++;
+    int iHash = vnum % MAX_KEY_HASH;
+    pObjIndex->next = obj_index_hash[iHash];
+    obj_index_hash[iHash] = pObjIndex;
+    top_obj_index++;
+    top_vnum_obj = top_vnum_obj < vnum ? vnum : top_vnum_obj;
+    return pObjIndex;
+}
+
+ROOM_INDEX_DATA *get_random_room_area(AREA_DATA *pArea)
 {
     ROOM_INDEX_DATA *pRoomIndex;
-    int count = 0;
+    int vnum;
+    int tries = 5;
+
+    while (tries > 0)
+    {
+        tries--;
+        vnum = rand() % ((pArea->max_vnum - pArea->min_vnum) + pArea->min_vnum);
+        if ((pRoomIndex = get_room_index(vnum)))
+            return pRoomIndex;
+    }
+    return NULL;
+}
+
+ROOM_INDEX_DATA *next_free_room(AREA_DATA *pArea)
+{
+    ROOM_INDEX_DATA *pRoomIndex;
     int vnum;
 
-    for (vnum = 0; vnum <= top_room; vnum++)
+    for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++)
     {
-        if ((pRoomIndex = get_room_index(vnum)) == NULL)
-            continue;
+        if (!(pRoomIndex = get_room_index(vnum)))
+            return pRoomIndex;
+    }
+    return 0;
+}
 
-        if (area_vnum > 0)
+ROOM_INDEX_DATA *get_portal_dest(CHAR_DATA *ch, OBJ_INDEX_DATA *pObjIndex, ROOM_INDEX_DATA *pRoomIndex, int can_leave)
+{
+    ROOM_INDEX_DATA *pRandomRoomIndex;
+
+    if (can_leave)
+    {
+        if ((pRandomRoomIndex = get_random_room(ch)))
         {
-            if (pRoomIndex->area->vnum == area_vnum)
-            {
-                count++;
-                if (count == number_mm() % count)
-                    return pRoomIndex->vnum;
-            }
+            return pRandomRoomIndex;
         }
         else
         {
-            count++;
-            if (count == number_mm() % count)
-                return pRoomIndex->vnum;
+            bug("Create_password_portal: random room failed.", 0);
+            return NULL;
         }
     }
-
-    return 0;
+    else
+    {
+        if ((pRandomRoomIndex = get_random_room_area(pRoomIndex->area)))
+        {
+            return pRandomRoomIndex;
+        }
+        else
+        {
+            bug("Create_password_portal: random room area failed.", 0);
+            return NULL;
+        }
+    }
 }
