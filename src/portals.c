@@ -54,12 +54,20 @@ void create_normal_portal(CHAR_DATA *ch, int vnum, bool can_leave)
 
     create_testportal_reset(pObjIndex, pRoomIndex);
 
-    sprintf(buf, "Normal portal %d created at room %d in area %s (%d). Goes to room %d.\n\r",
+    sprintf(buf, "Normal portal %d created at room %d in area %s (%d). Goes to room %d.",
             pObjIndex->vnum,
             pRoomIndex->vnum,
             pRoomIndex->area->name,
             pRoomIndex->area->vnum,
             pObjIndex->value[3]);
+    if (can_leave)
+    {
+        strcat(buf, " (can leave)\n\r");
+    }
+    else
+    {
+        strcat(buf, " (can't leave)\n\r");
+    }
     send_to_char(buf, ch);
 }
 
@@ -93,12 +101,20 @@ void create_password_portal(CHAR_DATA *ch, int vnum, bool can_leave)
 
     create_testportal_reset(pObjIndex, pRoomIndex);
 
-    sprintf(buf, "Password portal %d created at room %d in area %s (%d). Goes to room %d.\n\r",
+    sprintf(buf, "Password portal %d created at room %d in area %s (%d). Goes to room %d.",
             pObjIndex->vnum,
             pRoomIndex->vnum,
             pRoomIndex->area->name,
             pRoomIndex->area->vnum,
             pObjIndex->value[3]);
+    if (can_leave)
+    {
+        strcat(buf, " (can leave)\n\r");
+    }
+    else
+    {
+        strcat(buf, " (can't leave)\n\r");
+    }
     send_to_char(buf, ch);
 };
 
@@ -172,7 +188,7 @@ void create_verb_portal(CHAR_DATA *ch, int vnum, bool can_leave)
         return;
     }
 
-    if (!(pTargetRoomIndex = get_portal_dest(ch, pObjIndex, pRoomIndex, can_leave)))
+    if ((pTargetRoomIndex = get_portal_dest(ch, pObjIndex, pRoomIndex, can_leave)) == NULL)
         return;
 
     pObjIndex->area = pRoomIndex->area;
@@ -186,12 +202,20 @@ void create_verb_portal(CHAR_DATA *ch, int vnum, bool can_leave)
     create_testportal_code(pObjIndex, pTargetRoomIndex);
     create_testportal_reset(pObjIndex, pRoomIndex);
 
-    sprintf(buf, "Verb portal %d created at room %d in area %s (%d). Goes to room %d.\n\r",
+    sprintf(buf, "Verb portal %d created at room %d in area %s (%d). Goes to room %d.",
             pObjIndex->vnum,
             pRoomIndex->vnum,
             pRoomIndex->area->name,
             pRoomIndex->area->vnum,
             pTargetRoomIndex->vnum);
+    if (can_leave)
+    {
+        strcat(buf, " (can leave)\n\r");
+    }
+    else
+    {
+        strcat(buf, " (can't leave)\n\r");
+    }
     send_to_char(buf, ch);
 }
 
@@ -282,7 +306,7 @@ ROOM_INDEX_DATA *get_random_room_area(AREA_DATA *pArea)
     ROOM_INDEX_DATA *pRoomIndex;
     int range = pArea->max_vnum - pArea->min_vnum;
     int count = 0;
-    ROOM_INDEX_DATA **pRandomRoomIndex = malloc(sizeof(ROOM_INDEX_DATA *) * range);
+    ROOM_INDEX_DATA **pRandomRoomIndex = malloc(sizeof(ROOM_INDEX_DATA *) * range + 1);
     ROOM_INDEX_DATA *target;
 
     for (int vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++)
