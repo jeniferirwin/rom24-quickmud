@@ -42,8 +42,8 @@
 /*
  * The following special functions are available for objects.
  */
-DECLARE_OSPEC_FUN (spec_verb);
-DECLARE_OSPEC_FUN (spec_password);
+DECLARE_OSPEC_FUN(spec_verb);
+DECLARE_OSPEC_FUN(spec_password);
 
 /* the function table */
 const struct ospec_type ospec_table[] = {
