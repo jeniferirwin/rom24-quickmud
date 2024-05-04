@@ -16,11 +16,11 @@
 #include "tables.h"
 #include "db.h"
 #include "olc.h"
+#include "dbutils.h"
 
 void create_password_portal(CHAR_DATA *ch, int vnum, bool can_leave);
 void create_verb_portal(CHAR_DATA *ch, int vnum, bool can_leave);
 void create_normal_portal(CHAR_DATA *ch, int vnum, bool can_leave);
-ROOM_INDEX_DATA *get_random_room_area(AREA_DATA *pArea);
 int find_testable_vnum(AREA_DATA *pArea);
 OBJ_INDEX_DATA *generate_portal_base(int vnum);
 void create_testportal_reset(OBJ_INDEX_DATA *pObjIndex, ROOM_INDEX_DATA *pRoomIndex);
@@ -299,47 +299,6 @@ OBJ_INDEX_DATA *generate_portal_base(int vnum)
     top_obj_index++;
     top_vnum_obj = top_vnum_obj < vnum ? vnum : top_vnum_obj;
     return pObjIndex;
-}
-
-ROOM_INDEX_DATA *get_random_room_area(AREA_DATA *pArea)
-{
-    ROOM_INDEX_DATA *pRoomIndex;
-    int range = pArea->max_vnum - pArea->min_vnum;
-    int count = 0;
-    ROOM_INDEX_DATA **pRandomRoomIndex = malloc(sizeof(ROOM_INDEX_DATA *) * range + 1);
-    ROOM_INDEX_DATA *target;
-
-    for (int vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++)
-    {
-        if ((pRoomIndex = get_room_index(vnum)))
-        {
-            count++;
-            pRandomRoomIndex[count] = pRoomIndex;
-        }
-    }
-    if (count > 0)
-    {
-        target = pRandomRoomIndex[rand() % count];
-        free(pRandomRoomIndex);
-        return target;
-    }
-    else
-    {
-        return NULL;
-    }
-}
-
-ROOM_INDEX_DATA *next_free_room(AREA_DATA *pArea)
-{
-    ROOM_INDEX_DATA *pRoomIndex;
-    int vnum;
-
-    for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++)
-    {
-        if (!(pRoomIndex = get_room_index(vnum)))
-            return pRoomIndex;
-    }
-    return 0;
 }
 
 ROOM_INDEX_DATA *get_portal_dest(CHAR_DATA *ch, OBJ_INDEX_DATA *pObjIndex, ROOM_INDEX_DATA *pRoomIndex, int can_leave)
