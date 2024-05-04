@@ -1785,9 +1785,9 @@ void do_view_objects(CHAR_DATA *ch, char *argument)
     {
         if (!(pObj = get_obj_index(vnum)))
             continue;
-        if (*argument != '\0' && strstri(pObj->name, argument))
+        if (*argument != '\0' && pObj->item_type != item_lookup(argument))
             continue;
-        sprintf(buf, "%s[%s%6d%s]%s %-50s\n\r", C_B_CYAN, C_CYAN, vnum, C_B_CYAN, CLEAR, pObj->name);
+        sprintf(buf, "%s[%s%6d%s]%s %-22s (%s%s)(%d)  %s\n\r", C_B_CYAN, C_CYAN, vnum, C_B_CYAN, CLEAR, pObj->name, pObj->short_descr, CLEAR, pObj->level, item_name(pObj->item_type));
         send_to_char(buf, ch);
     }
 }
