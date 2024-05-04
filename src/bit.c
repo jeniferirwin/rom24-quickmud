@@ -212,6 +212,7 @@ char *flag_string_fancy(const struct flag_type *flag_table, unsigned long long b
         else if (flag_table[flag].bit == bits)
         {
             strcat(buf[cnt], " ");
+            strcat(buf[cnt], flagcolor);
             strcat(buf[cnt], flag_table[flag].name);
             break;
         }

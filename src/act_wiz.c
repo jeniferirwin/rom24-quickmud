@@ -1115,9 +1115,9 @@ void do_rstat(CHAR_DATA *ch, char *argument)
     send_to_char(buf, ch);
 
     sprintf(buf,
-            "Vnum: %s%d%s  Sector: %s%s%s  Continent:  %sLensmoor%s\n\r",
+            "Vnum: %s%d%s  Sector: %s  Continent:  %sLensmoor%s\n\r",
             C_B_RED, location->vnum, CLEAR,
-            C_B_RED, flag_string_fancy(sector_flags, location->sector_type, C_B_RED, CLEAR), CLEAR,
+            flag_string_fancy(sector_flags, location->sector_type, C_B_RED, CLEAR),
             C_B_RED, CLEAR);
     send_to_char(buf, ch);
 
