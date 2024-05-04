@@ -1135,7 +1135,7 @@ void do_rstat(CHAR_DATA *ch, char *argument)
             C_B_RED, CLEAR);
     send_to_char(buf, ch);
     sprintf(buf, "Room flags: %s\n\r",
-            flag_string(room_flags, location->room_flags));
+            flag_string_fancy(room_flags, location->room_flags,C_B_RED, CLEAR));
     send_to_char(buf, ch);
 
     sprintf(buf, "Internal Room flags: %sAggression%s.\n\r",
@@ -1203,7 +1203,7 @@ void do_rstat(CHAR_DATA *ch, char *argument)
                     (pexit->u1.to_room == NULL ? " " : pexit->u1.to_room->name),
                     (pexit->key >= 0 ? pexit->key : 0));
             send_to_char(buf, ch);
-            sprintf(buf, "Size: \e[1;31many\e[0m  Flags: \e[1;31m%s\n\r", flag_string(exit_flags, pexit->rs_flags));
+            sprintf(buf, "Size: \e[1;31many\e[0m  Flags: \e[1;31m%s\n\r", flag_string_fancy(exit_flags, pexit->rs_flags, C_B_RED, CLEAR));
             send_to_char(buf, ch);
             sprintf(buf, "Keyword: \e[1;31m%s\e[0m.  Description: \e[1;33m%s\e[0m",
                     (pexit->keyword[0] == '\0' ? "door" : pexit->keyword),
@@ -1250,18 +1250,18 @@ void do_ostat(CHAR_DATA *ch, char *argument)
             send_to_char(buf, ch);
             sprintf(buf, "Room description: %s\n\r", pObj->description);
             send_to_char(buf, ch);
-            sprintf(buf, "Wear bits: %s\n\r", flag_string(wear_flags, pObj->wear_flags));
+            sprintf(buf, "Wear bits: %s\n\r", flag_string_fancy(wear_flags, pObj->wear_flags, C_B_RED, CLEAR));
             send_to_char(buf, ch);
-            sprintf(buf, "Extra flags: %s\n\r", flag_string(extra_flags, pObj->extra_flags));
+            sprintf(buf, "Extra flags: %s\n\r", flag_string_fancy(extra_flags, pObj->extra_flags, C_B_RED, CLEAR));
             send_to_char(buf, ch);
             sprintf(buf, "Raw Values: %d %d %d %d %d\n\r", pObj->value[0], pObj->value[1], pObj->value[2], pObj->value[3], pObj->value[4]);
             send_to_char(buf, ch);
             if (pObj->item_type == ITEM_PORTAL)
             {
                 sprintf(buf, "Charges: %d  Destination: %d  Modifier: 0  Exit flags: %s\n\r",
-                        pObj->value[0], pObj->value[3], flag_string(exit_flags, pObj->value[1]));
+                        pObj->value[0], pObj->value[3], flag_string_fancy(exit_flags, pObj->value[1], C_B_RED, CLEAR));
                 send_to_char(buf, ch);
-                sprintf(buf, "Gate flags: %s\n\r", flag_string(portal_flags, pObj->value[2]));
+                sprintf(buf, "Gate flags: %s\n\r", flag_string_fancy(portal_flags, pObj->value[2], C_B_RED, CLEAR));
                 send_to_char(buf, ch);
             }
             if (pObj->ospec_fun != NULL)

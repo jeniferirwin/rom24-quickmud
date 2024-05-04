@@ -1848,7 +1848,7 @@ void do_view_oactions(CHAR_DATA *ch, char *argument)
         if (!(pObj = get_obj_index(vnum)) || pObj->mprogs == NULL)
             continue;
         prg = pObj->mprogs;
-        flag = flag_string(mprog_flags, prg->trig_type);
+        flag = flag_string_fancy(mprog_flags, prg->trig_type, C_B_WHITE, CLEAR);
         *flag = toupper(*flag);
         sprintf(buf, "%s[%s%d%s]%s Object - %s%6d%s (%s%s%s)\n\r", C_B_CYAN, C_CYAN, counter, C_B_CYAN, CLEAR, C_GREEN, pObj->vnum, CLEAR, C_B_WHITE, flag, CLEAR);
         counter++;

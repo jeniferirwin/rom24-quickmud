@@ -107,6 +107,8 @@ unsigned long long flag_value args((const struct flag_type *flag_table,
                                     char *argument));
 char *flag_string args((const struct flag_type *flag_table,
                         int bits));
+char *flag_string_fancy args((const struct flag_type *flag_table,
+                        int bits, char *flagcolor, char *commacolor));
 void add_reset args((ROOM_INDEX_DATA * room,
                      RESET_DATA *pReset, int index));
 
