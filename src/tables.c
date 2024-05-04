@@ -357,6 +357,7 @@ const struct flag_type room_flags[] = {
     {"newbies_only", ROOM_NEWBIES_ONLY, TRUE},
     {"law", ROOM_LAW, TRUE},
     {"nowhere", ROOM_NOWHERE, TRUE},
+    {"no_login/out", ROOM_NO_LOGIN, TRUE},
     {NULL, 0, 0}};
 
 const struct flag_type sector_flags[] = {

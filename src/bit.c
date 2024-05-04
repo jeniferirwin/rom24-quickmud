@@ -179,7 +179,7 @@ char *flag_string(const struct flag_type *flag_table, unsigned long long bits)
     return (buf[cnt][0] != '\0') ? buf[cnt] + 1 : "\e[0mnone";
 }
 
-char *flag_string_fancy(const struct flag_type *flag_table, unsigned long long bits, char * flagcolor, char * commacolor)
+char *flag_string_fancy(const struct flag_type *flag_table, unsigned long long bits, const char * flagcolor, const char * commacolor)
 {
     static char buf[2][512];
     static int cnt = 0;
@@ -208,12 +208,15 @@ char *flag_string_fancy(const struct flag_type *flag_table, unsigned long long b
                 strcat(buf[cnt], flagcolor);
             }
             strcat(buf[cnt], capitalize(flag_table[flag].name));
+            str_replace(buf[cnt], "_", " ");
         }
         else if (flag_table[flag].bit == bits)
         {
             strcat(buf[cnt], " ");
             strcat(buf[cnt], flagcolor);
             strcat(buf[cnt], flag_table[flag].name);
+            strcat(buf[cnt], CLEAR);
+            str_replace(buf[cnt], "_", " ");
             break;
         }
     }

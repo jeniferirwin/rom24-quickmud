@@ -1310,6 +1310,7 @@ struct kill_data
 #define ROOM_NEWBIES_ONLY (R)
 #define ROOM_LAW (S)
 #define ROOM_NOWHERE (T)
+#define ROOM_NO_LOGIN (U)
 
 /*
  * Directions.
@@ -2401,6 +2402,7 @@ bool str_prefix args((const char *astr, const char *bstr));
 bool str_infix args((const char *astr, const char *bstr));
 bool str_suffix args((const char *astr, const char *bstr));
 char *capitalize args((const char *str));
+char * str_replace(char *str, const char *old_str, const char *new_str);
 void append_file args((CHAR_DATA * ch, char *file, char *str));
 void bug args((const char *str, int param));
 void log_string args((const char *str));

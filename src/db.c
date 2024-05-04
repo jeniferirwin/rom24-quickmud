@@ -3780,6 +3780,23 @@ char *capitalize(const char *str)
 }
 
 /*
+ * Replace a substring with another.
+ */
+char * str_replace(char *str, const char *old_str, const char *new_str)
+{
+    char *ptr;
+    int old_len = strlen(old_str);
+    int new_len = strlen(new_str);
+
+    while ((ptr = strstr(str, old_str)) != NULL)
+    {
+        memmove(ptr + new_len, ptr + old_len, strlen(ptr + old_len) + 1);
+        memcpy(ptr, new_str, new_len);
+    }
+    return str;
+}
+
+/*
  * Append a string to a file.
  */
 void append_file(CHAR_DATA *ch, char *file, char *str)
