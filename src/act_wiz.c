@@ -1579,6 +1579,7 @@ void do_ostat(CHAR_DATA *ch, char *argument)
                 send_to_char(buf, ch);
             }
         }
+    
 
     return;
 }
