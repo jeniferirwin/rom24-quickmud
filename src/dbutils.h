@@ -25,41 +25,16 @@
  *   ROM license, in the file Rom24/doc/rom.license                        *
  **************************************************************************/
 
-/* vals from db.c */
-extern bool fBootDb;
-extern int		newmobs;
-extern int		newobjs;
-extern MOB_INDEX_DATA 	* mob_index_hash          [MAX_KEY_HASH];
-extern OBJ_INDEX_DATA 	* obj_index_hash          [MAX_KEY_HASH];
-extern int		top_mob_index;
-extern int		top_obj_index;
-extern int  		top_affect;
-extern int		top_ed; 
-extern AREA_DATA 	* area_first;
-
-
-/* from db2.c */
-extern int	social_count;
-
-/* conversion from db.h */
-void	convert_mob(MOB_INDEX_DATA *mob);
-void	convert_obj(OBJ_INDEX_DATA *obj);
-
-/* macro for flag swapping */
-#define GET_UNSET(flag1,flag2)	(~(flag1)&((flag1)|(flag2)))
-
-/* Magic number for memory allocation */
-#define MAGIC_NUM 52571214
-
-/* func from db.c */
-extern void assign_area_vnum( int vnum );                    /* OLC */
-
-/* from db2.c */
- 
-void convert_mobile( MOB_INDEX_DATA *pMobIndex );            /* OLC ROM */
-void convert_objects( void );                                /* OLC ROM */
-void convert_object( OBJ_INDEX_DATA *pObjIndex );            /* OLC ROM */
-
-extern int top_mprog_index; /* OLC */
-
-#define MAX_VNUM 65535
+int next_free_room(AREA_DATA *pArea);
+int next_free_obj(AREA_DATA *pArea);
+int next_free_mob(AREA_DATA *pArea);
+int next_free_mprog(AREA_DATA *pArea);
+int get_random_area();
+MOB_INDEX_DATA *get_random_mob_area(AREA_DATA *pArea);
+MOB_INDEX_DATA *get_random_mob_global(void);
+MPROG_CODE *get_random_mprog_area(AREA_DATA *pArea);
+MPROG_CODE *get_random_mprog_global(void);
+OBJ_INDEX_DATA *get_random_obj_area(AREA_DATA *pArea);
+OBJ_INDEX_DATA *get_random_obj_global(void);
+ROOM_INDEX_DATA *get_random_room_area(AREA_DATA *pArea);
+ROOM_INDEX_DATA *get_random_room_global(void);
