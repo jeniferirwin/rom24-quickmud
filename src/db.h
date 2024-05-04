@@ -59,7 +59,3 @@ void fix_mobprogs(void);
 void convert_mobile(MOB_INDEX_DATA *pMobIndex); /* OLC ROM */
 void convert_objects(void);                     /* OLC ROM */
 void convert_object(OBJ_INDEX_DATA *pObjIndex); /* OLC ROM */
-
-extern int top_mprog_index; /* OLC */
-
-#define MAX_VNUM 65535

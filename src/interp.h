@@ -320,4 +320,3 @@ DECLARE_DO_FUN(do_mlist);
 DECLARE_DO_FUN(do_findreset);
 DECLARE_DO_FUN(do_olc);
 DECLARE_DO_FUN(do_test_portals);
-DECLARE_DO_FUN(do_testutils);
